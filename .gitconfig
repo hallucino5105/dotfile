@@ -1,0 +1,21 @@
+[core]
+	editor = vim
+	fileMode = true
+[user]
+	name = hoshino
+	email = krallice.untitled@gmail.com
+[color]
+	ui = true
+[credential]
+	helper = cache
+[http]
+	sslVerify = false
+[tig "bind"]
+    generic = g move-first-line
+    generic = G move-last-line
+[alias]
+    cm = commit --allow-empty-message -am ""
+    #tree = log --oneline --decorate --graph
+    tree = log --full-history --graph --date=short --pretty=format:\"%Cgreen%h %cd %Cblue%cn %Cred%d %Creset%s\"
+    co = checkout
+    st = status

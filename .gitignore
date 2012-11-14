@@ -1,0 +1,8 @@
+.DS_Store
+
+.vim/bundle/*
+!.vim/bundle/.gitkeep
+.vim/undo/*
+!.vim/undo/.gitkeep
+.vim/backup/*
+!.vim/backup/.gitkeep
