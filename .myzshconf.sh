@@ -33,6 +33,8 @@ setopt pushd_ignore_dups
 setopt nonomatch
 # 候補をつめて表示
 setopt list_packed
+# 拡張glob
+setopt extended_glob
 
 ## history
 HISTFILE=~/.zsh_history
