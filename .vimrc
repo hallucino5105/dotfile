@@ -51,6 +51,9 @@ if has('persistent_undo')
     set undofile
 endif
 
+" grep
+set grepprg=grep\ -nH
+
 """ general varient
 let loaded_matchparen=1
 let &directory=&backupdir
@@ -104,7 +107,7 @@ Bundle 'Align'
 "Bundle 'mattn/hahhah-vim'
 Bundle 'glidenote/memolist.vim'
 "Bundle 'vimgrep.vim' "終了時にエラーが出る
-"Bundle 'qfixgrep'
+Bundle 'https://github.com/fuenor/qfixgrep.git'
 Bundle 'Markdown'
 Bundle 'unite.vim'
 Bundle 'fugitive.vim'

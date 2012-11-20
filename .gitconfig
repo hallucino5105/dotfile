@@ -1,5 +1,6 @@
 [core]
-	editor = vim
+    editor = vim
+    pager=cat
 	fileMode = true
 [user]
 	name = hoshino
