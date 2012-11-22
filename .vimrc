@@ -111,6 +111,7 @@ Bundle 'https://github.com/fuenor/qfixgrep.git'
 Bundle 'Markdown'
 Bundle 'unite.vim'
 Bundle 'fugitive.vim'
+Bundle 'gitv'
 
 if !has('gui_macvim')
     "Bundle 'minibufexpl.vim'
@@ -243,6 +244,10 @@ nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir -no-split file<CR>
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+
+
+""" gitv
+autocmd FileType git :setlocal foldlevel=99
 
 
 """ file skelton
