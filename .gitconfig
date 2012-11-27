@@ -17,6 +17,6 @@
 [alias]
     cm = commit --allow-empty-message -am ""
     #tree = log --oneline --decorate --graph
-    tree = log --full-history --graph --date=short --pretty=format:\"%Cgreen%h %cd %Cblue%cn %Cred%d %Creset%s\"
+    tree = log --all --full-history --graph --date=short --pretty=format:\"%Cgreen%h %cd %Cblue%cn %Cred%d %Creset%s\"
     co = checkout
     st = status
