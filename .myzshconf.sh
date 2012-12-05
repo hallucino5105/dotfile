@@ -94,6 +94,41 @@ if [[ $ZSH_VERSION == (<5->|4.<4->|4.3.<10->)* ]]; then
     RPROMPT="$stage$vcs"
 fi
 
+
+# 環境変数
+case "$TERM" in
+    xterm*)
+        COLORTERM=1
+        ;;
+    screen*)
+        COLORTERM=1
+        SCREEN=1
+        #TERM="xterm-256color"
+        ;;
+    #mlterm*)
+    #    COLORTERM=1 
+    #    #TERM="kterm-color"
+    #    ;;
+    #ct100*)
+    #    COLORTERM=1
+    #    ;;
+    #kterm*)
+    #    COLORTERM=1
+    #    #TERM="kterm-color"
+    #    export LANG=ja_JP.eucJP
+    #    export LC_ALL=ja_JP.eucJP
+    #    ;;
+    #linux)
+    #    LC_ALL=C
+    #    ;;
+esac
+
+# ctrl+hでbackspaceを入力可能する
+if [ $TERM = "screen" ] || [ $SCREEN = 1 ]; then
+    stty erase ""
+fi
+
+
 #
 compdef mosh=ssh
 
