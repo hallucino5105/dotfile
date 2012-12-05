@@ -140,7 +140,7 @@ case ${OSTYPE} in
         ;;
     darwin*)
         alias ls="ls -G"
-        alias ls="ls -laG"
+        alias ll="ls -laG"
         ;;
 esac
 
