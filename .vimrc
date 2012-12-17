@@ -80,10 +80,9 @@ Bundle 'Solarized'
 Bundle 'jQuery'
 Bundle 'css3'
 Bundle 'JSON.vim'
-Bundle 'git://gist.github.com/256840.git'
+Bundle 'html5.vim'
 
 " other
-"Bundle 'Shougo/vimproc.git'
 Bundle 'eregex.vim'
 Bundle 'YankRing.vim'
 Bundle 'yanktmp.vim'
