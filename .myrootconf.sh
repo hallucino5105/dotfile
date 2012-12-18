@@ -28,6 +28,7 @@ export MANPATH=/usr/local/man:/opt/local/share/man:/opt/local/man:${MANPATH}
 
 export WORKON_HOME=~/local
 
+export EDITOR="vim"
 export SVN_EDITOR="vim --noplugin"
 export PAGER="less -csR"
 export DIFF="colordiff"
