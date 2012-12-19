@@ -144,3 +144,6 @@ case ${OSTYPE} in
         ;;
 esac
 
+
+bindkey -e
+

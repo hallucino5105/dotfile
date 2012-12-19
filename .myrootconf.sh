@@ -28,11 +28,14 @@ export MANPATH=/usr/local/man:/opt/local/share/man:/opt/local/man:${MANPATH}
 
 export WORKON_HOME=~/local
 
-export EDITOR="vim"
 export SVN_EDITOR="vim --noplugin"
 export PAGER="less -csR"
 export DIFF="colordiff"
 export GIT_PAGER="less -cSR"
+
+# 設定するとzshが勝手にエディタ風のキーバインドにしやがる
+# .zshrcにbindkey -e
+export EDITOR="vi"
 
 #export PERL_CPANM_OPT="--local-lib=~/.perl5"
 export PERL5LIB="${HOME}/.perl5/lib/perl5:${PERL5LIB}"
