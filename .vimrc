@@ -80,10 +80,9 @@ Bundle 'Solarized'
 Bundle 'jQuery'
 Bundle 'css3'
 Bundle 'JSON.vim'
-Bundle 'git://gist.github.com/256840.git'
+Bundle 'html5.vim'
 
 " other
-"Bundle 'Shougo/vimproc.git'
 Bundle 'eregex.vim'
 Bundle 'YankRing.vim'
 Bundle 'yanktmp.vim'
@@ -93,7 +92,6 @@ Bundle 'http://github.com/sjl/gundo.vim.git'
 "Bundle 'renamer.vim'
 Bundle 'scratch.vim'
 "Bundle 'Python-Syntax'
-"Bundle 'dbext.vim'
 Bundle 'sudo.vim'
 "Bundle 'neocomplcache'
 Bundle 'https://github.com/Shougo/vimshell.git'
@@ -101,6 +99,7 @@ Bundle 'https://github.com/Shougo/vimproc.git'
 "Bundle 'vcscommand.vim'
 Bundle 'taglist.vim'
 Bundle 'Align'
+Bundle 'dbext.vim'
 "Bundle 'SQLUtilities'
 "Bundle 'Indent-Guides'
 "Bundle 'Smooth-Scroll'
@@ -346,6 +345,14 @@ nnoremap <F3> :shell<CR>
 " tab
 "nmap <C-t> :tabnext<CR>
 "nmap <F1> :tabnew<CR>
+
+
+""" 
+" If you prefer the Omni-Completion tip window to close when a selection is
+" made, these lines close it on movement in insert mode or when leaving
+" insert mode
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 
 """ disable auto comment complement after new-lines
