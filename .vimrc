@@ -95,7 +95,7 @@ Bundle 'scratch.vim'
 "Bundle 'Python-Syntax'
 "Bundle 'dbext.vim'
 Bundle 'sudo.vim'
-Bundle 'neocomplcache'
+"Bundle 'neocomplcache'
 Bundle 'https://github.com/Shougo/vimshell.git'
 Bundle 'https://github.com/Shougo/vimproc.git'
 "Bundle 'vcscommand.vim'
@@ -135,36 +135,36 @@ map <silent> sp :call YanktmpPaste_p()<CR>
 map <silent> sP :call YanktmpPaste_P()<CR>
 
 
-""" neocomplcache
-let g:neocomplcache_enable_at_startup=1
-let g:neocomplcache_max_list=100
-let g:neocomplcache_enable_smart_case=1
-let g:neocomplcache_enable_underbar_completion=1
-let g:neocomplcache_min_syntax_length=3
-let g:neocomplcache_auto_completion_start_length=3
-
-" 日本語を補完候補として取得しないようにする
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default']='\h\w*'
-
-inoremap <expr><C-y> neocomplcache#close_popup()
-inoremap <expr><C-s> neocomplcache#cancel_popup()
-inoremap <expr><C-h> neocomplcache#smart_close_popup()
-inoremap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
-snoremap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
-"inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<TAB>"
-"inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
-" キー入力時にポップアップを閉じる
-inoremap <expr><Up> pumvisible() ? "\<C-y>\<Up>" : "\<Up>"
-inoremap <expr><Down> pumvisible() ? "\<C-y>\<Down>" : "\<Down>"
-inoremap <expr><C-h> pumvisible() ? "\<C-y>\<C-h>" : "\<C-h>"
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<BS>"
-inoremap <expr><CR> neocomplcache#smart_close_popup() . "\<CR>"
-"C-gで補完を元に戻す
-inoremap <expr><C-g> neocomplcache#undo_completion()
+"""" neocomplcache
+"let g:neocomplcache_enable_at_startup=1
+"let g:neocomplcache_max_list=100
+"let g:neocomplcache_enable_smart_case=1
+"let g:neocomplcache_enable_underbar_completion=1
+"let g:neocomplcache_min_syntax_length=3
+"let g:neocomplcache_auto_completion_start_length=3
+"
+"" 日本語を補完候補として取得しないようにする
+"if !exists('g:neocomplcache_keyword_patterns')
+"    let g:neocomplcache_keyword_patterns = {}
+"endif
+"let g:neocomplcache_keyword_patterns['default']='\h\w*'
+"
+"inoremap <expr><C-y> neocomplcache#close_popup()
+"inoremap <expr><C-s> neocomplcache#cancel_popup()
+"inoremap <expr><C-h> neocomplcache#smart_close_popup()
+"inoremap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
+"snoremap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
+""inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<TAB>"
+""inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
+"" キー入力時にポップアップを閉じる
+"inoremap <expr><Up> pumvisible() ? "\<C-y>\<Up>" : "\<Up>"
+"inoremap <expr><Down> pumvisible() ? "\<C-y>\<Down>" : "\<Down>"
+"inoremap <expr><C-h> pumvisible() ? "\<C-y>\<C-h>" : "\<C-h>"
+"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+"inoremap <expr><BS> neocomplcache#smart_close_popup()."\<BS>"
+"inoremap <expr><CR> neocomplcache#smart_close_popup() . "\<CR>"
+""C-gで補完を元に戻す
+"inoremap <expr><C-g> neocomplcache#undo_completion()
 
 
 """ gundo
