@@ -21,9 +21,10 @@ export NDKROOT=${ANDROID_NDK_HOME}
 
 export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
 export PATH=/opt/local/bin:/opt/local/sbin:${PATH}
+export PATH=~/bin:${PATH}
 export PATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}
-export PATH=${PATH}:${EC2_HOME}/bin:${EC2_AMITOOL_HOME}/bin:${AWS_ELB_HOME}/bin:${AWS_RDS_HOME}/bin:${AWS_R53_HOME}/bin
-export PATH=${PATH}:${ANDROID_SDK_HOME}:${ANDROID_SDK_HOME2}:${ANDROID_NDK_HOME}
+export PATH=${EC2_HOME}/bin:${EC2_AMITOOL_HOME}/bin:${AWS_ELB_HOME}/bin:${AWS_RDS_HOME}/bin:${AWS_R53_HOME}/bin:${PATH}
+export PATH=${ANDROID_SDK_HOME}:${ANDROID_SDK_HOME2}:${ANDROID_NDK_HOME}:${PATH}
 export MANPATH=/usr/local/man:/opt/local/share/man:/opt/local/man:${MANPATH}
 
 export WORKON_HOME=~/local
