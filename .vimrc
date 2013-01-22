@@ -111,6 +111,8 @@ Bundle 'Markdown'
 Bundle 'unite.vim'
 Bundle 'fugitive.vim'
 Bundle 'gitv'
+Bundle 'mitechie/pyflakes-pathogen'
+
 
 if !has('gui_macvim')
     "Bundle 'minibufexpl.vim'
