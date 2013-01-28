@@ -73,6 +73,7 @@ alias javah="javah -J-Dfile.encoding=UTF-8"
 alias java="java -Dfile.encoding=UTF-8"
 alias weechat="TERM=screen-256color weechat-curses"
 alias cpanm-local="cpanm --local-lib=~/.perl5"
+alias wget="wget --no-check-certificate"
 
 alias home-mysql="mysql -h krallice.dip.jp -u hoshino -p08240824"
 alias home-ftp-hoshino="ftp ftp://hoshino@krallice.dip.jp/"
