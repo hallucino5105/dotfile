@@ -123,10 +123,22 @@ case "$TERM" in
     #    ;;
 esac
 
+
 # ctrl+hでbackspaceを入力可能する
 #if [ $TERM = "screen" ] || [ $SCREEN = 1 ]; then
 #    stty erase ""
 #fi
+
+
+# コマンドラインスタックを表示
+show_buffer_stack() {
+    POSTDISPLAY="
+    stack: $LBUFFER"
+    zle push-line
+}
+
+zle -N show_buffer_stack
+bindkey "q" show_buffer_stack
 
 
 #
