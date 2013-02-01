@@ -113,7 +113,6 @@ Bundle 'fugitive.vim'
 Bundle 'gitv'
 Bundle 'mitechie/pyflakes-pathogen'
 
-
 if !has('gui_macvim')
     "Bundle 'minibufexpl.vim'
     "Bundle 'bufferlist.vim'
@@ -166,6 +165,15 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<BS>"
 inoremap <expr><CR> neocomplcache#smart_close_popup() . "\<CR>"
 "C-gで補完を元に戻す
 inoremap <expr><C-g> neocomplcache#undo_completion()
+" 補完候補のなかから、共通する部分を補完します
+inoremap <expr><C-i> neocomplcache#complete_common_string()
+
+" Avoid crash by editing python source
+if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.python = ''
+let g:neocomplcache_omni_patterns.ruby = ''
 
 
 """ gundo
@@ -224,7 +232,7 @@ map <Leader>mg :MemoGrep<CR>
 
 """ unite
 nnoremap [unite] <Nop>
-nmap f [unite]
+nmap r [unite]
 " 分割しないでuniteのbufferを表示する
 nnoremap [unite]u :<C-u>Unite -no-split<Space>
 " 全部乗せ
@@ -311,21 +319,13 @@ colorscheme molokai
 
 """ general key map
 noremap <C-a> <Home>
-"noremap <C-h> <Home>
 inoremap <C-a> <Home>
-"inoremap <C-h> <Home>
 noremap <C-e> <End>
-"noremap <C-l> <End>
 inoremap <C-e> <End>
-"inoremap <C-l> <End>
 noremap <C-f> <PageDown>
-"noremap <C-j> <PageDown>
 inoremap <C-f> <PageDown>
-"inoremap <C-j> <PageDown>
 noremap <C-b> <PageUp>
-"noremap <C-k> <PageUp>
 inoremap <C-b> <PageUp>
-"inoremap <C-k> <PageUp>
 
 noremap  
 noremap!  
@@ -338,11 +338,18 @@ nnoremap <C-g> :nohlsearch<CR>
 " shell起動
 nnoremap <F3> :shell<CR>
 
-" CTRL-hjklでウィンドウ移動
+"" CTRL-hjklでウィンドウ移動
 "nnoremap <C-j> :<C-w>j
 "nnoremap <C-k> :<C-k>j
 "nnoremap <C-l> :<C-l>j
 "nnoremap <C-h> :<C-h>j
+
+"" 挿入モードで移動
+"inoremap <C-j> <Down>
+"inoremap <C-k> <Up>
+"inoremap <C-h> <Left>
+"inoremap <C-l> <Right>
+
 
 " tab
 "nmap <C-t> :tabnext<CR>
@@ -387,6 +394,7 @@ if has('gui_macvim') || has('kaoriya')
 	"colorscheme lucius
     "colorscheme darkeclipse
 endif
+
 
 
 
