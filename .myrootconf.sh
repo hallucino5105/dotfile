@@ -30,9 +30,10 @@ export MANPATH=/usr/local/man:/opt/local/share/man:/opt/local/man:${MANPATH}
 export WORKON_HOME=~/local
 
 export SVN_EDITOR="vim --noplugin"
-export PAGER="less -csR"
+export PAGER="less -sSR"
+export GIT_PAGER="less -sSR"
+export MANPAGER="less -sSR"
 export DIFF="colordiff"
-export GIT_PAGER="less -cSR"
 
 # 設定するとzshが勝手にエディタ風のキーバインドにしやがる
 # .zshrcにbindkey -e
@@ -61,9 +62,9 @@ alias rm="rm -i"
 alias lv="lv -c"
 alias tmux="tmux -2"
 alias ftp="ncftp"
-alias less="less -cSR"
-alias grep="grep --color=auto"
-alias mysql="mysql --pager='less -c -S'"
+alias less="less -sSR"
+alias grep="grep --color=always"
+alias mysql="mysql --pager='less -sSR'"
 alias g++="g++ -arch x86_64"
 alias vi="vim"
 alias svndiff="svn diff -x -u -x --ignore-eol-style | vim -R -"
