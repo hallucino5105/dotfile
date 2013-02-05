@@ -16,7 +16,6 @@ set matchtime=3
 set autoindent
 "set smartindent
 "set cindent
-set showcmd
 set smartcase
 set smarttab
 "set hlsearch
@@ -35,6 +34,11 @@ set clipboard+=autoselect
 set hlsearch
 set showtabline=1
 set wildmenu
+set showcmd
+set showmode
+set cmdheight=1
+set nocompatible
+set hidden
 
 " カーソル行をハイライト
 set cursorline
@@ -75,6 +79,7 @@ Bundle 'Zenburn'
 Bundle 'https://github.com/yuroyoro/yuroyoro256.vim.git'
 Bundle 'molokai'
 Bundle 'Solarized'
+Bundle 'nanotech/jellybeans.vim'
 
 " syntax
 Bundle 'jQuery'
@@ -474,4 +479,8 @@ endif
 "        execute 'edit ' . l:filename
 "    endif
 "endfunction"}}}
+
+
+" なんかのプラグインで無効になってるぽいので
+set showcmd
 
