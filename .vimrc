@@ -16,7 +16,6 @@ set matchtime=3
 set autoindent
 "set smartindent
 "set cindent
-set showcmd
 set smartcase
 set smarttab
 "set hlsearch
@@ -35,6 +34,10 @@ set clipboard+=autoselect
 set hlsearch
 set showtabline=1
 set wildmenu
+set showcmd
+set showmode
+set cmdheight=1
+set hidden
 
 " カーソル行をハイライト
 set cursorline
@@ -75,6 +78,7 @@ Bundle 'Zenburn'
 Bundle 'https://github.com/yuroyoro/yuroyoro256.vim.git'
 Bundle 'molokai'
 Bundle 'Solarized'
+Bundle 'nanotech/jellybeans.vim'
 
 " syntax
 Bundle 'jQuery'
@@ -111,6 +115,7 @@ Bundle 'Markdown'
 Bundle 'unite.vim'
 Bundle 'fugitive.vim'
 Bundle 'gitv'
+Bundle 'mitechie/pyflakes-pathogen'
 
 if !has('gui_macvim')
     "Bundle 'minibufexpl.vim'
@@ -134,6 +139,7 @@ map <silent> sp :call YanktmpPaste_p()<CR>
 map <silent> sP :call YanktmpPaste_P()<CR>
 
 
+<<<<<<< HEAD
 """" neocomplcache
 "let g:neocomplcache_enable_at_startup=1
 "let g:neocomplcache_max_list=100
@@ -164,6 +170,47 @@ map <silent> sP :call YanktmpPaste_P()<CR>
 "inoremap <expr><CR> neocomplcache#smart_close_popup() . "\<CR>"
 ""C-gで補完を元に戻す
 "inoremap <expr><C-g> neocomplcache#undo_completion()
+=======
+""" neocomplcache
+let g:neocomplcache_enable_at_startup=1
+let g:neocomplcache_max_list=100
+let g:neocomplcache_enable_smart_case=1
+let g:neocomplcache_enable_underbar_completion=1
+let g:neocomplcache_min_syntax_length=3
+let g:neocomplcache_auto_completion_start_length=3
+
+" 日本語を補完候補として取得しないようにする
+if !exists('g:neocomplcache_keyword_patterns')
+    let g:neocomplcache_keyword_patterns = {}
+endif
+let g:neocomplcache_keyword_patterns['default']='\h\w*'
+
+inoremap <expr><C-y> neocomplcache#close_popup()
+inoremap <expr><C-s> neocomplcache#cancel_popup()
+inoremap <expr><C-h> neocomplcache#smart_close_popup()
+inoremap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
+snoremap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
+inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
+" キー入力時にポップアップを閉じる
+inoremap <expr><Up> pumvisible() ? "\<C-y>\<Up>" : "\<Up>"
+inoremap <expr><Down> pumvisible() ? "\<C-y>\<Down>" : "\<Down>"
+inoremap <expr><C-h> pumvisible() ? "\<C-y>\<C-h>" : "\<C-h>"
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<BS>"
+inoremap <expr><CR> neocomplcache#smart_close_popup() . "\<CR>"
+"C-gで補完を元に戻す
+inoremap <expr><C-g> neocomplcache#undo_completion()
+" 補完候補のなかから、共通する部分を補完します
+inoremap <expr><C-o> neocomplcache#complete_common_string()
+
+" Avoid crash by editing python source
+if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.python = ''
+let g:neocomplcache_omni_patterns.ruby = ''
+>>>>>>> 4d232e68edb2e9eecbf23071aee9c3626d392285
 
 
 """ gundo
@@ -222,7 +269,7 @@ map <Leader>mg :MemoGrep<CR>
 
 """ unite
 nnoremap [unite] <Nop>
-nmap f [unite]
+nmap r [unite]
 " 分割しないでuniteのbufferを表示する
 nnoremap [unite]u :<C-u>Unite -no-split<Space>
 " 全部乗せ
@@ -309,21 +356,13 @@ colorscheme molokai
 
 """ general key map
 noremap <C-a> <Home>
-"noremap <C-h> <Home>
 inoremap <C-a> <Home>
-"inoremap <C-h> <Home>
 noremap <C-e> <End>
-"noremap <C-l> <End>
 inoremap <C-e> <End>
-"inoremap <C-l> <End>
 noremap <C-f> <PageDown>
-"noremap <C-j> <PageDown>
 inoremap <C-f> <PageDown>
-"inoremap <C-j> <PageDown>
 noremap <C-b> <PageUp>
-"noremap <C-k> <PageUp>
 inoremap <C-b> <PageUp>
-"inoremap <C-k> <PageUp>
 
 noremap  
 noremap!  
@@ -336,11 +375,18 @@ nnoremap <C-g> :nohlsearch<CR>
 " shell起動
 nnoremap <F3> :shell<CR>
 
-" CTRL-hjklでウィンドウ移動
+"" CTRL-hjklでウィンドウ移動
 "nnoremap <C-j> :<C-w>j
 "nnoremap <C-k> :<C-k>j
 "nnoremap <C-l> :<C-l>j
 "nnoremap <C-h> :<C-h>j
+
+"" 挿入モードで移動
+"inoremap <C-j> <Down>
+"inoremap <C-k> <Up>
+"inoremap <C-h> <Left>
+"inoremap <C-l> <Right>
+
 
 " tab
 "nmap <C-t> :tabnext<CR>
@@ -385,6 +431,7 @@ if has('gui_macvim') || has('kaoriya')
 	"colorscheme lucius
     "colorscheme darkeclipse
 endif
+
 
 
 
@@ -464,4 +511,8 @@ endif
 "        execute 'edit ' . l:filename
 "    endif
 "endfunction"}}}
+
+
+" なんかのプラグインで無効になってるぽいので
+set showcmd
 
