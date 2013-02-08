@@ -116,6 +116,7 @@ Bundle 'unite.vim'
 Bundle 'fugitive.vim'
 Bundle 'gitv'
 Bundle 'mitechie/pyflakes-pathogen'
+Bundle 'renamer.vim'
 
 if !has('gui_macvim')
     "Bundle 'minibufexpl.vim'
@@ -158,8 +159,8 @@ inoremap <expr><C-s> neocomplcache#cancel_popup()
 inoremap <expr><C-h> neocomplcache#smart_close_popup()
 inoremap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
 snoremap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
-inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
+"inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<TAB>"
+"inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
 " キー入力時にポップアップを閉じる
 inoremap <expr><Up> pumvisible() ? "\<C-y>\<Up>" : "\<Up>"
 inoremap <expr><Down> pumvisible() ? "\<C-y>\<Down>" : "\<Down>"
