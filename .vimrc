@@ -159,16 +159,16 @@ inoremap <expr><C-s> neocomplcache#cancel_popup()
 inoremap <expr><C-h> neocomplcache#smart_close_popup()
 inoremap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
 snoremap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
-"inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<TAB>"
-"inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
+inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
 " キー入力時にポップアップを閉じる
 inoremap <expr><Up> pumvisible() ? "\<C-y>\<Up>" : "\<Up>"
 inoremap <expr><Down> pumvisible() ? "\<C-y>\<Down>" : "\<Down>"
 inoremap <expr><C-h> pumvisible() ? "\<C-y>\<C-h>" : "\<C-h>"
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<BS>"
-inoremap <expr><CR> neocomplcache#smart_close_popup() . "\<CR>"
-"C-gで補完を元に戻す
+"inoremap <expr><CR> neocomplcache#smart_close_popup()."\<CR>"
+" C-gで補完を元に戻す
 inoremap <expr><C-g> neocomplcache#undo_completion()
 " 補完候補のなかから、共通する部分を補完します
 inoremap <expr><C-o> neocomplcache#complete_common_string()
