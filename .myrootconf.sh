@@ -29,10 +29,13 @@ export MANPATH=/usr/local/man:/opt/local/share/man:/opt/local/man:${MANPATH}
 
 export WORKON_HOME=~/local
 
+export LESS="-sgSRXF"
+
 export SVN_EDITOR="vim --noplugin"
-export PAGER="less -csR"
+export PAGER="less"
+export GIT_PAGER="less"
+export MANPAGER="less"
 export DIFF="colordiff"
-export GIT_PAGER="less -cSR"
 
 # 設定するとzshが勝手にエディタ風のキーバインドにしやがる
 # .zshrcにbindkey -e
@@ -61,9 +64,8 @@ alias rm="rm -i"
 alias lv="lv -c"
 alias tmux="tmux -2"
 alias ftp="ncftp"
-alias less="less -cSR"
-alias grep="grep --color=auto"
-alias mysql="mysql --pager='less -c -S'"
+alias grep="grep --color=always"
+alias mysql="mysql --pager='less -csSRXF'"
 alias g++="g++ -arch x86_64"
 alias vi="vim"
 alias svndiff="svn diff -x -u -x --ignore-eol-style | vim -R -"
@@ -78,4 +80,3 @@ alias wget="wget --no-check-certificate"
 alias home-mysql="mysql -h krallice.dip.jp -u hoshino -p08240824"
 alias home-ftp-hoshino="ftp ftp://hoshino@krallice.dip.jp/"
 alias home-ftp-web="ftp ftp://webuser@krallice.dip.jp/"
-
