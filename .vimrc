@@ -322,6 +322,10 @@ colorscheme molokai
 "hi StatusLine term=bold,reverse ctermfg=231 ctermbg=238 guifg=#ffffff guibg=#666666
 ""hi LineNr ctermfg=28
 
+" pyflakeが使う
+hi SpellBad term=underline cterm=underline gui=underline ctermfg=darkred ctermbg=none guifg=darkred guibg=none
+
+
 """ general key map
 noremap <C-a> <Home>
 inoremap <C-a> <Home>
