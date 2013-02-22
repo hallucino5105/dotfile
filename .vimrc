@@ -386,7 +386,7 @@ if has('gui_macvim') || has('kaoriya')
 	set guifont=Ricty:h12
     set showtabline=2
 	set transparency=5
-	set lines=55 columns=165
+	set lines=50 columns=165
 	set visualbell t_vb=
 
 	"augroup hack234
