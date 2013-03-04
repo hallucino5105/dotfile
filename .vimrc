@@ -116,6 +116,7 @@ Bundle 'unite.vim'
 Bundle 'fugitive.vim'
 Bundle 'gitv'
 Bundle 'mitechie/pyflakes-pathogen'
+Bundle 'renamer.vim'
 
 if !has('gui_macvim')
     "Bundle 'minibufexpl.vim'
@@ -166,8 +167,8 @@ inoremap <expr><Down> pumvisible() ? "\<C-y>\<Down>" : "\<Down>"
 inoremap <expr><C-h> pumvisible() ? "\<C-y>\<C-h>" : "\<C-h>"
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<BS>"
-inoremap <expr><CR> neocomplcache#smart_close_popup() . "\<CR>"
-"C-gで補完を元に戻す
+"inoremap <expr><CR> neocomplcache#smart_close_popup()."\<CR>"
+" C-gで補完を元に戻す
 inoremap <expr><C-g> neocomplcache#undo_completion()
 " 補完候補のなかから、共通する部分を補完します
 inoremap <expr><C-o> neocomplcache#complete_common_string()
@@ -321,6 +322,10 @@ colorscheme molokai
 "hi StatusLine term=bold,reverse ctermfg=231 ctermbg=238 guifg=#ffffff guibg=#666666
 ""hi LineNr ctermfg=28
 
+" pyflakeが使う
+hi SpellBad term=underline cterm=underline gui=underline ctermfg=darkred ctermbg=none guifg=darkred guibg=none
+
+
 """ general key map
 noremap <C-a> <Home>
 inoremap <C-a> <Home>
@@ -385,7 +390,7 @@ if has('gui_macvim') || has('kaoriya')
 	set guifont=Ricty:h12
     set showtabline=2
 	set transparency=5
-	set lines=55 columns=165
+	set lines=50 columns=165
 	set visualbell t_vb=
 
 	"augroup hack234

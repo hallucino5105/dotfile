@@ -80,4 +80,3 @@ alias wget="wget --no-check-certificate"
 alias home-mysql="mysql -h krallice.dip.jp -u hoshino -p08240824"
 alias home-ftp-hoshino="ftp ftp://hoshino@krallice.dip.jp/"
 alias home-ftp-web="ftp ftp://webuser@krallice.dip.jp/"
-
