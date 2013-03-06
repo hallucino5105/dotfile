@@ -252,6 +252,8 @@ nnoremap <silent> [unite]u :<C-u>Unite -no-split buffer file_mru<CR>
 nnoremap <silent> [unite]m :<C-u>Unite -no-split file_mru<CR>
 " 現在のバッファのカレントディレクトリからファイル一覧
 nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir -no-split file<CR>
+" ブックマーク一覧
+nnoremap <silent> [unite]c :<C-u>Unite -no-split bookmark<CR>
 
 
 """ indent-guides

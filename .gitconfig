@@ -2,6 +2,7 @@
     editor = vim
     pager=cat
 	fileMode = true
+	precomposeunicode = true
 [user]
 	name = hoshino
 	email = hoshino@g.maysun.co.jp
