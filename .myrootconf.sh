@@ -37,8 +37,8 @@ export GIT_PAGER="less"
 export MANPAGER="less"
 export DIFF="colordiff"
 
-# $B@_Dj$9$k$H(Bzsh$B$,>!<j$K%(%G%#%?Iw$N%-!<%P%$%s%I$K$7$d$,$k(B
-# .zshrc$B$K(Bbindkey -e
+# 設定するとzshが勝手にエディタ風のキーバインドにしやがる
+# .zshrcにbindkey -e
 export EDITOR="vi"
 
 #export PERL_CPANM_OPT="--local-lib=~/.perl5"
