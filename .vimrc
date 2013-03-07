@@ -16,7 +16,6 @@ set matchtime=3
 set autoindent
 "set smartindent
 "set cindent
-set showcmd
 set smartcase
 set smarttab
 "set hlsearch
@@ -35,6 +34,10 @@ set clipboard+=autoselect
 set hlsearch
 set showtabline=1
 set wildmenu
+set showcmd
+set showmode
+set cmdheight=1
+set hidden
 
 " カーソル行をハイライト
 set cursorline
@@ -75,6 +78,7 @@ Bundle 'Zenburn'
 Bundle 'https://github.com/yuroyoro/yuroyoro256.vim.git'
 Bundle 'molokai'
 Bundle 'Solarized'
+Bundle 'nanotech/jellybeans.vim'
 
 " syntax
 Bundle 'jQuery'
@@ -111,7 +115,8 @@ Bundle 'Markdown'
 Bundle 'unite.vim'
 Bundle 'fugitive.vim'
 Bundle 'gitv'
-"Bundle 'mitechie/pyflakes-pathogen'
+Bundle 'mitechie/pyflakes-pathogen'
+Bundle 'renamer.vim'
 
 if !has('gui_macvim')
     "Bundle 'minibufexpl.vim'
@@ -154,19 +159,19 @@ inoremap <expr><C-s> neocomplcache#cancel_popup()
 inoremap <expr><C-h> neocomplcache#smart_close_popup()
 inoremap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
 snoremap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
-"inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<TAB>"
-"inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
+inoremap <expr><TAB> pumvisible() ? "\<Down>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
 " キー入力時にポップアップを閉じる
 inoremap <expr><Up> pumvisible() ? "\<C-y>\<Up>" : "\<Up>"
 inoremap <expr><Down> pumvisible() ? "\<C-y>\<Down>" : "\<Down>"
 inoremap <expr><C-h> pumvisible() ? "\<C-y>\<C-h>" : "\<C-h>"
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<BS>"
-inoremap <expr><CR> neocomplcache#smart_close_popup() . "\<CR>"
-"C-gで補完を元に戻す
+"inoremap <expr><CR> neocomplcache#smart_close_popup()."\<CR>"
+" C-gで補完を元に戻す
 inoremap <expr><C-g> neocomplcache#undo_completion()
 " 補完候補のなかから、共通する部分を補完します
-inoremap <expr><C-i> neocomplcache#complete_common_string()
+inoremap <expr><C-o> neocomplcache#complete_common_string()
 
 " Avoid crash by editing python source
 if !exists('g:neocomplcache_omni_patterns')
@@ -247,6 +252,8 @@ nnoremap <silent> [unite]u :<C-u>Unite -no-split buffer file_mru<CR>
 nnoremap <silent> [unite]m :<C-u>Unite -no-split file_mru<CR>
 " 現在のバッファのカレントディレクトリからファイル一覧
 nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir -no-split file<CR>
+" ブックマーク一覧
+nnoremap <silent> [unite]c :<C-u>Unite -no-split bookmark<CR>
 
 
 """ indent-guides
@@ -317,6 +324,10 @@ colorscheme molokai
 "hi StatusLine term=bold,reverse ctermfg=231 ctermbg=238 guifg=#ffffff guibg=#666666
 ""hi LineNr ctermfg=28
 
+" pyflakeが使う
+hi SpellBad term=underline cterm=underline gui=underline ctermfg=darkred ctermbg=none guifg=darkred guibg=none
+
+
 """ general key map
 noremap <C-a> <Home>
 inoremap <C-a> <Home>
@@ -381,7 +392,7 @@ if has('gui_macvim') || has('kaoriya')
 	set guifont=Ricty:h12
     set showtabline=2
 	set transparency=5
-	set lines=55 columns=165
+	set lines=50 columns=165
 	set visualbell t_vb=
 
 	"augroup hack234
@@ -474,4 +485,8 @@ endif
 "        execute 'edit ' . l:filename
 "    endif
 "endfunction"}}}
+
+
+" なんかのプラグインで無効になってるぽいので
+set showcmd
 
