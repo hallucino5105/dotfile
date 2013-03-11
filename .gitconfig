@@ -2,9 +2,10 @@
     editor = vim
     pager=cat
 	fileMode = true
+	precomposeunicode = true
 [user]
 	name = hoshino
-	email = krallice.untitled@gmail.com
+	email = hoshino@g.maysun.co.jp
 [color]
 	ui = true
 [credential]
