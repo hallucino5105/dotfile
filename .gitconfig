@@ -3,9 +3,10 @@
     pager=cat
 	fileMode = true
 	precomposeunicode = true
+	excludesfile = /Users/hoshino/.gitignore_global
 [user]
 	name = hoshino
-	email = hoshino@g.maysun.co.jp
+	email = krallice.untitled@gmail.com
 [color]
 	ui = true
 [credential]
@@ -21,3 +22,9 @@
     tree = log --all --full-history --graph --date=short --pretty=format:\"%Cgreen%h %cd %Cblue%cn %Cred%d %Creset%s\"
     co = checkout
     st = status
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

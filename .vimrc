@@ -325,7 +325,7 @@ colorscheme molokai
 ""hi LineNr ctermfg=28
 
 " pyflakeが使う
-hi SpellBad term=underline cterm=underline gui=underline ctermfg=darkred ctermbg=none guifg=darkred guibg=none
+hi SpellBad ctermfg=darkred ctermbg=none guifg=darkred guibg=none
 
 
 """ general key map
