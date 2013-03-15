@@ -1,5 +1,5 @@
 """ general setting
-set browsedir=buffer 
+set browsedir=buffer
 set nocompatible
 set incsearch
 set ignorecase
@@ -38,6 +38,8 @@ set showcmd
 set showmode
 set cmdheight=1
 set hidden
+set list
+set listchars=tab:»-,extends:»,precedes:«,nbsp:%
 
 " カーソル行をハイライト
 set cursorline
@@ -48,6 +50,31 @@ augroup cch
     autocmd WinEnter,BufRead * set cursorline
 augroup END
 
+
+""" 全角スペース・行末のスペース・タブの可視化
+if has("syntax")
+    syntax on
+
+    " PODバグ対策
+    syn sync fromstart
+
+    function! ActivateInvisibleIndicator()
+        " 下の行の"　"は全角スペース
+        syntax match InvisibleJISX0208Space "　" display containedin=ALL
+        highlight InvisibleJISX0208Space term=underline ctermbg=Blue guibg=darkgray gui=underline
+        syntax match InvisibleTrailedSpace "[ \t]\+$" display containedin=ALL
+        highlight InvisibleTrailedSpace term=underline ctermbg=Red guibg=NONE gui=undercurl guisp=darkorange
+        syntax match InvisibleTab "\t" display containedin=ALL
+        highlight InvisibleTab term=underline ctermbg=gray gui=undercurl guisp=darkslategray
+    endfunction
+
+    augroup invisible
+        autocmd! invisible
+        autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
+    augroup END
+endif
+
+
 " 無限undo
 if has('persistent_undo')
     set undodir=~/.vim/undo
@@ -57,10 +84,12 @@ endif
 " grep
 set grepprg=grep\ -nH
 
+
 """ general varient
 let loaded_matchparen=1
 let &directory=&backupdir
 let g:vimproc_dll_path = $HOME.'/.vim/bundle/vimproc/autoload/vimproc.so'
+
 
 """ Vundle
 set nocompatible
@@ -291,6 +320,22 @@ autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 autocmd FileType python :inoremap # X#
 
 
+"""
+" If you prefer the Omni-Completion tip window to close when a selection is
+" made, these lines close it on movement in insert mode or when leaving
+" insert mode
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+
+""" disable auto comment complement after new-lines
+autocmd FileType * setlocal formatoptions-=ro
+
+
+""" Rename
+command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
+
+
 """ color setting
 syntax on
 "colorscheme darkblue
@@ -367,42 +412,26 @@ nnoremap <F3> :shell<CR>
 "nmap <F1> :tabnew<CR>
 
 
-""" 
-" If you prefer the Omni-Completion tip window to close when a selection is
-" made, these lines close it on movement in insert mode or when leaving
-" insert mode
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-
-""" disable auto comment complement after new-lines
-autocmd FileType * setlocal formatoptions-=ro
-
-
-""" Rename
-command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
-
-
 """ gui
 if has('gui_macvim') || has('kaoriya')
-	"set background=dark
+    "set background=dark
     set guioptions-=T
     set guioptions+=a
-	"set guifont=Monaco:h10
-	set guifont=Ricty:h12
+    "set guifont=Monaco:h10
+    set guifont=Ricty:h12
     set showtabline=2
-	set transparency=5
-	set lines=50 columns=165
-	set visualbell t_vb=
+    set transparency=5
+    set lines=50 columns=165
+    set visualbell t_vb=
 
-	"augroup hack234
-	"  autocmd!
-	"    autocmd FocusGained * set transparency=10
-	"    autocmd FocusLost * set transparency=50
-	"augroup END
+    "augroup hack234
+    "  autocmd!
+    "    autocmd FocusGained * set transparency=10
+    "    autocmd FocusLost * set transparency=50
+    "augroup END
 
-	"colorscheme wombat
-	"colorscheme lucius
+    "colorscheme wombat
+    "colorscheme lucius
     "colorscheme darkeclipse
 endif
 
