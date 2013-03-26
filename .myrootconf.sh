@@ -23,6 +23,7 @@ export PATH=~/bin:${PATH}
 export PATH=/opt/local/bin:/opt/local/sbin:${PATH}
 export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
 export PATH=${PATH}:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin
+export PATH=${PATH}:/usr/local/share/python
 export PATH=${PATH}:${EC2_HOME}/bin:${EC2_AMITOOL_HOME}/bin:${AWS_ELB_HOME}/bin:${AWS_RDS_HOME}/bin:${AWS_R53_HOME}/bin
 export PATH=${PATH}:${ANDROID_SDK_HOME}:${ANDROID_SDK_HOME2}:${ANDROID_NDK_HOME}
 export MANPATH=${MANPATH}:/usr/local/man:/opt/local/share/man:/opt/local/man
@@ -57,8 +58,8 @@ else
 fi
 
 
-#alias ls="ls -G"
-#alias ll="ls -laG"
+alias ls="ls --color --time-style=long-iso"
+alias ll="ls -la --color --time-style=long-iso"
 alias l="less -cSR"
 alias rm="rm -i"
 alias lv="lv -c"

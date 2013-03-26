@@ -147,8 +147,8 @@ compdef mosh=ssh
 # alias
 case ${OSTYPE} in
     linux*)
-        alias ls="ls --color --time-style=long-iso"
-        alias ll="ls -la --color --time-style=long-iso"
+        #alias ls="ls --color --time-style=long-iso"
+        #alias ll="ls -la --color --time-style=long-iso"
 
         # 最新のファイルからn件をls
         function lf() {
@@ -164,8 +164,8 @@ case ${OSTYPE} in
         }
         ;;
     darwin*)
-        alias ls="ls -G"
-        alias ll="ls -laG"
+        #alias ls="ls -G"
+        #alias ll="ls -laG"
         ;;
 esac
 
