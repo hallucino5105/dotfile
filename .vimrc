@@ -40,7 +40,7 @@ set showmode
 set cmdheight=1
 set hidden
 set list
-set listchars=tab:»-,extends:»,precedes:«,nbsp:%
+set listchars=tab:»\ ,extends:»,precedes:«,nbsp:%
 set maxmempattern=10000
 
 " カーソル行をハイライト
@@ -51,30 +51,6 @@ augroup cch
     autocmd WinLeave * set nocursorline
     autocmd WinEnter,BufRead * set cursorline
 augroup END
-
-
-""" 全角スペース・行末のスペース・タブの可視化
-if has("syntax")
-    syntax on
-
-    " PODバグ対策
-    syn sync fromstart
-
-    function! ActivateInvisibleIndicator()
-        " 下の行の"　"は全角スペース
-        syntax match InvisibleJISX0208Space "　" display containedin=ALL
-        highlight InvisibleJISX0208Space term=underline ctermbg=Blue guibg=darkgray gui=underline
-        syntax match InvisibleTrailedSpace "[ \t]\+$" display containedin=ALL
-        highlight InvisibleTrailedSpace term=underline ctermbg=Red guibg=NONE gui=undercurl guisp=darkorange
-        syntax match InvisibleTab "\t" display containedin=ALL
-        highlight InvisibleTab term=underline ctermbg=gray gui=undercurl guisp=darkslategray
-    endfunction
-
-    augroup invisible
-        autocmd! invisible
-        autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
-    augroup END
-endif
 
 
 " 無限undo
@@ -384,6 +360,9 @@ colorscheme molokai
 " pyflakeが使う
 hi SpellBad ctermfg=darkred ctermbg=none guifg=darkred guibg=none
 
+" tabとか
+hi SpecialKey term=underline ctermfg=0 guifg=darkgray
+
 
 """ general key map
 noremap <C-a> <Home>
@@ -422,6 +401,30 @@ nnoremap <F3> :shell<CR>
 " tab
 "nmap <C-t> :tabnext<CR>
 "nmap <F1> :tabnew<CR>
+
+
+""" 全角スペース・行末のスペース・タブの可視化
+if has("syntax")
+    syntax on
+
+    " PODバグ対策
+    syn sync fromstart
+
+    function! ActivateInvisibleIndicator()
+        " 下の行の"　"は全角スペース
+        syntax match InvisibleJISX0208Space "　" display containedin=ALL
+        highlight InvisibleJISX0208Space term=underline ctermbg=Blue guibg=darkgray gui=underline
+        "syntax match InvisibleTrailedSpace "[ \t]\+$" display containedin=ALL
+        "highlight InvisibleTrailedSpace term=underline ctermbg=Red guibg=NONE gui=undercurl guisp=darkorange
+        "syntax match InvisibleTab "\t" display containedin=ALL
+        "highlight InvisibleTab term=underline ctermbg=1 gui=undercurl guisp=darkslategray
+    endfunction
+
+    augroup invisible
+        autocmd! invisible
+        autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
+    augroup END
+endif
 
 
 """ gui
