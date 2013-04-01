@@ -14,11 +14,6 @@ export EC2_CERT=~/.key/cert.pem
 
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 
-export ANDROID_SDK_HOME=/opt/local/share/java/android-sdk-macosx/tools
-export ANDROID_SDK_HOME2=/opt/local/share/java/android-sdk-macosx/platform-tools
-export ANDROID_NDK_HOME=/opt/local/share/java/android-ndk-macosx
-export NDKROOT=${ANDROID_NDK_HOME}
-
 export PATH=~/bin:${PATH}
 export PATH=/opt/local/bin:/opt/local/sbin:${PATH}
 export PATH=/usr/local/bin:/usr/local/sbin:${PATH}

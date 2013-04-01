@@ -1,5 +1,5 @@
 autoload -U colors && colors
-autoload -U compinit && compinit
+autoload -U compinit && compinit -u
 
 
 # 補完方法毎にグループ化する

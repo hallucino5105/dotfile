@@ -28,7 +28,7 @@ set fileformats=unix,dos,mac
 set ambiwidth=double
 set magic
 set backup
-set backupdir=~/.vim/backup
+set backupdir=~/dotfile/.vim/backup
 set backspace=indent,eol,start
 set backupskip=/tmp/*,/private/tmp/*
 set clipboard+=autoselect
@@ -79,7 +79,7 @@ endif
 
 " 無限undo
 if has('persistent_undo')
-    set undodir=~/.vim/undo
+    set undodir=~/dotfile/.vim/undo
     set undofile
 endif
 
@@ -90,15 +90,15 @@ set grepprg=grep\ -nH
 """ general varient
 let loaded_matchparen=1
 let &directory=&backupdir
-let g:vimproc_dll_path = $HOME.'/.vim/bundle/vimproc/autoload/vimproc.so'
+let g:vimproc_dll_path = $HOME.'/dotfile/.vim/bundle/vimproc/autoload/vimproc.so'
 
 
 """ Vundle
 set nocompatible
 filetype off
 
-set runtimepath+=~/.vim/vundle/
-call vundle#rc()
+set runtimepath+=~/dotfile/.vim/vundle/
+call vundle#rc('~/dotfile/.vim/bundle')
 
 " color
 Bundle 'Lucius'
@@ -148,6 +148,7 @@ Bundle 'fugitive.vim'
 Bundle 'gitv'
 Bundle 'mitechie/pyflakes-pathogen'
 Bundle 'renamer.vim'
+"Bundle 'wincent/Command-T'
 
 if !has('gui_macvim')
     "Bundle 'minibufexpl.vim'
@@ -159,12 +160,12 @@ filetype plugin indent on
 
 """ YankRing
 let g:yankring_max_history=50
-let g:yankring_history_dir='~/.vim/bundle/YankRing.vim'
+let g:yankring_history_dir='~/dotfile/.vim/bundle/YankRing.vim'
 let g:yankring_manual_clipboard_check=1
 
 
 """ yanktmp
-let g:yanktmp_file=$HOME.'/.vim/bundle/yanktmp.vim/.vimyanktmp'
+let g:yanktmp_file=$HOME.'/dotfile/.vim/bundle/yanktmp.vim/.vimyanktmp'
 
 map <silent> sy :call YanktmpYank()<CR>
 map <silent> sp :call YanktmpPaste_p()<CR>
@@ -287,13 +288,13 @@ nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir -no-split file<CR>
 nnoremap <silent> [unite]c :<C-u>Unite -no-split bookmark<CR>
 
 
-""" 検索語が真ん中に来るように
-nmap n nzz 
-nmap N Nzz 
-nmap * *zz 
-nmap # #zz 
-nmap g* g*zz 
-nmap g# g#zz
+"""" 検索語が真ん中に来るように
+"nmap n nzz 
+"nmap N Nzz 
+"nmap * *zz 
+"nmap # #zz 
+"nmap g* g*zz 
+"nmap g# g#zz
 
 
 """ indent-guides
@@ -309,12 +310,12 @@ autocmd FileType git :setlocal foldlevel=99
 """ file skelton
 augroup SkeletonAu
     autocmd!
-    autocmd BufNewFile *.html 0r $HOME/.vim/skel/skel.html
-    autocmd BufNewFile *.cpp 0r $HOME/.vim/skel/skel.cpp
-    autocmd BufNewFile *.hpp 0r $HOME/.vim/skel/skel.hpp
-    autocmd BufNewFile *.pl 0r $HOME/.vim/skel/skel.pl
-    autocmd BufNewFile *.pm 0r $HOME/.vim/skel/skel.pm
-    autocmd BufNewFile *.py 0r $HOME/.vim/skel/skel.py
+    autocmd BufNewFile *.html 0r $HOME/dotfile/.vim/skel/skel.html
+    autocmd BufNewFile *.cpp 0r $HOME/dotfile/.vim/skel/skel.cpp
+    autocmd BufNewFile *.hpp 0r $HOME/dotfile/.vim/skel/skel.hpp
+    autocmd BufNewFile *.pl 0r $HOME/dotfile/.vim/skel/skel.pl
+    autocmd BufNewFile *.pm 0r $HOME/dotfile/.vim/skel/skel.pm
+    autocmd BufNewFile *.py 0r $HOME/dotfile/.vim/skel/skel.py
 augroup END
 
 
