@@ -25,7 +25,7 @@ export MANPATH=${MANPATH}:/usr/local/man:/opt/local/share/man:/opt/local/man
 
 export WORKON_HOME=~/local
 
-export LESS="-sgSRXF"
+export LESS="-sgSRXFN -x4"
 
 export SVN_EDITOR="vim --noplugin"
 export PAGER="less"
@@ -40,6 +40,8 @@ export EDITOR="vi"
 #export PERL_CPANM_OPT="--local-lib=~/.perl5"
 export PERL5LIB="${HOME}/.perl5/lib/perl5:${PERL5LIB}"
 
+
+# term color
 if [ -e /usr/share/terminfo/73/screen-256color ]; then
     export TERM=screen-256color
 elif [ -e /usr/share/terminfo/s/screen-256color ]; then
