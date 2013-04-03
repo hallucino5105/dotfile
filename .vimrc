@@ -95,7 +95,7 @@ Bundle 'html5.vim'
 
 " other
 Bundle 'eregex.vim'
-Bundle 'YankRing.vim'
+"Bundle 'YankRing.vim'
 Bundle 'yanktmp.vim'
 Bundle 'surround.vim'
 Bundle 'quickrun.vim'
@@ -125,6 +125,8 @@ Bundle 'gitv'
 Bundle 'mitechie/pyflakes-pathogen'
 Bundle 'renamer.vim'
 "Bundle 'wincent/Command-T'
+Bundle 'Shougo/vimfiler'
+Bundle 'thinca/vim-qfreplace'
 
 if !has('gui_macvim')
     "Bundle 'minibufexpl.vim'
@@ -134,10 +136,10 @@ endif
 filetype plugin indent on
 
 
-""" YankRing
-let g:yankring_max_history=50
-let g:yankring_history_dir='~/dotfile/.vim/bundle/YankRing.vim'
-let g:yankring_manual_clipboard_check=1
+"""" YankRing
+"let g:yankring_max_history=50
+"let g:yankring_history_dir='~/dotfile/.vim/bundle/YankRing.vim'
+"let g:yankring_manual_clipboard_check=1
 
 
 """ yanktmp
@@ -244,24 +246,32 @@ map <Leader>mg :MemoGrep<CR>
 
 
 """ unite
+let g:unite_source_history_yank_enable = 1
+let g:unite_source_file_mru_limit = 1000
 nnoremap [unite] <Nop>
 nmap r [unite]
 " 分割しないでuniteのbufferを表示する
 nnoremap [unite]u :<C-u>Unite -no-split<Space>
 " 全部乗せ
-nnoremap <silent> [unite]a :<C-u>UniteWithCurrentDir -no-split -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]a :<C-u>UniteWithCurrentDir buffer file_mru bookmark file -buffer-name=files -direction=belowright<CR>
 " ファイル一覧
-nnoremap <silent> [unite]f :<C-u>Unite -no-split -buffer-name=files file<CR>
+nnoremap <silent> [unite]f :<C-u>Unite file -buffer-name=files  -direction=belowright<CR>
 " バッファ一覧
-nnoremap <silent> [unite]b :<C-u>Unite -no-split buffer<CR>
+nnoremap <silent> [unite]b :<C-u>Unite buffer -direction=belowright<CR>
 " 常用セット
-nnoremap <silent> [unite]u :<C-u>Unite -no-split buffer file_mru<CR>
+nnoremap <silent> [unite]u :<C-u>Unite buffer file_mru -direction=belowright<CR>
 " 最近使用したファイル一覧
-nnoremap <silent> [unite]m :<C-u>Unite -no-split file_mru<CR>
+nnoremap <silent> [unite]m :<C-u>Unite file_mru -direction=belowright<CR>
 " 現在のバッファのカレントディレクトリからファイル一覧
-nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir -no-split file<CR>
+nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir file -direction=belowright<CR>
 " ブックマーク一覧
-nnoremap <silent> [unite]c :<C-u>Unite -no-split bookmark<CR>
+nnoremap <silent> [unite]c :<C-u>Unite bookmark -direction=belowright<CR>
+" ヤンク履歴
+nnoremap <silent> [unite]y :<C-u>Unite history/yank -direction=belowright<CR>
+" 変更履歴
+nnoremap <silent> [unite]s :<C-u>Unite change -direction=belowright<CR>
+" grep
+nnoremap <silent> [unite]g :<C-u>Unite grep -direction=belowright<CR>
 
 
 """" 検索語が真ん中に来るように
@@ -322,6 +332,10 @@ autocmd FileType * setlocal formatoptions-=ro
 
 """ Rename
 command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
+
+
+""" vimfiler
+let g:vimfiler_as_default_explorer = 1
 
 
 """ color setting
@@ -385,6 +399,9 @@ hi SpellBad ctermfg=darkred ctermbg=none guifg=darkred guibg=none
 
 " tabとか
 hi SpecialKey term=underline ctermfg=0 guifg=darkgray
+
+" 
+hi PmenuSel ctermfg=248 ctermbg=0
 
 
 """ general key map
