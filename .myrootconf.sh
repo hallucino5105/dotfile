@@ -41,18 +41,18 @@ export EDITOR="vi"
 export PERL5LIB="${HOME}/.perl5/lib/perl5:${PERL5LIB}"
 
 
-# term color
-if [ -e /usr/share/terminfo/73/screen-256color ]; then
-    export TERM=screen-256color
-elif [ -e /usr/share/terminfo/s/screen-256color ]; then
-    export TERM=screen-256color
-elif [ -e /usr/share/terminfo/78/xterm-256color ]; then
-    export TERM=xterm-256color
-elif [ -e /usr/share/terminfo/x/xterm-256color ]; then
-    export TERM=xterm-256color
-else 
-    export TERM=xterm
-fi
+## term color
+#if [ -e /usr/share/terminfo/73/screen-256color ]; then
+#    export TERM=screen-256color
+#elif [ -e /usr/share/terminfo/s/screen-256color ]; then
+#    export TERM=screen-256color
+#elif [ -e /usr/share/terminfo/78/xterm-256color ]; then
+#    export TERM=xterm-256color
+#elif [ -e /usr/share/terminfo/x/xterm-256color ]; then
+#    export TERM=xterm-256color
+#else 
+#    export TERM=xterm
+#fi
 
 
 alias ls="ls --color --time-style=long-iso"

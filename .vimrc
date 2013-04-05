@@ -84,7 +84,8 @@ Bundle 'Zenburn'
 "Bundle 'wombat256.vim'
 Bundle 'https://github.com/yuroyoro/yuroyoro256.vim.git'
 Bundle 'molokai'
-Bundle 'Solarized'
+"Bundle 'Solarized'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'nanotech/jellybeans.vim'
 
 " syntax
@@ -120,6 +121,7 @@ Bundle 'glidenote/memolist.vim'
 Bundle 'https://github.com/fuenor/qfixgrep.git'
 Bundle 'Markdown'
 Bundle 'unite.vim'
+Bundle 'unite-colorscheme'
 Bundle 'fugitive.vim'
 Bundle 'gitv'
 Bundle 'mitechie/pyflakes-pathogen'
@@ -342,7 +344,18 @@ let g:vimfiler_as_default_explorer = 1
 syntax on
 "colorscheme darkblue
 "colorscheme yuroyoro256
-colorscheme molokai
+"colorscheme molokai
+
+let g:solarized_termcolors=16
+let g:solarized_termtrans=0
+let g:solarized_degrade=0
+let g:solarized_bold=1
+let g:solarized_underline=1
+let g:solarized_italic=1
+let g:solarized_contrast='normal'
+let g:solarized_visibility='normal'
+set background=dark
+colorscheme solarized
 
 
 " ターミナルタイプによるカラー設定
@@ -395,10 +408,10 @@ if has("syntax")
 endif
 
 " pyflakeが使う
-hi SpellBad ctermfg=darkred ctermbg=none guifg=darkred guibg=none
+hi SpellBad term=none cterm=none ctermfg=darkred ctermbg=none guifg=darkred guibg=none
 
 " tabとか
-hi SpecialKey term=underline ctermfg=0 guifg=darkgray
+hi SpecialKey term=None ctermfg=0 guifg=darkgray
 
 " 
 hi PmenuSel ctermfg=248 ctermbg=0
@@ -443,7 +456,19 @@ nnoremap <F3> :shell<CR>
 "nmap <F1> :tabnew<CR>
 
 
-""" gui
+""" ノーマル/インサートモードでカーソルの形状を変更する
+if &term =~ "screen" || &term=~"screen-256color"
+    "let &t_SI = "\eP\e]50;CursorShape=1\x7\e\\"
+    "let &t_EI = "\eP\e]50;CursorShape=0\x7\e\\"
+     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+     let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+elseif &term =~ "xterm" || &term=~"xterm-256color"
+    let &t_SI = "\e]50;CursorShape=1\x7"
+    let &t_EI = "\e]50;CursorShape=0\x7"
+endif
+
+
+""" gui用設定
 if has('gui_macvim') || has('kaoriya')
     "set background=dark
     set guioptions-=T
