@@ -257,7 +257,7 @@ nnoremap [unite]u :<C-u>Unite -no-split<Space>
 " 全部乗せ
 nnoremap <silent> [unite]a :<C-u>UniteWithCurrentDir buffer file_mru bookmark file -buffer-name=files -direction=belowright<CR>
 " ファイル一覧
-nnoremap <silent> [unite]f :<C-u>Unite file -buffer-name=files  -direction=belowright<CR>
+nnoremap <silent> [unite]f :<C-u>Unite file file/new -buffer-name=files -direction=belowright<CR>
 " バッファ一覧
 nnoremap <silent> [unite]t :<C-u>Unite buffer -direction=belowright<CR>
 " 常用セット
