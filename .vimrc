@@ -259,7 +259,7 @@ nnoremap <silent> [unite]a :<C-u>UniteWithCurrentDir buffer file_mru bookmark fi
 " ファイル一覧
 nnoremap <silent> [unite]f :<C-u>Unite file -buffer-name=files  -direction=belowright<CR>
 " バッファ一覧
-nnoremap <silent> [unite]b :<C-u>Unite buffer -direction=belowright<CR>
+nnoremap <silent> [unite]t :<C-u>Unite buffer -direction=belowright<CR>
 " 常用セット
 nnoremap <silent> [unite]u :<C-u>Unite buffer file_mru -direction=belowright<CR>
 " 最近使用したファイル一覧
