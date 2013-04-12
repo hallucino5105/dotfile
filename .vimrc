@@ -93,6 +93,8 @@ Bundle 'jQuery'
 Bundle 'css3'
 Bundle 'JSON.vim'
 Bundle 'html5.vim'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'groenewege/vim-less'
 
 " other
 Bundle 'eregex.vim'

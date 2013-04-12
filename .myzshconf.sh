@@ -170,5 +170,10 @@ case ${OSTYPE} in
 esac
 
 
+# emacs風キーバインド
 bindkey -e
 
+## vim風キーバインド
+#bindkey -v
+#bindkey "^P" up-line-or-history
+#bindkey "^N" down-line-or-history
