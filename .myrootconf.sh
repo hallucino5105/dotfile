@@ -17,7 +17,6 @@ export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 export PATH=~/bin:${PATH}
 export PATH=/opt/local/bin:/opt/local/sbin:${PATH}
 export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
-export PATH=${PATH}:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin
 export PATH=${PATH}:/usr/local/share/python
 export PATH=${PATH}:${EC2_HOME}/bin:${EC2_AMITOOL_HOME}/bin:${AWS_ELB_HOME}/bin:${AWS_RDS_HOME}/bin:${AWS_R53_HOME}/bin
 export PATH=${PATH}:${ANDROID_SDK_HOME}:${ANDROID_SDK_HOME2}:${ANDROID_NDK_HOME}

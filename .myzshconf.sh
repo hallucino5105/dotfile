@@ -58,22 +58,29 @@ unsetopt promptcr
 WORDCHARS=${WORDCHARS:s,/,,}
 
 # prompt
-PROMPT="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
-if [[ $ZSH_VERSION == (<5->|4.<4->|4.3.<10->)* ]]; then
+#PROMPT="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
+#PROMPT="[${USER}@${HOST%%.*} %1~](%(?.%F{green}^-^%f.%F{red}@_@%f))%(!.#.$) "
+PROMPT="[${USER}@${HOST%%.*} %1~](%(?.^-^.@_@))%(!.#.$) "
+
+autoload -Uz is-at-least
+if is-at-least 4.3.10; then
     autoload -Uz vcs_info
 
-    zstyle ":vcs_info:git:*" check-for-changes true
-    zstyle ":vcs_info:git:*" stagedstr '+'
-    zstyle ":vcs_info:git:*" unstagedstr '*'
+    # 下のformatsの値をそれぞれの変数に入れてくれる機能の、変数の数の最大値
+    # デフォルトだと2くらいなので、指定しておかないと、下のformatsがほぼ動かない
+    zstyle ':vcs_info:*' max-exports 7
+    zstyle ':vcs_info:git:*' check-for-changes true
+    zstyle ':vcs_info:git:*' stagedstr '+'
+    zstyle ':vcs_info:git:*' unstagedstr '-'
     zstyle ':vcs_info:(git|svn):*' formats '%R' '%S' '%b' '%c%u'
     zstyle ':vcs_info:(git|svn):*' actionformats '%R' '%S' '%b|%a' '%c%u'
-    zstyle ':vcs_info:*' formats '%R' '%S' '%s:%b'
-    zstyle ':vcs_info:*' actionformats '%R' '%S' '%s:%b|%a'
+    zstyle ':vcs_info:*' formats '%S' '%R' '%b'
+    zstyle ':vcs_info:*' actionformats '%S' '%R' '%b|%a'
 
     precmd_vcs_info () {
         psvar=()
-        LANG=en_US.UTF-8 vcs_info
-        repos=`print -nD "$vcs_info_msg_0_"`
+       LANG=en_US.UTF-8 vcs_info
+        repos=$(print -nD $vcs_info_msg_0_)
 
         # psvar[1]とpsvar[2]がなぜかvcs以外のディレクトリに行っても消えないので
         # この順番を変更しないように
@@ -87,10 +94,9 @@ if [[ $ZSH_VERSION == (<5->|4.<4->|4.3.<10->)* ]]; then
     precmd_functions+=precmd_vcs_info
 
     # %3(v|{a}|{b}): psvarの配列長が3以上なら{a}、それ以外なら{b}を実行
+    setopt prompt_subst
     local stage='%3(v|[%F{green}%2v%f]|)'
     local vcs='%3(v|[%25<\<<%F{yellow}%3v%f@%F{blue}%1v%f%<<]|)'
-    #PROMPT="[${USER}@${HOST%%.*} %1~](%(?.%F{green}^-^%f.%F{red}@_@%f))%(!.#.$) "
-    PROMPT="[${USER}@${HOST%%.*} %1~](%(?.^-^.@_@))%(!.#.$) "
     RPROMPT="$stage$vcs"
 fi
 
