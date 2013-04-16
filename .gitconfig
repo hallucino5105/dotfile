@@ -22,7 +22,7 @@
     tree = log --all --full-history --graph --date=short --pretty=format:\"%Cgreen%h %cd %Cblue%cn %Cred%d %Creset%s\"
     co = checkout
     st = status
-    gg = grep -H --heading --break
+    gg = grep -inIEH --color --heading --break
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

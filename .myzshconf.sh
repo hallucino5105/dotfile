@@ -68,7 +68,7 @@ if is-at-least 4.3.10; then
 
     # 下のformatsの値をそれぞれの変数に入れてくれる機能の、変数の数の最大値
     # デフォルトだと2くらいなので、指定しておかないと、下のformatsがほぼ動かない
-    zstyle ':vcs_info:*' max-exports 7
+    zstyle ':vcs_info:*' max-exports 5
     zstyle ':vcs_info:git:*' check-for-changes true
     zstyle ':vcs_info:git:*' stagedstr '+'
     zstyle ':vcs_info:git:*' unstagedstr '-'

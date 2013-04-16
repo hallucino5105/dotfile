@@ -24,7 +24,7 @@ export MANPATH=${MANPATH}:/usr/local/man:/opt/local/share/man:/opt/local/man
 
 export WORKON_HOME=~/local
 
-export LESS="-sgSRXFN -x4"
+export LESS="-sgSRXF -x4"
 
 export SVN_EDITOR="vim --noplugin"
 export PAGER="less"
@@ -62,7 +62,7 @@ alias lv="lv -c"
 alias tmux="tmux -2"
 alias ftp="ncftp"
 alias grep="grep --color=always"
-alias mysql="mysql --pager='less -sSRXF'"
+alias mysql="mysql --pager='less -sSRXFN'"
 alias vi="vim"
 alias svndiff="svn diff -x -u -x --ignore-eol-style | vim -R -"
 alias diff="colordiff"
