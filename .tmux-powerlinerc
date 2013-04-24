@@ -115,7 +115,7 @@
     # What unit to use. Can be any of {c,f,k}.
     export TMUX_POWERLINE_SEG_WEATHER_UNIT="c"
     # How often to update the weather in seconds.
-    export TMUX_POWERLINE_SEG_WEATHER_UPDATE_PERIOD="300"
+    export TMUX_POWERLINE_SEG_WEATHER_UPDATE_PERIOD="600"
 
     # Your location. Find a code that works for you:
     # 1. Go to Yahoo weather http://weather.yahoo.com/

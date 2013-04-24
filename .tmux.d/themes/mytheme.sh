@@ -95,9 +95,9 @@ else
         #if [ "$window_width" -ge 180 ]; then
         #    TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS+=("battery 137 127")
         #fi
-        #if [ "$window_width" -ge 160 ]; then
-            TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS+=("weather 37 255")
-        #fi
+        ##if [ "$window_width" -ge 160 ]; then
+        #    TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS+=("weather 37 255")
+        ##fi
         TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS+=("date-full-en 235 136")
     fi
 fi
