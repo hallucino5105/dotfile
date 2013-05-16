@@ -42,6 +42,13 @@ set hidden
 set list
 set listchars=tab:»\ ,extends:»,precedes:«,nbsp:%
 set maxmempattern=10000
+set autoread
+
+" 自動再読み込み
+augroup vimrc-checktime
+    autocmd!
+    autocmd WinEnter * checktime
+augroup END
 
 " カーソル行をハイライト
 set cursorline
