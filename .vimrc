@@ -138,6 +138,7 @@ Bundle 'renamer.vim'
 "Bundle 'wincent/Command-T'
 Bundle 'Shougo/vimfiler'
 Bundle 'thinca/vim-qfreplace'
+Bundle 'Lokaltog/vim-easymotion'
 
 if !has('gui_macvim')
     "Bundle 'minibufexpl.vim'
@@ -347,6 +348,18 @@ command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 
 """ vimfiler
 let g:vimfiler_as_default_explorer = 1
+
+
+""" easymotion
+" ホームポジションに近いキーを使う
+let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+" マッピング
+let g:EasyMotion_leader_key="<Space>"
+" 1ストローク選択を優先する
+let g:EasyMotion_grouping=1
+" カラー設定変更
+hi EasyMotionTarget ctermbg=none ctermfg=red
+hi EasyMotionShade  ctermbg=none ctermfg=blue
 
 
 """ color setting
