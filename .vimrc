@@ -125,7 +125,7 @@ Bundle 'dbext.vim'
 "Bundle 'Indent-Guides'
 "Bundle 'Smooth-Scroll'
 "Bundle 'mattn/hahhah-vim'
-Bundle 'glidenote/memolist.vim'
+"Bundle 'glidenote/memolist.vim'
 "Bundle 'vimgrep.vim' "終了時にエラーが出る
 Bundle 'https://github.com/fuenor/qfixgrep.git'
 Bundle 'Markdown'
@@ -139,6 +139,7 @@ Bundle 'renamer.vim'
 Bundle 'Shougo/vimfiler'
 Bundle 'thinca/vim-qfreplace'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'https://github.com/mattn/benchvimrc-vim.git'
 
 if !has('gui_macvim')
     "Bundle 'minibufexpl.vim'
@@ -156,7 +157,6 @@ filetype plugin indent on
 
 """ yanktmp
 let g:yanktmp_file=$HOME.'/dotfile/.vim/bundle/yanktmp.vim/.vimyanktmp'
-
 map <silent> sy :call YanktmpYank()<CR>
 map <silent> sp :call YanktmpPaste_p()<CR>
 map <silent> sP :call YanktmpPaste_P()<CR>
@@ -258,8 +258,9 @@ map <Leader>mg :MemoGrep<CR>
 
 
 """ unite
-let g:unite_source_history_yank_enable = 1
+let g:unite_source_history_yank_enable = 0
 let g:unite_source_file_mru_limit = 1000
+let g:unite_update_time = 1000
 nnoremap [unite] <Nop>
 nmap r [unite]
 " 分割しないでuniteのbufferを表示する
@@ -328,6 +329,10 @@ autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,exc
 autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 " VimでPythonのコメント行を入力しようとするとインデントが解除されてしまうアレ
 autocmd FileType python :inoremap # X#
+
+
+""" handlebars template
+autocmd BufNewFile,BufRead *.hbs set filetype=xhtml
 
 
 """
