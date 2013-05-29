@@ -148,7 +148,6 @@ Bundle 'renamer.vim'
 "Bundle 'Shougo/vimfiler'
 Bundle 'thinca/vim-qfreplace'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'https://github.com/mattn/benchvimrc-vim.git'
 
 if !has('gui_macvim')
     "Bundle 'minibufexpl.vim'
