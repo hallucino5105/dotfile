@@ -44,6 +44,7 @@ set listchars=tab:»\ ,extends:»,precedes:«,nbsp:%
 set maxmempattern=10000
 set autoread
 
+
 " 自動再読み込み
 augroup vimrc-checktime
     autocmd!
@@ -57,6 +58,13 @@ augroup cch
     autocmd! cch
     autocmd WinLeave * set nocursorline
     autocmd WinEnter,BufRead * set cursorline
+augroup END
+
+" trailing spaces highlight
+augroup HighlightTrailingSpaces
+    autocmd!
+    autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+    autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 
 
