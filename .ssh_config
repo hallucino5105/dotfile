@@ -132,6 +132,30 @@ Host c-ym0vm
     #ProxyCommand    ssh -q -W %h:%p repo
     ProxyCommand    ssh repo nc %h %p
 
+Host lab.nissan-carwings.com
+    HostName        lab.nissan-carwings.com
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host ta.nissan-carwings.com
+    HostName        ta.nissan-carwings.com
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host devel.nissan-carwings.com
+    HostName        192.168.10.55
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host e1gp.jp
+    HostName        e1gp.jp
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
 
 # ie server
 Host home1

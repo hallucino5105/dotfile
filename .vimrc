@@ -97,7 +97,7 @@ Bundle 'nanotech/jellybeans.vim'
 
 " syntax
 Bundle 'jQuery'
-Bundle 'css3'
+"Bundle 'css3'
 Bundle 'JSON.vim'
 Bundle 'html5.vim'
 Bundle 'hail2u/vim-css3-syntax'
@@ -120,7 +120,7 @@ Bundle 'https://github.com/Shougo/vimproc.git'
 "Bundle 'vcscommand.vim'
 Bundle 'taglist.vim'
 Bundle 'Align'
-Bundle 'dbext.vim'
+"Bundle 'dbext.vim'
 "Bundle 'SQLUtilities'
 "Bundle 'Indent-Guides'
 "Bundle 'Smooth-Scroll'
@@ -130,13 +130,14 @@ Bundle 'dbext.vim'
 Bundle 'https://github.com/fuenor/qfixgrep.git'
 Bundle 'Markdown'
 Bundle 'unite.vim'
-Bundle 'unite-colorscheme'
+"Bundle 'unite-colorscheme'
+Bundle 'https://github.com/Shougo/unite-session.git'
 Bundle 'fugitive.vim'
 Bundle 'gitv'
 Bundle 'mitechie/pyflakes-pathogen'
 Bundle 'renamer.vim'
 "Bundle 'wincent/Command-T'
-Bundle 'Shougo/vimfiler'
+"Bundle 'Shougo/vimfiler'
 Bundle 'thinca/vim-qfreplace'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'https://github.com/mattn/benchvimrc-vim.git'
@@ -258,7 +259,8 @@ map <Leader>mg :MemoGrep<CR>
 
 
 """ unite
-let g:unite_source_history_yank_enable = 0
+let g:unite_source_history_yank_enable = 1
+let g:unite_source_session_enable_auto_save = 1
 let g:unite_source_file_mru_limit = 1000
 let g:unite_update_time = 1000
 nnoremap [unite] <Nop>
@@ -285,6 +287,8 @@ nnoremap <silent> [unite]y :<C-u>Unite history/yank -direction=belowright<CR>
 nnoremap <silent> [unite]s :<C-u>Unite change -direction=belowright<CR>
 " grep
 nnoremap <silent> [unite]g :<C-u>Unite grep -direction=belowright<CR>
+" セッション
+nnoremap <silent> [unite]s :<C-u>Unite session -direction=belowright<CR>
 
 
 """" 検索語が真ん中に来るように
@@ -351,8 +355,8 @@ autocmd FileType * setlocal formatoptions-=ro
 command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 
 
-""" vimfiler
-let g:vimfiler_as_default_explorer = 1
+"""" vimfiler
+"let g:vimfiler_as_default_explorer = 1
 
 
 """ easymotion
