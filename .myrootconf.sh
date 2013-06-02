@@ -14,15 +14,9 @@ export EC2_CERT=~/.key/cert.pem
 
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 
-export ANDROID_SDK_HOME=/opt/local/share/java/android-sdk-macosx/tools
-export ANDROID_SDK_HOME2=/opt/local/share/java/android-sdk-macosx/platform-tools
-export ANDROID_NDK_HOME=/opt/local/share/java/android-ndk-macosx
-export NDKROOT=${ANDROID_NDK_HOME}
-
 export PATH=~/bin:${PATH}
 export PATH=/opt/local/bin:/opt/local/sbin:${PATH}
 export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
-export PATH=${PATH}:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin
 export PATH=${PATH}:/usr/local/share/python
 export PATH=${PATH}:${EC2_HOME}/bin:${EC2_AMITOOL_HOME}/bin:${AWS_ELB_HOME}/bin:${AWS_RDS_HOME}/bin:${AWS_R53_HOME}/bin
 export PATH=${PATH}:${ANDROID_SDK_HOME}:${ANDROID_SDK_HOME2}:${ANDROID_NDK_HOME}
@@ -30,7 +24,7 @@ export MANPATH=${MANPATH}:/usr/local/man:/opt/local/share/man:/opt/local/man
 
 export WORKON_HOME=~/local
 
-export LESS="-sgSRXF"
+export LESS="-sgSRXF -x4"
 
 export SVN_EDITOR="vim --noplugin"
 export PAGER="less"
@@ -45,17 +39,19 @@ export EDITOR="vi"
 #export PERL_CPANM_OPT="--local-lib=~/.perl5"
 export PERL5LIB="${HOME}/.perl5/lib/perl5:${PERL5LIB}"
 
-if [ -e /usr/share/terminfo/73/screen-256color ]; then
-    export TERM=screen-256color
-elif [ -e /usr/share/terminfo/s/screen-256color ]; then
-    export TERM=screen-256color
-elif [ -e /usr/share/terminfo/78/xterm-256color ]; then
-    export TERM=xterm-256color
-elif [ -e /usr/share/terminfo/x/xterm-256color ]; then
-    export TERM=xterm-256color
-else 
-    export TERM=xterm
-fi
+
+## term color
+#if [ -e /usr/share/terminfo/73/screen-256color ]; then
+#    export TERM=screen-256color
+#elif [ -e /usr/share/terminfo/s/screen-256color ]; then
+#    export TERM=screen-256color
+#elif [ -e /usr/share/terminfo/78/xterm-256color ]; then
+#    export TERM=xterm-256color
+#elif [ -e /usr/share/terminfo/x/xterm-256color ]; then
+#    export TERM=xterm-256color
+#else 
+#    export TERM=xterm
+#fi
 
 
 alias ls="ls --color --time-style=long-iso"
@@ -66,8 +62,7 @@ alias lv="lv -c"
 alias tmux="tmux -2"
 alias ftp="ncftp"
 alias grep="grep --color=always"
-alias mysql="mysql --pager='less -sSRXF'"
-alias g++="g++ -arch x86_64"
+alias mysql="mysql --pager='less -sSRXFN'"
 alias vi="vim"
 alias svndiff="svn diff -x -u -x --ignore-eol-style | vim -R -"
 alias diff="colordiff"

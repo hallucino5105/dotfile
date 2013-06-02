@@ -40,8 +40,16 @@ set showmode
 set cmdheight=1
 set hidden
 set list
-set listchars=tab:»-,extends:»,precedes:«,nbsp:%
+set listchars=tab:»\ ,extends:»,precedes:«,nbsp:%
 set maxmempattern=10000
+set autoread
+
+
+" 自動再読み込み
+augroup vimrc-checktime
+    autocmd!
+    autocmd WinEnter * checktime
+augroup END
 
 " カーソル行をハイライト
 set cursorline
@@ -52,29 +60,12 @@ augroup cch
     autocmd WinEnter,BufRead * set cursorline
 augroup END
 
-
-""" 全角スペース・行末のスペース・タブの可視化
-if has("syntax")
-    syntax on
-
-    " PODバグ対策
-    syn sync fromstart
-
-    function! ActivateInvisibleIndicator()
-        " 下の行の"　"は全角スペース
-        syntax match InvisibleJISX0208Space "　" display containedin=ALL
-        highlight InvisibleJISX0208Space term=underline ctermbg=Blue guibg=darkgray gui=underline
-        syntax match InvisibleTrailedSpace "[ \t]\+$" display containedin=ALL
-        highlight InvisibleTrailedSpace term=underline ctermbg=Red guibg=NONE gui=undercurl guisp=darkorange
-        syntax match InvisibleTab "\t" display containedin=ALL
-        highlight InvisibleTab term=underline ctermbg=gray gui=undercurl guisp=darkslategray
-    endfunction
-
-    augroup invisible
-        autocmd! invisible
-        autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
-    augroup END
-endif
+" trailing spaces highlight
+augroup HighlightTrailingSpaces
+    autocmd!
+    autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+    autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+augroup END
 
 
 " 無限undo
@@ -90,7 +81,7 @@ set grepprg=grep\ -nH
 """ general varient
 let loaded_matchparen=1
 let &directory=&backupdir
-let g:vimproc_dll_path = $HOME.'/.vim/bundle/vimproc/autoload/vimproc.so'
+let g:vimproc_dll_path = $HOME.'/dotfile/.vim/bundle/vimproc/autoload/vimproc.so'
 
 
 """ Vundle
@@ -98,7 +89,7 @@ set nocompatible
 filetype off
 
 set runtimepath+=~/dotfile/.vim/vundle/
-call vundle#rc()
+call vundle#rc('~/dotfile/.vim/bundle')
 
 " color
 Bundle 'Lucius'
@@ -108,18 +99,21 @@ Bundle 'Zenburn'
 "Bundle 'wombat256.vim'
 Bundle 'https://github.com/yuroyoro/yuroyoro256.vim.git'
 Bundle 'molokai'
-Bundle 'Solarized'
+"Bundle 'Solarized'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'nanotech/jellybeans.vim'
 
 " syntax
 Bundle 'jQuery'
-Bundle 'css3'
+"Bundle 'css3'
 Bundle 'JSON.vim'
 Bundle 'html5.vim'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'groenewege/vim-less'
 
 " other
 Bundle 'eregex.vim'
-Bundle 'YankRing.vim'
+"Bundle 'YankRing.vim'
 Bundle 'yanktmp.vim'
 Bundle 'surround.vim'
 Bundle 'quickrun.vim'
@@ -134,20 +128,26 @@ Bundle 'https://github.com/Shougo/vimproc.git'
 "Bundle 'vcscommand.vim'
 Bundle 'taglist.vim'
 Bundle 'Align'
-Bundle 'dbext.vim'
+"Bundle 'dbext.vim'
 "Bundle 'SQLUtilities'
 "Bundle 'Indent-Guides'
 "Bundle 'Smooth-Scroll'
 "Bundle 'mattn/hahhah-vim'
-Bundle 'glidenote/memolist.vim'
+"Bundle 'glidenote/memolist.vim'
 "Bundle 'vimgrep.vim' "終了時にエラーが出る
 Bundle 'https://github.com/fuenor/qfixgrep.git'
 Bundle 'Markdown'
 Bundle 'unite.vim'
+"Bundle 'unite-colorscheme'
+Bundle 'https://github.com/Shougo/unite-session.git'
 Bundle 'fugitive.vim'
 Bundle 'gitv'
 Bundle 'mitechie/pyflakes-pathogen'
 Bundle 'renamer.vim'
+"Bundle 'wincent/Command-T'
+"Bundle 'Shougo/vimfiler'
+Bundle 'thinca/vim-qfreplace'
+Bundle 'Lokaltog/vim-easymotion'
 
 if !has('gui_macvim')
     "Bundle 'minibufexpl.vim'
@@ -165,10 +165,6 @@ let g:yankring_manual_clipboard_check=1
 
 """ yanktmp
 let g:yanktmp_file=$HOME.'/dotfile/.vim/bundle/yanktmp.vim/.vimyanktmp'
-
-map <silent> sy :call YanktmpYank()<CR>
-map <silent> sp :call YanktmpPaste_p()<CR>
-map <silent> sP :call YanktmpPaste_P()<CR>
 
 
 """ neocomplcache
@@ -267,33 +263,45 @@ map <Leader>mg :MemoGrep<CR>
 
 
 """ unite
+let g:unite_source_history_yank_enable = 1
+let g:unite_source_session_enable_auto_save = 1
+let g:unite_source_file_mru_limit = 1000
+let g:unite_update_time = 1000
 nnoremap [unite] <Nop>
 nmap r [unite]
 " 分割しないでuniteのbufferを表示する
 nnoremap [unite]u :<C-u>Unite -no-split<Space>
 " 全部乗せ
-nnoremap <silent> [unite]a :<C-u>UniteWithCurrentDir -no-split -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]a :<C-u>UniteWithCurrentDir buffer file_mru bookmark file -buffer-name=files -direction=belowright<CR>
 " ファイル一覧
-nnoremap <silent> [unite]f :<C-u>Unite -no-split -buffer-name=files file<CR>
+nnoremap <silent> [unite]f :<C-u>Unite file file/new -buffer-name=files -direction=belowright<CR>
 " バッファ一覧
-nnoremap <silent> [unite]b :<C-u>Unite -no-split buffer<CR>
+nnoremap <silent> [unite]t :<C-u>Unite buffer -direction=belowright<CR>
 " 常用セット
-nnoremap <silent> [unite]u :<C-u>Unite -no-split buffer file_mru<CR>
+nnoremap <silent> [unite]u :<C-u>Unite buffer file_mru -direction=belowright<CR>
 " 最近使用したファイル一覧
-nnoremap <silent> [unite]m :<C-u>Unite -no-split file_mru<CR>
+nnoremap <silent> [unite]m :<C-u>Unite file_mru -direction=belowright<CR>
 " 現在のバッファのカレントディレクトリからファイル一覧
-nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir -no-split file<CR>
+nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir file -direction=belowright<CR>
 " ブックマーク一覧
-nnoremap <silent> [unite]c :<C-u>Unite -no-split bookmark<CR>
+nnoremap <silent> [unite]c :<C-u>Unite bookmark -direction=belowright<CR>
+" ヤンク履歴
+nnoremap <silent> [unite]y :<C-u>Unite history/yank -direction=belowright<CR>
+" 変更履歴
+nnoremap <silent> [unite]s :<C-u>Unite change -direction=belowright<CR>
+" grep
+nnoremap <silent> [unite]g :<C-u>Unite grep -direction=belowright<CR>
+" セッション
+nnoremap <silent> [unite]s :<C-u>Unite session -direction=belowright<CR>
 
 
-""" 検索語が真ん中に来るように
-nmap n nzz 
-nmap N Nzz 
-nmap * *zz 
-nmap # #zz 
-nmap g* g*zz 
-nmap g# g#zz
+"""" 検索語が真ん中に来るように
+"nmap n nzz 
+"nmap N Nzz 
+"nmap * *zz 
+"nmap # #zz 
+"nmap g* g*zz 
+"nmap g# g#zz
 
 
 """ indent-guides
@@ -310,8 +318,8 @@ autocmd FileType git :setlocal foldlevel=99
 augroup SkeletonAu
     autocmd!
     autocmd BufNewFile *.html 0r $HOME/dotfile/.vim/skel/skel.html
-    autocmd BufNewFile *.cpp 0r $HOME/dotfile/..vim/skel/skel.cpp
-    autocmd BufNewFile *.hpp 0r $HOME/dotfile/..vim/skel/skel.hpp
+    autocmd BufNewFile *.cpp 0r $HOME/dotfile/.vim/skel/skel.cpp
+    autocmd BufNewFile *.hpp 0r $HOME/dotfile/.vim/skel/skel.hpp
     autocmd BufNewFile *.pl 0r $HOME/dotfile/.vim/skel/skel.pl
     autocmd BufNewFile *.pm 0r $HOME/dotfile/.vim/skel/skel.pm
     autocmd BufNewFile *.py 0r $HOME/dotfile/.vim/skel/skel.py
@@ -331,6 +339,10 @@ autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 autocmd FileType python :inoremap # X#
 
 
+""" handlebars template
+autocmd BufNewFile,BufRead *.hbs set filetype=xhtml
+
+
 """
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
@@ -347,11 +359,38 @@ autocmd FileType * setlocal formatoptions-=ro
 command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 
 
+"""" vimfiler
+"let g:vimfiler_as_default_explorer = 1
+
+
+""" easymotion
+" ホームポジションに近いキーを使う
+let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+" マッピング
+let g:EasyMotion_leader_key="<Space>"
+" 1ストローク選択を優先する
+let g:EasyMotion_grouping=1
+" カラー設定変更
+hi EasyMotionTarget ctermbg=none ctermfg=red
+hi EasyMotionShade  ctermbg=none ctermfg=blue
+
+
 """ color setting
 syntax on
 "colorscheme darkblue
 "colorscheme yuroyoro256
-colorscheme molokai
+"colorscheme molokai
+
+let g:solarized_termcolors=16
+let g:solarized_termtrans=0
+let g:solarized_degrade=0
+let g:solarized_bold=1
+let g:solarized_underline=1
+let g:solarized_italic=1
+let g:solarized_contrast='normal'
+let g:solarized_visibility='normal'
+set background=dark
+colorscheme solarized
 
 
 " ターミナルタイプによるカラー設定
@@ -380,8 +419,37 @@ colorscheme molokai
 "hi StatusLine term=bold,reverse ctermfg=231 ctermbg=238 guifg=#ffffff guibg=#666666
 ""hi LineNr ctermfg=28
 
+" 全角スペース・行末のスペース・タブの可視化
+if has("syntax")
+    syntax on
+
+    " PODバグ対策
+    syn sync fromstart
+
+    function! ActivateInvisibleIndicator()
+        " 下の行の"　"は全角スペース
+        syntax match InvisibleJISX0208Space "　" display containedin=ALL
+        highlight InvisibleJISX0208Space term=underline ctermbg=Blue guibg=darkgray gui=underline
+        "syntax match InvisibleTrailedSpace "[ \t]\+$" display containedin=ALL
+        "highlight InvisibleTrailedSpace term=underline ctermbg=Red guibg=NONE gui=undercurl guisp=darkorange
+        "syntax match InvisibleTab "\t" display containedin=ALL
+        "highlight InvisibleTab term=underline ctermbg=1 gui=undercurl guisp=darkslategray
+    endfunction
+
+    augroup invisible
+        autocmd! invisible
+        autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
+    augroup END
+endif
+
 " pyflakeが使う
-hi SpellBad ctermfg=darkred ctermbg=none guifg=darkred guibg=none
+hi SpellBad term=none cterm=none ctermfg=darkred ctermbg=none guifg=darkred guibg=none
+
+" tabとか
+hi SpecialKey term=None ctermfg=0 guifg=darkgray
+
+" 
+hi PmenuSel ctermfg=248 ctermbg=0
 
 
 """ general key map
@@ -423,7 +491,19 @@ nnoremap <F3> :shell<CR>
 "nmap <F1> :tabnew<CR>
 
 
-""" gui
+""" ノーマル/インサートモードでカーソルの形状を変更する
+if &term =~ "screen" || &term=~"screen-256color"
+    "let &t_SI = "\eP\e]50;CursorShape=1\x7\e\\"
+    "let &t_EI = "\eP\e]50;CursorShape=0\x7\e\\"
+     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+     let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+elseif &term =~ "xterm" || &term=~"xterm-256color"
+    let &t_SI = "\e]50;CursorShape=1\x7"
+    let &t_EI = "\e]50;CursorShape=0\x7"
+endif
+
+
+""" gui用設定
 if has('gui_macvim') || has('kaoriya')
     "set background=dark
     set guioptions-=T
@@ -529,4 +609,3 @@ endif
 
 " なんかのプラグインで無効になってるぽいので
 set showcmd
-
