@@ -142,14 +142,17 @@ Bundle 'unite.vim'
 Bundle 'https://github.com/Shougo/unite-session.git'
 Bundle 'fugitive.vim'
 Bundle 'gitv'
+"Bundle 'pyflakes'
 Bundle 'mitechie/pyflakes-pathogen'
 Bundle 'renamer.vim'
 "Bundle 'wincent/Command-T'
 "Bundle 'Shougo/vimfiler'
 Bundle 'thinca/vim-qfreplace'
 Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'VimRepress'
 
 if !has('gui_macvim')
+    Bundle 'VimRepress'
     "Bundle 'minibufexpl.vim'
     "Bundle 'bufferlist.vim'
 endif
@@ -443,12 +446,12 @@ if has("syntax")
 endif
 
 " pyflakeが使う
-hi SpellBad term=none cterm=none ctermfg=darkred ctermbg=none guifg=darkred guibg=none
+hi SpellBad ctermfg=darkred guifg=darkred
 
 " tabとか
-hi SpecialKey term=None ctermfg=0 guifg=darkgray
+hi SpecialKey ctermfg=0 guifg=darkgray
 
-" 
+"
 hi PmenuSel ctermfg=248 ctermbg=0
 
 
@@ -504,16 +507,22 @@ endif
 
 
 """ gui用設定
-if has('gui_macvim') || has('kaoriya')
+if has('gui_macvim') || has('kaoriya') || has('gvim')
     "set background=dark
     set guioptions-=T
     set guioptions+=a
     "set guifont=Monaco:h10
-    set guifont=Ricty:h12
     set showtabline=2
     set transparency=5
-    set lines=50 columns=165
     set visualbell t_vb=
+
+    if has('win32')
+        set guifont=Ricty:h9
+        set lines=50 columns=170
+    elseif has('mac')
+        set guifont=Ricty:h12
+        set lines=50 columns=165
+    endif
 
     "augroup hack234
     "  autocmd!
