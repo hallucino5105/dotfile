@@ -380,20 +380,27 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 
 """ color setting
 syntax on
-"colorscheme darkblue
-"colorscheme yuroyoro256
-"colorscheme molokai
 
-let g:solarized_termcolors=16
-let g:solarized_termtrans=0
-let g:solarized_degrade=0
-let g:solarized_bold=1
-let g:solarized_underline=1
-let g:solarized_italic=1
-let g:solarized_contrast='normal'
-let g:solarized_visibility='normal'
-set background=dark
-colorscheme solarized
+
+if has('mac')
+    "colorscheme darkblue
+    "colorscheme yuroyoro256
+    "colorscheme molokai
+
+    let g:solarized_termcolors=16
+    let g:solarized_termtrans=0
+    let g:solarized_degrade=0
+    let g:solarized_bold=1
+    let g:solarized_underline=1
+    let g:solarized_italic=1
+    let g:solarized_contrast='normal'
+    let g:solarized_visibility='normal'
+    set background=dark
+    colorscheme solarized
+elseif has('win32') || has('cygwin') || has("win32unix")
+    colorscheme molokai
+endif
+
 
 
 " ターミナルタイプによるカラー設定
@@ -517,7 +524,6 @@ if has('gui_macvim') || has('kaoriya') || has('gvim')
     set visualbell t_vb=
 
     if has('win32')
-        colorscheme molokai
         set guifont=Ricty:h9
         set lines=50 columns=170
     elseif has('mac')
