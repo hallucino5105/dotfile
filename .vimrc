@@ -299,11 +299,11 @@ nnoremap <silent> [unite]s :<C-u>Unite session -direction=belowright<CR>
 
 
 """" 検索語が真ん中に来るように
-"nmap n nzz 
-"nmap N Nzz 
-"nmap * *zz 
-"nmap # #zz 
-"nmap g* g*zz 
+"nmap n nzz
+"nmap N Nzz
+"nmap * *zz
+"nmap # #zz
+"nmap g* g*zz
 "nmap g# g#zz
 
 
@@ -517,6 +517,7 @@ if has('gui_macvim') || has('kaoriya') || has('gvim')
     set visualbell t_vb=
 
     if has('win32')
+        colorscheme molokai
         set guifont=Ricty:h9
         set lines=50 columns=170
     elseif has('mac')
