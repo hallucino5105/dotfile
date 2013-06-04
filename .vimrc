@@ -331,8 +331,8 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
 
-""" gitv
-autocmd FileType git :setlocal foldlevel=99
+"""" gitv
+"autocmd FileType git :setlocal foldlevel=99
 
 
 """ file skelton
@@ -412,6 +412,10 @@ nmap <c-@> <Plug>DWMFocus
 nmap <c-Space> <Plug>DWMFocus
 nmap <c-l> <Plug>DWMGrowMaster
 nmap <c-h> <Plug>DWMShrinkMaster
+
+
+""" vim-markdown
+let g:vim_markdown_folding_disabled=1
 
 
 """ color setting
