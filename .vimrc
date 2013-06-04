@@ -43,6 +43,7 @@ set list
 set listchars=tab:»\ ,extends:»,precedes:«,nbsp:%
 set maxmempattern=10000
 set autoread
+set nofoldenable
 
 
 " 自動再読み込み
@@ -136,7 +137,8 @@ Bundle 'Align'
 "Bundle 'glidenote/memolist.vim'
 "Bundle 'vimgrep.vim' "終了時にエラーが出る
 Bundle 'fuenor/qfixgrep.git'
-Bundle 'Markdown'
+"Bundle 'plasticboy/vim-markdown'
+Bundle 'tpope/vim-markdown'
 Bundle 'unite.vim'
 "Bundle 'unite-colorscheme'
 Bundle 'Shougo/unite-session.git'
@@ -152,6 +154,8 @@ Bundle 'thinca/vim-qfreplace'
 Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'VimRepress'
 Bundle 'spolu/dwm.vim'
+Bundle 'open-browser.vim'
+
 
 if !has('gui_macvim')
     Bundle 'VimRepress'
@@ -211,6 +215,16 @@ if !exists('g:neocomplcache_omni_patterns')
 endif
 let g:neocomplcache_omni_patterns.python = ''
 let g:neocomplcache_omni_patterns.ruby = ''
+
+
+""" quickrun
+let g:quickrun_config = {}
+let g:quickrun_config['mkd'] = {
+    \ 'outputter': 'browser',
+    \ 'command': 'markdown2',
+    \ 'cmdopt': '-x fenced-code-blocks',
+    \ 'exec': '%c %o %a %s',
+    \ }
 
 
 """ gundo
@@ -333,9 +347,14 @@ augroup SkeletonAu
 augroup END
 
 
+"""" markdown
+"autocmd BufRead,BufNewFile *.mkd  setfiletype=mkd
+"autocmd BufRead,BufNewFile *.md  setfiletype=mkd
+
+
 """ actionscript,mxml
-au BufNewFile,BufRead *.as set filetype=actionscript
-au BufNewFile,BufRead *.mxml set filetype=mxml
+autocmd BufNewFile,BufRead *.as set filetype=actionscript
+autocmd BufNewFile,BufRead *.mxml set filetype=mxml
 
 
 """ python
