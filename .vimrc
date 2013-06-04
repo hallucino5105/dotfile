@@ -97,7 +97,7 @@ Bundle 'Zenburn'
 "Bundle 'darkblue'
 "Bundle 'darkblue2'
 "Bundle 'wombat256.vim'
-Bundle 'https://github.com/yuroyoro/yuroyoro256.vim.git'
+Bundle 'yuroyoro/yuroyoro256.vim.git'
 Bundle 'molokai'
 "Bundle 'Solarized'
 Bundle 'altercation/vim-colors-solarized'
@@ -117,14 +117,14 @@ Bundle 'eregex.vim'
 Bundle 'yanktmp.vim'
 Bundle 'surround.vim'
 Bundle 'quickrun.vim'
-Bundle 'http://github.com/sjl/gundo.vim.git'
+Bundle 'sjl/gundo.vim.git'
 "Bundle 'renamer.vim'
 Bundle 'scratch.vim'
 "Bundle 'Python-Syntax'
 Bundle 'sudo.vim'
 Bundle 'neocomplcache'
-Bundle 'https://github.com/Shougo/vimshell.git'
-Bundle 'https://github.com/Shougo/vimproc.git'
+Bundle 'Shougo/vimshell.git'
+Bundle 'Shougo/vimproc.git'
 "Bundle 'vcscommand.vim'
 Bundle 'taglist.vim'
 Bundle 'Align'
@@ -135,11 +135,12 @@ Bundle 'Align'
 "Bundle 'mattn/hahhah-vim'
 "Bundle 'glidenote/memolist.vim'
 "Bundle 'vimgrep.vim' "終了時にエラーが出る
-Bundle 'https://github.com/fuenor/qfixgrep.git'
+Bundle 'fuenor/qfixgrep.git'
 Bundle 'Markdown'
 Bundle 'unite.vim'
 "Bundle 'unite-colorscheme'
-Bundle 'https://github.com/Shougo/unite-session.git'
+Bundle 'Shougo/unite-session.git'
+Bundle 'kannokanno/unite-dwm.git'
 Bundle 'fugitive.vim'
 Bundle 'gitv'
 "Bundle 'pyflakes'
@@ -286,7 +287,7 @@ nnoremap <silent> [unite]u :<C-u>Unite buffer file_mru -direction=belowright<CR>
 " 最近使用したファイル一覧
 nnoremap <silent> [unite]m :<C-u>Unite file_mru -direction=belowright<CR>
 " 現在のバッファのカレントディレクトリからファイル一覧
-nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir file -direction=belowright<CR>
+nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir -buffer-name=files file file/new -direction=belowright<CR>
 " ブックマーク一覧
 nnoremap <silent> [unite]c :<C-u>Unite bookmark -direction=belowright<CR>
 " ヤンク履歴
@@ -297,6 +298,8 @@ nnoremap <silent> [unite]s :<C-u>Unite change -direction=belowright<CR>
 nnoremap <silent> [unite]g :<C-u>Unite grep -direction=belowright<CR>
 " セッション
 nnoremap <silent> [unite]s :<C-u>Unite session -direction=belowright<CR>
+" dwm
+nnoremap <silent> [unite]w :<C-u>Unite dwm -direction=belowright<CR>
 
 
 """" 検索語が真ん中に来るように
@@ -377,6 +380,19 @@ let g:EasyMotion_grouping=1
 " カラー設定変更
 hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=blue
+
+
+""" dwm
+nnoremap <c-j> <c-w>w
+nnoremap <c-k> <c-w>W
+nmap <m-r> <Plug>DWMRotateCounterclockwise
+nmap <m-t> <Plug>DWMRotateClockwise
+nmap <c-n> <Plug>DWMNew
+nmap <c-c> <Plug>DWMClose
+nmap <c-@> <Plug>DWMFocus
+nmap <c-Space> <Plug>DWMFocus
+nmap <c-l> <Plug>DWMGrowMaster
+nmap <c-h> <Plug>DWMShrinkMaster
 
 
 """ color setting
