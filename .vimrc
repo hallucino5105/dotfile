@@ -150,6 +150,7 @@ Bundle 'renamer.vim'
 Bundle 'thinca/vim-qfreplace'
 Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'VimRepress'
+Bundle 'spolu/dwm.vim'
 
 if !has('gui_macvim')
     Bundle 'VimRepress'
