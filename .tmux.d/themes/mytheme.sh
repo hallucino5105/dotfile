@@ -106,7 +106,7 @@ else
     if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
         TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
             "tmux_session_info 16 250 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
-            "hostname 16 184 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
+            "hostname 16 220 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
             "ostype 16 112 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
             )
     fi
