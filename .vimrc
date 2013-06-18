@@ -66,7 +66,7 @@ augroup END
 " trailing spaces highlight
 augroup HighlightTrailingSpaces
     autocmd!
-    autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+    autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces guibg=Black ctermbg=234
     autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 
@@ -160,7 +160,7 @@ Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'VimRepress'
 Bundle 'spolu/dwm.vim'
 Bundle 'open-browser.vim'
-
+Bundle 'occur.vim'
 
 if !has('gui_macvim')
     Bundle 'VimRepress'
@@ -179,6 +179,9 @@ let g:yankring_manual_clipboard_check=1
 
 """ yanktmp
 let g:yanktmp_file=$HOME.'/dotfile/.vim/bundle/yanktmp.vim/.vimyanktmp'
+map <silent> sy :call YanktmpYank()<CR> 
+map <silent> sp :call YanktmpPaste_p()<CR> 
+map <silent> sP :call YanktmpPaste_P()<CR> 
 
 
 """ neocomplcache
@@ -227,7 +230,7 @@ let g:quickrun_config = {}
 let g:quickrun_config['mkd'] = {
     \ 'outputter': 'browser',
     \ 'command': 'markdown2',
-    \ 'cmdopt': '-x fenced-code-blocks',
+    \ 'cmdopt': '-x fenced-code-blocks -x link_patterns -x wiki-tables -x html-classes=\{\"code\":\"syntaxhighlight\"\}',
     \ 'exec': '%c %o %a %s',
     \ }
 
@@ -540,11 +543,11 @@ nnoremap <F3> :shell<CR>
 "nnoremap <C-l> :<C-l>j
 "nnoremap <C-h> :<C-h>j
 
-"" 挿入モードで移動
-"inoremap <C-j> <Down>
-"inoremap <C-k> <Up>
-"inoremap <C-h> <Left>
-"inoremap <C-l> <Right>
+" 挿入モードで移動
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
 
 
 " tab
