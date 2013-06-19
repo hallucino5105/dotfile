@@ -139,7 +139,7 @@ Bundle 'Align'
 "Bundle 'Indent-Guides'
 "Bundle 'Smooth-Scroll'
 "Bundle 'mattn/hahhah-vim'
-"Bundle 'glidenote/memolist.vim'
+Bundle 'glidenote/memolist.vim'
 "Bundle 'vimgrep.vim' "終了時にエラーが出る
 Bundle 'fuenor/qfixgrep.git'
 "Bundle 'plasticboy/vim-markdown'
@@ -264,7 +264,11 @@ let g:miniBufExplMapCTabSwitchBuffs = 1
 
 """ taglist
 set tags=./tags,tags;
-noremap <F4> :Tlist<CR>
+"let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
+let Tlist_Show_One_File = 1
+"let Tlist_Use_Right_Window = 1
+let Tlist_Exit_OnlyWindow = 1
+noremap <F4> :TlistToggle<CR>
 
 
 """ BufferList
@@ -274,8 +278,8 @@ noremap <F4> :Tlist<CR>
 
 
 """ MemoList
-"let g:memolist_path = "path/to/dir"
-"let g:memolist_memo_suffix = "txt"
+let g:memolist_path = "~/.vimmemo"
+let g:memolist_memo_suffix = "md"
 let g:memolist_memo_date = "%Y-%m-%d %H:%M"
 "let g:memolist_memo_date = "epoch"
 "let g:memolist_memo_date = "%D %T"
@@ -294,6 +298,7 @@ let g:unite_source_history_yank_enable = 1
 let g:unite_source_session_enable_auto_save = 1
 let g:unite_source_file_mru_limit = 1000
 let g:unite_update_time = 1000
+
 nnoremap [unite] <Nop>
 nmap r [unite]
 " 分割しないでuniteのbufferを表示する
@@ -355,9 +360,9 @@ augroup SkeletonAu
 augroup END
 
 
-"""" markdown
-"autocmd BufRead,BufNewFile *.mkd  setfiletype=mkd
-"autocmd BufRead,BufNewFile *.md  setfiletype=mkd
+""" markdown
+autocmd BufRead,BufNewFile *.mkd  setfiletype=mkd
+autocmd BufRead,BufNewFile *.md  setfiletype=mkd
 
 
 """ actionscript,mxml
