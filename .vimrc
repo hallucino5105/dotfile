@@ -227,7 +227,7 @@ let g:neocomplcache_omni_patterns.ruby = ''
 
 """ quickrun
 let g:quickrun_config = {}
-let g:quickrun_config['mkd'] = {
+let g:quickrun_config['markdown'] = {
     \ 'outputter': 'browser',
     \ 'command': 'markdown2',
     \ 'cmdopt': '-x fenced-code-blocks -x link_patterns -x wiki-tables -x html-classes=\{\"code\":\"syntaxhighlight\"\}',
