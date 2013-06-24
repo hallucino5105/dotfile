@@ -229,7 +229,7 @@ let g:neocomplcache_omni_patterns.ruby = ''
 "'cmdopt': '-x fenced-code-blocks -x wiki-tables -x hard-wrap -x rid-code-tag -x html-classes=\{\"pre\":\"syntaxhighlight\"\}',
 
 let g:quickrun_config = {}
-let g:quickrun_config['mkd'] = {
+let g:quickrun_config['markdown'] = {
     \ 'outputter': 'browser',
     \ 'command': 'markdown2',
     \ 'cmdopt': '-x fenced-code-blocks -x wiki-tables -x hard-wrap -x rid-code-tag',
