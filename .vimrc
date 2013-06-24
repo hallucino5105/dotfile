@@ -226,11 +226,13 @@ let g:neocomplcache_omni_patterns.ruby = ''
 
 
 """ quickrun
+"'cmdopt': '-x fenced-code-blocks -x wiki-tables -x hard-wrap -x rid-code-tag -x html-classes=\{\"pre\":\"syntaxhighlight\"\}',
+
 let g:quickrun_config = {}
 let g:quickrun_config['mkd'] = {
     \ 'outputter': 'browser',
     \ 'command': 'markdown2',
-    \ 'cmdopt': '-x fenced-code-blocks -x link_patterns -x wiki-tables -x html-classes=\{\"code\":\"syntaxhighlight\"\}',
+    \ 'cmdopt': '-x fenced-code-blocks -x wiki-tables -x hard-wrap -x rid-code-tag',
     \ 'exec': '%c %o %a %s',
     \ }
 
@@ -590,7 +592,7 @@ if has('gui_macvim') || has('kaoriya') || has('gvim')
         set lines=50 columns=170
     elseif has('mac')
         set guifont=Ricty:h12
-        set lines=50 columns=165
+        set lines=55 columns=180
     endif
 
     "augroup hack234
