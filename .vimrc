@@ -572,7 +572,7 @@ if &term =~ "screen" || &term=~"screen-256color"
     "let &t_EI = "\eP\e]50;CursorShape=0\x7\e\\"
      let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
      let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
- elseif &term =~ "xterm" || &term=~"xterm-256color"
+elseif &term =~ "xterm" || &term=~"xterm-256color"
     let &t_SI = "\e]50;CursorShape=1\x7"
     let &t_EI = "\e]50;CursorShape=0\x7"
 endif
@@ -615,6 +615,5 @@ if has('gui_macvim') || has('kaoriya') || has('gvim')
 endif
 
 
-
-"" なんかのプラグインで無効になってるぽいので
-"set showcmd
+" なんかのプラグインで無効になってるぽいので
+set showcmd

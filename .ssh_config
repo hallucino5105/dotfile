@@ -58,6 +58,7 @@ Host itlab
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
+    ForwardX11      yes
 
 Host nginx
     HostName        192.168.10.71
