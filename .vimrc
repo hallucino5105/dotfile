@@ -433,6 +433,10 @@ nmap <c-h> <Plug>DWMShrinkMaster
 let g:vim_markdown_folding_disabled=1
 
 
+""" occur
+" 検索結果一覧
+noremap <F2> :Occur<CR>
+
 
 """""""""""""""""
 """ color setting
@@ -612,5 +616,5 @@ endif
 
 
 
-" なんかのプラグインで無効になってるぽいので
-set showcmd
+"" なんかのプラグインで無効になってるぽいので
+"set showcmd
