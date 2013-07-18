@@ -109,6 +109,12 @@ Host gitlab
     IdentityFile    ~/.ssh/gitlab_hoshino_id_rsa
     User            git
 
+Host awscon
+    HostName        192.168.0.190
+    Port            22
+    IdentityFile    ~/.ssh/awscon_id_rsa
+    User            vyatta
+
 
 # kaisya vm
 Host ym0c1
