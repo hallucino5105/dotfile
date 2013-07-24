@@ -111,9 +111,16 @@ Host gitlab
 
 Host awscon
     HostName        192.168.0.190
+    #HostName        61.196.206.204
     Port            22
     IdentityFile    ~/.ssh/awscon_id_rsa
     User            vyatta
+    ServerAliveInterval 15
+
+Host cartodb
+    HostName        192.168.4.68
+    Port            22
+    User            hoshino
 
 
 # kaisya vm

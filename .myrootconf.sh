@@ -54,8 +54,8 @@ export PERL5LIB="${HOME}/.perl5/lib/perl5:${PERL5LIB}"
 #fi
 
 
-alias ls="ls --color --time-style=long-iso"
-alias ll="ls -la --color --time-style=long-iso"
+alias ls="ls -v --color --time-style=long-iso"
+alias ll="ls -lav --color --time-style=long-iso"
 alias l="less -cSR"
 alias rm="rm -i"
 alias lv="lv -c"
