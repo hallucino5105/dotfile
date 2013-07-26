@@ -120,6 +120,13 @@ Host awscon
 Host cartodb
     HostName        192.168.4.68
     Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host cartodb2
+    HostName        192.168.4.69
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
 
 
