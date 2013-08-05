@@ -178,6 +178,26 @@ Host e1gp.jp
     User            hoshino
 
 
+# aws sv
+Host sv_web
+    HostName        10.0.0.100
+    Port            22
+    IdentityFile    ~/.ssh/aws_sv_id_rsa
+    User            hoshino
+
+Host sv_evdb
+    HostName        10.0.1.110
+    Port            22
+    IdentityFile    ~/.ssh/aws_sv_id_rsa
+    User            hoshino
+
+Host sv_postgis
+    HostName        10.0.1.120
+    Port            22
+    IdentityFile    ~/.ssh/aws_sv_id_rsa
+    User            hoshino
+
+
 # ie server
 Host home1
     HostName        krallice.dip.jp
