@@ -85,26 +85,26 @@ Host xymon
     User            hoshino
 
 Host githost
-    HostName        192.168.4.211
+    HostName        192.168.0.211
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
 
 Host gitolite
-    HostName        192.168.4.211
+    HostName        192.168.0.211
     Port            22
     IdentityFile    ~/.ssh/gitolite_hoshino_id_rsa
     User            git
 
 Host c-gitolite
-    HostName        192.168.4.211
+    HostName        192.168.0.211
     Port            22
     IdentityFile    ~/.ssh/gitolite_hoshino_id_rsa
     User            git
     ProxyCommand    ssh repo nc %h %p 2> /dev/null
 
 Host gitlab
-    HostName        192.168.4.211
+    HostName        192.168.0.211
     Port            22
     IdentityFile    ~/.ssh/gitlab_hoshino_id_rsa
     User            git
@@ -193,6 +193,12 @@ Host sv_evdb
 
 Host sv_postgis
     HostName        10.0.1.120
+    Port            22
+    IdentityFile    ~/.ssh/aws_sv_id_rsa
+    User            hoshino
+
+Host sv_app
+    HostName        10.0.0.101
     Port            22
     IdentityFile    ~/.ssh/aws_sv_id_rsa
     User            hoshino
