@@ -197,6 +197,12 @@ Host sv_postgis
     IdentityFile    ~/.ssh/aws_sv_id_rsa
     User            hoshino
 
+Host sv_app
+    HostName        10.0.0.101
+    Port            22
+    IdentityFile    ~/.ssh/aws_sv_id_rsa
+    User            hoshino
+
 
 # ie server
 Host home1
