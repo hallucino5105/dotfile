@@ -1,5 +1,7 @@
 export LANG=ja_JP.UTF-8
 
+export PS1="[\u@\h \W]\\$ "
+
 export PATH=~/bin:${PATH}
 export PATH=/opt/local/bin:/opt/local/sbin:${PATH}
 export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
@@ -33,7 +35,8 @@ export EDITOR="vi"
 
 alias ls="ls -vF --color --time-style=long-iso"
 alias ll="ls -lavF --color --time-style=long-iso"
-alias l="less -cSR"
+alias l="ls -lavF --color --time-style=long-iso"
+alias less="less -cSR"
 alias rm="rm -i"
 alias lv="lv -c"
 alias tmux="tmux -2"
