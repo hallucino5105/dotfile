@@ -170,8 +170,9 @@ case ${OSTYPE} in
         }
         ;;
     darwin*)
-        alias ls="ls -FG"
-        alias ll="ls -laFG"
+        alias ls="ls -vFG"
+        alias ll="ls -lavFG"
+        alias l="ls -lavFG"
         ;;
 esac
 
