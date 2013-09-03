@@ -33,7 +33,7 @@ export EDITOR="vi"
 
 alias ls="ls -vF --color --time-style=long-iso"
 alias ll="ls -lavF --color --time-style=long-iso"
-alias l="less -cSR"
+alias less="less -cSR"
 alias rm="rm -i"
 alias lv="lv -c"
 alias tmux="tmux -2"
