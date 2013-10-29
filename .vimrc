@@ -118,7 +118,8 @@ Bundle 'hail2u/vim-css3-syntax'
 Bundle 'groenewege/vim-less'
 
 " other
-Bundle 'eregex.vim'
+"Bundle 'eregex.vim'
+Bundle 'othree/eregex.vim'
 "Bundle 'YankRing.vim'
 Bundle 'yanktmp.vim'
 Bundle 'surround.vim'
