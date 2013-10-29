@@ -42,6 +42,6 @@
     keepBackup = false
 #[diff]
 #    external = p4diff
-[push]
-	default = simple
+#[push]
+#	default = simple
 
