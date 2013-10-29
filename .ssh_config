@@ -11,6 +11,12 @@ Host devel
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
 
+Host devel_new
+    HostName        192.168.10.56
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
 Host evdb
     HostName        192.168.4.49
     Port            22
@@ -19,6 +25,18 @@ Host evdb
 
 Host evdbrep
     HostName        192.168.4.33
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host evdbrep2
+    HostName        192.168.4.35
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host evdbrep3
+    HostName        192.168.4.39
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
