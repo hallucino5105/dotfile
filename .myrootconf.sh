@@ -1,31 +1,13 @@
 export LANG=ja_JP.UTF-8
 
-export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
-export AWS_HOME=/opt/local/aws
-
-export EC2_HOME=${AWS_HOME}/ec2-api-tools
-export EC2_AMITOOL_HOME=${AWS_HOME}/ec2-ami-tools
-export AWS_ELB_HOME=${AWS_HOME}/elb-api-tools
-export AWS_RDS_HOME=${AWS_HOME}/rds-api-tools
-export AWS_R53_HOME=${AWS_HOME}/r53-api-tools
-
-export EC2_PRIVATE_KEY=~/.key/testkey.pem
-export EC2_CERT=~/.key/cert.pem
-
-export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+export PS1="[\u@\h \W]\\$ "
 
 export PATH=~/bin:${PATH}
 export PATH=/opt/local/bin:/opt/local/sbin:${PATH}
 export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
-export PATH=${PATH}:/usr/local/share/python
-export PATH=${PATH}:${EC2_HOME}/bin:${EC2_AMITOOL_HOME}/bin:${AWS_ELB_HOME}/bin:${AWS_RDS_HOME}/bin:${AWS_R53_HOME}/bin
-export PATH=${PATH}:${ANDROID_SDK_HOME}:${ANDROID_SDK_HOME2}:${ANDROID_NDK_HOME}
 export MANPATH=${MANPATH}:/usr/local/man:/opt/local/share/man:/opt/local/man
 
-export WORKON_HOME=~/local
-
 export LESS="-sgSRXF -x4"
-
 export SVN_EDITOR="vim --noplugin"
 export PAGER="less"
 export GIT_PAGER="less"
@@ -35,9 +17,6 @@ export DIFF="colordiff"
 # 設定するとzshが勝手にエディタ風のキーバインドにしやがる
 # .zshrcにbindkey -e
 export EDITOR="vi"
-
-#export PERL_CPANM_OPT="--local-lib=~/.perl5"
-export PERL5LIB="${HOME}/.perl5/lib/perl5:${PERL5LIB}"
 
 
 ## term color
@@ -54,14 +33,16 @@ export PERL5LIB="${HOME}/.perl5/lib/perl5:${PERL5LIB}"
 #fi
 
 
-alias ls="ls --color --time-style=long-iso"
-alias ll="ls -la --color --time-style=long-iso"
-alias l="less -cSR"
+alias ls="ls -vF --color --time-style=long-iso"
+alias ll="ls -lavF --color --time-style=long-iso"
+alias l="ls -lavF --color --time-style=long-iso"
+alias less="less -cSR"
 alias rm="rm -i"
 alias lv="lv -c"
 alias tmux="tmux -2"
 alias ftp="ncftp"
 alias grep="grep --color=always"
+alias egrep="egrep --color=always"
 alias mysql="mysql --pager='less -sSRXFN'"
 alias vi="vim"
 alias svndiff="svn diff -x -u -x --ignore-eol-style | vim -R -"
@@ -77,3 +58,4 @@ alias sudo="sudo -E"
 alias home-mysql="mysql -h krallice.dip.jp -u hoshino -p08240824"
 alias home-ftp-hoshino="ftp ftp://hoshino@krallice.dip.jp/"
 alias home-ftp-web="ftp ftp://webuser@krallice.dip.jp/"
+

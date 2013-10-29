@@ -11,6 +11,12 @@ Host devel
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
 
+Host devel_new
+    HostName        192.168.10.56
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
 Host evdb
     HostName        192.168.4.49
     Port            22
@@ -19,6 +25,18 @@ Host evdb
 
 Host evdbrep
     HostName        192.168.4.33
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host evdbrep2
+    HostName        192.168.4.35
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host evdbrep3
+    HostName        192.168.4.39
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
@@ -58,6 +76,7 @@ Host itlab
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
+    ForwardX11      yes
 
 Host nginx
     HostName        192.168.10.71
@@ -108,6 +127,26 @@ Host gitlab
     IdentityFile    ~/.ssh/gitlab_hoshino_id_rsa
     User            git
 
+Host awscon
+    HostName        192.168.0.190
+    #HostName        61.196.206.204
+    Port            22
+    IdentityFile    ~/.ssh/awscon_id_rsa
+    User            vyatta
+    ServerAliveInterval 15
+
+Host cartodb
+    HostName        192.168.4.68
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host cartodb2
+    HostName        192.168.4.69
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
 
 # kaisya vm
 Host ym0c1
@@ -154,6 +193,32 @@ Host e1gp.jp
     HostName        e1gp.jp
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+
+# aws sv
+Host sv_web
+    HostName        10.0.0.100
+    Port            22
+    IdentityFile    ~/.ssh/aws_sv_id_rsa
+    User            hoshino
+
+Host sv_evdb
+    HostName        10.0.1.110
+    Port            22
+    IdentityFile    ~/.ssh/aws_sv_id_rsa
+    User            hoshino
+
+Host sv_postgis
+    HostName        10.0.1.120
+    Port            22
+    IdentityFile    ~/.ssh/aws_sv_id_rsa
+    User            hoshino
+
+Host sv_app
+    HostName        10.0.0.210
+    Port            22
+    IdentityFile    ~/.ssh/aws_sv_id_rsa
     User            hoshino
 
 

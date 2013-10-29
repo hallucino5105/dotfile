@@ -79,7 +79,7 @@ if is-at-least 4.3.10; then
 
     precmd_vcs_info () {
         psvar=()
-       LANG=en_US.UTF-8 vcs_info
+        LANG=en_US.UTF-8 vcs_info
         repos=$(print -nD $vcs_info_msg_0_)
 
         # psvar[1]とpsvar[2]がなぜかvcs以外のディレクトリに行っても消えないので
@@ -89,7 +89,7 @@ if is-at-least 4.3.10; then
         [[ -n "$vcs_info_msg_2_" ]] && psvar[1]="$vcs_info_msg_2_"
         [[ -n "$vcs_info_msg_3_" ]] && psvar[2]="$vcs_info_msg_3_"
     }
-    
+
     typeset -ga precmd_functions
     precmd_functions+=precmd_vcs_info
 
@@ -170,8 +170,9 @@ case ${OSTYPE} in
         }
         ;;
     darwin*)
-        alias ls="ls -FG"
-        alias ll="ls -laFG"
+        alias ls="ls -vFG"
+        alias ll="ls -lavFG"
+        alias l="ls -lavFG"
         ;;
 esac
 

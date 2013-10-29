@@ -169,6 +169,9 @@ if !has('gui_macvim')
     "Bundle 'bufferlist.vim'
 endif
 
+Bundle 'https://github.com/mattn/habatobi-vim.git'
+
+
 filetype plugin indent on
 
 
@@ -434,6 +437,10 @@ nmap <c-h> <Plug>DWMShrinkMaster
 let g:vim_markdown_folding_disabled=1
 
 
+""" occur
+" 検索結果一覧
+noremap <F2> :Occur<CR>
+
 
 """""""""""""""""
 """ color setting
@@ -563,7 +570,7 @@ inoremap <C-l> <Right>
 "nmap <F1> :tabnew<CR>
 
 
-""" ノーマル/インサートモードでカーソルの形状を変更する
+" ノーマル/インサートモードでカーソルの形状を変更する
 if &term =~ "screen" || &term=~"screen-256color"
     "let &t_SI = "\eP\e]50;CursorShape=1\x7\e\\"
     "let &t_EI = "\eP\e]50;CursorShape=0\x7\e\\"
@@ -574,6 +581,10 @@ elseif &term =~ "xterm" || &term=~"xterm-256color"
     let &t_EI = "\e]50;CursorShape=0\x7"
 endif
 
+
+" c*でカーソル下のキーワードを置換
+nnoremap <expr> c* ':%s ;\<' . expand('<cword>') . '\>;'
+vnoremap <expr> c* ':s ;\<' . expand('<cword>') . '\>;'
 
 
 """""""""""""""
@@ -606,7 +617,6 @@ if has('gui_macvim') || has('kaoriya') || has('gvim')
     "colorscheme lucius
     "colorscheme darkeclipse
 endif
-
 
 
 " なんかのプラグインで無効になってるぽいので
