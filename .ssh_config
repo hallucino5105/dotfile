@@ -147,6 +147,18 @@ Host cartodb2
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
 
+Host choimobi
+    HostName        192.168.4.95
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host servernas
+    HostName        192.168.4.98
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
 
 # kaisya vm
 Host ym0c1
