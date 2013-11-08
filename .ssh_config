@@ -159,6 +159,12 @@ Host servernas
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
 
+Host probe_websock
+    HostName        192.168.4.96
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
 
 # kaisya vm
 Host ym0c1
