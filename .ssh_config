@@ -71,6 +71,12 @@ Host gasftp_s
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
 
+Host gasftp_s2
+    HostName        192.168.4.241
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
 Host itlab
     HostName        192.168.4.55
     Port            22
@@ -161,6 +167,50 @@ Host servernas
 
 Host probe_websock
     HostName        192.168.4.96
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host batterysim-share
+    HostName        192.168.4.07
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+
+# Hadoop
+Host ha-name
+    HostName        192.168.4.80
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host ha-data1
+    HostName        192.168.4.81
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host ha-data2
+    HostName        192.168.4.82
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host ha-data3
+    HostName        192.168.4.83
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host ha-data4
+    HostName        192.168.4.84
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host ha-cli
+    HostName        192.168.4.89
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
