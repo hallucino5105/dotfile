@@ -23,6 +23,12 @@ Host evdb
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
 
+Host evdb2
+    HostName        192.168.10.148
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
 Host evdbrep
     HostName        192.168.4.33
     Port            22
@@ -30,13 +36,7 @@ Host evdbrep
     User            hoshino
 
 Host evdbrep2
-    HostName        192.168.4.35
-    Port            22
-    IdentityFile    ~/.ssh/ym0_id_dsa
-    User            hoshino
-
-Host evdbrep3
-    HostName        192.168.4.39
+    HostName        192.168.10.135
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
@@ -172,7 +172,7 @@ Host probe_websock
     User            hoshino
 
 Host batterysim-share
-    HostName        192.168.4.07
+    HostName        192.168.4.97
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
