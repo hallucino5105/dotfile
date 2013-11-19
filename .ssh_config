@@ -36,7 +36,7 @@ Host evdbrep
     User            hoshino
 
 Host evdbrep2
-    HostName        192.168.10.135
+    HostName        192.168.4.99
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
