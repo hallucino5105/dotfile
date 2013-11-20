@@ -24,7 +24,7 @@ Host evdb
     User            hoshino
 
 Host evdb2
-    HostName        192.168.10.148
+    HostName        192.168.4.48
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
