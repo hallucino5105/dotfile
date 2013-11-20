@@ -7,3 +7,4 @@ color header yellow black "^Subject:"
 color header green black "^From:"
 color header green black "^To:"
 color header green black "^Cc:"
+
