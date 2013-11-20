@@ -24,3 +24,7 @@ hi Hint z-index:5000; font-size:13px; color:white; background-color:red; border-
 let g:smooziee_scroll_amount="300"
 let g:smooziee_scroll_interval="10"
 
+ignorekeys clear
+ignorekeys add mail\\.google\\.com
+ignorekeys add docs\\.google\\.com
+
