@@ -24,7 +24,7 @@ Host evdb
     User            hoshino
 
 Host evdb2
-    HostName        192.168.4.48
+    HostName        192.168.10.148
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
@@ -213,6 +213,26 @@ Host ha-cli
     HostName        192.168.4.89
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+
+# mysql-cluster
+Host mc1
+    HostName        192.168.4.115
+    Port            22
+    IdentityFile    ~/.ssh/ym0_vm_id_dsa
+    User            hoshino
+
+Host mc2
+    HostName        192.168.4.116
+    Port            22
+    IdentityFile    ~/.ssh/ym0_vm_id_dsa
+    User            hoshino
+
+Host mc3
+    HostName        192.168.4.117
+    Port            22
+    IdentityFile    ~/.ssh/ym0_vm_id_dsa
     User            hoshino
 
 
