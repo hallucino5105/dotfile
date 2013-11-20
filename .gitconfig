@@ -3,7 +3,8 @@
     pager=cat
 	fileMode = true
 	precomposeunicode = true
-	excludesfile = /Users/hoshino/.gitignore_global
+    excludesfile = /Users/hoshino/.gitignore_global
+    sharedRepository = group
 [user]
 	name = hoshino
 	email = krallice.untitled@gmail.com
@@ -41,5 +42,5 @@
     keepBackup = false
 #[diff]
 #    external = p4diff
-[push]
-	default = simple
+#[push]
+#	default = simple

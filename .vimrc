@@ -168,6 +168,9 @@ if !has('gui_macvim')
     "Bundle 'bufferlist.vim'
 endif
 
+Bundle 'https://github.com/mattn/habatobi-vim.git'
+
+
 filetype plugin indent on
 
 
