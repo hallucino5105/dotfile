@@ -6,6 +6,14 @@ import sys
 import os
 
 
+def merr(message):
+    sys.stderr.write("%s\n" % message)
+
+
+def mout(message):
+    sys.stdout.write("%s\n" % message)
+
+
 def main():
     pass
 
