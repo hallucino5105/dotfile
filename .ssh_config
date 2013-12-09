@@ -41,6 +41,12 @@ Host evdbrep2
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
 
+Host evdbrep3
+    HostName        192.168.4.39
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
 Host evftp
     HostName        192.168.4.32
     Port            22
@@ -233,6 +239,26 @@ Host mc3
     HostName        192.168.4.117
     Port            22
     IdentityFile    ~/.ssh/ym0_vm_id_dsa
+    User            hoshino
+
+
+# yanagi server
+Host yanagi_dr
+    HostName        210.166.77.122
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host yanagi_dr1
+    HostName        210.166.77.123
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host yanagi_dr2
+    HostName        210.166.77.124
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
 
 
