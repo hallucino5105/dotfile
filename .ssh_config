@@ -189,6 +189,13 @@ Host may-nexco
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
 
+Host snmp-manager
+    HostName        192.168.4.100
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+
 
 # Hadoop
 Host ha-name
