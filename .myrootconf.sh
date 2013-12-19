@@ -7,16 +7,15 @@ export PATH=/opt/local/bin:/opt/local/sbin:${PATH}
 export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
 export MANPATH=${MANPATH}:/usr/local/man:/opt/local/share/man:/opt/local/man
 
-export LESS="-sgSRXF -x4"
+export LESS="-csgSRXF"
 export SVN_EDITOR="vim --noplugin"
-export PAGER="less -sSRX"
-export GIT_PAGER="less -sSRX"
-export MANPAGER="less"
-export DIFF="colordiff"
+export PAGER="less -csgSRXF"
+export GIT_PAGER="less -csgSRXF"
+export MANPAGER="less -csgSRXF"
 
 # 設定するとzshが勝手にエディタ風のキーバインドにしやがる
 # .zshrcにbindkey -e
-export EDITOR="vi"
+export EDITOR="vim"
 
 
 ## term color
@@ -36,7 +35,7 @@ export EDITOR="vi"
 alias ls="ls -vF --color --time-style=long-iso"
 alias ll="ls -lavF --color --time-style=long-iso"
 alias l="ls -lavF --color --time-style=long-iso"
-alias less="less -sSRX"
+alias less="less -csgSRXF"
 alias rm="rm -i"
 alias lv="lv -c"
 alias tmux="tmux -2"
