@@ -23,6 +23,12 @@ Host evdb
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
 
+Host evdb2
+    HostName        192.168.10.148
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
 Host evdbrep
     HostName        192.168.4.33
     Port            22
@@ -30,7 +36,7 @@ Host evdbrep
     User            hoshino
 
 Host evdbrep2
-    HostName        192.168.4.35
+    HostName        192.168.4.99
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
@@ -67,6 +73,12 @@ Host gasftp
 
 Host gasftp_s
     HostName        192.168.4.240
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host gasftp_s2
+    HostName        192.168.4.241
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
@@ -143,6 +155,121 @@ Host cartodb
 
 Host cartodb2
     HostName        192.168.4.69
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host choimobi
+    HostName        192.168.4.95
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host servernas
+    HostName        192.168.4.98
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host probe_websock
+    HostName        192.168.4.96
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host batterysim-share
+    HostName        192.168.4.97
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host may-nexco
+    HostName        192.168.10.112
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host snmp-manager
+    HostName        192.168.4.100
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+
+
+# Hadoop
+Host ha-name
+    HostName        192.168.4.80
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host ha-data1
+    HostName        192.168.4.81
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host ha-data2
+    HostName        192.168.4.82
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host ha-data3
+    HostName        192.168.4.83
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host ha-data4
+    HostName        192.168.4.84
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host ha-cli
+    HostName        192.168.4.89
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+
+# mysql-cluster
+Host mc1
+    HostName        192.168.4.115
+    Port            22
+    IdentityFile    ~/.ssh/ym0_vm_id_dsa
+    User            hoshino
+
+Host mc2
+    HostName        192.168.4.116
+    Port            22
+    IdentityFile    ~/.ssh/ym0_vm_id_dsa
+    User            hoshino
+
+Host mc3
+    HostName        192.168.4.117
+    Port            22
+    IdentityFile    ~/.ssh/ym0_vm_id_dsa
+    User            hoshino
+
+
+# yanagi server
+Host yanagi_dr
+    HostName        210.166.77.122
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host yanagi_dr1
+    HostName        210.166.77.123
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host yanagi_dr2
+    HostName        210.166.77.124
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
