@@ -6,7 +6,7 @@ import sys
 import os
 
 sys.path.insert(0, os.path.expanduser("~/my_lib/myutil_py"))
-from myutil import MyUtil
+import myutil
 
 
 def main():
