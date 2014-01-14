@@ -29,6 +29,12 @@ Host evdb2
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
 
+Host evdb_second
+    HostName        192.168.4.246
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
 Host evdbrep
     HostName        192.168.4.33
     Port            22
@@ -43,6 +49,12 @@ Host evdbrep2
 
 Host evdbrep3
     HostName        192.168.4.39
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host evdbrep_second
+    HostName        192.168.4.102
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
@@ -90,8 +102,8 @@ Host itlab
     User            hoshino
     ForwardX11      yes
 
-Host nginx
-    HostName        192.168.10.71
+Host ygomi
+    HostName        192.168.4.130
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
