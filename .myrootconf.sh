@@ -6,15 +6,15 @@ export PATH=~/bin:${PATH}
 export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
 export MANPATH=${MANPATH}:/usr/local/man
 
-export LESS="-cgiFMR"
-export SVN_EDITOR="vim --noplugin"
-export PAGER="less -cgiFMR"
-export GIT_PAGER="less -cgiFMR"
-export MANPAGER="less -cgiFMR"
+export LESS="-cgiFMRX"
+export PAGER="less -cgiFMRX"
+export GIT_PAGER="less -cgiFMRX"
+export MANPAGER="less -cgiFMRX"
 
 # 設定するとzshが勝手にエディタ風のキーバインドにしやがる
 # .zshrcにbindkey -e
 export EDITOR="vim"
+export SVN_EDITOR="vim --noplugin"
 
 ## term color
 #if [ -e /usr/share/terminfo/73/screen-256color ]; then
@@ -34,14 +34,14 @@ export LS_COLORS="no=00:fi=00:di=34:ln=01;36:pi=30;44:so=35;44:do=35;44:bd=33;44
 alias ls="ls -vF --color --time-style=long-iso"
 alias ll="ls -lavF --color --time-style=long-iso"
 alias l="ls -lavF --color --time-style=long-iso"
-alias less="less -giFMR"
+alias less="less -cgiFMRX"
 alias rm="rm -i"
 alias lv="lv -c"
 alias tmux="tmux -2"
 alias ftp="ncftp"
 alias grep="grep --color=always"
 alias egrep="egrep --color=always"
-alias mysql="mysql --pager='less -giFMR'"
+alias mysql="mysql --pager='less -cgiFMRX'"
 alias vi="vim"
 alias svndiff="svn diff -x -u -x --ignore-eol-style | vim -R -"
 alias diff="colordiff -u"
