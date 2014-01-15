@@ -6,11 +6,11 @@ export PATH=~/bin:${PATH}
 export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
 export MANPATH=${MANPATH}:/usr/local/man
 
-export LESS="-giFMR"
+export LESS="-cgiFMR"
 export SVN_EDITOR="vim --noplugin"
-export PAGER="less -giFMR"
-export GIT_PAGER="less -giFMR"
-export MANPAGER="less -giFMR"
+export PAGER="less -cgiFMR"
+export GIT_PAGER="less -cgiFMR"
+export MANPAGER="less -cgiFMR"
 
 # 設定するとzshが勝手にエディタ風のキーバインドにしやがる
 # .zshrcにbindkey -e
