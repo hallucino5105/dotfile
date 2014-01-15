@@ -3,27 +3,16 @@
 
 
 import sys
+import os
+
+sys.path.insert(0, os.path.expanduser("~/my_lib/myutil_py"))
+import myutil
 
 
 def main():
     pass
 
 
-def merr(message, newline=True, flush=False):
-    sys.stderr.write(message)
-    if newline:
-        sys.stderr.write("\n")
-    if flush:
-        sys.stderr.flush()
-
-
-def mout(message, newline=True, flush=False):
-    sys.stdout.write(message)
-    if newline:
-        sys.stdout.write("\n")
-    if flush:
-        sys.stdout.flush()
-
-
 if __name__ == "__main__":
     main()
+
