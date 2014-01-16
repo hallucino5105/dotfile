@@ -39,30 +39,30 @@ cmap <Up> <S-TAB>
 cmap <C-n> <TAB>
 cmap <C-p> <S-TAB>
 
+" 貼り付け無効
+noremap p <NOP>
+noremap P <NOP>
+
 " :panorama のサブコマンドを入力待ち
-nnoremap <Leader>pc :<C-u>panorama<Space>
+nnoremap pc :<C-u>panorama<Space>
 " タブグループを移動
-nnoremap <Leader>ps :<C-u>panorama switch<Space>
+nnoremap ps :<C-u>panorama switch<Space>
 " タブグループを新規作成
-nnoremap <Leader>pa :<C-u>panorama add<Space>
+nnoremap pa :<C-u>panorama add<Space>
 " タブグループリストを表示
-nnoremap <Leader>pl :<C-u>panorama list<CR>
+nnoremap pl :<C-u>panorama list<CR>
 " 現在のタブをタブグループに追加
-nnoremap <Leader>pp :<C-u>panorama pushtab<Space>
+nnoremap pp :<C-u>panorama pushtab<Space>
 " 現在のタブグループにタブを追加
-nnoremap <Leader>pu :<C-u>panorama pulltab<Space>
+nnoremap pu :<C-u>panorama pulltab<Space>
 " タブグループを削除
-nnoremap <Leader>pr :<C-u>panorama remove<Space>
+nnoremap pr :<C-u>panorama remove<Space>
 " タブグループビューを開く
-nnoremap <Leader>po <C-S-e>
+nnoremap po <C-S-e>
 
 " BackSpaceで戻るを無効
 map <BS> <NOP>
 
-" 貼り付け無効
-noremap p <NOP>
-noremap P <NOP>
- 
 " 補完候補を上下キーでも選択できるようにする
 cnoremap <Up> <S-Tab>
 cnoremap <Down> <Tab>
