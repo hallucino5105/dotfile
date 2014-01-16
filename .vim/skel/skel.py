@@ -5,8 +5,8 @@
 import sys
 import os
 
-sys.path.insert(0, os.path.expanduser("~/my_lib/myutil_py"))
-import myutil
+sys.path.append(os.path.expanduser("~/my_lib/myutil_py"))
+from myutil import myutil, mout, merr
 
 
 def main():
