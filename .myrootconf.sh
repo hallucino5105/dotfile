@@ -6,10 +6,10 @@ export PATH=~/bin:${PATH}
 export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
 export MANPATH=${MANPATH}:/usr/local/man
 
-export LESS="-cgiFMRX"
-export PAGER="less -cgiFMRX"
-export GIT_PAGER="less -cgiFMRX"
-export MANPAGER="less -cgiFMRX"
+export LESS="-cgisSFMRX"
+export PAGER="less -cgisSFMRX"
+export GIT_PAGER="less -cgisSFMRX"
+export MANPAGER="less -cgisSFMRX"
 
 # 設定するとzshが勝手にエディタ風のキーバインドにしやがる
 # .zshrcにbindkey -e
@@ -34,14 +34,14 @@ export LS_COLORS="no=00:fi=00:di=34:ln=01;36:pi=30;44:so=35;44:do=35;44:bd=33;44
 alias ls="ls -vF --color --time-style=long-iso"
 alias ll="ls -lavF --color --time-style=long-iso"
 alias l="ls -lavF --color --time-style=long-iso"
-alias less="less -cgiFMRX"
+alias less="less -cgisSFMRX"
 alias rm="rm -i"
 alias lv="lv -c"
 alias tmux="tmux -2"
 alias ftp="ncftp"
 alias grep="grep --color=always"
 alias egrep="egrep --color=always"
-alias mysql="mysql --pager='less -cgiFMRX'"
+alias mysql="mysql --default-character-set=utf8 --pager='less -cgisSFMRX'"
 alias vi="vim"
 alias svndiff="svn diff -x -u -x --ignore-eol-style | vim -R -"
 alias diff="colordiff -u"
