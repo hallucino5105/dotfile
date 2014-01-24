@@ -240,12 +240,47 @@ Host ha-data4
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
 
+Host ha-data5
+    HostName        192.168.4.85
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host ha-data6
+    HostName        192.168.4.86
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host ha-data7
+    HostName        192.168.4.87
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host ha-data8
+    HostName        192.168.4.88
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
 Host ha-cli
     HostName        192.168.4.89
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
 
+Host ha-secname
+    HostName        192.168.4.91
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host ha-job
+    HostName        192.168.4.92
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
 
 # mysql-cluster
 Host mc1
