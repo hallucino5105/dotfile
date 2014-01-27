@@ -1,3 +1,11 @@
+# all
+Host *
+    Compression         yes
+    CompressionLevel    9
+    TCPKeepAlive        yes
+    Ciphers             blowfish-cbc,arcfour
+
+
 # kaisya server
 Host repo
     HostName        cwl-repo.no-ip.info
@@ -404,7 +412,7 @@ Host home1
     User            hoshino
     ForwardX11      yes
 
-Host home2 
+Host home2
     HostName        krallice.dip.jp
     Port            2200
     IdentityFile    ~/.ssh/home_hoshino.id_dsa
