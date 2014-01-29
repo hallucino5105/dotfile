@@ -24,8 +24,8 @@ ignorekeys clear
 ignorekeys add mail\\.google\\.com
 ignorekeys add docs\\.google\\.com
 
-noremap j 2<C-e>
-noremap k 2<C-y>
+noremap j 3<C-e>
+noremap k 3<C-y>
 noremap h <A-Left>
 noremap l <A-Right>
 
