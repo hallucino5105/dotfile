@@ -152,8 +152,9 @@ bindkey "?q" show_buffer_stack
 compdef mosh=ssh
 
 # alias
-case ${OSTYPE} in
-    linux*)
+# macにbunutils入れたので入らない
+#case ${OSTYPE} in
+#    linux*)
         alias ls="ls -F --color --time-style=long-iso"
         alias ll="ls -la --color --time-style=long-iso"
 
@@ -169,13 +170,13 @@ case ${OSTYPE} in
 
             sudo find $DIR -type f -print0 | xargs -0 ls -l --color --time-style=long-iso | sort -k 6,7 | tail -n $COUNT
         }
-        ;;
-    darwin*)
-        alias ls="ls -vFG"
-        alias ll="ls -lavFG"
-        alias l="ls -lavFG"
-        ;;
-esac
+#        ;;
+#    darwin*)
+#        alias ls="ls -vFG"
+#        alias ll="ls -lavFG"
+#        alias l="ls -lavFG"
+#        ;;
+#esac
 
 
 # emacs風キーバインド
