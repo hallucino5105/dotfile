@@ -585,6 +585,9 @@ endif
 nnoremap <expr> c* ':%s ;\<' . expand('<cword>') . '\>;'
 vnoremap <expr> c* ':s ;\<' . expand('<cword>') . '\>;'
 
+" 1文字挿入
+nnoremap <C-i> i_<ESC>r
+
 
 """""""""""""""
 """ gui setting
