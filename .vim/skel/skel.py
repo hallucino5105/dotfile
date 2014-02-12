@@ -4,8 +4,6 @@
 
 import sys
 import os
-
-sys.path.extend(["/home/hoshino/my_lib/myutil_py", "/Users/hoshino/my_lib/my_util_py"])
 from myutil import myutil, mout, merr
 
 

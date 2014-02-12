@@ -5,6 +5,8 @@ export PS1="[\u@\h \W]\\$ "
 export PATH=~/bin:${PATH}
 export PATH=/usr/local/bin:/usr/local/sbin:${PATH}
 export MANPATH=${MANPATH}:/usr/local/man
+export PYTHONPATH=${PYTHONPATH}:/home/hoshino/my_lib:/Users/hoshino/my_lib
+export PYTHONPATH=${PYTHONPATH}:/home/hoshino/ym0_lib:/Users/hoshino/ym0_lib
 
 export LESS="-cgisSFMRX"
 export PAGER="less -cgisSFMRX"
