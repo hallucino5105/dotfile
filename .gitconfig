@@ -1,6 +1,6 @@
 [core]
     editor = vim
-    pager=cat
+    pager = less -csiSRXM
 	fileMode = true
 	precomposeunicode = true
     excludesfile = /Users/hoshino/.gitignore_global
