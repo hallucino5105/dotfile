@@ -1,0 +1,9 @@
+set mbox_type="Maildir"
+set folder="~/Maildir"
+set spoolfile="~/Maildir"
+
+color header green black "^Date:"
+color header yellow black "^Subject:"
+color header green black "^From:"
+color header green black "^To:"
+color header green black "^Cc:"

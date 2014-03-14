@@ -4,6 +4,7 @@
 
 import sys
 import os
+from myutil_py.myutil import myutil, mout, merr
 
 
 def main():

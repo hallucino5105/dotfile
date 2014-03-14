@@ -1,9 +1,10 @@
 [core]
     editor = vim
-    pager=cat
+    pager = less -csiSRXM
 	fileMode = true
 	precomposeunicode = true
-	excludesfile = /Users/hoshino/.gitignore_global
+    excludesfile = /Users/hoshino/.gitignore_global
+    sharedRepository = group
 [user]
 	name = hoshino
 	email = krallice.untitled@gmail.com
@@ -23,11 +24,23 @@
     co = checkout
     st = status
     gg = grep -inIEH --color --heading --break
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+#[difftool "sourcetree"]
+#	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+#	path = 
+#[mergetool "sourcetree"]
+#	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+#	trustExitCode = true
 [grep]
-	lineNumber = true
+    lineNumber = true
+[merge]
+    keepBackup = false;
+    tool = p4merge
+[mergetool "p4merge"]
+    cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+    keepTemporaries = false
+    trustExitCode = false
+    keepBackup = false
+#[diff]
+#    external = p4diff
+#[push]
+#	default = simple

@@ -60,7 +60,8 @@ WORDCHARS=${WORDCHARS:s,/,,}
 # prompt
 #PROMPT="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
 #PROMPT="[${USER}@${HOST%%.*} %1~](%(?.%F{green}^-^%f.%F{red}@_@%f))%(!.#.$) "
-PROMPT="[${USER}@${HOST%%.*} %1~](%(?.^-^.@_@))%(!.#.$) "
+#PROMPT="[${USER}@${HOST%%.*} %1~](%D{%m/%d %H:%M})(%(?.^-^.@_@))%(!.#.$) "
+PROMPT="[${USER}@${HOST%%.*} %1~](%D{%H:%M})(%(?.^-^.@_@))%(!.#.$) "
 
 autoload -Uz is-at-least
 if is-at-least 4.3.10; then
@@ -79,7 +80,7 @@ if is-at-least 4.3.10; then
 
     precmd_vcs_info () {
         psvar=()
-       LANG=en_US.UTF-8 vcs_info
+        LANG=en_US.UTF-8 vcs_info
         repos=$(print -nD $vcs_info_msg_0_)
 
         # psvar[1]とpsvar[2]がなぜかvcs以外のディレクトリに行っても消えないので
@@ -89,7 +90,7 @@ if is-at-least 4.3.10; then
         [[ -n "$vcs_info_msg_2_" ]] && psvar[1]="$vcs_info_msg_2_"
         [[ -n "$vcs_info_msg_3_" ]] && psvar[2]="$vcs_info_msg_3_"
     }
-    
+
     typeset -ga precmd_functions
     precmd_functions+=precmd_vcs_info
 
@@ -151,8 +152,9 @@ bindkey "?q" show_buffer_stack
 compdef mosh=ssh
 
 # alias
-case ${OSTYPE} in
-    linux*)
+# macにbunutils入れたので入らない
+#case ${OSTYPE} in
+#    linux*)
         alias ls="ls -F --color --time-style=long-iso"
         alias ll="ls -la --color --time-style=long-iso"
 
@@ -168,12 +170,13 @@ case ${OSTYPE} in
 
             sudo find $DIR -type f -print0 | xargs -0 ls -l --color --time-style=long-iso | sort -k 6,7 | tail -n $COUNT
         }
-        ;;
-    darwin*)
-        alias ls="ls -FG"
-        alias ll="ls -laFG"
-        ;;
-esac
+#        ;;
+#    darwin*)
+#        alias ls="ls -vFG"
+#        alias ll="ls -lavFG"
+#        alias l="ls -lavFG"
+#        ;;
+#esac
 
 
 # emacs風キーバインド

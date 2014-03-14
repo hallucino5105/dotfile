@@ -5,22 +5,70 @@ source! /Users/hoshino/.vimperatorrc.local
 " vim: set ft=vimperator:
 
 set focuscontent
+set ignorecase
+set hlsearch
 "set guioptions=m
 "set preload
 "set hintchars=ifjklasdhguionmerwc
+set titlestring=Firefox
 
-noremap j 3<C-e>
-noremap k 3<C-y>
-noremap h <A-Left>
-noremap l <A-Right>
-
-cmap <Down> <TAB>
-cmap <Up> <S-TAB>
-cmap <C-n> <TAB>
-cmap <C-p> <S-TAB>
+" コマンドラインでIMEを自動的にOFFにする
+style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
 
 hi Hint z-index:5000; font-size:13px; color:white; background-color:red; border-color:ButtonShadow; border-width:0px; border-style:solid; padding:0px 2px 0px 2px; position:absolute; font-family: Menlo, Consolas, Monaco, monospace; text-transform: uppercase;
 
 let g:smooziee_scroll_amount="300"
 let g:smooziee_scroll_interval="10"
 
+ignorekeys clear
+ignorekeys add mail\\.google\\.com
+ignorekeys add docs\\.google\\.com
+
+noremap j 3<C-e>
+noremap k 3<C-y>
+noremap h <A-Left>
+noremap l <A-Right>
+
+" 右のタブに切り替え
+noremap H <C-p>
+" 左のタブに切り替え
+noremap L <C-n>
+
+cmap <Down> <TAB>
+cmap <Up> <S-TAB>
+cmap <C-n> <TAB>
+cmap <C-p> <S-TAB>
+
+" 貼り付け無効
+noremap p <NOP>
+noremap P <NOP>
+
+" :panorama のサブコマンドを入力待ち
+nnoremap pc :<C-u>panorama<Space>
+" タブグループを移動
+nnoremap ps :<C-u>panorama switch<Space>
+" タブグループを新規作成
+nnoremap pa :<C-u>panorama add<Space>
+" タブグループリストを表示
+nnoremap pl :<C-u>panorama list<CR>
+" 現在のタブをタブグループに追加
+nnoremap pp :<C-u>panorama pushtab<Space>
+" 現在のタブグループにタブを追加
+nnoremap pu :<C-u>panorama pulltab<Space>
+" タブグループを削除
+nnoremap pr :<C-u>panorama remove<Space>
+" タブグループビューを開く
+nnoremap po <C-S-e>
+
+" BackSpaceで戻るを無効
+map <BS> <NOP>
+
+" 補完候補を上下キーでも選択できるようにする
+cnoremap <Up> <S-Tab>
+cnoremap <Down> <Tab>
+
+" ;とtypoっても安心
+map ; :
+ 
+" ブックマークに追加するの無効
+map a <NOP>

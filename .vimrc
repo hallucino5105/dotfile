@@ -23,7 +23,7 @@ set smarttab
 "set hlsearch
 set laststatus=2
 set statusline=%{expand('%:p:t')}\ %<\(%{expand('%:p:h')}¥)%=\ %m%r%y%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}[%l,%c\ (%p%%)]
-set clipboard+=autoselect
+set clipboard=unnamed,autoselect
 set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932
 set fileformats=unix,dos,mac
@@ -168,6 +168,9 @@ if !has('gui_macvim')
     "Bundle 'bufferlist.vim'
 endif
 
+Bundle 'https://github.com/mattn/habatobi-vim.git'
+
+
 filetype plugin indent on
 
 
@@ -226,11 +229,13 @@ let g:neocomplcache_omni_patterns.ruby = ''
 
 
 """ quickrun
+"'cmdopt': '-x fenced-code-blocks -x wiki-tables -x hard-wrap -x rid-code-tag -x html-classes=\{\"pre\":\"syntaxhighlight\"\}',
+
 let g:quickrun_config = {}
-let g:quickrun_config['markdown'] = {
+let g:quickrun_config['mkd'] = {
     \ 'outputter': 'browser',
     \ 'command': 'markdown2',
-    \ 'cmdopt': '-x fenced-code-blocks -x link_patterns -x wiki-tables -x html-classes=\{\"code\":\"syntaxhighlight\"\}',
+    \ 'cmdopt': '-x fenced-code-blocks -x wiki-tables -x hard-wrap -x rid-code-tag',
     \ 'exec': '%c %o %a %s',
     \ }
 
@@ -431,6 +436,10 @@ nmap <c-h> <Plug>DWMShrinkMaster
 let g:vim_markdown_folding_disabled=1
 
 
+""" occur
+" 検索結果一覧
+noremap <F2> :Occur<CR>
+
 
 """""""""""""""""
 """ color setting
@@ -560,7 +569,7 @@ inoremap <C-l> <Right>
 "nmap <F1> :tabnew<CR>
 
 
-""" ノーマル/インサートモードでカーソルの形状を変更する
+" ノーマル/インサートモードでカーソルの形状を変更する
 if &term =~ "screen" || &term=~"screen-256color"
     "let &t_SI = "\eP\e]50;CursorShape=1\x7\e\\"
     "let &t_EI = "\eP\e]50;CursorShape=0\x7\e\\"
@@ -571,6 +580,13 @@ elseif &term =~ "xterm" || &term=~"xterm-256color"
     let &t_EI = "\e]50;CursorShape=0\x7"
 endif
 
+
+" c*でカーソル下のキーワードを置換
+nnoremap <expr> c* ':%s ;\<' . expand('<cword>') . '\>;'
+vnoremap <expr> c* ':s ;\<' . expand('<cword>') . '\>;'
+
+" 1文字挿入
+nnoremap <C-i> i_<ESC>r
 
 
 """""""""""""""
@@ -590,7 +606,7 @@ if has('gui_macvim') || has('kaoriya') || has('gvim')
         set lines=50 columns=170
     elseif has('mac')
         set guifont=Ricty:h12
-        set lines=50 columns=165
+        set lines=55 columns=180
     endif
 
     "augroup hack234
@@ -605,6 +621,8 @@ if has('gui_macvim') || has('kaoriya') || has('gvim')
 endif
 
 
-
 " なんかのプラグインで無効になってるぽいので
 set showcmd
+
+set runtimepath+=~/dotfile/.vim
+
