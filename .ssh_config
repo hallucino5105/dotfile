@@ -84,7 +84,7 @@ Host xymon
     User            hoshino
 
 Host githost
-    HostName        192.168.4.211
+    HostName        192.168.0.211
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
