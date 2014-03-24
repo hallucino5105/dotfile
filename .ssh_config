@@ -411,15 +411,3 @@ Host home1
     IdentityFile    ~/.ssh/home_hoshino.id_dsa
     User            hoshino
     ForwardX11      yes
-
-Host home2
-    HostName        krallice.dip.jp
-    Port            2200
-    IdentityFile    ~/.ssh/home_hoshino.id_dsa
-    User            hoshino
-
-Host githome
-    HostName        krallice.dip.jp
-    Port            22
-    IdentityFile    ~/.ssh/home_gituser_keys
-    User            gituser
