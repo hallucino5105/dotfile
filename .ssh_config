@@ -145,12 +145,6 @@ Host gitolite
     Port            22
     IdentityFile    ~/.ssh/gitolite_hoshino_id_rsa
     User            git
-
-Host c-gitolite
-    HostName        192.168.0.211
-    Port            22
-    IdentityFile    ~/.ssh/gitolite_hoshino_id_rsa
-    User            git
     ProxyCommand    ssh repo nc %h %p 2> /dev/null
 
 Host gitlab
@@ -409,5 +403,14 @@ Host home1
     HostName        krallice.dip.jp
     Port            22
     IdentityFile    ~/.ssh/home_hoshino.id_dsa
+    User            hoshino
+    ForwardX11      yes
+
+
+# colabo room
+Host colabo-server
+    HostName        192.168.1.33
+    Port            22
+    IdentityFile    ~/.ssh/colabo_key.id_rsa
     User            hoshino
     ForwardX11      yes

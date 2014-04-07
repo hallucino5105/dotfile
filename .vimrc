@@ -161,6 +161,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'spolu/dwm.vim'
 Bundle 'open-browser.vim'
 Bundle 'occur.vim'
+Bundle '5t111111/neat-json.vim'
 
 if !has('gui_macvim')
     Bundle 'VimRepress'
