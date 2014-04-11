@@ -210,7 +210,6 @@ Host snmp-manager
     User            hoshino
 
 
-
 # Hadoop
 Host ha-name
     HostName        192.168.4.80
@@ -283,6 +282,27 @@ Host ha-job
     Port            22
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
+
+
+# Hadoop2
+Host ha2-cl1
+    HostName        192.168.4.210
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host ha2-cl2
+    HostName        192.168.4.211
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host ha2-cl3
+    HostName        192.168.4.212
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
 
 # mysql-cluster
 Host mc1
