@@ -303,6 +303,24 @@ Host ha2-cl3
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
 
+Host ha2-cl4
+    HostName        192.168.4.213
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host ha2-cl5
+    HostName        192.168.4.214
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
+Host ha2-cl6
+    HostName        192.168.4.215
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
 
 # mysql-cluster
 Host mc1
