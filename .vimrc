@@ -46,6 +46,7 @@ set listchars=tab:»\ ,extends:»,precedes:«,nbsp:%
 set maxmempattern=10000
 set autoread
 set nofoldenable
+set iskeyword+=-
 
 
 " 自動再読み込み

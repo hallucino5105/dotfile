@@ -209,6 +209,12 @@ Host snmp-manager
     IdentityFile    ~/.ssh/ym0_id_dsa
     User            hoshino
 
+Host osm-server
+    HostName        192.168.4.78
+    Port            22
+    IdentityFile    ~/.ssh/ym0_id_dsa
+    User            hoshino
+
 
 # Hadoop
 Host ha-name
