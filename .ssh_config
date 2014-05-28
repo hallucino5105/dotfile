@@ -123,6 +123,9 @@ Host plux
 Host minnuke
     HostName        192.168.4.79
 
+Host private-gisdb
+    HostName        192.168.4.91
+
 
 # Hadoop
 Host ha-name
