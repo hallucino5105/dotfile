@@ -6,7 +6,8 @@ Host devel
     HostName        192.168.10.55
 
 Host devel_new
-    HostName        192.168.10.56
+    #HostName        192.168.10.56
+    HostName        61.196.206.197
 
 Host evdb
     HostName        192.168.4.49
