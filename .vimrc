@@ -163,6 +163,7 @@ Bundle 'spolu/dwm.vim'
 Bundle 'open-browser.vim'
 Bundle 'occur.vim'
 Bundle '5t111111/neat-json.vim'
+Bundle 'https://github.com/autowitch/hive.vim.git'
 
 if !has('gui_macvim')
     Bundle 'VimRepress'
@@ -368,9 +369,12 @@ augroup END
 
 
 """ markdown
-autocmd BufRead,BufNewFile *.mkd  setfiletype=mkd
-autocmd BufRead,BufNewFile *.md  setfiletype=mkd
+autocmd BufRead,BufNewFile *.mkd  set filetype=mkd
+autocmd BufRead,BufNewFile *.md  set filetype=mkd
 
+
+""" hiveql
+autocmd BufRead,BufNewFile *.hql set filetype=sql
 
 """ actionscript,mxml
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
