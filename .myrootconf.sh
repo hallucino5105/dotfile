@@ -1,3 +1,7 @@
+# .myrootconf.sh
+
+stty stop undef
+
 export LANG=ja_JP.UTF-8
 
 export PS1="[\u@\h \W]\\$ "

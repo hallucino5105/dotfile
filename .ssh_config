@@ -49,7 +49,8 @@ Host gasftp_s2
     HostName        192.168.4.241
 
 Host itlab
-    HostName        192.168.4.55
+    #HostName        192.168.4.55
+    HostName        61.196.206.206
     ForwardX11      yes
 
 Host ygomi
