@@ -33,7 +33,6 @@ set backup
 set backupdir=~/dotfile/.vim/backup
 set backspace=indent,eol,start
 set backupskip=/tmp/*,/private/tmp/*
-set clipboard+=autoselect
 set hlsearch
 set showtabline=1
 set wildmenu
