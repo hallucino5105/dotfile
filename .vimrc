@@ -23,7 +23,7 @@ set smarttab
 "set hlsearch
 set laststatus=2
 set statusline=%{expand('%:p:t')}\ %<\(%{expand('%:p:h')}¥)%=\ %m%r%y%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}[%l,%c\ (%p%%)]
-set clipboard=unnamed,autoselect
+set clipboard+=unnamedplus,unnamed
 set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932
 set fileformats=unix,dos,mac
@@ -33,7 +33,6 @@ set backup
 set backupdir=~/dotfile/.vim/backup
 set backspace=indent,eol,start
 set backupskip=/tmp/*,/private/tmp/*
-set clipboard+=autoselect
 set hlsearch
 set showtabline=1
 set wildmenu
@@ -46,6 +45,7 @@ set listchars=tab:»\ ,extends:»,precedes:«,nbsp:%
 set maxmempattern=10000
 set autoread
 set nofoldenable
+set iskeyword+=-
 
 
 " 自動再読み込み
@@ -134,7 +134,7 @@ Bundle 'Shougo/vimproc.git'
 "Bundle 'vcscommand.vim'
 Bundle 'taglist.vim'
 Bundle 'Align'
-"Bundle 'dbext.vim'
+Bundle 'dbext.vim'
 "Bundle 'SQLUtilities'
 "Bundle 'Indent-Guides'
 "Bundle 'Smooth-Scroll'
@@ -161,6 +161,8 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'spolu/dwm.vim'
 Bundle 'open-browser.vim'
 Bundle 'occur.vim'
+Bundle '5t111111/neat-json.vim'
+Bundle 'https://github.com/autowitch/hive.vim.git'
 
 if !has('gui_macvim')
     Bundle 'VimRepress'
@@ -366,9 +368,12 @@ augroup END
 
 
 """ markdown
-autocmd BufRead,BufNewFile *.mkd  setfiletype=mkd
-autocmd BufRead,BufNewFile *.md  setfiletype=mkd
+autocmd BufRead,BufNewFile *.mkd  set filetype=mkd
+autocmd BufRead,BufNewFile *.md  set filetype=mkd
 
+
+""" hiveql
+autocmd BufRead,BufNewFile *.hql set filetype=sql
 
 """ actionscript,mxml
 autocmd BufNewFile,BufRead *.as set filetype=actionscript

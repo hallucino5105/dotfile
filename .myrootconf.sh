@@ -1,3 +1,7 @@
+# .myrootconf.sh
+
+stty stop undef
+
 export LANG=ja_JP.UTF-8
 
 export PS1="[\u@\h \W]\\$ "
@@ -48,13 +52,13 @@ alias mysql="mysql --default-character-set=utf8 --pager='less -cgisSFMRX'"
 alias vi="vim"
 alias svndiff="svn diff -x -u -x --ignore-eol-style | vim -R -"
 alias diff="colordiff -u"
-alias javac="javac -J-Dfile.encoding=UTF-8"
-alias javah="javah -J-Dfile.encoding=UTF-8"
-alias java="java -Dfile.encoding=UTF-8"
-alias weechat="TERM=screen-256color weechat-curses"
+#alias javac="javac -J-Dfile.encoding=UTF-8"
+#alias javah="javah -J-Dfile.encoding=UTF-8"
+#alias java="java -Dfile.encoding=UTF-8"
+alias weechat="TERM=screen-256color weechat"
 alias cpanm-local="cpanm --local-lib=~/.perl5"
 alias wget="wget --no-check-certificate"
-alias sudo="sudo -E -H"
+alias sudo="sudo -H"
 
 alias home-mysql="mysql -h krallice.dip.jp -u hoshino -p08240824"
 alias home-ftp-hoshino="ftp ftp://hoshino@krallice.dip.jp/"

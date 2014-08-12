@@ -24,23 +24,10 @@
     co = checkout
     st = status
     gg = grep -inIEH --color --heading --break
-#[difftool "sourcetree"]
-#	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-#	path = 
-#[mergetool "sourcetree"]
-#	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-#	trustExitCode = true
 [grep]
     lineNumber = true
 [merge]
     keepBackup = false;
-    tool = p4merge
-[mergetool "p4merge"]
-    cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
-    keepTemporaries = false
-    trustExitCode = false
-    keepBackup = false
-#[diff]
-#    external = p4diff
-#[push]
-#	default = simple
+    tool = vimdiff
+[push]
+	default = simple
