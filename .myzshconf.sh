@@ -153,7 +153,7 @@ show_buffer_stack() {
 }
 
 zle -N show_buffer_stack
-bindkey "?q" show_buffer_stack
+bindkey "^q" show_buffer_stack
 
 
 ### エイリアス
