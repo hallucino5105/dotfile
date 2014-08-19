@@ -190,7 +190,6 @@ alias -g G='| grep'
 alias -g W='| wc'
 alias -g S='| sed'
 alias -g A='| awk'
-alias -g W='| wc'
 
 
 ### キーバインド グローバル
