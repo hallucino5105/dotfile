@@ -84,7 +84,14 @@ set grepprg=grep\ -nH
 """ general varient
 let loaded_matchparen=1
 let &directory=&backupdir
-let g:vimproc_dll_path = $HOME.'/dotfile/.vim/bundle/vimproc/autoload/vimproc.so'
+"let g:vimproc_dll_path = $HOME.'/dotfile/.vim/bundle/vimproc/autoload/vimproc_mac.so'
+if has('mac')
+    let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/autoload/vimproc_mac.so'
+elseif has('win32')
+    let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/autoload/vimproc_win32.dll'
+elseif has('win64')
+    let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/autoload/vimproc_win64.dll'
+endif
 
 
 
@@ -92,92 +99,91 @@ let g:vimproc_dll_path = $HOME.'/dotfile/.vim/bundle/vimproc/autoload/vimproc.so
 """ plugin setting
 """"""""""""""""""
 set nocompatible
-filetype off
+filetype plugin indent off
 
-set runtimepath+=~/dotfile/.vim/vundle/
-call vundle#rc('~/dotfile/.vim/bundle')
-
-" color
-Bundle 'Lucius'
-Bundle 'Zenburn'
-"Bundle 'darkblue'
-"Bundle 'darkblue2'
-"Bundle 'wombat256.vim'
-Bundle 'yuroyoro/yuroyoro256.vim.git'
-Bundle 'molokai'
-"Bundle 'Solarized'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'nanotech/jellybeans.vim'
-
-" syntax
-Bundle 'jQuery'
-"Bundle 'css3'
-Bundle 'JSON.vim'
-Bundle 'html5.vim'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'groenewege/vim-less'
-
-" other
-Bundle 'eregex.vim'
-"Bundle 'YankRing.vim'
-Bundle 'yanktmp.vim'
-Bundle 'surround.vim'
-Bundle 'quickrun.vim'
-Bundle 'sjl/gundo.vim.git'
-"Bundle 'renamer.vim'
-Bundle 'scratch.vim'
-"Bundle 'Python-Syntax'
-Bundle 'sudo.vim'
-Bundle 'neocomplcache'
-Bundle 'Shougo/vimshell.git'
-Bundle 'Shougo/vimproc.git'
-"Bundle 'vcscommand.vim'
-Bundle 'taglist.vim'
-Bundle 'Align'
-Bundle 'dbext.vim'
-"Bundle 'SQLUtilities'
-"Bundle 'Indent-Guides'
-"Bundle 'Smooth-Scroll'
-"Bundle 'mattn/hahhah-vim'
-Bundle 'glidenote/memolist.vim'
-"Bundle 'vimgrep.vim' "終了時にエラーが出る
-Bundle 'fuenor/qfixgrep.git'
-"Bundle 'plasticboy/vim-markdown'
-Bundle 'tpope/vim-markdown'
-Bundle 'unite.vim'
-"Bundle 'unite-colorscheme'
-Bundle 'Shougo/unite-session.git'
-Bundle 'kannokanno/unite-dwm.git'
-Bundle 'fugitive.vim'
-Bundle 'gitv'
-"Bundle 'pyflakes'
-Bundle 'mitechie/pyflakes-pathogen'
-Bundle 'renamer.vim'
-"Bundle 'wincent/Command-T'
-"Bundle 'Shougo/vimfiler'
-Bundle 'thinca/vim-qfreplace'
-Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'VimRepress'
-Bundle 'spolu/dwm.vim'
-Bundle 'open-browser.vim'
-Bundle 'occur.vim'
-Bundle '5t111111/neat-json.vim'
-Bundle 'https://github.com/autowitch/hive.vim.git'
-"Bundle 'Simple-Javascript-Indenter'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'html-improved-indentation'
-
-if !has('gui_macvim')
-    Bundle 'VimRepress'
-    "Bundle 'minibufexpl.vim'
-    "Bundle 'bufferlist.vim'
+if has('vim_starting')
+    set runtimepath+=~/dotfile/.vim/neobundle/
+    call neobundle#rc(expand('~/dotfile/.vim/bundle'))
 endif
 
-Bundle 'https://github.com/mattn/habatobi-vim.git'
+" fetch
+NeoBundleFetch 'Shougo/neobundle.vim'
 
+" color
+NeoBundle 'Lucius'
+NeoBundle 'Zenburn'
+NeoBundle 'molokai'
+NeoBundle 'yuroyoro/yuroyoro256.vim.git'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'nanotech/jellybeans.vim'
+
+" syntax
+NeoBundle 'jQuery'
+NeoBundle 'JSON.vim'
+NeoBundle 'html5.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'jelera/vim-javascript-syntax'
+
+" indent
+NeoBundle 'html-improved-indentation'
+
+" vimproc
+NeoBundle 'Shougo/vimproc.git', { 'build': {
+    \ 'mac': 'make -f make_mac.mak',
+    \ 'unix': 'make -f make_unix.mak',
+    \ 'cygwin': 'make -f make_cygwin.mak',
+    \ 'windows': 'make -f make_mingw32.mak',
+    \ }}
+
+" unite
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/unite-session.git', { 'depends': 'Shougo/unite.vim' }
+NeoBundle 'kannokanno/unite-dwm.git', { 'depends': 'Shougo/unite.vim' }
+
+" other
+NeoBundle 'vimgrep.vim'
+NeoBundle 'eregex.vim'
+NeoBundle 'yanktmp.vim'
+NeoBundle 'surround.vim'
+NeoBundle 'quickrun.vim'
+NeoBundle 'scratch.vim'
+NeoBundle 'sudo.vim'
+NeoBundle 'neocomplcache'
+NeoBundle 'taglist.vim'
+NeoBundle 'Align'
+NeoBundle 'dbext.vim'
+NeoBundle 'fugitive.vim'
+NeoBundle 'gitv'
+NeoBundle 'occur.vim'
+NeoBundle 'renamer.vim'
+NeoBundle 'sjl/gundo.vim.git'
+NeoBundle 'Shougo/vimshell.git'
+NeoBundle 'glidenote/memolist.vim'
+NeoBundle 'fuenor/qfixgrep.git'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'mitechie/pyflakes-pathogen'
+NeoBundle 'thinca/vim-qfreplace'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'spolu/dwm.vim'
+NeoBundle 'open-browser.vim'
+NeoBundle '5t111111/neat-json.vim'
+NeoBundle 'https://github.com/autowitch/hive.vim.git'
+
+"NeoBundle 'VimRepress'
+"if !has('gui_macvim')
+"    NeoBundle 'VimRepress'
+"    "NeoBundle 'minibufexpl.vim'
+"    "NeoBundle 'bufferlist.vim'
+"endif
 
 filetype plugin indent on
 
+
+"""""""""""""""""
+""" plugin config
+"""""""""""""""""
 
 """ YankRing
 let g:yankring_max_history=50
@@ -326,7 +332,7 @@ nnoremap <silent> [unite]m :<C-u>Unite file_mru -direction=belowright<CR>
 " 現在のバッファのカレントディレクトリからファイル一覧
 nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir -buffer-name=files file file/new -direction=belowright<CR>
 " ブックマーク一覧
-nnoremap <silent> [unite]c :<C-u>Unite bookmark -direction=belowright<CR>
+nnoremap <silent> [unite]b :<C-u>Unite bookmark -direction=belowright<CR>
 " ヤンク履歴
 nnoremap <silent> [unite]y :<C-u>Unite history/yank -direction=belowright<CR>
 " 変更履歴
@@ -337,6 +343,9 @@ nnoremap <silent> [unite]g :<C-u>Unite grep -direction=belowright<CR>
 nnoremap <silent> [unite]s :<C-u>Unite session -direction=belowright<CR>
 " dwm
 nnoremap <silent> [unite]w :<C-u>Unite dwm -direction=belowright<CR>
+" neobundle
+nnoremap <silent> [unite]n  :<C-u>Unite neobundle -direction=belowright<CR>
+nnoremap <silent> [unite]ns :<C-u>Unite neobundle/search -direction=belowright<CR>
 
 
 """" 検索語が真ん中に来るように
