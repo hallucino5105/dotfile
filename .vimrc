@@ -16,7 +16,7 @@ set nowrapscan
 set showmatch
 set matchtime=3
 set autoindent
-"set smartindent
+set smartindent
 "set cindent
 set smartcase
 set smarttab
@@ -163,6 +163,9 @@ Bundle 'open-browser.vim'
 Bundle 'occur.vim'
 Bundle '5t111111/neat-json.vim'
 Bundle 'https://github.com/autowitch/hive.vim.git'
+"Bundle 'Simple-Javascript-Indenter'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'html-improved-indentation'
 
 if !has('gui_macvim')
     Bundle 'VimRepress'
@@ -444,6 +447,13 @@ let g:vim_markdown_folding_disabled=1
 """ occur
 " 検索結果一覧
 noremap <F2> :Occur<CR>
+
+
+"""" simple-javascript-indenter
+"" この設定入れるとshiftwidthを1にしてインデントしてくれる
+"let g:SimpleJsIndenter_BriefMode = 4
+"" この設定入れるとswitchのインデントがいくらかマシに
+"let g:SimpleJsIndenter_CaseIndentLevel = -1
 
 
 """""""""""""""""
