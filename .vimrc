@@ -124,9 +124,11 @@ NeoBundle 'html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'https://github.com/autowitch/hive.vim.git'
 
 " indent
 NeoBundle 'html-improved-indentation'
+NeoBundleLazy 'hynek/vim-python-pep8-indent', { "autoload": { "insert": 1, "filetypes": ["python", "python3", "djangohtml"] }}
 
 " vimproc
 NeoBundle 'Shougo/vimproc.git', { 'build': {
@@ -143,6 +145,7 @@ NeoBundle 'Shougo/unite-session.git', { 'depends': 'Shougo/unite.vim' }
 NeoBundle 'kannokanno/unite-dwm.git', { 'depends': 'Shougo/unite.vim' }
 
 " other
+NeoBundle 'neocomplcache'
 NeoBundle 'vimgrep.vim'
 NeoBundle 'eregex.vim'
 NeoBundle 'yanktmp.vim'
@@ -150,7 +153,6 @@ NeoBundle 'surround.vim'
 NeoBundle 'quickrun.vim'
 NeoBundle 'scratch.vim'
 NeoBundle 'sudo.vim'
-NeoBundle 'neocomplcache'
 NeoBundle 'taglist.vim'
 NeoBundle 'Align'
 NeoBundle 'dbext.vim'
@@ -169,7 +171,7 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'spolu/dwm.vim'
 NeoBundle 'open-browser.vim'
 NeoBundle '5t111111/neat-json.vim'
-NeoBundle 'https://github.com/autowitch/hive.vim.git'
+NeoBundle 'editorconfig/editorconfig-vim'
 
 "NeoBundle 'VimRepress'
 "if !has('gui_macvim')
@@ -402,6 +404,10 @@ autocmd FileType python :inoremap # X#
 
 """ handlebars template
 autocmd BufNewFile,BufRead *.hbs set filetype=xhtml
+
+
+""" ect template
+autocmd BufNewfile,BufRead *.ect set filetype=xhtml
 
 
 """
