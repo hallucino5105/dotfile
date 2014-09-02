@@ -171,8 +171,9 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'spolu/dwm.vim'
 NeoBundle 'open-browser.vim'
 NeoBundle '5t111111/neat-json.vim'
-NeoBundle 'editorconfig/editorconfig-vim'
 
+" nouse
+"NeoBundle 'editorconfig/editorconfig-vim'
 "NeoBundle 'VimRepress'
 "if !has('gui_macvim')
 "    NeoBundle 'VimRepress'
