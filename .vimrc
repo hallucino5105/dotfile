@@ -120,7 +120,7 @@ NeoBundle 'nanotech/jellybeans.vim'
 " syntax
 NeoBundle 'jQuery'
 NeoBundle 'JSON.vim'
-NeoBundle 'html5.vim'
+NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'jelera/vim-javascript-syntax'
@@ -654,5 +654,5 @@ endif
 " なんかのプラグインで無効になってるぽいので
 set showcmd
 
-set runtimepath+=~/dotfile/.vim
+set runtimepath+=~/dotfile/.vim,~/dotfile/.vim/after
 
