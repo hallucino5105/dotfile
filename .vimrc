@@ -16,14 +16,14 @@ set nowrapscan
 set showmatch
 set matchtime=3
 set autoindent
-"set smartindent
+set smartindent
 "set cindent
 set smartcase
 set smarttab
 "set hlsearch
 set laststatus=2
 set statusline=%{expand('%:p:t')}\ %<\(%{expand('%:p:h')}¥)%=\ %m%r%y%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}[%l,%c\ (%p%%)]
-set clipboard=unnamed,autoselect
+set clipboard+=unnamedplus,unnamed
 set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932
 set fileformats=unix,dos,mac
@@ -33,7 +33,6 @@ set backup
 set backupdir=~/dotfile/.vim/backup
 set backspace=indent,eol,start
 set backupskip=/tmp/*,/private/tmp/*
-set clipboard+=autoselect
 set hlsearch
 set showtabline=1
 set wildmenu
@@ -46,6 +45,7 @@ set listchars=tab:»\ ,extends:»,precedes:«,nbsp:%
 set maxmempattern=10000
 set autoread
 set nofoldenable
+set iskeyword+=-
 
 
 " 自動再読み込み
@@ -84,7 +84,14 @@ set grepprg=grep\ -nH
 """ general varient
 let loaded_matchparen=1
 let &directory=&backupdir
-let g:vimproc_dll_path = $HOME.'/dotfile/.vim/bundle/vimproc/autoload/vimproc.so'
+"let g:vimproc_dll_path = $HOME.'/dotfile/.vim/bundle/vimproc/autoload/vimproc_mac.so'
+if has('mac')
+    let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/autoload/vimproc_mac.so'
+elseif has('win32')
+    let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/autoload/vimproc_win32.dll'
+elseif has('win64')
+    let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/autoload/vimproc_win64.dll'
+endif
 
 
 
@@ -92,32 +99,53 @@ let g:vimproc_dll_path = $HOME.'/dotfile/.vim/bundle/vimproc/autoload/vimproc.so
 """ plugin setting
 """"""""""""""""""
 set nocompatible
-filetype off
+filetype plugin indent off
 
-set runtimepath+=~/dotfile/.vim/vundle/
-call vundle#rc('~/dotfile/.vim/bundle')
+if has('vim_starting')
+    set runtimepath+=~/dotfile/.vim/neobundle/
+    call neobundle#rc(expand('~/dotfile/.vim/bundle'))
+endif
+
+" fetch
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 " color
-Bundle 'Lucius'
-Bundle 'Zenburn'
-"Bundle 'darkblue'
-"Bundle 'darkblue2'
-"Bundle 'wombat256.vim'
-Bundle 'yuroyoro/yuroyoro256.vim.git'
-Bundle 'molokai'
-"Bundle 'Solarized'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'nanotech/jellybeans.vim'
+NeoBundle 'Lucius'
+NeoBundle 'Zenburn'
+NeoBundle 'molokai'
+NeoBundle 'yuroyoro/yuroyoro256.vim.git'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'nanotech/jellybeans.vim'
 
 " syntax
-Bundle 'jQuery'
-"Bundle 'css3'
-Bundle 'JSON.vim'
-Bundle 'html5.vim'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'groenewege/vim-less'
+NeoBundle 'jQuery'
+NeoBundle 'JSON.vim'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'https://github.com/autowitch/hive.vim.git'
+
+" indent
+NeoBundle 'html-improved-indentation'
+NeoBundleLazy 'hynek/vim-python-pep8-indent', { "autoload": { "insert": 1, "filetypes": ["python", "python3", "djangohtml"] }}
+
+" vimproc
+NeoBundle 'Shougo/vimproc.git', { 'build': {
+    \ 'mac': 'make -f make_mac.mak',
+    \ 'unix': 'make -f make_unix.mak',
+    \ 'cygwin': 'make -f make_cygwin.mak',
+    \ 'windows': 'make -f make_mingw32.mak',
+    \ }}
+
+" unite
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/unite-session.git', { 'depends': 'Shougo/unite.vim' }
+NeoBundle 'kannokanno/unite-dwm.git', { 'depends': 'Shougo/unite.vim' }
 
 " other
+<<<<<<< HEAD
 "Bundle 'eregex.vim'
 Bundle 'othree/eregex.vim'
 "Bundle 'YankRing.vim'
@@ -171,9 +199,50 @@ endif
 
 Bundle 'https://github.com/mattn/habatobi-vim.git'
 
+=======
+NeoBundle 'neocomplcache'
+NeoBundle 'vimgrep.vim'
+NeoBundle 'eregex.vim'
+NeoBundle 'yanktmp.vim'
+NeoBundle 'surround.vim'
+NeoBundle 'quickrun.vim'
+NeoBundle 'scratch.vim'
+NeoBundle 'sudo.vim'
+NeoBundle 'taglist.vim'
+NeoBundle 'Align'
+NeoBundle 'dbext.vim'
+NeoBundle 'fugitive.vim'
+NeoBundle 'gitv'
+NeoBundle 'occur.vim'
+NeoBundle 'renamer.vim'
+NeoBundle 'sjl/gundo.vim.git'
+NeoBundle 'Shougo/vimshell.git'
+NeoBundle 'glidenote/memolist.vim'
+NeoBundle 'fuenor/qfixgrep.git'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'mitechie/pyflakes-pathogen'
+NeoBundle 'thinca/vim-qfreplace'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'spolu/dwm.vim'
+NeoBundle 'open-browser.vim'
+NeoBundle '5t111111/neat-json.vim'
+
+" nouse
+"NeoBundle 'editorconfig/editorconfig-vim'
+"NeoBundle 'VimRepress'
+"if !has('gui_macvim')
+"    NeoBundle 'VimRepress'
+"    "NeoBundle 'minibufexpl.vim'
+"    "NeoBundle 'bufferlist.vim'
+"endif
+>>>>>>> ebd382684c8216e2df0dab6c7837911bbafd6824
 
 filetype plugin indent on
 
+
+"""""""""""""""""
+""" plugin config
+"""""""""""""""""
 
 """ YankRing
 let g:yankring_max_history=50
@@ -322,7 +391,7 @@ nnoremap <silent> [unite]m :<C-u>Unite file_mru -direction=belowright<CR>
 " 現在のバッファのカレントディレクトリからファイル一覧
 nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir -buffer-name=files file file/new -direction=belowright<CR>
 " ブックマーク一覧
-nnoremap <silent> [unite]c :<C-u>Unite bookmark -direction=belowright<CR>
+nnoremap <silent> [unite]b :<C-u>Unite bookmark -direction=belowright<CR>
 " ヤンク履歴
 nnoremap <silent> [unite]y :<C-u>Unite history/yank -direction=belowright<CR>
 " 変更履歴
@@ -333,6 +402,9 @@ nnoremap <silent> [unite]g :<C-u>Unite grep -direction=belowright<CR>
 nnoremap <silent> [unite]s :<C-u>Unite session -direction=belowright<CR>
 " dwm
 nnoremap <silent> [unite]w :<C-u>Unite dwm -direction=belowright<CR>
+" neobundle
+nnoremap <silent> [unite]n  :<C-u>Unite neobundle -direction=belowright<CR>
+nnoremap <silent> [unite]ns :<C-u>Unite neobundle/search -direction=belowright<CR>
 
 
 """" 検索語が真ん中に来るように
@@ -367,9 +439,12 @@ augroup END
 
 
 """ markdown
-autocmd BufRead,BufNewFile *.mkd  setfiletype=mkd
-autocmd BufRead,BufNewFile *.md  setfiletype=mkd
+autocmd BufRead,BufNewFile *.mkd  set filetype=mkd
+autocmd BufRead,BufNewFile *.md  set filetype=mkd
 
+
+""" hiveql
+autocmd BufRead,BufNewFile *.hql set filetype=sql
 
 """ actionscript,mxml
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
@@ -386,6 +461,10 @@ autocmd FileType python :inoremap # X#
 
 """ handlebars template
 autocmd BufNewFile,BufRead *.hbs set filetype=xhtml
+
+
+""" ect template
+autocmd BufNewfile,BufRead *.ect set filetype=xhtml
 
 
 """
@@ -440,6 +519,13 @@ let g:vim_markdown_folding_disabled=1
 """ occur
 " 検索結果一覧
 noremap <F2> :Occur<CR>
+
+
+"""" simple-javascript-indenter
+"" この設定入れるとshiftwidthを1にしてインデントしてくれる
+"let g:SimpleJsIndenter_BriefMode = 4
+"" この設定入れるとswitchのインデントがいくらかマシに
+"let g:SimpleJsIndenter_CaseIndentLevel = -1
 
 
 """""""""""""""""
@@ -586,6 +672,9 @@ endif
 nnoremap <expr> c* ':%s ;\<' . expand('<cword>') . '\>;'
 vnoremap <expr> c* ':s ;\<' . expand('<cword>') . '\>;'
 
+" 1文字挿入
+nnoremap <C-i> i_<ESC>r
+
 
 """""""""""""""
 """ gui setting
@@ -622,5 +711,5 @@ endif
 " なんかのプラグインで無効になってるぽいので
 set showcmd
 
-set runtimepath+=~/dotfile/.vim
+set runtimepath+=~/dotfile/.vim,~/dotfile/.vim/after
 
