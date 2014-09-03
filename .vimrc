@@ -84,15 +84,25 @@ set grepprg=grep\ -nH
 """ general varient
 let loaded_matchparen=1
 let &directory=&backupdir
-"let g:vimproc_dll_path = $HOME.'/dotfile/.vim/bundle/vimproc/autoload/vimproc_mac.so'
-if has('mac')
-    let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/autoload/vimproc_mac.so'
-elseif has('win32')
-    let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/autoload/vimproc_win32.dll'
-elseif has('win64')
-    let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/autoload/vimproc_win64.dll'
-endif
 
+let ostype = system('uname')
+let archtype = system('uname -p')
+
+if ostype == "Darwin\n"
+    let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/autoload/vimproc_mac.so'
+elseif ostype == "Linux\n"
+    if archtype == "x86_64\n"
+        let g:vimproc_dll_path = $HOME.'/dotfile/.vim/bundle/vimproc/autoload/vimproc_linux64.so'
+    elseif archtype == "i386\n"
+        let g:vimproc_dll_path = $HOME.'/dotfile/.vim/bundle/vimproc/autoload/vimproc_linux32.so'
+    endif
+else
+    if has('win32')
+        let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/autoload/vimproc_win32.dll'
+    elseif has('win64')
+        let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/autoload/vimproc_win64.dll'
+    endif
+endif
 
 
 """"""""""""""""""
