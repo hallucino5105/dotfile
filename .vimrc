@@ -93,7 +93,7 @@ if ostype == "Darwin\n"
 elseif ostype == "Linux\n"
     if archtype == "x86_64\n"
         let g:vimproc_dll_path = $HOME.'/dotfile/.vim/bundle/vimproc/autoload/vimproc_linux64.so'
-    elseif archtype == "i386\n"
+    elseif archtype == "i386\n" || archtype == "i686\n"
         let g:vimproc_dll_path = $HOME.'/dotfile/.vim/bundle/vimproc/autoload/vimproc_linux32.so'
     endif
 else
