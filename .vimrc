@@ -492,8 +492,8 @@ noremap <F2> :Occur<CR>
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args='--max-line-length=200 --ignore="F4"'
 let g:syntastic_mode_map = {
-    \   'mode': 'active',
-    \   'active_filetypes': ['php', 'coffeescript', 'sh', 'vim', 'python'],
+    \   'mode': 'passive',
+    \   'active_filetypes': ['python'],
     \   'passive_filetypes': ['html', 'haskell']
     \}
 
