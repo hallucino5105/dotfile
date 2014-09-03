@@ -145,61 +145,6 @@ NeoBundle 'Shougo/unite-session.git', { 'depends': 'Shougo/unite.vim' }
 NeoBundle 'kannokanno/unite-dwm.git', { 'depends': 'Shougo/unite.vim' }
 
 " other
-<<<<<<< HEAD
-"Bundle 'eregex.vim'
-Bundle 'othree/eregex.vim'
-"Bundle 'YankRing.vim'
-Bundle 'yanktmp.vim'
-Bundle 'surround.vim'
-Bundle 'quickrun.vim'
-Bundle 'sjl/gundo.vim.git'
-"Bundle 'renamer.vim'
-Bundle 'scratch.vim'
-"Bundle 'Python-Syntax'
-Bundle 'sudo.vim'
-Bundle 'neocomplcache'
-Bundle 'Shougo/vimshell.git'
-Bundle 'Shougo/vimproc.git'
-"Bundle 'vcscommand.vim'
-Bundle 'taglist.vim'
-Bundle 'Align'
-"Bundle 'dbext.vim'
-"Bundle 'SQLUtilities'
-"Bundle 'Indent-Guides'
-"Bundle 'Smooth-Scroll'
-"Bundle 'mattn/hahhah-vim'
-Bundle 'glidenote/memolist.vim'
-"Bundle 'vimgrep.vim' "終了時にエラーが出る
-Bundle 'fuenor/qfixgrep.git'
-"Bundle 'plasticboy/vim-markdown'
-Bundle 'tpope/vim-markdown'
-Bundle 'unite.vim'
-"Bundle 'unite-colorscheme'
-Bundle 'Shougo/unite-session.git'
-Bundle 'kannokanno/unite-dwm.git'
-Bundle 'fugitive.vim'
-Bundle 'gitv'
-"Bundle 'pyflakes'
-Bundle 'mitechie/pyflakes-pathogen'
-Bundle 'renamer.vim'
-"Bundle 'wincent/Command-T'
-"Bundle 'Shougo/vimfiler'
-Bundle 'thinca/vim-qfreplace'
-Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'VimRepress'
-Bundle 'spolu/dwm.vim'
-Bundle 'open-browser.vim'
-Bundle 'occur.vim'
-
-if !has('gui_macvim')
-    Bundle 'VimRepress'
-    "Bundle 'minibufexpl.vim'
-    "Bundle 'bufferlist.vim'
-endif
-
-Bundle 'https://github.com/mattn/habatobi-vim.git'
-
-=======
 NeoBundle 'neocomplcache'
 NeoBundle 'vimgrep.vim'
 NeoBundle 'eregex.vim'
@@ -235,7 +180,6 @@ NeoBundle '5t111111/neat-json.vim'
 "    "NeoBundle 'minibufexpl.vim'
 "    "NeoBundle 'bufferlist.vim'
 "endif
->>>>>>> ebd382684c8216e2df0dab6c7837911bbafd6824
 
 filetype plugin indent on
 
