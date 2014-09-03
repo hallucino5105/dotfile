@@ -123,7 +123,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Lucius'
 NeoBundle 'Zenburn'
 NeoBundle 'molokai'
-NeoBundle 'yuroyoro/yuroyoro256.vim.git'
+NeoBundle 'yuroyoro/yuroyoro256.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'nanotech/jellybeans.vim'
 
@@ -134,7 +134,7 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'https://github.com/autowitch/hive.vim.git'
+NeoBundle 'https://github.com/autowitch/hive.vim'
 
 " indent
 NeoBundle 'html-improved-indentation'
@@ -151,8 +151,8 @@ NeoBundle 'Shougo/vimproc.git', { 'build': {
 " unite
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/unite-session.git', { 'depends': 'Shougo/unite.vim' }
-NeoBundle 'kannokanno/unite-dwm.git', { 'depends': 'Shougo/unite.vim' }
+NeoBundle 'Shougo/unite-session', { 'depends': 'Shougo/unite.vim' }
+NeoBundle 'kannokanno/unite-dwm', { 'depends': 'Shougo/unite.vim' }
 
 " other
 NeoBundle 'neocomplcache'
@@ -173,18 +173,23 @@ NeoBundle 'renamer.vim'
 NeoBundle 'sjl/gundo.vim.git'
 NeoBundle 'Shougo/vimshell.git'
 NeoBundle 'glidenote/memolist.vim'
-NeoBundle 'fuenor/qfixgrep.git'
+NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'tpope/vim-markdown'
-NeoBundle 'mitechie/pyflakes-pathogen'
 NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'spolu/dwm.vim'
 NeoBundle 'open-browser.vim'
 NeoBundle '5t111111/neat-json.vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Yggdroot/indentLine'
 
 " nouse
 "NeoBundle 'editorconfig/editorconfig-vim'
 "NeoBundle 'VimRepress'
+"NeoBundle 'nathanaelkane/vim-indent-guides'
+"NeoBundle 'kevinw/pyflakes-vim'
+"NeoBundle 'mitechie/pyflakes-pathogen'
+"NeoBundle 'davidhalter/jedi-vim'
 "if !has('gui_macvim')
 "    NeoBundle 'VimRepress'
 "    "NeoBundle 'minibufexpl.vim'
@@ -406,9 +411,9 @@ autocmd BufNewFile,BufRead *.mxml set filetype=mxml
 
 
 """ python
-autocmd FileType python setl autoindent
-autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
+"autocmd FileType python setl autoindent
+"autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+"autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 " VimでPythonのコメント行を入力しようとするとインデントが解除されてしまうアレ
 autocmd FileType python :inoremap # X#
 
@@ -482,44 +487,50 @@ noremap <F2> :Occur<CR>
 "let g:SimpleJsIndenter_CaseIndentLevel = -1
 
 
+""" syntastic
+"let g:syntastic_python_checkers = ['pep8', 'pyflakes']
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args='--max-line-length=200 --ignore="F4"'
+let g:syntastic_mode_map = {
+    \   'mode': 'active',
+    \   'active_filetypes': ['php', 'coffeescript', 'sh', 'vim', 'python'],
+    \   'passive_filetypes': ['html', 'haskell']
+    \}
+
+
+"""" vim-indent-guides
+"let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_start_level = 2
+"let g:indent_guides_guide_size = 1
+"let g:indent_guides_auto_colors = 0
+"let g:indent_guides_color_change_percent = 10
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=black guibg=black
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey guibg=darkgrey
+
+
+""" IndentLine
+let g:indentLine_color_term = 236
+let g:indentLine_color_gui = '#2e2e2e'
+"let g:indentLine_char = '|'
+
+
 """""""""""""""""
 """ color setting
 """""""""""""""""
 syntax on
 
 
-if has('mac') || has('linux') || has('unix')
-    "colorscheme darkblue
-    "colorscheme yuroyoro256
-    "colorscheme molokai
-
-    let g:solarized_termcolors=16
-    let g:solarized_termtrans=0
-    let g:solarized_degrade=0
-    let g:solarized_bold=1
-    let g:solarized_underline=1
-    let g:solarized_italic=1
-    let g:solarized_contrast='normal'
-    let g:solarized_visibility='normal'
-    set background=dark
-    colorscheme solarized
-elseif has('win32') || has('cygwin') || has("win32unix")
-    colorscheme molokai
-endif
-
-
-
 " ターミナルタイプによるカラー設定
-"if &term =~ "xterm-256color" || "screen-256color"
+"if &term =~ 'xterm-256color' || 'screen-256color'
 "  " 256色
 "  set t_Co=256
 "  set t_Sf=[3%dm
 "  set t_Sb=[4%dm
-"elseif &term =~ "xterm-debian" || &term =~ "xterm-xfree86"
+"elseif &term =~ 'xterm-debian' || &term =~ 'xterm-xfree86'
 "  set t_Co=16
 "  set t_Sf=[3%dm
 "  set t_Sb=[4%dm
-"elseif &term =~ "xterm-color"
+"elseif &term =~ 'xterm-color'
 "  set t_Co=8
 "  set t_Sf=[3%dm
 "  set t_Sb=[4%dm
@@ -567,6 +578,25 @@ hi SpecialKey ctermfg=0 guifg=darkgray
 "
 hi PmenuSel ctermfg=248 ctermbg=0
 
+
+if has('mac') || has('linux') || has('unix')
+    "colorscheme darkblue
+    "colorscheme yuroyoro256
+    "colorscheme molokai
+
+    let g:solarized_termcolors=16
+    let g:solarized_termtrans=0
+    let g:solarized_degrade=0
+    let g:solarized_bold=1
+    let g:solarized_underline=1
+    let g:solarized_italic=1
+    let g:solarized_contrast='normal'
+    let g:solarized_visibility='normal'
+    colorscheme solarized
+    set background=dark
+elseif has('win32') || has('cygwin') || has("win32unix")
+    colorscheme molokai
+endif
 
 
 """""""""""""""
