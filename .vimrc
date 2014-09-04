@@ -134,7 +134,9 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'https://github.com/autowitch/hive.vim'
+NeoBundle 'autowitch/hive.vim'
+NeoBundle 'JulesWang/css.vim'
+NeoBundle 'cakebaker/scss-syntax.vim'
 
 " indent
 NeoBundle 'html-improved-indentation'
@@ -182,6 +184,7 @@ NeoBundle 'open-browser.vim'
 NeoBundle '5t111111/neat-json.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'scrooloose/nerdtree'
 
 " nouse
 "NeoBundle 'editorconfig/editorconfig-vim'
@@ -512,6 +515,13 @@ let g:syntastic_mode_map = {
 let g:indentLine_color_term = 236
 let g:indentLine_color_gui = '#2e2e2e'
 "let g:indentLine_char = '|'
+
+
+""" NERDTree
+noremap <silent> <F1> :NERDTreeToggle<CR>
+let g:NERDTreeShowHidden=1
+let g:NERDTreeMinimalUI=0
+let g:NERDTreeDirArrows=1
 
 
 """""""""""""""""
