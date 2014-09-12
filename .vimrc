@@ -47,20 +47,20 @@ set autoread
 set nofoldenable
 set iskeyword+=-
 
+"" カーソル行をハイライト
+""  -> カーソル移動が重くなる原因なのでやめ
+"set cursorline
+"" カレントウィンドウにのみ罫線を引く
+"augroup cch
+"    autocmd! cch
+"    autocmd WinLeave * set nocursorline
+"    autocmd WinEnter,BufRead * set cursorline
+"augroup END
 
 " 自動再読み込み
 augroup vimrc-checktime
     autocmd!
     autocmd WinEnter * checktime
-augroup END
-
-" カーソル行をハイライト
-set cursorline
-" カレントウィンドウにのみ罫線を引く
-augroup cch
-    autocmd! cch
-    autocmd WinLeave * set nocursorline
-    autocmd WinEnter,BufRead * set cursorline
 augroup END
 
 " trailing spaces highlight
@@ -183,7 +183,6 @@ NeoBundle 'spolu/dwm.vim'
 NeoBundle 'open-browser.vim'
 NeoBundle '5t111111/neat-json.vim'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'h1mesuke/vim-alignta'
 
@@ -195,6 +194,7 @@ NeoBundle 'h1mesuke/vim-alignta'
 "NeoBundle 'mitechie/pyflakes-pathogen'
 "NeoBundle 'davidhalter/jedi-vim'
 "NeoBundle 'Align'
+"NeoBundle 'Yggdroot/indentLine' " 重い
 "if !has('gui_macvim')
 "    NeoBundle 'VimRepress'
 "    "NeoBundle 'minibufexpl.vim'
@@ -548,6 +548,7 @@ syntax on
 "  set t_Sb=[4%dm
 "endif
 
+
 " ref by ~/program_ym0/cardinal/tech/term_color_palette/term_color_palette.py
 "hi Pmenu ctermfg=4 ctermbg=59
 "hi PmenuSel ctermfg=0 ctermbg=254
@@ -558,6 +559,7 @@ syntax on
 "hi StatusLine term=bold,reverse ctermfg=231 ctermbg=238 guifg=#ffffff guibg=#666666
 ""hi LineNr ctermfg=28
 
+
 " 全角スペース・行末のスペース・タブの可視化
 if has("syntax")
     syntax on
@@ -566,12 +568,12 @@ if has("syntax")
     syn sync fromstart
 
     function! ActivateInvisibleIndicator()
-        " 下の行の"　"は全角スペース
-        syntax match InvisibleJISX0208Space "　" display containedin=ALL
+        " 下の行の'　'は全角スペース
+        syntax match InvisibleJISX0208Space '　' display containedin=ALL
         highlight InvisibleJISX0208Space term=underline ctermbg=Blue guibg=darkgray gui=underline
-        "syntax match InvisibleTrailedSpace "[ \t]\+$" display containedin=ALL
+        "syntax match InvisibleTrailedSpace '[ \t]\+$' display containedin=ALL
         "highlight InvisibleTrailedSpace term=underline ctermbg=Red guibg=NONE gui=undercurl guisp=darkorange
-        "syntax match InvisibleTab "\t" display containedin=ALL
+        "syntax match InvisibleTab '\t' display containedin=ALL
         "highlight InvisibleTab term=underline ctermbg=1 gui=undercurl guisp=darkslategray
     endfunction
 
@@ -581,13 +583,14 @@ if has("syntax")
     augroup END
 endif
 
+
 " pyflakeが使う
 hi SpellBad ctermfg=darkred guifg=darkred
 
 " tabとか
 hi SpecialKey ctermfg=0 guifg=darkgray
 
-"
+" ...
 hi PmenuSel ctermfg=248 ctermbg=0
 
 
@@ -646,11 +649,17 @@ inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
-
 " tab
 "nmap <C-t> :tabnext<CR>
 "nmap <F1> :tabnew<CR>
 
+" 表示行単位で移動
+nnoremap j gj
+onoremap j gj
+xnoremap j gj
+nnoremap k gk
+onoremap k gk
+xnoremap k gk
 
 " ノーマル/インサートモードでカーソルの形状を変更する
 if &term =~ "screen" || &term=~"screen-256color"
