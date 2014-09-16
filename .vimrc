@@ -23,7 +23,7 @@ set smarttab
 "set hlsearch
 set laststatus=2
 set statusline=%{expand('%:p:t')}\ %<\(%{expand('%:p:h')}¥)%=\ %m%r%y%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}[%l,%c\ (%p%%)]
-set clipboard+=unnamedplus,unnamed
+"set clipboard+=unnamedplus,unnamed
 set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932
 set fileformats=unix,dos,mac
@@ -57,11 +57,11 @@ set iskeyword+=-
 "    autocmd WinEnter,BufRead * set cursorline
 "augroup END
 
-" 自動再読み込み
-augroup vimrc-checktime
-    autocmd!
-    autocmd WinEnter * checktime
-augroup END
+"" 自動再読み込み
+"augroup vimrc-checktime
+"    autocmd!
+"    autocmd WinEnter * checktime
+"augroup END
 
 " trailing spaces highlight
 augroup HighlightTrailingSpaces
