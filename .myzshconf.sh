@@ -2,6 +2,7 @@ autoload -U colors && colors
 autoload -U compinit && compinit -u
 
 
+### zsh設定
 # 補完方法毎にグループ化する
 #zstyle ':completion:*' format '%B%d%b'
 #zstyle ':completion:*' group-name ''
@@ -44,8 +45,14 @@ setopt extended_history
 setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt inc_append_history
-#setopt share_history
 setopt no_flow_control
+setopt hist_reduce_blanks
+setopt hist_verify
+#setopt share_history
+
+## インクリメンタルからの検索
+#bindkey "^R" history-incremental-search-backward
+#bindkey "^S" history-incremental-search-forward
 
 # 改行なしの行を表示させる
 unsetopt promptcr
@@ -57,10 +64,12 @@ unsetopt promptcr
 # 「/」も単語区切りとみなす
 WORDCHARS=${WORDCHARS:s,/,,}
 
-# prompt
+
+### zshプロンプト
 #PROMPT="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
 #PROMPT="[${USER}@${HOST%%.*} %1~](%(?.%F{green}^-^%f.%F{red}@_@%f))%(!.#.$) "
-PROMPT="[${USER}@${HOST%%.*} %1~](%(?.^-^.@_@))%(!.#.$) "
+#PROMPT="[${USER}@${HOST%%.*} %1~](%D{%m/%d %H:%M})(%(?.^-^.@_@))%(!.#.$) "
+PROMPT="[${USER}@${HOST%%.*} %1~](%D{%H:%M})(%(?.^-^.@_@))%(!.#.$) "
 
 autoload -Uz is-at-least
 if is-at-least 4.3.10; then
@@ -101,7 +110,7 @@ if is-at-least 4.3.10; then
 fi
 
 
-# 環境変数
+### 環境変数
 case "$TERM" in
     xterm*)
         COLORTERM=1
@@ -130,11 +139,11 @@ case "$TERM" in
 esac
 
 
+### コマンド
 # ctrl+hでbackspaceを入力可能する
 #if [ $TERM = "screen" ] || [ $SCREEN = 1 ]; then
 #    stty erase ""
 #fi
-
 
 # コマンドラインスタックを表示
 show_buffer_stack() {
@@ -144,15 +153,13 @@ show_buffer_stack() {
 }
 
 zle -N show_buffer_stack
-bindkey "?q" show_buffer_stack
+bindkey "^q" show_buffer_stack
 
 
-#
-compdef mosh=ssh
-
-# alias
-case ${OSTYPE} in
-    linux*)
+### エイリアス
+# macにbunutils入れたので入らない
+#case ${OSTYPE} in
+#    linux*)
         alias ls="ls -F --color --time-style=long-iso"
         alias ll="ls -la --color --time-style=long-iso"
 
@@ -168,15 +175,24 @@ case ${OSTYPE} in
 
             sudo find $DIR -type f -print0 | xargs -0 ls -l --color --time-style=long-iso | sort -k 6,7 | tail -n $COUNT
         }
-        ;;
-    darwin*)
-        alias ls="ls -vFG"
-        alias ll="ls -lavFG"
-        alias l="ls -lavFG"
-        ;;
-esac
+#        ;;
+#    darwin*)
+#        alias ls="ls -vFG"
+#        alias ll="ls -lavFG"
+#        alias l="ls -lavFG"
+#        ;;
+#esac
+
+alias -g L='| less'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g G='| grep'
+alias -g W='| wc'
+alias -g S='| sed'
+alias -g A='| awk'
 
 
+### キーバインド グローバル
 # emacs風キーバインド
 bindkey -e
 
@@ -184,3 +200,9 @@ bindkey -e
 #bindkey -v
 #bindkey "^P" up-line-or-history
 #bindkey "^N" down-line-or-history
+
+
+### その他
+# moshの補完をsshと同じに
+compdef mosh=ssh
+

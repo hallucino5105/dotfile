@@ -16,14 +16,14 @@ set nowrapscan
 set showmatch
 set matchtime=3
 set autoindent
-"set smartindent
+set smartindent
 "set cindent
 set smartcase
 set smarttab
 "set hlsearch
 set laststatus=2
 set statusline=%{expand('%:p:t')}\ %<\(%{expand('%:p:h')}¥)%=\ %m%r%y%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}[%l,%c\ (%p%%)]
-set clipboard+=autoselect
+"set clipboard+=unnamedplus,unnamed
 set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932
 set fileformats=unix,dos,mac
@@ -33,7 +33,6 @@ set backup
 set backupdir=~/dotfile/.vim/backup
 set backspace=indent,eol,start
 set backupskip=/tmp/*,/private/tmp/*
-set clipboard+=autoselect
 set hlsearch
 set showtabline=1
 set wildmenu
@@ -46,22 +45,23 @@ set listchars=tab:»\ ,extends:»,precedes:«,nbsp:%
 set maxmempattern=10000
 set autoread
 set nofoldenable
+set iskeyword+=-
 
+"" カーソル行をハイライト
+""  -> カーソル移動が重くなる原因なのでやめ
+"set cursorline
+"" カレントウィンドウにのみ罫線を引く
+"augroup cch
+"    autocmd! cch
+"    autocmd WinLeave * set nocursorline
+"    autocmd WinEnter,BufRead * set cursorline
+"augroup END
 
-" 自動再読み込み
-augroup vimrc-checktime
-    autocmd!
-    autocmd WinEnter * checktime
-augroup END
-
-" カーソル行をハイライト
-set cursorline
-" カレントウィンドウにのみ罫線を引く
-augroup cch
-    autocmd! cch
-    autocmd WinLeave * set nocursorline
-    autocmd WinEnter,BufRead * set cursorline
-augroup END
+"" 自動再読み込み
+"augroup vimrc-checktime
+"    autocmd!
+"    autocmd WinEnter * checktime
+"augroup END
 
 " trailing spaces highlight
 augroup HighlightTrailingSpaces
@@ -84,95 +84,129 @@ set grepprg=grep\ -nH
 """ general varient
 let loaded_matchparen=1
 let &directory=&backupdir
-let g:vimproc_dll_path = $HOME.'/dotfile/.vim/bundle/vimproc/autoload/vimproc.so'
 
+let ostype = system('uname')
+let archtype = system('uname -p')
+
+if ostype == "Darwin\n"
+    let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/autoload/vimproc_mac.so'
+elseif ostype == "Linux\n"
+    if archtype == "x86_64\n"
+        let g:vimproc_dll_path = $HOME.'/dotfile/.vim/bundle/vimproc/autoload/vimproc_linux64.so'
+    elseif archtype == "i386\n" || archtype == "i686\n"
+        let g:vimproc_dll_path = $HOME.'/dotfile/.vim/bundle/vimproc/autoload/vimproc_linux32.so'
+    endif
+else
+    if has('win32')
+        let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/autoload/vimproc_win32.dll'
+    elseif has('win64')
+        let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/autoload/vimproc_win64.dll'
+    endif
+endif
 
 
 """"""""""""""""""
 """ plugin setting
 """"""""""""""""""
 set nocompatible
-filetype off
+filetype plugin indent off
 
-set runtimepath+=~/dotfile/.vim/vundle/
-call vundle#rc('~/dotfile/.vim/bundle')
-
-" color
-Bundle 'Lucius'
-Bundle 'Zenburn'
-"Bundle 'darkblue'
-"Bundle 'darkblue2'
-"Bundle 'wombat256.vim'
-Bundle 'yuroyoro/yuroyoro256.vim.git'
-Bundle 'molokai'
-"Bundle 'Solarized'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'nanotech/jellybeans.vim'
-
-" syntax
-Bundle 'jQuery'
-"Bundle 'css3'
-Bundle 'JSON.vim'
-Bundle 'html5.vim'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'groenewege/vim-less'
-
-" other
-Bundle 'eregex.vim'
-"Bundle 'YankRing.vim'
-Bundle 'yanktmp.vim'
-Bundle 'surround.vim'
-Bundle 'quickrun.vim'
-Bundle 'sjl/gundo.vim.git'
-"Bundle 'renamer.vim'
-Bundle 'scratch.vim'
-"Bundle 'Python-Syntax'
-Bundle 'sudo.vim'
-Bundle 'neocomplcache'
-Bundle 'Shougo/vimshell.git'
-Bundle 'Shougo/vimproc.git'
-"Bundle 'vcscommand.vim'
-Bundle 'taglist.vim'
-Bundle 'Align'
-"Bundle 'dbext.vim'
-"Bundle 'SQLUtilities'
-"Bundle 'Indent-Guides'
-"Bundle 'Smooth-Scroll'
-"Bundle 'mattn/hahhah-vim'
-Bundle 'glidenote/memolist.vim'
-"Bundle 'vimgrep.vim' "終了時にエラーが出る
-Bundle 'fuenor/qfixgrep.git'
-"Bundle 'plasticboy/vim-markdown'
-Bundle 'tpope/vim-markdown'
-Bundle 'unite.vim'
-"Bundle 'unite-colorscheme'
-Bundle 'Shougo/unite-session.git'
-Bundle 'kannokanno/unite-dwm.git'
-Bundle 'fugitive.vim'
-Bundle 'gitv'
-"Bundle 'pyflakes'
-Bundle 'mitechie/pyflakes-pathogen'
-Bundle 'renamer.vim'
-"Bundle 'wincent/Command-T'
-"Bundle 'Shougo/vimfiler'
-Bundle 'thinca/vim-qfreplace'
-Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'VimRepress'
-Bundle 'spolu/dwm.vim'
-Bundle 'open-browser.vim'
-Bundle 'occur.vim'
-
-if !has('gui_macvim')
-    Bundle 'VimRepress'
-    "Bundle 'minibufexpl.vim'
-    "Bundle 'bufferlist.vim'
+if has('vim_starting')
+    set runtimepath+=~/dotfile/.vim/neobundle/
+    call neobundle#rc(expand('~/dotfile/.vim/bundle'))
 endif
 
-Bundle 'https://github.com/mattn/habatobi-vim.git'
+" fetch
+NeoBundleFetch 'Shougo/neobundle.vim'
 
+" color
+NeoBundle 'Lucius'
+NeoBundle 'Zenburn'
+NeoBundle 'molokai'
+NeoBundle 'yuroyoro/yuroyoro256.vim'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'nanotech/jellybeans.vim'
+
+" syntax
+NeoBundle 'jQuery'
+NeoBundle 'JSON.vim'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'autowitch/hive.vim'
+NeoBundle 'JulesWang/css.vim'
+NeoBundle 'cakebaker/scss-syntax.vim'
+
+" indent
+NeoBundle 'html-improved-indentation'
+NeoBundleLazy 'hynek/vim-python-pep8-indent', { "autoload": { "insert": 1, "filetypes": ["python", "python3", "djangohtml"] }}
+
+" vimproc
+NeoBundle 'Shougo/vimproc.git', { 'build': {
+    \ 'mac': 'make -f make_mac.mak',
+    \ 'unix': 'make -f make_unix.mak',
+    \ 'cygwin': 'make -f make_cygwin.mak',
+    \ 'windows': 'make -f make_mingw32.mak',
+    \ }}
+
+" unite
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/unite-session', { 'depends': 'Shougo/unite.vim' }
+NeoBundle 'kannokanno/unite-dwm', { 'depends': 'Shougo/unite.vim' }
+
+" other
+NeoBundle 'neocomplcache'
+NeoBundle 'vimgrep.vim'
+NeoBundle 'eregex.vim'
+NeoBundle 'yanktmp.vim'
+NeoBundle 'surround.vim'
+NeoBundle 'quickrun.vim'
+NeoBundle 'scratch.vim'
+NeoBundle 'sudo.vim'
+NeoBundle 'taglist.vim'
+NeoBundle 'dbext.vim'
+NeoBundle 'fugitive.vim'
+NeoBundle 'gitv'
+NeoBundle 'occur.vim'
+NeoBundle 'renamer.vim'
+NeoBundle 'camelcasemotion'
+NeoBundle 'sjl/gundo.vim.git'
+NeoBundle 'Shougo/vimshell.git'
+NeoBundle 'glidenote/memolist.vim'
+NeoBundle 'fuenor/qfixgrep'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'thinca/vim-qfreplace'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'spolu/dwm.vim'
+NeoBundle 'open-browser.vim'
+NeoBundle '5t111111/neat-json.vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'h1mesuke/vim-alignta'
+
+" nouse
+"NeoBundle 'editorconfig/editorconfig-vim'
+"NeoBundle 'VimRepress'
+"NeoBundle 'nathanaelkane/vim-indent-guides'
+"NeoBundle 'kevinw/pyflakes-vim'
+"NeoBundle 'mitechie/pyflakes-pathogen'
+"NeoBundle 'davidhalter/jedi-vim'
+"NeoBundle 'Align'
+"NeoBundle 'Yggdroot/indentLine' " 重い
+"if !has('gui_macvim')
+"    NeoBundle 'VimRepress'
+"    "NeoBundle 'minibufexpl.vim'
+"    "NeoBundle 'bufferlist.vim'
+"endif
 
 filetype plugin indent on
 
+
+"""""""""""""""""
+""" plugin config
+"""""""""""""""""
 
 """ YankRing
 let g:yankring_max_history=50
@@ -321,7 +355,7 @@ nnoremap <silent> [unite]m :<C-u>Unite file_mru -direction=belowright<CR>
 " 現在のバッファのカレントディレクトリからファイル一覧
 nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir -buffer-name=files file file/new -direction=belowright<CR>
 " ブックマーク一覧
-nnoremap <silent> [unite]c :<C-u>Unite bookmark -direction=belowright<CR>
+nnoremap <silent> [unite]b :<C-u>Unite bookmark -direction=belowright<CR>
 " ヤンク履歴
 nnoremap <silent> [unite]y :<C-u>Unite history/yank -direction=belowright<CR>
 " 変更履歴
@@ -332,6 +366,9 @@ nnoremap <silent> [unite]g :<C-u>Unite grep -direction=belowright<CR>
 nnoremap <silent> [unite]s :<C-u>Unite session -direction=belowright<CR>
 " dwm
 nnoremap <silent> [unite]w :<C-u>Unite dwm -direction=belowright<CR>
+" neobundle
+nnoremap <silent> [unite]n  :<C-u>Unite neobundle -direction=belowright<CR>
+nnoremap <silent> [unite]ns :<C-u>Unite neobundle/search -direction=belowright<CR>
 
 
 """" 検索語が真ん中に来るように
@@ -366,9 +403,12 @@ augroup END
 
 
 """ markdown
-autocmd BufRead,BufNewFile *.mkd  setfiletype=mkd
-autocmd BufRead,BufNewFile *.md  setfiletype=mkd
+autocmd BufRead,BufNewFile *.mkd  set filetype=mkd
+autocmd BufRead,BufNewFile *.md  set filetype=mkd
 
+
+""" hiveql
+autocmd BufRead,BufNewFile *.hql set filetype=sql
 
 """ actionscript,mxml
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
@@ -376,15 +416,19 @@ autocmd BufNewFile,BufRead *.mxml set filetype=mxml
 
 
 """ python
-autocmd FileType python setl autoindent
-autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
+"autocmd FileType python setl autoindent
+"autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+"autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 " VimでPythonのコメント行を入力しようとするとインデントが解除されてしまうアレ
 autocmd FileType python :inoremap # X#
 
 
 """ handlebars template
 autocmd BufNewFile,BufRead *.hbs set filetype=xhtml
+
+
+""" ect template
+autocmd BufNewfile,BufRead *.ect set filetype=xhtml
 
 
 """
@@ -441,10 +485,113 @@ let g:vim_markdown_folding_disabled=1
 noremap <F2> :Occur<CR>
 
 
+"""" simple-javascript-indenter
+"" この設定入れるとshiftwidthを1にしてインデントしてくれる
+"let g:SimpleJsIndenter_BriefMode = 4
+"" この設定入れるとswitchのインデントがいくらかマシに
+"let g:SimpleJsIndenter_CaseIndentLevel = -1
+
+
+""" syntastic
+"let g:syntastic_python_checkers = ['pep8', 'pyflakes']
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args='--max-line-length=200 --ignore="F4"'
+let g:syntastic_mode_map = {
+    \   'mode': 'passive',
+    \   'active_filetypes': ['python'],
+    \   'passive_filetypes': ['html', 'haskell']
+    \}
+
+
+"""" vim-indent-guides
+"let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_start_level = 2
+"let g:indent_guides_guide_size = 1
+"let g:indent_guides_auto_colors = 0
+"let g:indent_guides_color_change_percent = 10
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=black guibg=black
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey guibg=darkgrey
+
+
+""" IndentLine
+let g:indentLine_color_term = 236
+let g:indentLine_color_gui = '#2e2e2e'
+"let g:indentLine_char = '|'
+
+
+""" NERDTree
+noremap <silent> <F1> :NERDTreeToggle<CR>
+let g:NERDTreeShowHidden=1
+let g:NERDTreeMinimalUI=0
+let g:NERDTreeDirArrows=1
+
+
 """""""""""""""""
 """ color setting
 """""""""""""""""
 syntax on
+
+
+" ターミナルタイプによるカラー設定
+"if &term =~ 'xterm-256color' || 'screen-256color'
+"  " 256色
+"  set t_Co=256
+"  set t_Sf=[3%dm
+"  set t_Sb=[4%dm
+"elseif &term =~ 'xterm-debian' || &term =~ 'xterm-xfree86'
+"  set t_Co=16
+"  set t_Sf=[3%dm
+"  set t_Sb=[4%dm
+"elseif &term =~ 'xterm-color'
+"  set t_Co=8
+"  set t_Sf=[3%dm
+"  set t_Sb=[4%dm
+"endif
+
+
+" ref by ~/program_ym0/cardinal/tech/term_color_palette/term_color_palette.py
+"hi Pmenu ctermfg=4 ctermbg=59
+"hi PmenuSel ctermfg=0 ctermbg=254
+"hi PmenuSbar guibg=#333333
+"hi CursorLine term=None cterm=None ctermbg=235 gui=underline
+""hi BufferSelected term=reverse ctermfg=black ctermbg=red cterm=bold
+"hi BufferNormal term=NONE ctermfg=black ctermbg=black cterm=NONE
+"hi StatusLine term=bold,reverse ctermfg=231 ctermbg=238 guifg=#ffffff guibg=#666666
+""hi LineNr ctermfg=28
+
+
+" 全角スペース・行末のスペース・タブの可視化
+if has("syntax")
+    syntax on
+
+    " PODバグ対策
+    syn sync fromstart
+
+    function! ActivateInvisibleIndicator()
+        " 下の行の'　'は全角スペース
+        syntax match InvisibleJISX0208Space '　' display containedin=ALL
+        highlight InvisibleJISX0208Space term=underline ctermbg=Blue guibg=darkgray gui=underline
+        "syntax match InvisibleTrailedSpace '[ \t]\+$' display containedin=ALL
+        "highlight InvisibleTrailedSpace term=underline ctermbg=Red guibg=NONE gui=undercurl guisp=darkorange
+        "syntax match InvisibleTab '\t' display containedin=ALL
+        "highlight InvisibleTab term=underline ctermbg=1 gui=undercurl guisp=darkslategray
+    endfunction
+
+    augroup invisible
+        autocmd! invisible
+        autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
+    augroup END
+endif
+
+
+" pyflakeが使う
+hi SpellBad ctermfg=darkred guifg=darkred
+
+" tabとか
+hi SpecialKey ctermfg=0 guifg=darkgray
+
+" ...
+hi PmenuSel ctermfg=248 ctermbg=0
 
 
 if has('mac') || has('linux') || has('unix')
@@ -460,72 +607,11 @@ if has('mac') || has('linux') || has('unix')
     let g:solarized_italic=1
     let g:solarized_contrast='normal'
     let g:solarized_visibility='normal'
-    set background=dark
     colorscheme solarized
+    set background=dark
 elseif has('win32') || has('cygwin') || has("win32unix")
     colorscheme molokai
 endif
-
-
-
-" ターミナルタイプによるカラー設定
-"if &term =~ "xterm-256color" || "screen-256color"
-"  " 256色
-"  set t_Co=256
-"  set t_Sf=[3%dm
-"  set t_Sb=[4%dm
-"elseif &term =~ "xterm-debian" || &term =~ "xterm-xfree86"
-"  set t_Co=16
-"  set t_Sf=[3%dm
-"  set t_Sb=[4%dm
-"elseif &term =~ "xterm-color"
-"  set t_Co=8
-"  set t_Sf=[3%dm
-"  set t_Sb=[4%dm
-"endif
-
-" ref by ~/program_ym0/cardinal/tech/term_color_palette/term_color_palette.py
-"hi Pmenu ctermfg=4 ctermbg=59
-"hi PmenuSel ctermfg=0 ctermbg=254
-"hi PmenuSbar guibg=#333333
-"hi CursorLine term=None cterm=None ctermbg=235 gui=underline
-""hi BufferSelected term=reverse ctermfg=black ctermbg=red cterm=bold
-"hi BufferNormal term=NONE ctermfg=black ctermbg=black cterm=NONE
-"hi StatusLine term=bold,reverse ctermfg=231 ctermbg=238 guifg=#ffffff guibg=#666666
-""hi LineNr ctermfg=28
-
-" 全角スペース・行末のスペース・タブの可視化
-if has("syntax")
-    syntax on
-
-    " PODバグ対策
-    syn sync fromstart
-
-    function! ActivateInvisibleIndicator()
-        " 下の行の"　"は全角スペース
-        syntax match InvisibleJISX0208Space "　" display containedin=ALL
-        highlight InvisibleJISX0208Space term=underline ctermbg=Blue guibg=darkgray gui=underline
-        "syntax match InvisibleTrailedSpace "[ \t]\+$" display containedin=ALL
-        "highlight InvisibleTrailedSpace term=underline ctermbg=Red guibg=NONE gui=undercurl guisp=darkorange
-        "syntax match InvisibleTab "\t" display containedin=ALL
-        "highlight InvisibleTab term=underline ctermbg=1 gui=undercurl guisp=darkslategray
-    endfunction
-
-    augroup invisible
-        autocmd! invisible
-        autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
-    augroup END
-endif
-
-" pyflakeが使う
-hi SpellBad ctermfg=darkred guifg=darkred
-
-" tabとか
-hi SpecialKey ctermfg=0 guifg=darkgray
-
-"
-hi PmenuSel ctermfg=248 ctermbg=0
-
 
 
 """""""""""""""
@@ -563,11 +649,17 @@ inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
-
 " tab
 "nmap <C-t> :tabnext<CR>
 "nmap <F1> :tabnew<CR>
 
+" 表示行単位で移動
+nnoremap j gj
+onoremap j gj
+xnoremap j gj
+nnoremap k gk
+onoremap k gk
+xnoremap k gk
 
 " ノーマル/インサートモードでカーソルの形状を変更する
 if &term =~ "screen" || &term=~"screen-256color"
@@ -584,6 +676,9 @@ endif
 " c*でカーソル下のキーワードを置換
 nnoremap <expr> c* ':%s ;\<' . expand('<cword>') . '\>;'
 vnoremap <expr> c* ':s ;\<' . expand('<cword>') . '\>;'
+
+" 1文字挿入
+nnoremap <C-i> i_<ESC>r
 
 
 """""""""""""""
@@ -620,3 +715,6 @@ endif
 
 " なんかのプラグインで無効になってるぽいので
 set showcmd
+
+set runtimepath+=~/dotfile/.vim,~/dotfile/.vim/after
+
