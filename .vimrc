@@ -116,6 +116,8 @@ if has('vim_starting')
     call neobundle#rc(expand('~/dotfile/.vim/bundle'))
 endif
 
+source $VIMRUNTIME/macros/matchit.vim
+
 " fetch
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -186,7 +188,6 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'closetag.vim'
-NeoBundle 'kana/vim-smartinput' " 重い
 
 " nouse
 "NeoBundle 'editorconfig/editorconfig-vim'
@@ -197,6 +198,7 @@ NeoBundle 'kana/vim-smartinput' " 重い
 "NeoBundle 'davidhalter/jedi-vim'
 "NeoBundle 'Align'
 "NeoBundle 'Yggdroot/indentLine' " 重い
+"NeoBundle 'kana/vim-smartinput' " 邪魔
 "if !has('gui_macvim')
 "    NeoBundle 'VimRepress'
 "    "NeoBundle 'minibufexpl.vim'
@@ -500,8 +502,8 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args='--max-line-length=200 --ignore="F4"'
 let g:syntastic_mode_map = {
     \   'mode': 'passive',
-    \   'active_filetypes': ['python'],
-    \   'passive_filetypes': ['html', 'haskell']
+    \   'active_filetypes': [],
+    \   'passive_filetypes': ['python', 'html', 'haskell']
     \}
 
 
@@ -528,26 +530,26 @@ let g:NERDTreeMinimalUI=0
 let g:NERDTreeDirArrows=1
 
 
-""" smartinput
-call smartinput#define_rule({
-    \   'at': '\s\+\%#',
-    \   'char': '<CR>',
-    \   'input': "<C-o>:call setline('.', substitute(getline('.'), '\\s\\+$', '', ''))<CR><CR>",
-    \})
-
-call smartinput#define_rule({
-    \   'at': '\%#',
-    \   'char': '<',
-    \   'input': '<>',
-    \   'filetype': ['html', 'xml', 'xhtml', 'eruby'],
-    \})
-
-call smartinput#define_rule({
-    \   'at': '<.*\%#>',
-    \   'char': '>',
-    \   'input': '',
-    \   'filetype': ['html', 'xml', 'xhtml', 'eruby'],
-    \})
+"""" smartinput
+"call smartinput#define_rule({
+"    \   'at': '\s\+\%#',
+"    \   'char': '<CR>',
+"    \   'input': "<C-o>:call setline('.', substitute(getline('.'), '\\s\\+$', '', ''))<CR><CR>",
+"    \})
+"
+"call smartinput#define_rule({
+"    \   'at': '\%#',
+"    \   'char': '<',
+"    \   'input': '<>',
+"    \   'filetype': ['html', 'xml', 'xhtml', 'eruby'],
+"    \})
+"
+"call smartinput#define_rule({
+"    \   'at': '<.*\%#>',
+"    \   'char': '>',
+"    \   'input': '',
+"    \   'filetype': ['html', 'xml', 'xhtml', 'eruby'],
+"    \})
 
 
 """""""""""""""""
