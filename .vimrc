@@ -339,6 +339,8 @@ map <Leader>mg :MemoGrep<CR>
 """ unite
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_session_enable_auto_save = 1
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
 let g:unite_source_file_mru_limit = 1000
 let g:unite_update_time = 1000
 
@@ -363,9 +365,9 @@ nnoremap <silent> [unite]b :<C-u>Unite bookmark -direction=belowright<CR>
 " ヤンク履歴
 nnoremap <silent> [unite]y :<C-u>Unite history/yank -direction=belowright<CR>
 " 変更履歴
-nnoremap <silent> [unite]s :<C-u>Unite change -direction=belowright<CR>
+nnoremap <silent> [unite]c :<C-u>Unite change -direction=belowright<CR>
 " grep
-nnoremap <silent> [unite]g :<C-u>Unite grep -direction=belowright<CR>
+nnoremap <silent> [unite]g :<C-u>Unite grep -direction=belowright -no-quit<CR>
 " セッション
 nnoremap <silent> [unite]s :<C-u>Unite session -direction=belowright<CR>
 " dwm
@@ -373,6 +375,10 @@ nnoremap <silent> [unite]w :<C-u>Unite dwm -direction=belowright<CR>
 " neobundle
 nnoremap <silent> [unite]n  :<C-u>Unite neobundle -direction=belowright<CR>
 nnoremap <silent> [unite]ns :<C-u>Unite neobundle/search -direction=belowright<CR>
+" register
+nnoremap <silent> [unite]r :<C-u>Unite register -direction=belowright<CR>
+" 再呼び出し
+nnoremap <silent> [unite]. :<C-u>UniteResume<CR>
 
 
 """" 検索語が真ん中に来るように
@@ -457,14 +463,22 @@ command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 
 """ easymotion
 " ホームポジションに近いキーを使う
-let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+let g:EasyMotion_keys = 'hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
 " マッピング
-let g:EasyMotion_leader_key="<Space>"
+let g:EasyMotion_leader_key = "<Space>"
+" デフォルトマッピング
+let g:EasyMotion_do_mapping = 1
 " 1ストローク選択を優先する
-let g:EasyMotion_grouping=1
+let g:EasyMotion_grouping = 1
+" smartcase
+let g:EasyMotion_smartcase = 1
+"" migemo
+"let g:EasyMotion_use_migemo = 1
 " カラー設定変更
 hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=blue
+
+nmap s <Plug>(easymotion-s2)
 
 
 """ dwm
