@@ -183,13 +183,14 @@ bindkey "^q" show_buffer_stack
 #        ;;
 #esac
 
-#alias -g L='| less'
-#alias -g H='| head'
-#alias -g T='| tail'
-#alias -g G='| grep'
-#alias -g W='| wc'
-#alias -g S='| sed'
-#alias -g A='| awk'
+# -g 先頭以外で展開されるalias
+alias -g L='| less'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g G='| grep'
+alias -g W='| wc'
+alias -g S='| sed'
+alias -g A='| awk'
 
 
 ### キーバインド グローバル
