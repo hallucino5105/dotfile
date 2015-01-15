@@ -40,7 +40,7 @@ set showcmd
 set showmode
 set cmdheight=1
 set hidden
-set list
+set nolist
 set listchars=tab:»\ ,extends:»,precedes:«,nbsp:%
 set maxmempattern=10000
 set autoread
@@ -307,10 +307,11 @@ let g:miniBufExplMapCTabSwitchBuffs = 1
 
 """ taglist
 set tags=./tags,tags;
-"let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
+let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 let Tlist_Show_One_File = 1
 "let Tlist_Use_Right_Window = 1
 let Tlist_Exit_OnlyWindow = 1
+let g:tlist_javascript_settings = 'javascript;c:class;m:method;F:function;p:property'
 noremap <F4> :TlistToggle<CR>
 
 
