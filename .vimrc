@@ -311,6 +311,7 @@ set tags=./tags,tags;
 let Tlist_Show_One_File = 1
 "let Tlist_Use_Right_Window = 1
 let Tlist_Exit_OnlyWindow = 1
+let g:tlist_javascript_settings = 'javascript;c:class;m:method;f:function;p:property'
 noremap <F4> :TlistToggle<CR>
 
 
