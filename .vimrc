@@ -40,7 +40,7 @@ set showcmd
 set showmode
 set cmdheight=1
 set hidden
-set list
+set nolist
 set listchars=tab:»\ ,extends:»,precedes:«,nbsp:%
 set maxmempattern=10000
 set autoread
