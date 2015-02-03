@@ -22,7 +22,7 @@ set smartcase
 set smarttab
 "set hlsearch
 set laststatus=2
-set statusline=%{expand('%:p:t')}\ %<\(%{expand('%:p:h')}¥)%=\ %m%r%y%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}[%l,%c\ (%p%%)]
+"set statusline=%{expand('%:p:t')}\ %<\(%{expand('%:p:h')}¥)%=\ %m%r%y%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}[%l,%c\ (%p%%)]
 "set clipboard+=unnamedplus,unnamed
 set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932
@@ -47,6 +47,35 @@ set autoread
 set nofoldenable
 set iskeyword+=-
 
+" ステータスラインの表示
+"set statusline+=\     " 空白スペース
+"if winwidth(0) >= 130
+"    set statusline+=%F    " バッファ内のファイルのフルパス
+"else
+"    set statusline+=%t    " ファイル名のみ
+"endif
+set statusline=%t\    "
+set statusline+=%<    " 行が長すぎるときに切り詰める位置
+set statusline+=(%F)\ "
+set statusline+=%=    " 左寄せ項目と右寄せ項目の区切り
+set statusline+=[%n]  " バッファ番号
+set statusline+=%m    " %m 修正フラグ
+set statusline+=%r    " %r 読み込み専用フラグ
+set statusline+=%h    " %h ヘルプバッファフラグ
+set statusline+=%w    " %w プレビューウィンドウフラグ
+set statusline+=%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}  " fencとffを表示
+set statusline+=%y    " バッファ内のファイルのタイプ
+set statusline+=%{fugitive#statusline()}  " Gitのブランチ名を表示
+set statusline+=\ \   " 空白スペース2個
+set statusline+=%1l   " 何行目にカーソルがあるか
+set statusline+=/
+set statusline+=%L    " バッファ内の総行数
+set statusline+=,
+set statusline+=%c    " 何列目にカーソルがあるか
+set statusline+=%V    " 画面上の何列目にカーソルがあるか
+set statusline+=\ \   " 空白スペース2個
+set statusline+=%P    " ファイル内の何％の位置にあるか
+
 "" カーソル行をハイライト
 ""  -> カーソル移動が重くなる原因なのでやめ
 "set cursorline
@@ -57,11 +86,11 @@ set iskeyword+=-
 "    autocmd WinEnter,BufRead * set cursorline
 "augroup END
 
-"" 自動再読み込み
-"augroup vimrc-checktime
-"    autocmd!
-"    autocmd WinEnter * checktime
-"augroup END
+" 自動再読み込み
+augroup vimrc-checktime
+    autocmd!
+    autocmd WinEnter * checktime
+augroup END
 
 " trailing spaces highlight
 augroup HighlightTrailingSpaces
