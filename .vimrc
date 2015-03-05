@@ -186,7 +186,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'closetag.vim'
-NeoBundle 'kana/vim-smartinput' " 重い
+"NeoBundle 'kana/vim-smartinput' " 重い
 
 " nouse
 "NeoBundle 'editorconfig/editorconfig-vim'
@@ -528,26 +528,26 @@ let g:NERDTreeMinimalUI=0
 let g:NERDTreeDirArrows=1
 
 
-""" smartinput
-call smartinput#define_rule({
-    \   'at': '\s\+\%#',
-    \   'char': '<CR>',
-    \   'input': "<C-o>:call setline('.', substitute(getline('.'), '\\s\\+$', '', ''))<CR><CR>",
-    \})
-
-call smartinput#define_rule({
-    \   'at': '\%#',
-    \   'char': '<',
-    \   'input': '<>',
-    \   'filetype': ['html', 'xml', 'xhtml', 'eruby'],
-    \})
-
-call smartinput#define_rule({
-    \   'at': '<.*\%#>',
-    \   'char': '>',
-    \   'input': '',
-    \   'filetype': ['html', 'xml', 'xhtml', 'eruby'],
-    \})
+"""" smartinput
+"call smartinput#define_rule({
+"    \   'at': '\s\+\%#',
+"    \   'char': '<CR>',
+"    \   'input': "<C-o>:call setline('.', substitute(getline('.'), '\\s\\+$', '', ''))<CR><CR>",
+"    \})
+"
+"call smartinput#define_rule({
+"    \   'at': '\%#',
+"    \   'char': '<',
+"    \   'input': '<>',
+"    \   'filetype': ['html', 'xml', 'xhtml', 'eruby'],
+"    \})
+"
+"call smartinput#define_rule({
+"    \   'at': '<.*\%#>',
+"    \   'char': '>',
+"    \   'input': '',
+"    \   'filetype': ['html', 'xml', 'xhtml', 'eruby'],
+"    \})
 
 
 """""""""""""""""
