@@ -22,7 +22,7 @@ set smartcase
 set smarttab
 "set hlsearch
 set laststatus=2
-set statusline=%{expand('%:p:t')}\ %<\(%{expand('%:p:h')}¥)%=\ %m%r%y%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}[%l,%c\ (%p%%)]
+"set statusline=%{expand('%:p:t')}\ %<\(%{expand('%:p:h')}¥)%=\ %m%r%y%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}[%l,%c\ (%p%%)]
 "set clipboard+=unnamedplus,unnamed
 set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932
@@ -40,12 +40,41 @@ set showcmd
 set showmode
 set cmdheight=1
 set hidden
-set list
+set nolist
 set listchars=tab:»\ ,extends:»,precedes:«,nbsp:%
 set maxmempattern=10000
 set autoread
 set nofoldenable
 set iskeyword+=-
+
+" ステータスラインの表示
+"set statusline+=\     " 空白スペース
+"if winwidth(0) >= 130
+"    set statusline+=%F    " バッファ内のファイルのフルパス
+"else
+"    set statusline+=%t    " ファイル名のみ
+"endif
+set statusline=%t\    "
+set statusline+=%<    " 行が長すぎるときに切り詰める位置
+set statusline+=(%F)\ "
+set statusline+=%=    " 左寄せ項目と右寄せ項目の区切り
+set statusline+=[%n]  " バッファ番号
+set statusline+=%m    " %m 修正フラグ
+set statusline+=%r    " %r 読み込み専用フラグ
+set statusline+=%h    " %h ヘルプバッファフラグ
+set statusline+=%w    " %w プレビューウィンドウフラグ
+set statusline+=%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}  " fencとffを表示
+set statusline+=%y    " バッファ内のファイルのタイプ
+set statusline+=%{fugitive#statusline()}  " Gitのブランチ名を表示
+set statusline+=\ \   " 空白スペース2個
+set statusline+=%1l   " 何行目にカーソルがあるか
+set statusline+=/
+set statusline+=%L    " バッファ内の総行数
+set statusline+=,
+set statusline+=%c    " 何列目にカーソルがあるか
+set statusline+=%V    " 画面上の何列目にカーソルがあるか
+set statusline+=\ \   " 空白スペース2個
+set statusline+=%P    " ファイル内の何％の位置にあるか
 
 "" カーソル行をハイライト
 ""  -> カーソル移動が重くなる原因なのでやめ
@@ -57,11 +86,11 @@ set iskeyword+=-
 "    autocmd WinEnter,BufRead * set cursorline
 "augroup END
 
-"" 自動再読み込み
-"augroup vimrc-checktime
-"    autocmd!
-"    autocmd WinEnter * checktime
-"augroup END
+" 自動再読み込み
+augroup vimrc-checktime
+    autocmd!
+    autocmd WinEnter * checktime
+augroup END
 
 " trailing spaces highlight
 augroup HighlightTrailingSpaces
@@ -115,6 +144,8 @@ if has('vim_starting')
     set runtimepath+=~/dotfile/.vim/neobundle/
     call neobundle#rc(expand('~/dotfile/.vim/bundle'))
 endif
+
+source $VIMRUNTIME/macros/matchit.vim
 
 " fetch
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -197,6 +228,7 @@ NeoBundle 'closetag.vim'
 "NeoBundle 'davidhalter/jedi-vim'
 "NeoBundle 'Align'
 "NeoBundle 'Yggdroot/indentLine' " 重い
+"NeoBundle 'kana/vim-smartinput' " 邪魔
 "if !has('gui_macvim')
 "    NeoBundle 'VimRepress'
 "    "NeoBundle 'minibufexpl.vim'
@@ -305,10 +337,11 @@ let g:miniBufExplMapCTabSwitchBuffs = 1
 
 """ taglist
 set tags=./tags,tags;
-"let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
+let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 let Tlist_Show_One_File = 1
 "let Tlist_Use_Right_Window = 1
 let Tlist_Exit_OnlyWindow = 1
+let g:tlist_javascript_settings = 'javascript;c:class;m:method;F:function;p:property'
 noremap <F4> :TlistToggle<CR>
 
 
@@ -337,6 +370,8 @@ map <Leader>mg :MemoGrep<CR>
 """ unite
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_session_enable_auto_save = 1
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
 let g:unite_source_file_mru_limit = 1000
 let g:unite_update_time = 1000
 
@@ -361,9 +396,9 @@ nnoremap <silent> [unite]b :<C-u>Unite bookmark -direction=belowright<CR>
 " ヤンク履歴
 nnoremap <silent> [unite]y :<C-u>Unite history/yank -direction=belowright<CR>
 " 変更履歴
-nnoremap <silent> [unite]s :<C-u>Unite change -direction=belowright<CR>
+nnoremap <silent> [unite]c :<C-u>Unite change -direction=belowright<CR>
 " grep
-nnoremap <silent> [unite]g :<C-u>Unite grep -direction=belowright<CR>
+nnoremap <silent> [unite]g :<C-u>Unite grep -direction=belowright -no-quit<CR>
 " セッション
 nnoremap <silent> [unite]s :<C-u>Unite session -direction=belowright<CR>
 " dwm
@@ -371,6 +406,10 @@ nnoremap <silent> [unite]w :<C-u>Unite dwm -direction=belowright<CR>
 " neobundle
 nnoremap <silent> [unite]n  :<C-u>Unite neobundle -direction=belowright<CR>
 nnoremap <silent> [unite]ns :<C-u>Unite neobundle/search -direction=belowright<CR>
+" register
+nnoremap <silent> [unite]r :<C-u>Unite register -direction=belowright<CR>
+" 再呼び出し
+nnoremap <silent> [unite]. :<C-u>UniteResume<CR>
 
 
 """" 検索語が真ん中に来るように
@@ -455,14 +494,22 @@ command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 
 """ easymotion
 " ホームポジションに近いキーを使う
-let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+let g:EasyMotion_keys = 'hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
 " マッピング
-let g:EasyMotion_leader_key="<Space>"
+let g:EasyMotion_leader_key = "<Space>"
+" デフォルトマッピング
+let g:EasyMotion_do_mapping = 1
 " 1ストローク選択を優先する
-let g:EasyMotion_grouping=1
+let g:EasyMotion_grouping = 1
+" smartcase
+let g:EasyMotion_smartcase = 1
+"" migemo
+"let g:EasyMotion_use_migemo = 1
 " カラー設定変更
 hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=blue
+
+nmap s <Plug>(easymotion-s2)
 
 
 """ dwm
@@ -500,8 +547,8 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args='--max-line-length=200 --ignore="F4"'
 let g:syntastic_mode_map = {
     \   'mode': 'passive',
-    \   'active_filetypes': ['python'],
-    \   'passive_filetypes': ['html', 'haskell']
+    \   'active_filetypes': [],
+    \   'passive_filetypes': ['python', 'html', 'haskell']
     \}
 
 

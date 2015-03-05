@@ -183,6 +183,7 @@ bindkey "^q" show_buffer_stack
 #        ;;
 #esac
 
+# -g 先頭以外で展開されるalias
 alias -g L='| less'
 alias -g H='| head'
 alias -g T='| tail'
