@@ -211,6 +211,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'closetag.vim'
+"NeoBundle 'kana/vim-smartinput' " 重い
 
 " nouse
 "NeoBundle 'editorconfig/editorconfig-vim'
