@@ -48,12 +48,6 @@ set nofoldenable
 set iskeyword+=-
 
 " ステータスラインの表示
-"set statusline+=\     " 空白スペース
-"if winwidth(0) >= 130
-"    set statusline+=%F    " バッファ内のファイルのフルパス
-"else
-"    set statusline+=%t    " ファイル名のみ
-"endif
 set statusline=%t\    "
 set statusline+=%<    " 行が長すぎるときに切り詰める位置
 set statusline+=(%F)\ "
