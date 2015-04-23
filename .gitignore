@@ -6,3 +6,5 @@
 !.vim/undo/.gitkeep
 .vim/backup/*
 !.vim/backup/.gitkeep
+
+.vimperator-plugin/.vimperator-plugin
