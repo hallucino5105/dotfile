@@ -210,7 +210,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'closetag.vim'
-"NeoBundle 'kana/vim-smartinput' " 重い
+NeoBundle 'derekwyatt/vim-scala'
 
 " nouse
 "NeoBundle 'editorconfig/editorconfig-vim'
@@ -592,6 +592,25 @@ let g:NERDTreeDirArrows=1
 
 
 """""""""""""""""
+""" ex command
+"""""""""""""""""
+
+" Open junk file
+command! -nargs=0 JunkFile call s:open_junk_file()
+function! s:open_junk_file()
+  let l:junk_dir = $HOME . '/memo'. strftime('/%Y/%m')
+  if !isdirectory(l:junk_dir)
+    call mkdir(l:junk_dir, 'p')
+  endif
+
+  let l:filename = input('Junk Code: ', l:junk_dir.strftime('/%Y-%m-%d-%H%M%S.'))
+  if l:filename != ''
+    execute 'edit ' . l:filename
+  endif
+endfunction
+
+
+"""""""""""""""""
 """ color setting
 """""""""""""""""
 syntax on
@@ -701,6 +720,9 @@ nnoremap <C-g> :nohlsearch<CR>
 
 " shell起動
 nnoremap <F3> :shell<CR>
+
+" JunkFile
+nnoremap <F8> :JunkFile<CR>
 
 "" CTRL-hjklでウィンドウ移動
 "nnoremap <C-j> :<C-w>j
