@@ -155,7 +155,6 @@ NeoBundle 'nanotech/jellybeans.vim'
 " syntax
 NeoBundle 'jQuery'
 NeoBundle 'JSON.vim'
-NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'jelera/vim-javascript-syntax'
@@ -223,6 +222,7 @@ NeoBundle 'derekwyatt/vim-scala'
 "NeoBundle 'Align'
 "NeoBundle 'Yggdroot/indentLine' " 重い
 "NeoBundle 'kana/vim-smartinput' " 邪魔
+"NeoBundle 'othree/html5.vim'
 "if !has('gui_macvim')
 "    NeoBundle 'VimRepress'
 "    "NeoBundle 'minibufexpl.vim'
