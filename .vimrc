@@ -161,6 +161,7 @@ NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'autowitch/hive.vim'
 NeoBundle 'JulesWang/css.vim'
 NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'stephpy/vim-yaml'
 
 " indent
 NeoBundle 'html-improved-indentation'
@@ -211,6 +212,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'closetag.vim'
 NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'chase/vim-ansible-yaml'
 
 " nouse
 "NeoBundle 'editorconfig/editorconfig-vim'
