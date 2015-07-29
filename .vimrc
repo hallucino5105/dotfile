@@ -801,7 +801,11 @@ if has('gui_macvim') || has('kaoriya') || has('gvim')
 endif
 
 
+"""""""""""""""
+""" sonota
+"""""""""""""""
 " なんかのプラグインで無効になってるぽいので
 set showcmd
 
 set runtimepath+=~/dotfile/.vim,~/dotfile/.vim/after
+
