@@ -511,6 +511,8 @@ nmap s <Plug>(easymotion-s2)
 """ dwm
 nnoremap <c-j> <c-w>w
 nnoremap <c-k> <c-w>W
+nnoremap <Tab> <c-w>w
+nnoremap <s-Tab> <c-w>W
 nmap <m-r> <Plug>DWMRotateCounterclockwise
 nmap <m-t> <Plug>DWMRotateClockwise
 nmap <c-n> <Plug>DWMNew
@@ -766,9 +768,6 @@ endif
 nnoremap <expr> c* ':%s ;\<' . expand('<cword>') . '\>;'
 vnoremap <expr> c* ':s ;\<' . expand('<cword>') . '\>;'
 
-" 1文字挿入
-nnoremap <C-i> i_<ESC>r
-
 
 """""""""""""""
 """ gui setting
@@ -806,4 +805,3 @@ endif
 set showcmd
 
 set runtimepath+=~/dotfile/.vim,~/dotfile/.vim/after
-
