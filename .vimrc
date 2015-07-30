@@ -183,7 +183,7 @@ NeoBundle 'kannokanno/unite-dwm', { 'depends': 'Shougo/unite.vim' }
 
 " other
 NeoBundle 'neocomplcache'
-NeoBundle 'vimgrep.vim'
+"NeoBundle 'vimgrep.vim'
 NeoBundle 'eregex.vim'
 NeoBundle 'yanktmp.vim'
 NeoBundle 'surround.vim'
@@ -376,36 +376,42 @@ nmap r [unite]
 " 分割しないでuniteのbufferを表示する
 nnoremap [unite]u :<C-u>Unite -no-split<Space>
 " 全部乗せ
-nnoremap <silent> [unite]a :<C-u>UniteWithCurrentDir buffer file_mru bookmark file -buffer-name=files -direction=belowright<CR>
+nnoremap <silent> [unite]a :<C-u>UniteWithCurrentDir buffer file_mru bookmark file -buffer-name=files -direction=belowright -start-insert<CR>
 " ファイル一覧
-nnoremap <silent> [unite]f :<C-u>Unite file file/new -buffer-name=files -direction=belowright<CR>
+nnoremap <silent> [unite]f :<C-u>Unite file file/new -buffer-name=files -direction=belowright -start-insert<CR>
 " バッファ一覧
-nnoremap <silent> [unite]t :<C-u>Unite buffer -direction=belowright<CR>
+nnoremap <silent> [unite]t :<C-u>Unite buffer -direction=belowright -start-insert<CR>
 " 常用セット
-nnoremap <silent> [unite]u :<C-u>Unite buffer file_mru -direction=belowright<CR>
+nnoremap <silent> [unite]u :<C-u>Unite buffer file_mru -direction=belowright -start-insert<CR>
 " 最近使用したファイル一覧
-nnoremap <silent> [unite]m :<C-u>Unite file_mru -direction=belowright<CR>
+nnoremap <silent> [unite]m :<C-u>Unite file_mru -direction=belowright -start-insert<CR>
 " 現在のバッファのカレントディレクトリからファイル一覧
-nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir -buffer-name=files file file/new -direction=belowright<CR>
+nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir -buffer-name=files file file/new -direction=belowright -start-insert<CR>
 " ブックマーク一覧
-nnoremap <silent> [unite]b :<C-u>Unite bookmark -direction=belowright<CR>
+nnoremap <silent> [unite]b :<C-u>Unite bookmark -direction=belowright -start-insert<CR>
 " ヤンク履歴
-nnoremap <silent> [unite]y :<C-u>Unite history/yank -direction=belowright<CR>
+nnoremap <silent> [unite]y :<C-u>Unite history/yank -direction=belowright -start-insert<CR>
 " 変更履歴
-nnoremap <silent> [unite]c :<C-u>Unite change -direction=belowright<CR>
+nnoremap <silent> [unite]c :<C-u>Unite change -direction=belowright -start-insert<CR>
 " grep
-nnoremap <silent> [unite]g :<C-u>Unite grep -direction=belowright -no-quit<CR>
+nnoremap <silent> [unite]g :<C-u>Unite grep -direction=belowright -no-quit -start-insert<CR>
 " セッション
-nnoremap <silent> [unite]s :<C-u>Unite session -direction=belowright<CR>
+nnoremap <silent> [unite]s :<C-u>Unite session -direction=belowright< -start-insertCR>
 " dwm
-nnoremap <silent> [unite]w :<C-u>Unite dwm -direction=belowright<CR>
+nnoremap <silent> [unite]w :<C-u>Unite dwm -direction=belowright -start-insert<CR>
 " neobundle
-nnoremap <silent> [unite]n  :<C-u>Unite neobundle -direction=belowright<CR>
-nnoremap <silent> [unite]ns :<C-u>Unite neobundle/search -direction=belowright<CR>
+nnoremap <silent> [unite]n  :<C-u>Unite neobundle -direction=belowright -start-insert<CR>
+nnoremap <silent> [unite]ns :<C-u>Unite neobundle/search -direction=belowright -start-insert<CR>
 " register
-nnoremap <silent> [unite]r :<C-u>Unite register -direction=belowright<CR>
+nnoremap <silent> [unite]r :<C-u>Unite register -direction=belowright -start-insert<CR>
 " 再呼び出し
-nnoremap <silent> [unite]. :<C-u>UniteResume<CR>
+nnoremap <silent> [unite]. :<C-u>UniteResume -start-insert<CR>
+
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()
+    " 単語単位からパス単位で削除するように変更
+    imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
+endfunction
 
 
 """" 検索語が真ん中に来るように
