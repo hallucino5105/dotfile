@@ -258,6 +258,7 @@ let g:neocomplcache_enable_smart_case=1
 let g:neocomplcache_enable_underbar_completion=1
 let g:neocomplcache_min_syntax_length=3
 let g:neocomplcache_auto_completion_start_length=3
+let g:neocomplcache_force_overwrite_completefunc=1
 
 " 日本語を補完候補として取得しないようにする
 if !exists('g:neocomplcache_keyword_patterns')

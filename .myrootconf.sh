@@ -67,3 +67,11 @@ alias home-mysql="mysql -h krallice.dip.jp -u hoshino -p08240824"
 alias home-ftp-hoshino="ftp ftp://hoshino@krallice.dip.jp/"
 alias home-ftp-web="ftp ftp://webuser@krallice.dip.jp/"
 
+
+git-export() {
+    if [ -d ${1} ]; then
+        echo "export git managed files '`pwd`' to '${1}'"
+        git checkout-index -a -f --prefix=${1}/
+    fi
+}
+
