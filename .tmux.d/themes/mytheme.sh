@@ -113,9 +113,9 @@ else
 
     if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
         TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
-            "uptime 16 74 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
-            "load 16 70 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
-            "used-mem-full 16 208 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+            #"uptime 16 74 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+            #"load 16 70 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+            #"used-mem-full 16 208 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
             "date-full-en 16 162 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
             )
     fi

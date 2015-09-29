@@ -785,7 +785,7 @@ if has('gui_macvim') || has('kaoriya') || has('gvim')
     set guioptions+=a
     "set guifont=Monaco:h10
     set showtabline=2
-    set transparency=5
+    set transparency=0
     set visualbell t_vb=
 
     if has('win32')
