@@ -182,7 +182,7 @@ NeoBundle 'Shougo/unite-session', { 'depends': 'Shougo/unite.vim' }
 NeoBundle 'kannokanno/unite-dwm', { 'depends': 'Shougo/unite.vim' }
 
 " other
-NeoBundle 'neocomplcache'
+"NeoBundle 'neocomplcache'
 "NeoBundle 'vimgrep.vim'
 NeoBundle 'eregex.vim'
 NeoBundle 'yanktmp.vim'
@@ -213,6 +213,7 @@ NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'closetag.vim'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'chase/vim-ansible-yaml'
+"NeoBundle 'sindrenm/angular.vim'
 
 " nouse
 "NeoBundle 'editorconfig/editorconfig-vim'
