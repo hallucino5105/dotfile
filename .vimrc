@@ -530,6 +530,8 @@ nmap <c-Space> <Plug>DWMFocus
 nmap <c-l> <Plug>DWMGrowMaster
 nmap <c-h> <Plug>DWMShrinkMaster
 
+let g:dwm_master_pane_width='70%'
+
 
 """ vim-markdown
 let g:vim_markdown_folding_disabled=1
