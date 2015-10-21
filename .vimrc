@@ -164,7 +164,6 @@ NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'stephpy/vim-yaml'
 
 " indent
-NeoBundle 'html-improved-indentation'
 NeoBundleLazy 'hynek/vim-python-pep8-indent', { "autoload": { "insert": 1, "filetypes": ["python", "python3", "djangohtml"] }}
 
 " vimproc

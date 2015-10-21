@@ -69,6 +69,6 @@ cnoremap <Down> <Tab>
 
 " ;とtypoっても安心
 map ; :
- 
+
 " ブックマークに追加するの無効
 map a <NOP>
