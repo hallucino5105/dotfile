@@ -44,6 +44,7 @@ export LS_COLORS='no=00:fi=00:di=34:ow=34;40:ln=35:pi=30;44:so=35;44:do=35;44:bd
 #alias ls="ls -vF --group-directories-first --color --time-style=long-iso"
 #alias ll="ls -lavF --group-directories-first --color --time-style=long-iso"
 alias l="ll"
+alias ll="ls -la"
 alias less="less -cgisSFMRX"
 alias rm="rm -i"
 alias lv="lv -c"
