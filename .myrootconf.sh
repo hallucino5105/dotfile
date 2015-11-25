@@ -60,8 +60,6 @@ alias weechat="TERM=screen-256color weechat"
 alias cpanm-local="cpanm --local-lib=~/.perl5"
 alias wget="wget --no-check-certificate"
 alias sudo="sudo -H"
-alias G=" | grep -i"
-alias L=" | less"
 
 alias home-mysql="mysql -h krallice.dip.jp -u hoshino -p08240824"
 alias home-ftp-hoshino="ftp ftp://hoshino@krallice.dip.jp/"
