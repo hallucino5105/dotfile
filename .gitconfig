@@ -21,6 +21,7 @@
     cm = commit -a --allow-empty-message -m ""
     #tree = log --oneline --decorate --graph
     tree = log --all --full-history --graph --date=short --pretty=format:\"%Cgreen%h %cd %Cblue%cn %Cred%d %Creset%s\"
+    b = branch
     co = checkout
     st = status
     gg = grep -inIEH --color --heading --break
