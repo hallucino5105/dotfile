@@ -162,6 +162,7 @@ NeoBundle 'autowitch/hive.vim'
 NeoBundle 'JulesWang/css.vim'
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'stephpy/vim-yaml'
+NeoBundle 'tikhomirov/vim-glsl'
 
 " indent
 NeoBundleLazy 'hynek/vim-python-pep8-indent', { "autoload": { "insert": 1, "filetypes": ["python", "python3", "djangohtml"] }}
