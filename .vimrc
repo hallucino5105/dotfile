@@ -182,7 +182,9 @@ NeoBundle 'Shougo/unite-session', { 'depends': 'Shougo/unite.vim' }
 NeoBundle 'kannokanno/unite-dwm', { 'depends': 'Shougo/unite.vim' }
 
 " other
-"NeoBundle 'neocomplcache'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 "NeoBundle 'vimgrep.vim'
 NeoBundle 'eregex.vim'
 NeoBundle 'yanktmp.vim'
@@ -260,6 +262,7 @@ let g:neocomplcache_enable_underbar_completion=1
 let g:neocomplcache_min_syntax_length=3
 let g:neocomplcache_auto_completion_start_length=3
 let g:neocomplcache_force_overwrite_completefunc=1
+let g:neocomplcache_enable_camel_case_completion=0
 
 " 日本語を補完候補として取得しないようにする
 if !exists('g:neocomplcache_keyword_patterns')
@@ -292,6 +295,10 @@ if !exists('g:neocomplcache_omni_patterns')
 endif
 let g:neocomplcache_omni_patterns.python = ''
 let g:neocomplcache_omni_patterns.ruby = ''
+
+
+""" neosnippet
+let g:neosnippet#snippets_directory='~/dotfile/.vim/snippets/'
 
 
 """ quickrun
