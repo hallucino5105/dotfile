@@ -1,0 +1,11 @@
+snippet function
+alias func
+abbr def parsearg()
+options head
+    def parsearg():
+        import argparse
+        parser = argparse.ArgumentParser()
+        parser.add_argument("-x", "--xxx", type=int, default=1, nargs="?", required=True, help="xxx")
+        args = parser.parse_args()
+        return args
+

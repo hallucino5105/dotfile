@@ -184,7 +184,7 @@ NeoBundle 'kannokanno/unite-dwm', { 'depends': 'Shougo/unite.vim' }
 " other
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
+"NeoBundle 'Shougo/neosnippet-snippets'
 "NeoBundle 'vimgrep.vim'
 NeoBundle 'eregex.vim'
 NeoBundle 'yanktmp.vim'
@@ -259,8 +259,8 @@ let g:neocomplcache_enable_at_startup=1
 let g:neocomplcache_max_list=100
 let g:neocomplcache_enable_smart_case=1
 let g:neocomplcache_enable_underbar_completion=1
-let g:neocomplcache_min_syntax_length=3
-let g:neocomplcache_auto_completion_start_length=3
+let g:neocomplcache_min_syntax_length=2
+let g:neocomplcache_auto_completion_start_length=2
 let g:neocomplcache_force_overwrite_completefunc=1
 let g:neocomplcache_enable_camel_case_completion=0
 
@@ -784,6 +784,10 @@ endif
 " c*でカーソル下のキーワードを置換
 nnoremap <expr> c* ':%s ;\<' . expand('<cword>') . '\>;'
 vnoremap <expr> c* ':s ;\<' . expand('<cword>') . '\>;'
+
+" neosnippet
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
 
 
 """""""""""""""
