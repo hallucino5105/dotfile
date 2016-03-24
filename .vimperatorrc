@@ -94,3 +94,8 @@ if(liberator.has("MacUnix")) {
 }
 EOM
 
+" websearch
+liberator.globalVariables.webSearchTemplates = [
+    { names: ['alc'], description: 'search alc', url: 'http://eow.alc.co.jp/%KEYWORD%/UTF-8/', tabOpen: true, urlWithoutKeyword: 'http://www.alc.co.jp' },
+    "{ names: ['alc'], description: 'search alc', url: 'http://eow.alc.co.jp/%KEYWORD%/UTF-8/', tabOpen: true, urlWithoutKeyword: 'http://www.alc.co.jp' },
+];
