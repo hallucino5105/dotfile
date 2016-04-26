@@ -4,6 +4,7 @@
 
 import sys
 import os
+import logging as log
 
 
 def main():
@@ -11,4 +12,10 @@ def main():
 
 
 if __name__ == "__main__":
+    log.basicConfig(
+        format="[%(asctime)s][%(levelname)s] %(message)s",
+        datefmt="%Y/%m/%d %H:%M:%S",
+        level=log.DEBUG)
+
     main()
+

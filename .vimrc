@@ -288,12 +288,13 @@ inoremap <expr><C-g> neocomplcache#undo_completion()
 " 補完候補のなかから、共通する部分を補完します
 inoremap <expr><C-o> neocomplcache#complete_common_string()
 
-" Avoid crash by editing python source
+" neocomplcacheを無効化
 if !exists('g:neocomplcache_omni_patterns')
     let g:neocomplcache_omni_patterns = {}
 endif
 let g:neocomplcache_omni_patterns.python = ''
 let g:neocomplcache_omni_patterns.ruby = ''
+let g:neocomplcache_omni_patterns.html = ''
 
 
 """ neosnippet
@@ -465,6 +466,9 @@ autocmd BufRead,BufNewFile *.hql set filetype=sql
 """ actionscript,mxml
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
 autocmd BufNewFile,BufRead *.mxml set filetype=mxml
+
+""" ejs
+autocmd BufNewFile,BufRead *.ejs set filetype=html
 
 
 """ scala
