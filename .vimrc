@@ -163,6 +163,7 @@ NeoBundle 'JulesWang/css.vim'
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'stephpy/vim-yaml'
 NeoBundle 'tikhomirov/vim-glsl'
+NeoBundle 'derekwyatt/vim-scala'
 
 " indent
 NeoBundleLazy 'hynek/vim-python-pep8-indent', { "autoload": { "insert": 1, "filetypes": ["python", "python3", "djangohtml"] }}
@@ -212,7 +213,6 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'closetag.vim'
-NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'chase/vim-ansible-yaml'
 "NeoBundle 'sindrenm/angular.vim'
 
@@ -461,9 +461,14 @@ autocmd BufRead,BufNewFile *.md  set filetype=mkd
 """ hiveql
 autocmd BufRead,BufNewFile *.hql set filetype=sql
 
+
 """ actionscript,mxml
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
 autocmd BufNewFile,BufRead *.mxml set filetype=mxml
+
+
+""" scala
+au BufNewFile,BufRead *.scala setf scala
 
 
 """ python
@@ -472,7 +477,6 @@ autocmd BufNewFile,BufRead *.mxml set filetype=mxml
 "autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 " VimでPythonのコメント行を入力しようとするとインデントが解除されてしまうアレ
 autocmd FileType python :inoremap # X#
-
 
 """ handlebars template
 autocmd BufNewFile,BufRead *.hbs set filetype=xhtml
