@@ -184,6 +184,7 @@ NeoBundle 'kannokanno/unite-dwm', { 'depends': 'Shougo/unite.vim' }
 
 " other
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shoug/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 "NeoBundle 'vimgrep.vim'
 NeoBundle 'eregex.vim'

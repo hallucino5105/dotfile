@@ -1,11 +1,36 @@
-snippet function
-alias func
+snippet parsearg
 abbr def parsearg()
 options head
-    def parsearg():
-        import argparse
-        parser = argparse.ArgumentParser()
-        parser.add_argument("-x", "--xxx", type=int, default=1, nargs="?", required=True, help="xxx")
-        args = parser.parse_args()
-        return args
+	def parsearg():
+		import argparse
+		parser = argparse.ArgumentParser()
+		parser.add_argument("-x", "--xxx", type=int, default=1, nargs="?", required=True, help="xxx")
+		args = parser.parse_args()
+		return args
+
+
+snippet pprint
+abbr def pprint()
+options head
+	def pprint(stream, *strs):
+		_s = ""
+		for i, s in enumerate(strs):
+			__s = s
+			if type(s) != str or type(s) != unicode:
+				__s = str(s)
+
+			if i == 0:
+				_s += __s
+			else:
+				_s += " " + __s
+
+		stream.write(_s + "\n")
+		stream.flush()
+
+	def pout(*strs):
+		pprint(sys.stdout, *strs)
+
+
+	def perr(*strs):
+		pprint(sys.stderr, *strs)
 
