@@ -73,3 +73,9 @@ git-export() {
     fi
 }
 
+
+killproc() {
+    a=`echo $2 | sed -e "s/^\(.\)/[\1]/g"`
+    kill -$1 `ps aux | sed -e 's/\s\+/ /g' | grep -i $a | cut -d' ' -f2`
+}
+
