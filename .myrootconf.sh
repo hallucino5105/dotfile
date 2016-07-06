@@ -74,8 +74,11 @@ git-export() {
 }
 
 
-killproc() {
-    a=`echo $2 | sed -e "s/^\(.\)/[\1]/g"`
-    kill -$1 `ps aux | sed -e 's/\s\+/ /g' | grep -i $a | cut -d' ' -f2`
+getpid() {
+    ps=`echo $1 | sed -e "s/^\(.\)/[\1]/g"`
+    pids=`ps aux | sed -e 's/  */ /g' | grep -i $ps | cut -d' ' -f2`
+    for pid in $pids; do
+        echo $pid
+    done
 }
 
