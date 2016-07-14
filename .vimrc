@@ -46,6 +46,7 @@ set maxmempattern=10000
 set autoread
 set nofoldenable
 set iskeyword+=-
+set noautochdir
 
 " ステータスラインの表示
 set statusline=%t\    "
