@@ -400,18 +400,16 @@ nnoremap [unite]u :<C-u>Unite -no-split<Space>
 nnoremap <silent> [unite]a :<C-u>UniteWithCurrentDir buffer file_mru bookmark file -buffer-name=files -direction=belowright<CR>
 " ファイル一覧
 nnoremap <silent> [unite]f :<C-u>Unite file file/new -buffer-name=files -direction=belowright<CR>
+" タブ一覧
+nnoremap <silent> [unite]r :<C-u>Unite tab -direction=belowright<CR>
 "
-nnoremap <silent> [unite]r :<C-u>Unite file file_rec/async -buffer-name=files -direction=belowright -start-insert<CR>
+nnoremap <silent> [unite]q :<C-u>Unite file file_rec/async -buffer-name=files -direction=belowright -start-insert<CR>
 " バッファ一覧
 nnoremap <silent> [unite]t :<C-u>Unite buffer -direction=belowright<CR>
-" タブ一覧
-nnoremap <silent> [unite]T :<C-u>Unite tab -direction=belowright<CR>
 " 常用セット
 nnoremap <silent> [unite]u :<C-u>Unite buffer file_mru -direction=belowright<CR>
 " 最近使用したファイル一覧
 nnoremap <silent> [unite]m :<C-u>Unite file_mru -direction=belowright<CR>
-" 現在のバッファのカレントディレクトリからファイル一覧
-nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir -buffer-name=files file file/new -direction=belowright<CR>
 " ブックマーク一覧
 nnoremap <silent> [unite]b :<C-u>Unite bookmark -direction=belowright<CR>
 " ヤンク履歴
@@ -422,11 +420,6 @@ nnoremap <silent> [unite]c :<C-u>Unite change -direction=belowright<CR>
 nnoremap <silent> [unite]g :<C-u>Unite grep -direction=belowright -no-quit<CR>
 " セッション
 nnoremap <silent> [unite]s :<C-u>Unite session -direction=belowright<CR>
-" dwm
-nnoremap <silent> [unite]w :<C-u>Unite dwm -direction=belowright<CR>
-" neobundle
-nnoremap <silent> [unite]n  :<C-u>Unite neobundle -direction=belowright<CR>
-nnoremap <silent> [unite]ns :<C-u>Unite neobundle/search -direction=belowright<CR>
 "" register
 "nnoremap <silent> [unite]r :<C-u>Unite register -direction=belowright<CR>
 " 再呼び出し
