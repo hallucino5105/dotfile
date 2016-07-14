@@ -217,6 +217,7 @@ NeoBundle 'closetag.vim'
 NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'wesleyche/SrcExpl'
+NeoBundle 'bronson/vim-trailing-whitespace'
 
 " nouse
 "NeoBundle 'sindrenm/angular.vim'
@@ -643,6 +644,14 @@ let g:SrcExpl_RefreshTime = 0
 let g:SrcExpl_UpdateTags = 1
 
 nnoremap <F3> :SrcExplToggle<CR>
+
+" If the Tabbar Plugin existed
+if bufname("%") == "-TabBar-"
+    " Move the cursor to the window behind.
+    " Because I used to put the TabBar
+    " Window on the top position.
+    silent! wincmd j
+endif
 
 
 """"""""""""""""
