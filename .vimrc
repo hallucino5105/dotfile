@@ -254,9 +254,9 @@ let g:yankring_manual_clipboard_check=1
 
 """ yanktmp
 let g:yanktmp_file=$HOME.'/dotfile/.vim/bundle/yanktmp.vim/.vimyanktmp'
-map <silent> sy :call YanktmpYank()<CR> 
-map <silent> sp :call YanktmpPaste_p()<CR> 
-map <silent> sP :call YanktmpPaste_P()<CR> 
+map <silent> Sy :call YanktmpYank()<CR> 
+map <silent> Sp :call YanktmpPaste_p()<CR> 
+map <silent> SP :call YanktmpPaste_P()<CR> 
 
 
 """ neocomplcache
