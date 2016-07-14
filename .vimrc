@@ -13,7 +13,7 @@ set softtabstop=0
 set whichwrap=b,s,h,l,<,>,[,]
 set nowrap
 set nowrapscan
-set showmatch
+"set showmatch
 set matchtime=3
 set autoindent
 set smartindent
@@ -112,7 +112,7 @@ let ostype = system('uname')
 let archtype = system('uname -p')
 
 if ostype == "Darwin\n"
-    let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/autoload/vimproc_mac.so'
+    let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/lib/vimproc_mac.so'
 elseif ostype == "Linux\n"
     if archtype == "x86_64\n"
         let g:vimproc_dll_path = $HOME.'/dotfile/.vim/bundle/vimproc/lib/vimproc_linux64.so'
@@ -121,9 +121,9 @@ elseif ostype == "Linux\n"
     endif
 else
     if has('win32')
-        let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/autoload/vimproc_win32.dll'
+        let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/lib/vimproc_win32.dll'
     elseif has('win64')
-        let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/autoload/vimproc_win64.dll'
+        let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/lib/vimproc_win64.dll'
     endif
 endif
 
@@ -314,6 +314,12 @@ let g:quickrun_config['mkd'] = {
     \ }
 
 
+""" html
+let g:html_indent_script1="inc"
+let g:html_indent_style1="inc"
+let g:html_indent_inctags="html,body,head"
+
+
 """ gundo
 nnoremap <F5> :GundoToggle<CR>
 
@@ -386,36 +392,36 @@ nmap r [unite]
 " 分割しないでuniteのbufferを表示する
 nnoremap [unite]u :<C-u>Unite -no-split<Space>
 " 全部乗せ
-nnoremap <silent> [unite]a :<C-u>UniteWithCurrentDir buffer file_mru bookmark file -buffer-name=files -direction=belowright -start-insert<CR>
+nnoremap <silent> [unite]a :<C-u>UniteWithCurrentDir buffer file_mru bookmark file -buffer-name=files -direction=belowright<CR>
 " ファイル一覧
-nnoremap <silent> [unite]f :<C-u>Unite file file/new -buffer-name=files -direction=belowright -start-insert<CR>
+nnoremap <silent> [unite]f :<C-u>Unite file file/new -buffer-name=files -direction=belowright<CR>
 " バッファ一覧
-nnoremap <silent> [unite]t :<C-u>Unite buffer -direction=belowright -start-insert<CR>
+nnoremap <silent> [unite]t :<C-u>Unite buffer -direction=belowright<CR>
 " 常用セット
-nnoremap <silent> [unite]u :<C-u>Unite buffer file_mru -direction=belowright -start-insert<CR>
+nnoremap <silent> [unite]u :<C-u>Unite buffer file_mru -direction=belowright<CR>
 " 最近使用したファイル一覧
-nnoremap <silent> [unite]m :<C-u>Unite file_mru -direction=belowright -start-insert<CR>
+nnoremap <silent> [unite]m :<C-u>Unite file_mru -direction=belowright<CR>
 " 現在のバッファのカレントディレクトリからファイル一覧
-nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir -buffer-name=files file file/new -direction=belowright -start-insert<CR>
+nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir -buffer-name=files file file/new -direction=belowright<CR>
 " ブックマーク一覧
-nnoremap <silent> [unite]b :<C-u>Unite bookmark -direction=belowright -start-insert<CR>
+nnoremap <silent> [unite]b :<C-u>Unite bookmark -direction=belowright<CR>
 " ヤンク履歴
-nnoremap <silent> [unite]y :<C-u>Unite history/yank -direction=belowright -start-insert<CR>
+nnoremap <silent> [unite]y :<C-u>Unite history/yank -direction=belowright<CR>
 " 変更履歴
-nnoremap <silent> [unite]c :<C-u>Unite change -direction=belowright -start-insert<CR>
+nnoremap <silent> [unite]c :<C-u>Unite change -direction=belowright<CR>
 " grep
-nnoremap <silent> [unite]g :<C-u>Unite grep -direction=belowright -no-quit -start-insert<CR>
+nnoremap <silent> [unite]g :<C-u>Unite grep -direction=belowright -no-quit<CR>
 " セッション
-nnoremap <silent> [unite]s :<C-u>Unite session -direction=belowright< -start-insertCR>
+nnoremap <silent> [unite]s :<C-u>Unite session -direction=belowright<CR>
 " dwm
-nnoremap <silent> [unite]w :<C-u>Unite dwm -direction=belowright -start-insert<CR>
+nnoremap <silent> [unite]w :<C-u>Unite dwm -direction=belowright<CR>
 " neobundle
-nnoremap <silent> [unite]n  :<C-u>Unite neobundle -direction=belowright -start-insert<CR>
-nnoremap <silent> [unite]ns :<C-u>Unite neobundle/search -direction=belowright -start-insert<CR>
+nnoremap <silent> [unite]n  :<C-u>Unite neobundle -direction=belowright<CR>
+nnoremap <silent> [unite]ns :<C-u>Unite neobundle/search -direction=belowright<CR>
 " register
-nnoremap <silent> [unite]r :<C-u>Unite register -direction=belowright -start-insert<CR>
+nnoremap <silent> [unite]r :<C-u>Unite register -direction=belowright<CR>
 " 再呼び出し
-nnoremap <silent> [unite]. :<C-u>UniteResume -start-insert<CR>
+nnoremap <silent> [unite]. :<C-u>UniteResume<CR>
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
@@ -528,7 +534,7 @@ let g:EasyMotion_smartcase = 1
 hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=blue
 
-nmap s <Plug>(easymotion-s2)
+"nmap s <Plug>(easymotion-s2)
 
 
 """ dwm
@@ -545,7 +551,7 @@ nmap <c-Space> <Plug>DWMFocus
 nmap <c-l> <Plug>DWMGrowMaster
 nmap <c-h> <Plug>DWMShrinkMaster
 
-let g:dwm_master_pane_width='70%'
+let g:dwm_master_pane_width='85%'
 
 
 """ vim-markdown
@@ -618,6 +624,12 @@ let g:NERDTreeDirArrows=1
 "    \   'input': '',
 "    \   'filetype': ['html', 'xml', 'xhtml', 'eruby'],
 "    \})
+
+
+""" VimShell
+nnoremap <silent> vs :VimShell<CR>
+nnoremap <silent> vss :VimShellSendString<CR>
+nnoremap <silent> vip :VimShellInteractive ipython<CR>
 
 
 """""""""""""""""
@@ -796,6 +808,33 @@ vnoremap <expr> c* ':s ;\<' . expand('<cword>') . '\>;'
 " neosnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
+
+"" Use vsplit mode
+"if has("vim_starting") && !has('gui_running') && has('vertsplit')
+"  function! EnableVsplitMode()
+"    " enable origin mode and left/right margins
+"    let &t_CS = "y"
+"    let &t_ti = &t_ti . "\e[?6;69h"
+"    let &t_te = "\e[?6;69l\e[999H" . &t_te
+"    let &t_CV = "\e[%i%p1%d;%p2%ds"
+"    call writefile([ "\e[?6;69h" ], "/dev/tty", "a")
+"  endfunction
+"
+"  " old vim does not ignore CPR
+"  map <special> <Esc>[3;9R <Nop>
+"
+"  " new vim can't handle CPR with direct mapping
+"  " map <expr> ^[[3;3R EnableVsplitMode()
+"  set t_F9=^[[3;3R
+"  map <expr> <t_F9> EnableVsplitMode()
+"  let &t_RV .= "\e[?6;69h\e[1;3s\e[3;9H\e[6n\e[0;0s\e[?6;69l"
+"endif
+"
+"let &t_CS = "y"
+"let &t_ti = &t_ti . "\e[?6;69h"
+"let &t_te = "\e[?6;69l\e[999H" . &t_te
+"let &t_CV = "\e[%i%p1%d;%p2%ds"
+"call writefile([ "\e[?6;69h" ], "/dev/tty", "a")
 
 
 """""""""""""""
