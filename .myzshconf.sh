@@ -69,7 +69,8 @@ WORDCHARS=${WORDCHARS:s,/,,}
 #PROMPT="[${USER}@${HOST%%.*} %1~]%(!.#.$) "
 #PROMPT="[${USER}@${HOST%%.*} %1~](%(?.%F{green}^-^%f.%F{red}@_@%f))%(!.#.$) "
 #PROMPT="[${USER}@${HOST%%.*} %1~](%D{%m/%d %H:%M})(%(?.^-^.@_@))%(!.#.$) "
-PROMPT="[${USER}@${HOST%%.*} %1~](%D{%H:%M})(%(?.^-^.@_@))%(!.#.$) "
+#PROMPT="[${USER}@${HOST%%.*} %1~](%D{%H:%M})(%(?.^-^.@_@))%(!.#.$) "
+PROMPT="[${USER}@${HOST%%.*} %1~](%(?.^-^.@_@))%(!.#.$) "
 
 #autoload -Uz is-at-least
 #if is-at-least 4.3.10; then
