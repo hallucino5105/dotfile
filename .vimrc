@@ -219,6 +219,7 @@ NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'wesleyche/SrcExpl'
 NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'kana/vim-submode'
 
 " nouse
 "NeoBundle 'sindrenm/angular.vim'
@@ -403,6 +404,8 @@ nnoremap <silent> [unite]f :<C-u>Unite file file/new -buffer-name=files -directi
 nnoremap <silent> [unite]r :<C-u>Unite file file_rec/async -buffer-name=files -direction=belowright -start-insert<CR>
 " バッファ一覧
 nnoremap <silent> [unite]t :<C-u>Unite buffer -direction=belowright<CR>
+" タブ一覧
+nnoremap <silent> [unite]T :<C-u>Unite tab -direction=belowright<CR>
 " 常用セット
 nnoremap <silent> [unite]u :<C-u>Unite buffer file_mru -direction=belowright<CR>
 " 最近使用したファイル一覧
@@ -686,8 +689,8 @@ let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 set showtabline=2 " 常にタブラインを表示
 
 " The prefix key.
-nnoremap    [Tag]   <Nop>
-nmap    t [Tag]
+nnoremap [Tag] <Nop>
+nmap t [Tag]
 " Tab jump
 for n in range(1, 9)
   execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
@@ -908,6 +911,40 @@ smap <C-k> <Plug>(neosnippet_expand_or_jump)
 "let &t_CV = "\e[%i%p1%d;%p2%ds"
 "call writefile([ "\e[?6;69h" ], "/dev/tty", "a")
 
+" buffer
+nnoremap [Buf] <Nop>
+nmap s [Buf]
+nnoremap [Buf] <Nop>
+nnoremap [Buf]j <C-w>j
+nnoremap [Buf]k <C-w>k
+nnoremap [Buf]l <C-w>l
+nnoremap [Buf]h <C-w>h
+nnoremap [Buf]J <C-w>J
+nnoremap [Buf]K <C-w>K
+nnoremap [Buf]L <C-w>L
+nnoremap [Buf]H <C-w>H
+nnoremap [Buf]n gt
+nnoremap [Buf]p gT
+nnoremap [Buf]r <C-w>r
+nnoremap [Buf]= <C-w>=
+nnoremap [Buf]w <C-w>w
+nnoremap [Buf]o <C-w>_<C-w>|
+nnoremap [Buf]O <C-w>=
+nnoremap [Buf]t :<C-u>tabnew<CR>
+nnoremap [Buf]s :<C-u>sp<CR>
+nnoremap [Buf]v :<C-u>vs<CR>
+nnoremap [Buf]q :<C-u>q<CR>
+nnoremap [Buf]Q :<C-u>bd<CR>
+
+call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
+call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
+call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
+call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+call submode#map('bufmove', 'n', '', '<', '<C-w><')
+call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+
 
 """""""""""""""
 """ gui setting
@@ -917,8 +954,7 @@ if has('gui_macvim') || has('kaoriya') || has('gvim')
     set guioptions-=T
     set guioptions+=a
     "set guifont=Monaco:h10
-    set showtabline=2
-    set transparency=0
+
     set visualbell t_vb=
 
     if has('win32')
