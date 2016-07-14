@@ -917,14 +917,15 @@ nnoremap [Buf]J <C-w>J
 nnoremap [Buf]K <C-w>K
 nnoremap [Buf]L <C-w>L
 nnoremap [Buf]H <C-w>H
-nnoremap [Buf]n gt
-nnoremap [Buf]p gT
+nnoremap [Buf]n :<C-u>tabnext<CR>
+nnoremap [Buf]p :<C-u>tabprevious<CR>
+nnoremap [Buf]t :<C-u>tabnew<CR>
+nnoremap [Buf]c :<C-u>tabnew<CR>
 nnoremap [Buf]r <C-w>r
 nnoremap [Buf]= <C-w>=
 nnoremap [Buf]w <C-w>w
 nnoremap [Buf]o <C-w>_<C-w>|
 nnoremap [Buf]O <C-w>=
-nnoremap [Buf]t :<C-u>tabnew<CR>
 nnoremap [Buf]s :<C-u>sp<CR>
 nnoremap [Buf]v :<C-u>vs<CR>
 nnoremap [Buf]q :<C-u>q<CR>
@@ -938,6 +939,10 @@ call submode#map('bufmove', 'n', '', '>', '<C-w>>')
 call submode#map('bufmove', 'n', '', '<', '<C-w><')
 call submode#map('bufmove', 'n', '', '+', '<C-w>+')
 call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+
+
+" C-c
+nnoremap <C-c> :<C-u>close<CR>
 
 
 """""""""""""""
