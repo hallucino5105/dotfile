@@ -207,7 +207,7 @@ NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'spolu/dwm.vim'
+"NeoBundle 'spolu/dwm.vim'
 NeoBundle 'open-browser.vim'
 NeoBundle '5t111111/neat-json.vim'
 NeoBundle 'scrooloose/syntastic'
@@ -215,9 +215,10 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'closetag.vim'
 NeoBundle 'chase/vim-ansible-yaml'
-"NeoBundle 'sindrenm/angular.vim'
+NeoBundle 'rking/ag.vim'
 
 " nouse
+"NeoBundle 'sindrenm/angular.vim'
 "NeoBundle 'editorconfig/editorconfig-vim'
 "NeoBundle 'VimRepress'
 "NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -349,12 +350,12 @@ let g:miniBufExplMapCTabSwitchBuffs = 1
 
 """ taglist
 set tags=./tags,tags;
-let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
+let Tlist_Ctags_Cmd = "ctags"
 let Tlist_Show_One_File = 1
 "let Tlist_Use_Right_Window = 1
 let Tlist_Exit_OnlyWindow = 1
 let g:tlist_javascript_settings = 'javascript;c:class;m:method;F:function;p:property'
-noremap <F4> :TlistToggle<CR>
+noremap <F2> :TlistToggle<CR>
 
 
 """ BufferList
@@ -395,6 +396,8 @@ nnoremap [unite]u :<C-u>Unite -no-split<Space>
 nnoremap <silent> [unite]a :<C-u>UniteWithCurrentDir buffer file_mru bookmark file -buffer-name=files -direction=belowright<CR>
 " ファイル一覧
 nnoremap <silent> [unite]f :<C-u>Unite file file/new -buffer-name=files -direction=belowright<CR>
+"
+nnoremap <silent> [unite]r :<C-u>Unite file file_rec/async -buffer-name=files -direction=belowright -start-insert<CR>
 " バッファ一覧
 nnoremap <silent> [unite]t :<C-u>Unite buffer -direction=belowright<CR>
 " 常用セット
@@ -418,8 +421,8 @@ nnoremap <silent> [unite]w :<C-u>Unite dwm -direction=belowright<CR>
 " neobundle
 nnoremap <silent> [unite]n  :<C-u>Unite neobundle -direction=belowright<CR>
 nnoremap <silent> [unite]ns :<C-u>Unite neobundle/search -direction=belowright<CR>
-" register
-nnoremap <silent> [unite]r :<C-u>Unite register -direction=belowright<CR>
+"" register
+"nnoremap <silent> [unite]r :<C-u>Unite register -direction=belowright<CR>
 " 再呼び出し
 nnoremap <silent> [unite]. :<C-u>UniteResume<CR>
 
@@ -537,30 +540,25 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 "nmap s <Plug>(easymotion-s2)
 
 
-""" dwm
-nnoremap <c-j> <c-w>w
-nnoremap <c-k> <c-w>W
-nnoremap <Tab> <c-w>w
-nnoremap <s-Tab> <c-w>W
-nmap <m-r> <Plug>DWMRotateCounterclockwise
-nmap <m-t> <Plug>DWMRotateClockwise
-nmap <c-n> <Plug>DWMNew
-nmap <c-c> <Plug>DWMClose
-nmap <c-@> <Plug>DWMFocus
-nmap <c-Space> <Plug>DWMFocus
-nmap <c-l> <Plug>DWMGrowMaster
-nmap <c-h> <Plug>DWMShrinkMaster
-
-let g:dwm_master_pane_width='85%'
+"""" dwm
+"nnoremap <c-j> <c-w>w
+"nnoremap <c-k> <c-w>W
+"nnoremap <Tab> <c-w>w
+"nnoremap <s-Tab> <c-w>W
+"nmap <m-r> <Plug>DWMRotateCounterclockwise
+"nmap <m-t> <Plug>DWMRotateClockwise
+"nmap <c-n> <Plug>DWMNew
+"nmap <c-c> <Plug>DWMClose
+"nmap <c-@> <Plug>DWMFocus
+"nmap <c-Space> <Plug>DWMFocus
+"nmap <c-l> <Plug>DWMGrowMaster
+"nmap <c-h> <Plug>DWMShrinkMaster
+"
+"let g:dwm_master_pane_width='85%'
 
 
 """ vim-markdown
 let g:vim_markdown_folding_disabled=1
-
-
-""" occur
-" 検索結果一覧
-noremap <F2> :Occur<CR>
 
 
 """" simple-javascript-indenter
@@ -630,6 +628,11 @@ let g:NERDTreeDirArrows=1
 nnoremap <silent> vs :VimShell<CR>
 nnoremap <silent> vss :VimShellSendString<CR>
 nnoremap <silent> vip :VimShellInteractive ipython<CR>
+
+
+""" ag
+nmap + :Ag <c-r>=expand("<cword>")<cr><cr>
+nnoremap <space>/ :Ag
 
 
 """""""""""""""""
@@ -760,7 +763,7 @@ noremap! <BS> 
 nnoremap <C-g> :nohlsearch<CR>
 
 " shell起動
-nnoremap <F3> :shell<CR>
+nnoremap <F3> :VimShell<CR>
 
 " JunkFile
 nnoremap <F8> :JunkFile<CR>
