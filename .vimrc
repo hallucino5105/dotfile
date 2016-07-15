@@ -218,10 +218,10 @@ NeoBundle 'closetag.vim'
 NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'wesleyche/SrcExpl'
-NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'kana/vim-submode'
 
 " nouse
+"NeoBundle 'bronson/vim-trailing-whitespace'
 "NeoBundle 'sindrenm/angular.vim'
 "NeoBundle 'editorconfig/editorconfig-vim'
 "NeoBundle 'VimRepress'
