@@ -1,0 +1,1 @@
+/Users/hoshino/.vimrc
