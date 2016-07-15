@@ -617,7 +617,7 @@ nnoremap <silent> vip :VimShellInteractive ipython<CR>
 
 """ ag
 nmap + :Ag <c-r>=expand("<cword>")<cr><cr>
-nnoremap <space>/ :Ag
+nnoremap <space>/ :Ag<space>
 
 
 """ srcexpl
