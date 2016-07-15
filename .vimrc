@@ -70,16 +70,6 @@ set statusline+=%V    " 画面上の何列目にカーソルがあるか
 set statusline+=\ \   " 空白スペース2個
 set statusline+=%P    " ファイル内の何％の位置にあるか
 
-"" カーソル行をハイライト
-""  -> カーソル移動が重くなる原因なのでやめ
-"set cursorline
-"" カレントウィンドウにのみ罫線を引く
-"augroup cch
-"    autocmd! cch
-"    autocmd WinLeave * set nocursorline
-"    autocmd WinEnter,BufRead * set cursorline
-"augroup END
-
 " 自動再読み込み
 augroup vimrc-checktime
     autocmd!
@@ -99,9 +89,6 @@ if has('persistent_undo')
     set undodir=~/dotfile/.vim/undo
     set undofile
 endif
-
-" grep
-set grepprg=grep\ -nH
 
 
 """ general varient
@@ -194,7 +181,7 @@ NeoBundle 'surround.vim'
 NeoBundle 'quickrun.vim'
 NeoBundle 'scratch.vim'
 NeoBundle 'sudo.vim'
-NeoBundle 'taglist.vim'
+NeoBundle 'majutsushi/tagbar'
 NeoBundle 'dbext.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gitv'
@@ -221,6 +208,7 @@ NeoBundle 'kana/vim-submode'
 NeoBundle "airblade/vim-rooter"
 
 " nouse
+"NeoBundle 'taglist.vim'
 "NeoBundle 'spolu/dwm.vim'
 "NeoBundle 'bronson/vim-trailing-whitespace'
 "NeoBundle 'sindrenm/angular.vim'
@@ -247,10 +235,9 @@ filetype plugin indent on
 """ plugin config
 """""""""""""""""
 
-""" lightline
-let g:lightline = {
-    \ 'colorscheme': 'solarized',
-    \ }
+"""" lightline
+let g:lightline = { 'colorscheme': 'solarized' }
+"let g:lightline = { 'colorscheme': 'seoul256' }
 
 """ YankRing
 let g:yankring_max_history=50
@@ -346,14 +333,18 @@ nnoremap <unique><silent><F7> <Plug>ShowScratchBuffer
 inoremap <unique><silent><F7> <Plug>InsShowScratchBuffer
 
 
-""" taglist
-set tags=./tags,tags;
-let Tlist_Ctags_Cmd = "ctags"
-let Tlist_Show_One_File = 1
-"let Tlist_Use_Right_Window = 1
-let Tlist_Exit_OnlyWindow = 1
-let g:tlist_javascript_settings = 'javascript;c:class;m:method;F:function;p:property'
-noremap <F2> :TlistToggle<CR>
+"""" taglist
+"set tags=./tags,tags;
+"let Tlist_Ctags_Cmd = "ctags"
+"let Tlist_Show_One_File = 1
+""let Tlist_Use_Right_Window = 1
+"let Tlist_Exit_OnlyWindow = 1
+"let g:tlist_javascript_settings = 'javascript;c:class;m:method;F:function;p:property'
+"noremap <F2> :TlistToggle<CR>
+
+
+""" tagbar
+noremap <F2> :TagbarToggle<CR>
 
 
 """ BufferList
