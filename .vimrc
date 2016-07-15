@@ -206,6 +206,7 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'wesleyche/SrcExpl'
 NeoBundle 'kana/vim-submode'
 NeoBundle "airblade/vim-rooter"
+NeoBundle 'terryma/vim-multiple-cursors'
 
 " nouse
 "NeoBundle 'taglist.vim'
