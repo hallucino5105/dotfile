@@ -59,7 +59,7 @@ set statusline+=%h    " %h ヘルプバッファフラグ
 set statusline+=%w    " %w プレビューウィンドウフラグ
 set statusline+=%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}  " fencとffを表示
 set statusline+=%y    " バッファ内のファイルのタイプ
-set statusline+=%{fugitive#statusline()}  " Gitのブランチ名を表示
+"set statusline+=%{fugitive#statusline()}  " Gitのブランチ名を表示
 set statusline+=\ \   " 空白スペース2個
 set statusline+=%1l   " 何行目にカーソルがあるか
 set statusline+=/
@@ -196,7 +196,7 @@ NeoBundle 'scratch.vim'
 NeoBundle 'sudo.vim'
 NeoBundle 'taglist.vim'
 NeoBundle 'dbext.vim'
-NeoBundle 'fugitive.vim'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gitv'
 NeoBundle 'occur.vim'
 NeoBundle 'renamer.vim'
@@ -983,8 +983,10 @@ endif
 """""""""""""""
 """ nvim
 """""""""""""""
-tnoremap <silent> <ESC> <C-\><C-n>
-nnoremap <F5> :terminal<CR>
+if has('nvim')
+    tnoremap <silent> <ESC> <C-\><C-n>
+    nnoremap <F5> :terminal<CR>
+endif
 
 
 """""""""""""""
