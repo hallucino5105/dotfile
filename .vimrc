@@ -151,6 +151,7 @@ NeoBundle 'molokai'
 NeoBundle 'yuroyoro/yuroyoro256.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'itchyny/lightline.vim'
 
 " syntax
 NeoBundle 'jQuery'
@@ -207,7 +208,6 @@ NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'Lokaltog/vim-easymotion'
-"NeoBundle 'spolu/dwm.vim'
 NeoBundle 'open-browser.vim'
 NeoBundle '5t111111/neat-json.vim'
 NeoBundle 'scrooloose/syntastic'
@@ -218,8 +218,10 @@ NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'wesleyche/SrcExpl'
 NeoBundle 'kana/vim-submode'
+NeoBundle "airblade/vim-rooter"
 
 " nouse
+"NeoBundle 'spolu/dwm.vim'
 "NeoBundle 'bronson/vim-trailing-whitespace'
 "NeoBundle 'sindrenm/angular.vim'
 "NeoBundle 'editorconfig/editorconfig-vim'
@@ -244,6 +246,11 @@ filetype plugin indent on
 """""""""""""""""
 """ plugin config
 """""""""""""""""
+
+""" lightline
+let g:lightline = {
+    \ 'colorscheme': 'solarized',
+    \ }
 
 """ YankRing
 let g:yankring_max_history=50
@@ -325,7 +332,10 @@ let g:html_indent_inctags="html,body,head"
 
 
 """ gundo
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <F6> :GundoToggle<CR>
+let g:gundo_width = 60
+let g:gundo_preview_height = 40
+let g:gundo_right = 0
 
 
 """ scratch
@@ -334,21 +344,6 @@ let g:scratchBackupFile=$HOME."/.vimscratch"
 
 nnoremap <unique><silent><F7> <Plug>ShowScratchBuffer
 inoremap <unique><silent><F7> <Plug>InsShowScratchBuffer
-
-
-""" sudo
-nnoremap :es :e sudo:%<CR><C-^>:bd!
-nnoremap :ws :w sudo:%<CR>
-
-
-""" vcscommand
-"noremap <F8> :VCSDiff<CR>
-
-
-""" minibufexpl
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBuffs = 1
 
 
 """ taglist
@@ -647,6 +642,16 @@ if bufname("%") == "-TabBar-"
     " Because I used to put the TabBar
     " Window on the top position.
     silent! wincmd j
+endif
+
+""" vim-rooter
+if ! empty(neobundle#get("vim-rooter"))
+  " Change only current window's directory
+  let g:rooter_use_lcd = 1
+  " files/directories for the root directory
+  let g:rooter_patterns = ['tags', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', 'Makefile', 'GNUMakefile', 'GNUmakefile', '.svn/']
+  " Automatically change the directory
+  "autocmd! BufEnter *.c,*.cc,*.cxx,*.cpp,*.h,*.hh,*.java,*.py,*.sh,*.rb,*.html,*.css,*.js :Rooter
 endif
 
 
@@ -979,6 +984,7 @@ endif
 """ nvim
 """""""""""""""
 tnoremap <silent> <ESC> <C-\><C-n>
+nnoremap <F5> :terminal<CR>
 
 
 """""""""""""""
