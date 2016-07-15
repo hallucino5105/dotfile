@@ -45,7 +45,6 @@ set listchars=tab:»\ ,extends:»,precedes:«,nbsp:%
 set maxmempattern=10000
 set autoread
 set nofoldenable
-set iskeyword+=-
 set noautochdir
 
 " ステータスラインの表示
@@ -981,6 +980,7 @@ endif
 """""""""""""""
 " なんかのプラグインで無効になってるぽいので
 set showcmd
+set iskeyword+=-
 
 set runtimepath+=~/dotfile/.vim,~/dotfile/.vim/after
 
