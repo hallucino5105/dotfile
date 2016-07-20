@@ -212,7 +212,7 @@ NeoBundle 'sjl/gundo.vim.git'
 NeoBundle 'Shougo/vimshell.git'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'fuenor/qfixgrep'
-NeoBundle 'tpope/vim-markdown'
+NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'open-browser.vim'
@@ -464,8 +464,8 @@ augroup END
 
 
 """ markdown
-autocmd BufRead,BufNewFile *.mkd  set filetype=mkd
-autocmd BufRead,BufNewFile *.md  set filetype=mkd
+autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
+autocmd BufRead,BufNewFile *.md  set filetype=markdown
 
 
 """ hiveql
