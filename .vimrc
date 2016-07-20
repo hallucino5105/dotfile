@@ -1,6 +1,7 @@
 """""""""""""""""""
 """ general setting
 """""""""""""""""""
+
 set browsedir=buffer
 set nocompatible
 set incsearch
@@ -83,16 +84,29 @@ augroup HighlightTrailingSpaces
     autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 
-
 " 無限undo
 if has('persistent_undo')
     set undodir=~/dotfile/.vim/undo
     set undofile
 endif
 
+" w!! で sudo で保存
+cabbr w!! w !sudo tee > /dev/null %
 
 """ general varient
-let loaded_matchparen=1
+" 不要なプラグイン
+let g:loaded_matchparen        = 1
+let g:loaded_rrhelper          = 1
+let g:loaded_2html_plugin      = 1
+let g:loaded_vimball           = 1
+let g:loaded_vimballPlugin     = 1
+let g:loaded_getscript         = 1
+let g:loaded_getscriptPlugin   = 1
+let g:loaded_netrw             = 1
+let g:loaded_netrwPlugin       = 1
+let g:loaded_netrwSettings     = 1
+let g:loaded_netrwFileHandlers = 1
+
 let &directory=&backupdir
 
 let ostype = system('uname')
@@ -139,6 +153,7 @@ NeoBundle 'yuroyoro/yuroyoro256.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'cocopon/iceberg.vim'
 
 " syntax
 NeoBundle 'jQuery'
@@ -163,6 +178,11 @@ NeoBundle 'Shougo/vimproc.git', { 'build': {
     \ 'cygwin': 'make -f make_cygwin.mak',
     \ 'windows': 'make -f make_mingw32.mak',
     \ }}
+
+" vim-session
+NeoBundle 'xolox/vim-session', {
+    \ 'depends' : 'xolox/vim-misc',
+    \ }
 
 " unite
 NeoBundle 'Shougo/unite.vim'
@@ -427,12 +447,6 @@ endfunction
 "nmap g# g#zz
 
 
-""" indent-guides
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
-
-
 """" gitv
 "autocmd FileType git :setlocal foldlevel=99
 
@@ -564,22 +578,6 @@ let g:syntastic_mode_map = {
     \}
 
 
-"""" vim-indent-guides
-"let g:indent_guides_enable_on_vim_startup = 1
-"let g:indent_guides_start_level = 2
-"let g:indent_guides_guide_size = 1
-"let g:indent_guides_auto_colors = 0
-"let g:indent_guides_color_change_percent = 10
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=black guibg=black
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey guibg=darkgrey
-
-
-""" IndentLine
-let g:indentLine_color_term = 236
-let g:indentLine_color_gui = '#2e2e2e'
-"let g:indentLine_char = '|'
-
-
 """ NERDTree
 noremap <silent> <F1> :NERDTreeToggle<CR>
 let g:NERDTreeShowHidden=1
@@ -645,6 +643,67 @@ if ! empty(neobundle#get("vim-rooter"))
   " Automatically change the directory
   "autocmd! BufEnter *.c,*.cc,*.cxx,*.cpp,*.h,*.hh,*.java,*.py,*.sh,*.rb,*.html,*.css,*.js :Rooter
 endif
+
+
+""""""""""""""""
+""" 特定ファイルの親ディレクトリーにワンステップで移動する
+""""""""""""""""
+"function! s:workon(dir, bang) abort
+"  let dir = (a:dir ==# '' ? expand('%') : a:dir)
+"  " convert filename to directory if required
+"  if filereadable(dir)
+"    let dir = fnamemodify(expand(dir),':p:h')
+"  else
+"    let dir = fnamemodify(dir, ':p')
+"  endif
+"  " change directory to specified directory
+"  if isdirectory(dir)
+"    silent execute 'cd ' . fnameescape(dir)
+"    if a:bang ==# ''
+"      redraw | echo 'Working on: '.dir
+"      if v:version > 703 || (v:version == 703 && has('patch438'))
+"        doautocmd <nomodeline> MyAutoCmd User my-workon-post
+"      else
+"        doautocmd MyAutoCmd User my-workon-post
+"      endif
+"    endif
+"  endif
+"endfunction
+"autocmd MyAutoCmd VimEnter * call s:workon(expand('<afile>'), 1)
+"command! -nargs=? -complete=dir -bang Workon call s:workon('<args>', '<bang>')
+
+
+""""""""""""""""
+""" difforig
+""""""""""""""""
+set splitright
+if !exists(":DiffOrig")
+    command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+                \ | wincmd p | diffthis
+endif
+
+nnoremap <F7> :DiffOrig<CR>
+
+
+""""""""""""""""
+""" vim session
+""""""""""""""""
+" 現在のディレクトリ直下の .vimsessions/ を取得
+let s:local_session_directory = xolox#misc#path#merge(getcwd(), '.vimsessions')
+if isdirectory(s:local_session_directory)
+  " session保存ディレクトリをそのディレクトリの設定
+  let g:session_directory = s:local_session_directory
+  " vim終了時に自動保存
+  let g:session_autosave = 'yes'
+  " 引数なしでvimを起動した時にsession保存ディレクトリのdefault.vimを開く
+  let g:session_autoload = 'yes'
+  " 1分間に1回自動保存
+  let g:session_autosave_periodic = 1
+else
+  let g:session_autosave = 'no'
+  let g:session_autoload = 'no'
+endif
+unlet s:local_session_directory
 
 
 """"""""""""""""
@@ -721,7 +780,6 @@ endfunction
 """""""""""""""""
 syntax on
 
-
 " ターミナルタイプによるカラー設定
 "if &term =~ 'xterm-256color' || 'screen-256color'
 "  " 256色
@@ -788,6 +846,7 @@ if has('mac') || has('linux') || has('unix')
     "colorscheme darkblue
     "colorscheme yuroyoro256
     "colorscheme molokai
+    "colorscheme iceberg
 
     let g:solarized_termcolors=16
     let g:solarized_termtrans=0
@@ -798,6 +857,7 @@ if has('mac') || has('linux') || has('unix')
     let g:solarized_contrast='normal'
     let g:solarized_visibility='normal'
     colorscheme solarized
+
     set background=dark
 elseif has('win32') || has('cygwin') || has("win32unix")
     colorscheme molokai

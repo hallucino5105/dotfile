@@ -32,7 +32,7 @@ export SVN_EDITOR="vim --noplugin"
 #    export TERM=xterm-256color
 #elif [ -e /usr/share/terminfo/x/xterm-256color ]; then
 #    export TERM=xterm-256color
-#else 
+#else
 #    export TERM=xterm
 #fi
 
