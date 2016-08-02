@@ -227,6 +227,7 @@ NeoBundle 'wesleyche/SrcExpl'
 NeoBundle 'kana/vim-submode'
 NeoBundle "airblade/vim-rooter"
 NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 't9md/vim-quickhl'
 
 " nouse
 "NeoBundle 'taglist.vim'
@@ -643,6 +644,15 @@ if ! empty(neobundle#get("vim-rooter"))
   " Automatically change the directory
   "autocmd! BufEnter *.c,*.cc,*.cxx,*.cpp,*.h,*.hh,*.java,*.py,*.sh,*.rb,*.html,*.css,*.js :Rooter
 endif
+
+
+""" quickhl
+nmap <Space>m <Plug>(quickhl-toggle)
+xmap <Space>m <Plug>(quickhl-toggle)
+nmap <Space>M <Plug>(quickhl-reset)
+xmap <Space>M <Plug>(quickhl-reset)
+nmap <Space>j <Plug>(quickhl-match)
+xmap <Space>j <Plug>(quickhl-match)
 
 
 """"""""""""""""
