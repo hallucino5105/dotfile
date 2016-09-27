@@ -1,5 +1,5 @@
 autoload -U colors && colors
-autoload -U compinit && compinit -u
+autoload -U compinit && compinit -C
 
 
 ### zsh設定
@@ -23,6 +23,9 @@ zstyle ':completion:*' completer _complete _oldlist _match #_history _ignored _a
 zstyle ':completion:*' use-cache yes
 # 詳細な情報を使う
 #zstyle ':completion:*' verbose yes
+
+# moshの補完をsshと同じに
+compdef mosh=ssh
 
 # --prefix=~/localというように「=」の後でもファイル名展開を行う
 setopt magic_equal_subst
@@ -206,6 +209,4 @@ bindkey -e
 
 
 ### その他
-# moshの補完をsshと同じに
-compdef mosh=ssh
 
