@@ -94,7 +94,7 @@ endif
 cabbr w!! w !sudo tee > /dev/null %
 
 """ general varient
-" 不要なプラグイン
+" 不要な一般プラグイン
 let g:loaded_matchparen        = 1
 let g:loaded_rrhelper          = 1
 let g:loaded_2html_plugin      = 1
@@ -326,7 +326,7 @@ let g:neosnippet#snippets_directory='~/dotfile/.vim/snippets/'
 "'cmdopt': '-x fenced-code-blocks -x wiki-tables -x hard-wrap -x rid-code-tag -x html-classes=\{\"pre\":\"syntaxhighlight\"\}',
 
 let g:quickrun_config = {}
-let g:quickrun_config['mkd'] = {
+let g:quickrun_config['markdown'] = {
     \ 'outputter': 'browser',
     \ 'command': 'markdown2',
     \ 'cmdopt': '-x fenced-code-blocks -x wiki-tables -x hard-wrap -x rid-code-tag',
