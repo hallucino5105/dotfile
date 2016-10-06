@@ -332,6 +332,15 @@ let g:quickrun_config['markdown'] = {
     \ 'cmdopt': '-x fenced-code-blocks -x wiki-tables -x hard-wrap -x rid-code-tag',
     \ 'exec': '%c %o %a %s',
     \ }
+"let g:quickrun_config['markdown'] = {
+"    \ 'outputter': 'browser',
+"    \ 'command': 'open',
+"    \ 'cmdopt': '-a \"Google Chrome\"',
+"    \ 'exec': '%c %o %a %s',
+"    \ }
+"let g:quickrun_config['markdown'] = {
+"    \ 'outputter': 'browser',
+"    \ }
 
 
 """ html
