@@ -168,8 +168,21 @@ NeoBundle 'stephpy/vim-yaml'
 NeoBundle 'tikhomirov/vim-glsl'
 NeoBundle 'derekwyatt/vim-scala'
 
-" indent
-NeoBundleLazy 'hynek/vim-python-pep8-indent', { "autoload": { "insert": 1, "filetypes": ["python", "python3", "djangohtml"] }}
+NeoBundleLazy 'leafgarland/typescript-vim', {
+    \ 'autoload' : {
+    \   'filetypes' : ['typescript'] }
+    \}
+
+NeoBundleLazy 'jason0x43/vim-js-indent', {
+    \ 'autoload' : {
+    \   'filetypes' : ['javascript', 'typescript', 'html'],
+    \}}
+
+NeoBundleLazy 'hynek/vim-python-pep8-indent', {
+    \ "autoload": {
+    \    "insert": 1, "filetypes": [
+    \    "python", "python3", "djangohtml"]
+    \ }}
 
 " vimproc
 NeoBundle 'Shougo/vimproc.git', { 'build': {
@@ -457,74 +470,6 @@ endfunction
 "nmap g# g#zz
 
 
-"""" gitv
-"autocmd FileType git :setlocal foldlevel=99
-
-
-""" file skelton
-augroup SkeletonAu
-    autocmd!
-    autocmd BufNewFile *.html 0r $HOME/dotfile/.vim/skel/skel.html
-    autocmd BufNewFile *.cpp 0r $HOME/dotfile/.vim/skel/skel.cpp
-    autocmd BufNewFile *.hpp 0r $HOME/dotfile/.vim/skel/skel.hpp
-    autocmd BufNewFile *.pl 0r $HOME/dotfile/.vim/skel/skel.pl
-    autocmd BufNewFile *.pm 0r $HOME/dotfile/.vim/skel/skel.pm
-    autocmd BufNewFile *.py 0r $HOME/dotfile/.vim/skel/skel.py
-augroup END
-
-
-""" markdown
-autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
-autocmd BufRead,BufNewFile *.md  set filetype=markdown
-
-
-""" hiveql
-autocmd BufRead,BufNewFile *.hql set filetype=sql
-
-
-""" actionscript,mxml
-autocmd BufNewFile,BufRead *.as set filetype=actionscript
-autocmd BufNewFile,BufRead *.mxml set filetype=mxml
-
-""" ejs
-autocmd BufNewFile,BufRead *.ejs set filetype=html
-
-
-""" scala
-au BufNewFile,BufRead *.scala setf scala
-
-
-""" python
-"autocmd FileType python setl autoindent
-"autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-"autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
-" VimでPythonのコメント行を入力しようとするとインデントが解除されてしまうアレ
-autocmd FileType python :inoremap # X#
-
-""" handlebars template
-autocmd BufNewFile,BufRead *.hbs set filetype=xhtml
-
-
-""" ect template
-autocmd BufNewfile,BufRead *.ect set filetype=xhtml
-
-
-"""
-" If you prefer the Omni-Completion tip window to close when a selection is
-" made, these lines close it on movement in insert mode or when leaving
-" insert mode
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-
-""" disable auto comment complement after new-lines
-autocmd FileType * setlocal formatoptions-=ro
-
-
-""" Rename
-command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
-
-
 """" vimfiler
 "let g:vimfiler_as_default_explorer = 1
 
@@ -564,10 +509,6 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 "nmap <c-h> <Plug>DWMShrinkMaster
 "
 "let g:dwm_master_pane_width='85%'
-
-
-""" vim-markdown
-let g:vim_markdown_folding_disabled=1
 
 
 """" simple-javascript-indenter
@@ -662,6 +603,82 @@ nmap <Space>M <Plug>(quickhl-reset)
 xmap <Space>M <Plug>(quickhl-reset)
 nmap <Space>j <Plug>(quickhl-match)
 xmap <Space>j <Plug>(quickhl-match)
+
+
+""""""""""""""""
+""" associate
+""""""""""""""""
+"""" gitv
+"autocmd FileType git :setlocal foldlevel=99
+
+
+""" file skelton
+augroup SkeletonAu
+    autocmd!
+    autocmd BufNewFile *.html 0r $HOME/dotfile/.vim/skel/skel.html
+    autocmd BufNewFile *.cpp 0r $HOME/dotfile/.vim/skel/skel.cpp
+    autocmd BufNewFile *.hpp 0r $HOME/dotfile/.vim/skel/skel.hpp
+    autocmd BufNewFile *.pl 0r $HOME/dotfile/.vim/skel/skel.pl
+    autocmd BufNewFile *.pm 0r $HOME/dotfile/.vim/skel/skel.pm
+    autocmd BufNewFile *.py 0r $HOME/dotfile/.vim/skel/skel.py
+augroup END
+
+
+""" markdown
+autocmd BufRead,BufNewFile *.mkd set filetype=markdown
+autocmd BufRead,BufNewFile *.md set filetype=markdown
+
+
+""" hiveql
+autocmd BufRead,BufNewFile *.hql set filetype=sql
+
+
+""" actionscript,mxml
+autocmd BufNewFile,BufRead *.as set filetype=actionscript
+autocmd BufNewFile,BufRead *.mxml set filetype=mxml
+
+""" ejs
+autocmd BufNewFile,BufRead *.ejs set filetype=html
+
+
+""" typescript
+autocmd BufRead,BufNewFile *.tsc set filetype=typescript
+let g:vim_markdown_folding_disabled=1
+
+
+""" scala
+au BufNewFile,BufRead *.scala setf scala
+
+
+""" python
+"autocmd FileType python setl autoindent
+"autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+"autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
+" VimでPythonのコメント行を入力しようとするとインデントが解除されてしまうアレ
+autocmd FileType python :inoremap # X#
+
+""" handlebars template
+autocmd BufNewFile,BufRead *.hbs set filetype=xhtml
+
+
+""" ect template
+autocmd BufNewfile,BufRead *.ect set filetype=xhtml
+
+
+"""
+" If you prefer the Omni-Completion tip window to close when a selection is
+" made, these lines close it on movement in insert mode or when leaving
+" insert mode
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+
+""" disable auto comment complement after new-lines
+autocmd FileType * setlocal formatoptions-=ro
+
+
+""" Rename
+command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 
 
 """"""""""""""""
