@@ -642,7 +642,7 @@ autocmd BufNewFile,BufRead *.ejs set filetype=html
 
 
 """ typescript
-autocmd BufRead,BufNewFile *.tsc set filetype=typescript
+"autocmd BufRead,BufNewFile *.tsc set filetype=typescript
 let g:vim_markdown_folding_disabled=1
 
 
