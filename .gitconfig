@@ -30,7 +30,7 @@
 [merge]
     keepBackup = false;
     tool = vimdiff
-#[push]
-#	default = simple
+[push]
+	default = simple
 [https]
 	sslverify = false
