@@ -167,6 +167,8 @@ NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'stephpy/vim-yaml'
 NeoBundle 'tikhomirov/vim-glsl'
 NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
 
 NeoBundleLazy 'leafgarland/typescript-vim', {
     \ 'autoload' : {
