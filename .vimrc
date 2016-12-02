@@ -243,6 +243,7 @@ NeoBundle 'kana/vim-submode'
 NeoBundle "airblade/vim-rooter"
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 't9md/vim-quickhl'
+NeoBundle 'editorconfig/editorconfig-vim'
 
 " nouse
 "NeoBundle 'taglist.vim'
