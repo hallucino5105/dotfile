@@ -1,5 +1,6 @@
 autoload -U colors && colors
 autoload -U compinit && compinit -C
+autoload history-search-end
 
 
 ### zsh設定
@@ -52,6 +53,13 @@ setopt no_flow_control
 setopt hist_reduce_blanks
 setopt hist_verify
 #setopt share_history
+setopt bang_hist
+
+# マッチしたコマンドのヒストリを表示できるようにする
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
 
 ## インクリメンタルからの検索
 #bindkey "^R" history-incremental-search-backward
