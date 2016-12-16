@@ -244,6 +244,7 @@ NeoBundle "airblade/vim-rooter"
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'kakkyz81/evervim'
 
 " nouse
 "NeoBundle 'taglist.vim'
@@ -606,6 +607,17 @@ nmap <Space>M <Plug>(quickhl-reset)
 xmap <Space>M <Plug>(quickhl-reset)
 nmap <Space>j <Plug>(quickhl-match)
 xmap <Space>j <Plug>(quickhl-match)
+
+
+""" evervim
+let g:evervim_devtoken='S=s49:U=4fedbf:E=1605f0656f7:C=15907552a38:P=1cd:A=en-devtoken:V=2:H=14e946a0865b66d5d63841c97a99ef31'
+let g:evervim_asyncupdate=1
+let g:evervim_splitoption=''
+
+nnoremap <Leader>l :EvervimNotebookList<CR>
+nnoremap <Leader>s :EvervimSearchByQuery<Space>
+nnoremap <Leader>c :EvervimCreateNote<CR>
+nnoremap <Leader>t :EvervimListTags<CR>
 
 
 """"""""""""""""
