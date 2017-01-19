@@ -168,7 +168,12 @@ NeoBundle 'stephpy/vim-yaml'
 NeoBundle 'tikhomirov/vim-glsl'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'othree/yajs.vim'
+NeoBundle 'othree/es.next.syntax.vim'
+NeoBundle 'othree/javascript-libraries-syntax.vim'
 NeoBundle 'mxw/vim-jsx'
+"NeoBundle 'maxmellon/vim-jsx-pretty'
+NeoBundle 'fatih/vim-go'
 
 NeoBundleLazy 'leafgarland/typescript-vim', {
     \ 'autoload' : {
@@ -620,6 +625,11 @@ nnoremap <Leader>c :EvervimCreateNote<CR>
 nnoremap <Leader>t :EvervimListTags<CR>
 
 
+""" vim-jsx
+let g:jsx_ext_required = 1
+let g:jsx_pragma_required = 0
+
+
 """"""""""""""""
 """ associate
 """"""""""""""""
@@ -694,6 +704,13 @@ autocmd FileType * setlocal formatoptions-=ro
 
 """ Rename
 command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
+
+
+""" jsx
+augroup Vimrc
+    autocmd!
+    autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
 
 
 """"""""""""""""
@@ -933,7 +950,7 @@ noremap <BS> 
 noremap! <BS> 
 
 " ハイライト消去
-nnoremap <C-g> :nohlsearch<CR>
+nnoremap <C-x> :nohlsearch<CR>
 
 " shell起動
 nnoremap <F4> :VimShell<CR>
