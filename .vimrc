@@ -154,6 +154,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'cocopon/iceberg.vim'
+NeoBundle 'joshdick/onedark.vim'
 
 " syntax
 NeoBundle 'jQuery'
@@ -431,7 +432,7 @@ let g:unite_source_file_mru_limit = 1000
 let g:unite_update_time = 1000
 
 nnoremap [unite] <Nop>
-nmap r [unite]
+nmap f [unite]
 " 分割しないでuniteのbufferを表示する
 nnoremap [unite]u :<C-u>Unite -no-split<Space>
 " 全部乗せ
@@ -626,7 +627,7 @@ nnoremap <Leader>t :EvervimListTags<CR>
 
 
 """ vim-jsx
-let g:jsx_ext_required = 1
+let g:jsx_ext_required = 0
 let g:jsx_pragma_required = 0
 
 
@@ -819,9 +820,12 @@ map <silent> [Tag]c :tablast <bar> tabnew<CR>
 map <silent> [Tag]x :tabclose<CR>
 " tn 次のタブ
 map <silent> [Tag]n :tabnext<CR>
-map <silent> <tab> :tabnext<CR>
+nnoremap <tab> :tabnext<CR>
+"inoremap <tab> :tabnext<CR>
 " tp 前のタブ
 map <silent> [Tag]p :tabprevious<CR>
+nnoremap <S-tab> :tabprevious<CR>
+"inoremap <S-tab> :tabprevious<CR>
 
 
 """""""""""""""""
@@ -847,6 +851,8 @@ endfunction
 """ color setting
 """""""""""""""""
 syntax on
+
+let g:onedark_termcolors=256
 
 " ターミナルタイプによるカラー設定
 "if &term =~ 'xterm-256color' || 'screen-256color'
@@ -969,10 +975,6 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
-
-" tab
-"nmap <C-t> :tabnext<CR>
-"nmap <F1> :tabnew<CR>
 
 " 表示行単位で移動
 nnoremap j gj
@@ -1097,6 +1099,7 @@ if has('gui_macvim') || has('kaoriya') || has('gvim')
     "colorscheme wombat
     "colorscheme lucius
     "colorscheme darkeclipse
+    colorscheme onedark
 endif
 
 
