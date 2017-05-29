@@ -47,6 +47,7 @@ set maxmempattern=10000
 set autoread
 set nofoldenable
 set noautochdir
+set tabpagemax=99
 
 " ステータスラインの表示
 set statusline=%t\    "
@@ -77,12 +78,12 @@ augroup vimrc-checktime
     autocmd WinEnter * checktime
 augroup END
 
-" trailing spaces highlight
-augroup HighlightTrailingSpaces
-    autocmd!
-    autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces guibg=Black ctermbg=234
-    autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
-augroup END
+"" trailing spaces highlight
+"augroup HighlightTrailingSpaces
+"    autocmd!
+"    autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces guibg=Black ctermbg=234
+"    autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+"augroup END
 
 " 無限undo
 if has('persistent_undo')
@@ -157,24 +158,30 @@ NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'joshdick/onedark.vim'
 
 " syntax
-NeoBundle 'jQuery'
+" json
 NeoBundle 'JSON.vim'
-NeoBundle 'hail2u/vim-css3-syntax'
+" less
 NeoBundle 'groenewege/vim-less'
-NeoBundle 'jelera/vim-javascript-syntax'
+" hive
 NeoBundle 'autowitch/hive.vim'
+" css
+NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'JulesWang/css.vim'
 NeoBundle 'cakebaker/scss-syntax.vim'
+" yaml
 NeoBundle 'stephpy/vim-yaml'
+" glsl
 NeoBundle 'tikhomirov/vim-glsl'
+" scala
 NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'othree/yajs.vim'
-NeoBundle 'othree/es.next.syntax.vim'
-NeoBundle 'othree/javascript-libraries-syntax.vim'
-NeoBundle 'mxw/vim-jsx'
-"NeoBundle 'maxmellon/vim-jsx-pretty'
+" go
 NeoBundle 'fatih/vim-go'
+" javascript
+NeoBundle 'jQuery'
+NeoBundle 'mxw/vim-jsx'
+NeoBundle 'othree/yajs.vim'
+NeoBundle 'othree/javascript-libraries-syntax.vim'
+NeoBundle 'othree/es.next.syntax.vim'
 
 NeoBundleLazy 'leafgarland/typescript-vim', {
     \ 'autoload' : {
@@ -267,6 +274,9 @@ NeoBundle 'kakkyz81/evervim'
 "NeoBundle 'Yggdroot/indentLine' " 重い
 "NeoBundle 'kana/vim-smartinput' " 邪魔
 "NeoBundle 'othree/html5.vim'
+"NeoBundle 'pangloss/vim-javascript'
+"NeoBundle 'jelera/vim-javascript-syntax'
+"NeoBundle 'maxmellon/vim-jsx-pretty'
 "if !has('gui_macvim')
 "    NeoBundle 'VimRepress'
 "    "NeoBundle 'minibufexpl.vim'

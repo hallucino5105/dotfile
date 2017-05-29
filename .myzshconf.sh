@@ -217,4 +217,11 @@ bindkey -e
 
 
 ### その他
+function vig {
+    vi -p `grep -irn "$1" . | fzf | awk -F ":" '{print "-c "$2" "$1}'`
+}
+
+function vif {
+    find . -iname "$1" | fzf | xargs -o vim -p
+}
 
