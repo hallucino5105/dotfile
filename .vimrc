@@ -257,7 +257,6 @@ NeoBundle "airblade/vim-rooter"
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'kakkyz81/evervim'
 
 " nouse
 "NeoBundle 'taglist.vim'
@@ -277,6 +276,7 @@ NeoBundle 'kakkyz81/evervim'
 "NeoBundle 'pangloss/vim-javascript'
 "NeoBundle 'jelera/vim-javascript-syntax'
 "NeoBundle 'maxmellon/vim-jsx-pretty'
+"NeoBundle 'kakkyz81/evervim'
 "if !has('gui_macvim')
 "    NeoBundle 'VimRepress'
 "    "NeoBundle 'minibufexpl.vim'
@@ -625,15 +625,15 @@ nmap <Space>j <Plug>(quickhl-match)
 xmap <Space>j <Plug>(quickhl-match)
 
 
-""" evervim
-let g:evervim_devtoken='S=s49:U=4fedbf:E=1605f0656f7:C=15907552a38:P=1cd:A=en-devtoken:V=2:H=14e946a0865b66d5d63841c97a99ef31'
-let g:evervim_asyncupdate=1
-let g:evervim_splitoption=''
-
-nnoremap <Leader>l :EvervimNotebookList<CR>
-nnoremap <Leader>s :EvervimSearchByQuery<Space>
-nnoremap <Leader>c :EvervimCreateNote<CR>
-nnoremap <Leader>t :EvervimListTags<CR>
+"""" evervim
+"let g:evervim_devtoken='S=s49:U=4fedbf:E=1605f0656f7:C=15907552a38:P=1cd:A=en-devtoken:V=2:H=14e946a0865b66d5d63841c97a99ef31'
+"let g:evervim_asyncupdate=1
+"let g:evervim_splitoption=''
+"
+"nnoremap <Leader>l :EvervimNotebookList<CR>
+"nnoremap <Leader>s :EvervimSearchByQuery<Space>
+"nnoremap <Leader>c :EvervimCreateNote<CR>
+"nnoremap <Leader>t :EvervimListTags<CR>
 
 
 """ vim-jsx
