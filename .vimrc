@@ -226,6 +226,7 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'eregex.vim'
 NeoBundle 'yanktmp.vim'
 NeoBundle 'surround.vim'
+NeoBundle 'tpope/vim-repeat',
 NeoBundle 'quickrun.vim'
 NeoBundle 'scratch.vim'
 NeoBundle 'sudo.vim'
@@ -436,6 +437,7 @@ map <Leader>mg :MemoGrep<CR>
 """ unite
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_session_enable_auto_save = 1
+let g:unite_enable_start_insert=1
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 let g:unite_source_file_mru_limit = 1000
@@ -479,6 +481,10 @@ function! s:unite_my_settings()
     " 単語単位からパス単位で削除するように変更
     imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
 endfunction
+ 
+" ESCキーを2回押すと終了する  
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
 
 """" 検索語が真ん中に来るように
@@ -1043,7 +1049,7 @@ smap <C-k> <Plug>(neosnippet_expand_or_jump)
 
 " buffer
 nnoremap [Buf] <Nop>
-nmap s [Buf]
+nmap z [Buf]
 nnoremap [Buf] <Nop>
 nnoremap [Buf]j <C-w>j
 nnoremap [Buf]k <C-w>k
@@ -1077,8 +1083,8 @@ call submode#map('bufmove', 'n', '', '+', '<C-w>+')
 call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 
 
-" C-c
-nnoremap <C-c> :<C-u>close<CR>
+"" C-c
+"nnoremap <C-c> :<C-u>close<CR>
 
 
 """""""""""""""
