@@ -4,7 +4,8 @@
 
 import sys
 import os
-import logging as log
+
+from logging import getLogger, StreamHandler, DEBUG
 
 
 def main():
@@ -12,10 +13,11 @@ def main():
 
 
 if __name__ == "__main__":
-    log.basicConfig(
-        format="[%(asctime)s][%(levelname)s] %(message)s",
-        datefmt="%Y/%m/%d %H:%M:%S",
-        level=log.DEBUG)
+    logger = getLogger(__name__)
+    handler = StreamHandler()
+    handler.setLevel(DEBUG)
+    logger.setLevel(DEBUG)
+    logger.addHandler(handler)
 
     main()
 
