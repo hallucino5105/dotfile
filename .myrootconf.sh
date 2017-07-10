@@ -20,8 +20,8 @@ export MANPAGER="less -cgisSFMRX"
 
 # 設定するとzshが勝手にエディタ風のキーバインドにしやがる
 # .zshrcにbindkey -e
-export EDITOR="vim"
-export SVN_EDITOR="vim --noplugin"
+export EDITOR="vim -p"
+export SVN_EDITOR="vim -p --noplugin"
 
 ## term color
 #if [ -e /usr/share/terminfo/73/screen-256color ]; then
@@ -54,7 +54,8 @@ alias ftp="ncftp"
 alias grep="grep --color=always -nI"
 alias egrep="egrep --color=always -nI"
 alias mysql="mysql --default-character-set=utf8 --pager='less -cgisSFMRX'"
-alias vi="vim"
+alias vi="vim -p"
+alias vim="vim -p"
 alias svndiff="svn diff -x -u -x --ignore-eol-style | vim -R -"
 alias diff="colordiff -u"
 alias weechat="TERM=screen-256color weechat"
