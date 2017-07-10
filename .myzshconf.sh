@@ -225,14 +225,14 @@ function vif {
     find . -iname "$1" | fzf | xargs -o vim -p
 }
 
-mocha() {
-    if type whence &> /dev/null; then
-        mocha=$(whence -p mocha)
-    else
-        mocha=$(type -P mocha)
-    fi
-    substitution='s/\x1b\[90m/\x1b[92m/g'
-
-    $mocha -c "$@" > >(perl -pe "$substitution") 2> >(perl -pe "$substitution" 1>&2)
-}
+#mocha() {
+#    if type whence &> /dev/null; then
+#        mocha=$(whence -p mocha)
+#    else
+#        mocha=$(type -P mocha)
+#    fi
+#    substitution='s/\x1b\[90m/\x1b[92m/g'
+#
+#    $mocha "$@" > >(perl -pe "$substitution") 2> >(perl -pe "$substitution" 1>&2)
+#}
 

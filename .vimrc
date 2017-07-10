@@ -1086,6 +1086,10 @@ call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 "" C-c
 "nnoremap <C-c> :<C-u>close<CR>
 
+" コピペ1行
+noremap - ddkP
+noremap ^ ddjP
+
 
 """""""""""""""
 """ gui setting
