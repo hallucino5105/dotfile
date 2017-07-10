@@ -72,6 +72,10 @@ set statusline+=%V    " 画面上の何列目にカーソルがあるか
 set statusline+=\ \   " 空白スペース2個
 set statusline+=%P    " ファイル内の何％の位置にあるか
 
+" 前回開いていた場所を記憶
+au BufWritePost * mkview
+autocmd BufReadPost * loadview
+
 " 自動再読み込み
 augroup vimrc-checktime
     autocmd!
@@ -1083,8 +1087,8 @@ call submode#map('bufmove', 'n', '', '+', '<C-w>+')
 call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 
 
-"" C-c
-"nnoremap <C-c> :<C-u>close<CR>
+" C-c
+inoremap <C-c> <ESC>
 
 " コピペ1行
 noremap - ddkP

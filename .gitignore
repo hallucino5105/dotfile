@@ -1,5 +1,7 @@
 .DS_Store
 
+.vim/sessions/*
+!.vim/sessions/.gitkeep
 .vim/bundle/*
 !.vim/bundle/.gitkeep
 .vim/undo/*
