@@ -1136,6 +1136,7 @@ endif
 " なんかのプラグインで無効になってるぽいので
 set showcmd
 set iskeyword+=-
+set backupcopy=yes
 
 set runtimepath+=~/dotfile/.vim,~/dotfile/.vim/after
 
