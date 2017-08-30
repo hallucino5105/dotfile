@@ -92,6 +92,13 @@ endif
 " w!! で sudo で保存
 cabbr w!! w !sudo tee > /dev/null %
 
+" 自動リロード
+" CursorMovedだと重いかもしれないので注意
+augroup vimrc-checktime
+    autocmd!
+    autocmd CursorMoved * checktime
+augroup END
+
 """ general varient
 " 不要な一般プラグイン
 let g:loaded_matchparen        = 1
