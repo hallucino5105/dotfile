@@ -99,6 +99,9 @@ augroup vimrc-checktime
     autocmd CursorMoved * checktime
 augroup END
 
+" ファイルのあるディレクトリに移動
+autocmd BufEnter * silent! lcd %:p:h
+
 """ general varient
 " 不要な一般プラグイン
 let g:loaded_matchparen        = 1
@@ -183,8 +186,10 @@ NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'fatih/vim-go'
 " javascript
 NeoBundle 'jQuery'
-NeoBundle 'mxw/vim-jsx'
+"jsx
 NeoBundle 'othree/yajs.vim'
+"NeoBundle 'mxw/vim-jsx'
+NeoBundle 'maxmellon/vim-jsx-pretty'
 NeoBundle 'othree/javascript-libraries-syntax.vim'
 NeoBundle 'othree/es.next.syntax.vim'
 
@@ -729,10 +734,8 @@ command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 
 
 """ jsx
-augroup Vimrc
-    autocmd!
-    autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
-augroup END
+autocmd BufNewFile,BufRead *.js set filetype=javascript.jsx
+autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 
 
 """"""""""""""""
