@@ -188,8 +188,8 @@ NeoBundle 'fatih/vim-go'
 NeoBundle 'jQuery'
 "jsx
 NeoBundle 'othree/yajs.vim'
-"NeoBundle 'mxw/vim-jsx'
-NeoBundle 'maxmellon/vim-jsx-pretty'
+NeoBundle 'mxw/vim-jsx'
+"NeoBundle 'maxmellon/vim-jsx-pretty'
 NeoBundle 'othree/javascript-libraries-syntax.vim'
 NeoBundle 'othree/es.next.syntax.vim'
 
