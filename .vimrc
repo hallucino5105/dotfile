@@ -268,6 +268,8 @@ NeoBundle "airblade/vim-rooter"
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'tacroe/unite-mark'
+NeoBundle 'kshenoy/vim-signature'
 
 " nouse
 "NeoBundle 'taglist.vim'
@@ -419,6 +421,7 @@ inoremap <unique><silent><F7> <Plug>InsShowScratchBuffer
 
 
 """ tagbar
+set tags=./tags,tags;
 noremap <F2> :TagbarToggle<CR>
 
 
@@ -470,7 +473,7 @@ nnoremap <silent> [unite]t :<C-u>Unite buffer -direction=belowright<CR>
 " 常用セット
 nnoremap <silent> [unite]u :<C-u>Unite buffer file_mru -direction=belowright<CR>
 " 最近使用したファイル一覧
-nnoremap <silent> [unite]m :<C-u>Unite file_mru -direction=belowright<CR>
+nnoremap <silent> [unite]l :<C-u>Unite file_mru -direction=belowright<CR>
 " ブックマーク一覧
 nnoremap <silent> [unite]b :<C-u>Unite bookmark -direction=belowright<CR>
 " ヤンク履歴
@@ -481,8 +484,10 @@ nnoremap <silent> [unite]c :<C-u>Unite change -direction=belowright<CR>
 nnoremap <silent> [unite]g :<C-u>Unite grep -direction=belowright -no-quit<CR>
 " セッション
 nnoremap <silent> [unite]s :<C-u>Unite session -direction=belowright<CR>
+" mark
+nnoremap <silent> [unite]m :<C-u>Unite mark -direction=belowright<CR>
 "" register
-"nnoremap <silent> [unite]r :<C-u>Unite register -direction=belowright<CR>
+"nnoremap <silent> [unite]v :<C-u>Unite register -direction=belowright<CR>
 " 再呼び出し
 nnoremap <silent> [unite]. :<C-u>UniteResume<CR>
 
@@ -655,6 +660,26 @@ xmap <Space>j <Plug>(quickhl-match)
 """ vim-jsx
 let g:jsx_ext_required = 0
 let g:jsx_pragma_required = 0
+
+""" auto mark
+" mark auto reg
+" http://saihoooooooo.hatenablog.com/entry/2013/04/30/001908
+if !exists('g:markrement_char')
+    let g:markrement_char = [
+    \     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+    \     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+    \ ]
+endif
+nnoremap <silent>m :<C-u>call <SID>AutoMarkrement()<CR>
+function! s:AutoMarkrement()
+    if !exists('b:markrement_pos')
+        let b:markrement_pos = 0
+    else
+        let b:markrement_pos = (b:markrement_pos + 1) % len(g:markrement_char)
+    endif
+    execute 'mark' g:markrement_char[b:markrement_pos]
+    echo 'marked' g:markrement_char[b:markrement_pos]
+endfunction
 
 
 """"""""""""""""
@@ -930,16 +955,6 @@ if has("syntax")
 endif
 
 
-" pyflakeが使う
-hi SpellBad ctermfg=darkred guifg=darkred
-
-" tabとか
-hi SpecialKey ctermfg=0 guifg=darkgray
-
-" ...
-hi PmenuSel ctermfg=248 ctermbg=0
-
-
 if has('mac') || has('linux') || has('unix')
     "colorscheme darkblue
     "colorscheme yuroyoro256
@@ -960,6 +975,18 @@ if has('mac') || has('linux') || has('unix')
 elseif has('win32') || has('cygwin') || has("win32unix")
     colorscheme molokai
 endif
+
+" pyflakeが使う
+hi SpellBad ctermfg=darkred guifg=darkred
+
+" tabとか
+hi SpecialKey ctermfg=0 guifg=darkgray
+
+" ...
+hi PmenuSel ctermfg=248 ctermbg=0
+
+" vim-signature
+hi SignColumn ctermbg=8
 
 
 """""""""""""""
@@ -1098,6 +1125,9 @@ inoremap <C-c> <ESC>
 noremap - ddkP
 noremap ^ ddjP
 
+" visual mark
+map <F5> <Plug>Vm_toggle_sign
+
 
 """""""""""""""
 """ gui setting
@@ -1131,13 +1161,13 @@ if has('gui_macvim') || has('kaoriya') || has('gvim')
 endif
 
 
-"""""""""""""""
-""" nvim
-"""""""""""""""
-if has('nvim')
-    tnoremap <silent> <ESC> <C-\><C-n>
-    nnoremap <F5> :terminal<CR>
-endif
+""""""""""""""""
+"""" nvim
+""""""""""""""""
+"if has('nvim')
+"    tnoremap <silent> <ESC> <C-\><C-n>
+"    nnoremap <F5> :terminal<CR>
+"endif
 
 
 """""""""""""""
