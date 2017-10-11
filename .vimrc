@@ -48,6 +48,8 @@ set autoread
 set nofoldenable
 set noautochdir
 set tabpagemax=99
+"set autowrite
+"set updatetime=500
 
 " ステータスラインの表示
 set statusline=%t\    "
@@ -75,6 +77,16 @@ set statusline+=%P    " ファイル内の何％の位置にあるか
 " 前回開いていた場所を記憶
 autocmd BufWinLeave ?* silent mkview
 autocmd BufWinEnter ?* silent loadview
+
+"" 自動保存
+"function s:AutoWriteIfPossible()
+"  if &modified && !&readonly && bufname('%') !=# '' && &buftype ==# '' && expand("%") !=# ''
+"    write
+"  endif
+"endfunction
+"
+"autocmd CursorHold * call s:AutoWriteIfPossible()
+"autocmd CursorHoldI * call s:AutoWriteIfPossible()
 
 "" trailing spaces highlight
 "augroup HighlightTrailingSpaces
