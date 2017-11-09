@@ -236,6 +236,7 @@ NeoBundle 'xolox/vim-session', {
 
 " unite
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite-session', { 'depends': 'Shougo/unite.vim' }
 NeoBundle 'kannokanno/unite-dwm', { 'depends': 'Shougo/unite.vim' }
@@ -276,7 +277,7 @@ NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'wesleyche/SrcExpl'
 NeoBundle 'kana/vim-submode'
-NeoBundle "airblade/vim-rooter"
+NeoBundle 'airblade/vim-rooter'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'editorconfig/editorconfig-vim'
@@ -462,7 +463,7 @@ map <Leader>mg :MemoGrep<CR>
 """ unite
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_session_enable_auto_save = 1
-let g:unite_enable_start_insert=1
+let g:unite_enable_start_insert=0
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 let g:unite_source_file_mru_limit = 1000
@@ -479,7 +480,7 @@ nnoremap <silent> [unite]f :<C-u>Unite file file/new -buffer-name=files -directi
 " タブ一覧
 nnoremap <silent> [unite]r :<C-u>Unite tab -direction=belowright<CR>
 "
-nnoremap <silent> [unite]q :<C-u>Unite file file_rec/async -buffer-name=files -direction=belowright -start-insert<CR>
+nnoremap <silent> [unite]q :<C-u>Unite file file_rec/async -buffer-name=files -direction=belowright<CR>
 " バッファ一覧
 nnoremap <silent> [unite]t :<C-u>Unite buffer -direction=belowright<CR>
 " 常用セット
@@ -513,6 +514,10 @@ endfunction
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
+call unite#sources#rec#define()
+call unite#custom#source('file_rec/async,grep', 'ignore_pattern', 'node_modules')
+call unite#custom_default_action('file_rec/async,file_mru,file,buffer,grep' , 'tabopen')
+
 
 """" 検索語が真ん中に来るように
 "nmap n nzz
@@ -524,7 +529,7 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
 
 """" vimfiler
-"let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_as_default_explorer = 1
 
 
 """ easymotion
@@ -582,11 +587,14 @@ let g:syntastic_mode_map = {
     \}
 
 
-""" NERDTree
-noremap <silent> <F1> :NERDTreeToggle<CR>
-let g:NERDTreeShowHidden=1
-let g:NERDTreeMinimalUI=0
-let g:NERDTreeDirArrows=1
+"""" NERDTree
+"noremap <silent> <F1> :NERDTreeToggle<CR>
+"let g:NERDTreeShowHidden=1
+"let g:NERDTreeMinimalUI=0
+"let g:NERDTreeDirArrows=1
+
+""" vimfiler
+noremap <silent> <F1> :VimFiler<CR>
 
 
 """" smartinput
