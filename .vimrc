@@ -283,6 +283,7 @@ NeoBundle 't9md/vim-quickhl'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'tacroe/unite-mark'
 NeoBundle 'kshenoy/vim-signature'
+NeoBundle 'linediff.vim'
 
 " nouse
 "NeoBundle 'taglist.vim'
