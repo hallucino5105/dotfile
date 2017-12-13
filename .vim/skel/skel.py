@@ -5,19 +5,23 @@
 import sys
 import os
 
-from logging import getLogger, StreamHandler, DEBUG
+from logging import getLogger, StreamHandler, Formatter, DEBUG
+
+
+logger = None
 
 
 def main():
     pass
 
 
-if __name__ == "__main__":
-    logger = getLogger(__name__)
-    handler = StreamHandler()
-    handler.setLevel(DEBUG)
-    logger.setLevel(DEBUG)
-    logger.addHandler(handler)
+logger = getLogger(sys.argv[0] + __name__)
+handler = StreamHandler()
+handler.setLevel(DEBUG)
+handler.setFormatter(Formatter("[%(asctime)s](%(levelname)s) %(message)s"))
+logger.setLevel(DEBUG)
+logger.addHandler(handler)
 
+if __name__ == "__main__":
     main()
 
