@@ -14,17 +14,13 @@ set softtabstop=0
 set whichwrap=b,s,h,l,<,>,[,]
 set nowrap
 set nowrapscan
-"set showmatch
 set matchtime=3
 set autoindent
 set smartindent
 "set cindent
 set smartcase
 set smarttab
-"set hlsearch
 set laststatus=2
-"set statusline=%{expand('%:p:t')}\ %<\(%{expand('%:p:h')}¥)%=\ %m%r%y%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}[%l,%c\ (%p%%)]
-"set clipboard+=unnamedplus,unnamed
 set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932
 set fileformats=unix,dos,mac
@@ -48,8 +44,6 @@ set autoread
 set nofoldenable
 set noautochdir
 set tabpagemax=99
-"set autowrite
-"set updatetime=500
 
 " ステータスラインの表示
 set statusline=%t\    "
@@ -128,8 +122,7 @@ let g:loaded_netrwPlugin       = 1
 let g:loaded_netrwSettings     = 1
 let g:loaded_netrwFileHandlers = 1
 
-let &directory=&backupdir
-
+" vimproc
 let ostype = system('uname')
 let archtype = system('uname -p')
 
@@ -148,6 +141,8 @@ else
         let g:vimproc_dll_path = $HOME . '/dotfile/.vim/bundle/vimproc/lib/vimproc_win64.dll'
     endif
 endif
+
+let &directory=&backupdir
 
 
 """"""""""""""""""
@@ -173,47 +168,51 @@ NeoBundle 'molokai'
 NeoBundle 'yuroyoro/yuroyoro256.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'joshdick/onedark.vim'
 
 " syntax
-" json
+"" json
 NeoBundle 'JSON.vim'
-" less
+"" less
 NeoBundle 'groenewege/vim-less'
-" hive
+"" hive
 NeoBundle 'autowitch/hive.vim'
-" css
+"" css
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'JulesWang/css.vim'
 NeoBundle 'cakebaker/scss-syntax.vim'
-" yaml
+"" yaml
 NeoBundle 'stephpy/vim-yaml'
-" glsl
+"" glsl
 NeoBundle 'tikhomirov/vim-glsl'
-" scala
+"" scala
 NeoBundle 'derekwyatt/vim-scala'
-" go
+"" go
 NeoBundle 'fatih/vim-go'
-" javascript
+"" javascript
 NeoBundle 'jQuery'
-"jsx
+"" jsx
 NeoBundle 'othree/yajs.vim'
+"NeoBundle 'othree/es.next.syntax.vim'
+"NeoBundle 'othree/javascript-libraries-syntax.vim'
+"NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 "NeoBundle 'maxmellon/vim-jsx-pretty'
-NeoBundle 'othree/javascript-libraries-syntax.vim'
-NeoBundle 'othree/es.next.syntax.vim'
+"" ansible
+NeoBundle 'chase/vim-ansible-yaml'
+"" markdown
+NeoBundle 'plasticboy/vim-markdown'
 
 NeoBundleLazy 'leafgarland/typescript-vim', {
     \ 'autoload' : {
     \   'filetypes' : ['typescript'] }
     \}
 
-NeoBundleLazy 'jason0x43/vim-js-indent', {
-    \ 'autoload' : {
-    \   'filetypes' : ['javascript', 'typescript', 'html'],
-    \}}
+"NeoBundleLazy 'jason0x43/vim-js-indent', {
+"    \ 'autoload' : {
+"    \   'filetypes' : ['javascript', 'typescript', 'html'],
+"    \}}
 
 NeoBundleLazy 'hynek/vim-python-pep8-indent', {
     \ "autoload": {
@@ -240,57 +239,43 @@ NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite-session', { 'depends': 'Shougo/unite.vim' }
 NeoBundle 'kannokanno/unite-dwm', { 'depends': 'Shougo/unite.vim' }
+NeoBundle 'tacroe/unite-mark', { 'depends': 'Shougo/unite.vim' }
+
+" neo
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet.vim.git'
+NeoBundle 'Shougo/neosnippet-snippets'
 
 " other
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'https://github.com/Shougo/neosnippet.vim.git'
-NeoBundle 'Shougo/neosnippet-snippets'
-"NeoBundle 'vimgrep.vim'
+NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'eregex.vim'
 NeoBundle 'yanktmp.vim'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'quickrun.vim'
-NeoBundle 'scratch.vim'
 NeoBundle 'sudo.vim'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'dbext.vim'
-NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gitv'
-NeoBundle 'occur.vim'
-NeoBundle 'renamer.vim'
-NeoBundle 'camelcasemotion'
+NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'sjl/gundo.vim.git'
-NeoBundle 'Shougo/vimshell.git'
-NeoBundle 'glidenote/memolist.vim'
-NeoBundle 'fuenor/qfixgrep'
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'open-browser.vim'
-NeoBundle '5t111111/neat-json.vim'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'h1mesuke/vim-alignta'
+NeoBundle 'airblade/vim-rooter'
 NeoBundle 'closetag.vim'
-NeoBundle 'chase/vim-ansible-yaml'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'wesleyche/SrcExpl'
 NeoBundle 'kana/vim-submode'
-NeoBundle 'airblade/vim-rooter'
-NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 't9md/vim-quickhl'
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'tacroe/unite-mark'
-NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'linediff.vim'
+NeoBundle 'camelcasemotion'
+NeoBundle 'renamer.vim'
+NeoBundle 'open-browser.vim'
+"NeoBundle 'editorconfig/editorconfig-vim'
 
 " nouse
 "NeoBundle 'taglist.vim'
 "NeoBundle 'spolu/dwm.vim'
 "NeoBundle 'bronson/vim-trailing-whitespace'
 "NeoBundle 'sindrenm/angular.vim'
-"NeoBundle 'editorconfig/editorconfig-vim'
 "NeoBundle 'VimRepress'
 "NeoBundle 'nathanaelkane/vim-indent-guides'
 "NeoBundle 'kevinw/pyflakes-vim'
@@ -300,10 +285,23 @@ NeoBundle 'linediff.vim'
 "NeoBundle 'Yggdroot/indentLine' " 重い
 "NeoBundle 'kana/vim-smartinput' " 邪魔
 "NeoBundle 'othree/html5.vim'
-"NeoBundle 'pangloss/vim-javascript'
 "NeoBundle 'jelera/vim-javascript-syntax'
-"NeoBundle 'maxmellon/vim-jsx-pretty'
 "NeoBundle 'kakkyz81/evervim'
+"NeoBundle 'mattn/benchvimrc-vim'
+"NeoBundle 'scrooloose/nerdtree'
+"NeoBundle 'terryma/vim-multiple-cursors'
+"NeoBundle '5t111111/neat-json.vim'
+"NeoBundle 'thinca/vim-qfreplace'
+"NeoBundle 'glidenote/memolist.vim'
+"NeoBundle 'Shougo/vimshell.git'
+"NeoBundle 'fuenor/qfixgrep'
+"NeoBundle 'occur.vim'
+"NeoBundle 'tpope/vim-fugitive'
+"NeoBundle 'dbext.vim'
+"NeoBundle 'scratch.vim'
+"NeoBundle 'quickrun.vim'
+"NeoBundle 'vimgrep.vim'
+"NeoBundle 'scrooloose/syntastic'
 "if !has('gui_macvim')
 "    NeoBundle 'VimRepress'
 "    "NeoBundle 'minibufexpl.vim'
@@ -382,9 +380,6 @@ let g:neocomplcache_omni_patterns.html = ''
 let g:neosnippet#snippets_directory='~/dotfile/.vim/snippets/'
 
 
-""" quickrun
-"'cmdopt': '-x fenced-code-blocks -x wiki-tables -x hard-wrap -x rid-code-tag -x html-classes=\{\"pre\":\"syntaxhighlight\"\}',
-
 let g:quickrun_config = {}
 let g:quickrun_config['markdown'] = {
     \ 'outputter': 'browser',
@@ -437,28 +432,6 @@ inoremap <unique><silent><F7> <Plug>InsShowScratchBuffer
 """ tagbar
 set tags=./tags,tags;
 noremap <F2> :TagbarToggle<CR>
-
-
-""" BufferList
-"map <silent> <C-x> :call BufferList()<CR>
-"let g:BufferListWidth=25
-"let g:BufferListMaxWidth=40
-
-
-""" MemoList
-let g:memolist_path = "~/.vimmemo"
-let g:memolist_memo_suffix = "md"
-let g:memolist_memo_date = "%Y-%m-%d %H:%M"
-"let g:memolist_memo_date = "epoch"
-"let g:memolist_memo_date = "%D %T"
-"let g:memolist_prompt_tags = 1
-"let g:memolist_prompt_categories = 1
-"let g:memolist_qfixgrep = 1
-"let g:memolist_vimfiler = 1
-"let g:memolist_template_dir_path = "path/to/dir"
-map <Leader>ml :MemoList<CR>
-map <Leader>mn :MemoNew<CR>
-map <Leader>mg :MemoGrep<CR>
 
 
 """ unite
@@ -520,15 +493,6 @@ call unite#custom#source('file_rec/async,grep', 'ignore_pattern', 'node_modules'
 call unite#custom_default_action('file_rec/async,file_mru,file,buffer,grep' , 'tabopen')
 
 
-"""" 検索語が真ん中に来るように
-"nmap n nzz
-"nmap N Nzz
-"nmap * *zz
-"nmap # #zz
-"nmap g* g*zz
-"nmap g# g#zz
-
-
 """" vimfiler
 let g:vimfiler_as_default_explorer = 1
 
@@ -549,32 +513,7 @@ let g:EasyMotion_smartcase = 1
 " カラー設定変更
 hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=blue
-
 "nmap s <Plug>(easymotion-s2)
-
-
-"""" dwm
-"nnoremap <c-j> <c-w>w
-"nnoremap <c-k> <c-w>W
-"nnoremap <Tab> <c-w>w
-"nnoremap <s-Tab> <c-w>W
-"nmap <m-r> <Plug>DWMRotateCounterclockwise
-"nmap <m-t> <Plug>DWMRotateClockwise
-"nmap <c-n> <Plug>DWMNew
-"nmap <c-c> <Plug>DWMClose
-"nmap <c-@> <Plug>DWMFocus
-"nmap <c-Space> <Plug>DWMFocus
-"nmap <c-l> <Plug>DWMGrowMaster
-"nmap <c-h> <Plug>DWMShrinkMaster
-"
-"let g:dwm_master_pane_width='85%'
-
-
-"""" simple-javascript-indenter
-"" この設定入れるとshiftwidthを1にしてインデントしてくれる
-"let g:SimpleJsIndenter_BriefMode = 4
-"" この設定入れるとswitchのインデントがいくらかマシに
-"let g:SimpleJsIndenter_CaseIndentLevel = -1
 
 
 """ syntastic
@@ -588,42 +527,8 @@ let g:syntastic_mode_map = {
     \}
 
 
-"""" NERDTree
-"noremap <silent> <F1> :NERDTreeToggle<CR>
-"let g:NERDTreeShowHidden=1
-"let g:NERDTreeMinimalUI=0
-"let g:NERDTreeDirArrows=1
-
 """ vimfiler
 noremap <silent> <F1> :VimFiler<CR>
-
-
-"""" smartinput
-"call smartinput#define_rule({
-"    \   'at': '\s\+\%#',
-"    \   'char': '<CR>',
-"    \   'input': "<C-o>:call setline('.', substitute(getline('.'), '\\s\\+$', '', ''))<CR><CR>",
-"    \})
-"
-"call smartinput#define_rule({
-"    \   'at': '\%#',
-"    \   'char': '<',
-"    \   'input': '<>',
-"    \   'filetype': ['html', 'xml', 'xhtml', 'eruby'],
-"    \})
-"
-"call smartinput#define_rule({
-"    \   'at': '<.*\%#>',
-"    \   'char': '>',
-"    \   'input': '',
-"    \   'filetype': ['html', 'xml', 'xhtml', 'eruby'],
-"    \})
-
-
-""" VimShell
-nnoremap <silent> vs :VimShell<CR>
-nnoremap <silent> vss :VimShellSendString<CR>
-nnoremap <silent> vip :VimShellInteractive ipython<CR>
 
 
 """ ag
@@ -667,20 +572,10 @@ nmap <Space>j <Plug>(quickhl-match)
 xmap <Space>j <Plug>(quickhl-match)
 
 
-"""" evervim
-"let g:evervim_devtoken='S=s49:U=4fedbf:E=1605f0656f7:C=15907552a38:P=1cd:A=en-devtoken:V=2:H=14e946a0865b66d5d63841c97a99ef31'
-"let g:evervim_asyncupdate=1
-"let g:evervim_splitoption=''
-"
-"nnoremap <Leader>l :EvervimNotebookList<CR>
-"nnoremap <Leader>s :EvervimSearchByQuery<Space>
-"nnoremap <Leader>c :EvervimCreateNote<CR>
-"nnoremap <Leader>t :EvervimListTags<CR>
-
-
 """ vim-jsx
 let g:jsx_ext_required = 0
 let g:jsx_pragma_required = 0
+
 
 """" auto mark
 "" mark auto reg
@@ -706,9 +601,6 @@ let g:jsx_pragma_required = 0
 """"""""""""""""
 """ associate
 """"""""""""""""
-"""" gitv
-"autocmd FileType git :setlocal foldlevel=99
-
 
 """ file skelton
 augroup SkeletonAu
@@ -782,34 +674,6 @@ command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 """ jsx
 autocmd BufNewFile,BufRead *.js set filetype=javascript.jsx
 autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
-
-
-""""""""""""""""
-""" 特定ファイルの親ディレクトリーにワンステップで移動する
-""""""""""""""""
-"function! s:workon(dir, bang) abort
-"  let dir = (a:dir ==# '' ? expand('%') : a:dir)
-"  " convert filename to directory if required
-"  if filereadable(dir)
-"    let dir = fnamemodify(expand(dir),':p:h')
-"  else
-"    let dir = fnamemodify(dir, ':p')
-"  endif
-"  " change directory to specified directory
-"  if isdirectory(dir)
-"    silent execute 'cd ' . fnameescape(dir)
-"    if a:bang ==# ''
-"      redraw | echo 'Working on: '.dir
-"      if v:version > 703 || (v:version == 703 && has('patch438'))
-"        doautocmd <nomodeline> MyAutoCmd User my-workon-post
-"      else
-"        doautocmd MyAutoCmd User my-workon-post
-"      endif
-"    endif
-"  endif
-"endfunction
-"autocmd MyAutoCmd VimEnter * call s:workon(expand('<afile>'), 1)
-"command! -nargs=? -complete=dir -bang Workon call s:workon('<args>', '<bang>')
 
 
 """"""""""""""""
@@ -941,47 +805,16 @@ let g:onedark_termcolors=256
 "endif
 
 
-" ref by ~/program_ym0/cardinal/tech/term_color_palette/term_color_palette.py
-"hi Pmenu ctermfg=4 ctermbg=59
-"hi PmenuSel ctermfg=0 ctermbg=254
-"hi PmenuSbar guibg=#333333
-"hi CursorLine term=None cterm=None ctermbg=235 gui=underline
-""hi BufferSelected term=reverse ctermfg=black ctermbg=red cterm=bold
-"hi BufferNormal term=NONE ctermfg=black ctermbg=black cterm=NONE
-"hi StatusLine term=bold,reverse ctermfg=231 ctermbg=238 guifg=#ffffff guibg=#666666
-""hi LineNr ctermfg=28
-
-
 " 全角スペース・行末のスペース・タブの可視化
 if has("syntax")
     syntax on
 
     " PODバグ対策
     syn sync fromstart
-
-    "function! ActivateInvisibleIndicator()
-    "    " 下の行の'　'は全角スペース
-    "    syntax match InvisibleJISX0208Space '　' display containedin=ALL
-    "    highlight InvisibleJISX0208Space term=underline ctermbg=Blue guibg=darkgray gui=underline
-    "    "syntax match InvisibleTrailedSpace '[ \t]\+$' display containedin=ALL
-    "    "highlight InvisibleTrailedSpace term=underline ctermbg=Red guibg=NONE gui=undercurl guisp=darkorange
-    "    "syntax match InvisibleTab '\t' display containedin=ALL
-    "    "highlight InvisibleTab term=underline ctermbg=1 gui=undercurl guisp=darkslategray
-    "endfunction
-
-    "augroup invisible
-    "    autocmd! invisible
-    "    autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
-    "augroup END
 endif
 
 
 if has('mac') || has('linux') || has('unix')
-    "colorscheme darkblue
-    "colorscheme yuroyoro256
-    "colorscheme molokai
-    "colorscheme iceberg
-
     let g:solarized_termcolors=16
     let g:solarized_termtrans=0
     let g:solarized_degrade=0
@@ -1030,17 +863,8 @@ noremap! <BS> 
 " ハイライト消去
 nnoremap <C-x> :nohlsearch<CR>
 
-" shell起動
-nnoremap <F4> :VimShell<CR>
-
 " JunkFile
 nnoremap <F8> :JunkFile<CR>
-
-"" CTRL-hjklでウィンドウ移動
-"nnoremap <C-j> :<C-w>j
-"nnoremap <C-k> :<C-k>j
-"nnoremap <C-l> :<C-l>j
-"nnoremap <C-h> :<C-h>j
 
 " 挿入モードで移動
 inoremap <C-j> <Down>
@@ -1075,33 +899,6 @@ vnoremap <expr> c* ':s ;\<' . expand('<cword>') . '\>;'
 " neosnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
-
-"" Use vsplit mode
-"if has("vim_starting") && !has('gui_running') && has('vertsplit')
-"  function! EnableVsplitMode()
-"    " enable origin mode and left/right margins
-"    let &t_CS = "y"
-"    let &t_ti = &t_ti . "\e[?6;69h"
-"    let &t_te = "\e[?6;69l\e[999H" . &t_te
-"    let &t_CV = "\e[%i%p1%d;%p2%ds"
-"    call writefile([ "\e[?6;69h" ], "/dev/tty", "a")
-"  endfunction
-"
-"  " old vim does not ignore CPR
-"  map <special> <Esc>[3;9R <Nop>
-"
-"  " new vim can't handle CPR with direct mapping
-"  " map <expr> ^[[3;3R EnableVsplitMode()
-"  set t_F9=^[[3;3R
-"  map <expr> <t_F9> EnableVsplitMode()
-"  let &t_RV .= "\e[?6;69h\e[1;3s\e[3;9H\e[6n\e[0;0s\e[?6;69l"
-"endif
-"
-"let &t_CS = "y"
-"let &t_ti = &t_ti . "\e[?6;69h"
-"let &t_te = "\e[?6;69l\e[999H" . &t_te
-"let &t_CV = "\e[%i%p1%d;%p2%ds"
-"call writefile([ "\e[?6;69h" ], "/dev/tty", "a")
 
 " buffer
 nnoremap [Buf] <Nop>
@@ -1169,12 +966,6 @@ if has('gui_macvim') || has('kaoriya') || has('gvim')
         set lines=55 columns=180
     endif
 
-    "augroup hack234
-    "  autocmd!
-    "    autocmd FocusGained * set transparency=10
-    "    autocmd FocusLost * set transparency=50
-    "augroup END
-
     "colorscheme wombat
     "colorscheme lucius
     "colorscheme darkeclipse
@@ -1192,9 +983,8 @@ endif
 
 
 """""""""""""""
-""" sonota
+""" misc
 """""""""""""""
-" なんかのプラグインで無効になってるぽいので
 set showcmd
 set iskeyword+=-
 set backupcopy=yes
