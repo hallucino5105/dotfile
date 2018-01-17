@@ -269,6 +269,7 @@ NeoBundle 'linediff.vim'
 NeoBundle 'camelcasemotion'
 NeoBundle 'renamer.vim'
 NeoBundle 'open-browser.vim'
+NeoBundle 'Yggdroot/indentLine'
 "NeoBundle 'editorconfig/editorconfig-vim'
 
 " nouse
@@ -302,6 +303,7 @@ NeoBundle 'open-browser.vim'
 "NeoBundle 'quickrun.vim'
 "NeoBundle 'vimgrep.vim'
 "NeoBundle 'scrooloose/syntastic'
+"NeoBundle 'nathanaelkane/vim-indent-guides'
 "if !has('gui_macvim')
 "    NeoBundle 'VimRepress'
 "    "NeoBundle 'minibufexpl.vim'
@@ -596,6 +598,22 @@ let g:jsx_pragma_required = 0
 "    execute 'mark' g:markrement_char[b:markrement_pos]
 "    echo 'marked' g:markrement_char[b:markrement_pos]
 "endfunction
+
+
+"""" vim-indent-guides
+"let g:indent_guides_enable_on_vim_startup=1
+"let g:indent_guides_start_level=2
+"let g:indent_guides_auto_colors=1
+""autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=gray
+""autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=darkgray
+"let g:indent_guides_color_change_percent = 100
+"let g:indent_guides_guide_size = 1
+"let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'unite']
+
+""" indentLine
+let g:indentLine_color_term = 'black'
+let g:indentLine_color_gui = '#708090'
+let g:indentLine_char = '|' "use ¦, ┆ or │
 
 
 """"""""""""""""
