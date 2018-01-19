@@ -194,11 +194,7 @@ NeoBundle 'fatih/vim-go'
 NeoBundle 'jQuery'
 "" jsx
 NeoBundle 'othree/yajs.vim'
-"NeoBundle 'othree/es.next.syntax.vim'
-"NeoBundle 'othree/javascript-libraries-syntax.vim'
-"NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
-"NeoBundle 'maxmellon/vim-jsx-pretty'
 "" ansible
 NeoBundle 'chase/vim-ansible-yaml'
 "" markdown
@@ -208,11 +204,6 @@ NeoBundleLazy 'leafgarland/typescript-vim', {
     \ 'autoload' : {
     \   'filetypes' : ['typescript'] }
     \}
-
-"NeoBundleLazy 'jason0x43/vim-js-indent', {
-"    \ 'autoload' : {
-"    \   'filetypes' : ['javascript', 'typescript', 'html'],
-"    \}}
 
 NeoBundleLazy 'hynek/vim-python-pep8-indent', {
     \ "autoload": {
@@ -270,9 +261,14 @@ NeoBundle 'camelcasemotion'
 NeoBundle 'renamer.vim'
 NeoBundle 'open-browser.vim'
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'kana/vim-operator-user'
 "NeoBundle 'editorconfig/editorconfig-vim'
 
 " nouse
+"NeoBundle 'maxmellon/vim-jsx-pretty'
+"NeoBundle 'othree/es.next.syntax.vim'
+"NeoBundle 'othree/javascript-libraries-syntax.vim'
+"NeoBundle 'pangloss/vim-javascript'
 "NeoBundle 'taglist.vim'
 "NeoBundle 'spolu/dwm.vim'
 "NeoBundle 'bronson/vim-trailing-whitespace'
@@ -282,8 +278,6 @@ NeoBundle 'Yggdroot/indentLine'
 "NeoBundle 'kevinw/pyflakes-vim'
 "NeoBundle 'mitechie/pyflakes-pathogen'
 "NeoBundle 'davidhalter/jedi-vim'
-"NeoBundle 'Align'
-"NeoBundle 'Yggdroot/indentLine' " 重い
 "NeoBundle 'kana/vim-smartinput' " 邪魔
 "NeoBundle 'othree/html5.vim'
 "NeoBundle 'jelera/vim-javascript-syntax'
@@ -304,11 +298,17 @@ NeoBundle 'Yggdroot/indentLine'
 "NeoBundle 'vimgrep.vim'
 "NeoBundle 'scrooloose/syntastic'
 "NeoBundle 'nathanaelkane/vim-indent-guides'
+
 "if !has('gui_macvim')
 "    NeoBundle 'VimRepress'
 "    "NeoBundle 'minibufexpl.vim'
 "    "NeoBundle 'bufferlist.vim'
 "endif
+
+"NeoBundleLazy 'jason0x43/vim-js-indent', {
+"    \ 'autoload' : {
+"    \   'filetypes' : ['javascript', 'typescript', 'html'],
+"    \}}
 
 filetype plugin indent on
 
@@ -407,7 +407,7 @@ let g:html_indent_inctags="html,body,head"
 
 
 """ gundo
-nnoremap <F6> :GundoToggle<CR>
+nnoremap <F4> :GundoToggle<CR>
 let g:gundo_width = 60
 let g:gundo_preview_height = 40
 let g:gundo_right = 0
@@ -554,6 +554,7 @@ if bufname("%") == "-TabBar-"
     silent! wincmd j
 endif
 
+
 """ vim-rooter
 if ! empty(neobundle#get("vim-rooter"))
   " Change only current window's directory
@@ -609,6 +610,7 @@ let g:jsx_pragma_required = 0
 "let g:indent_guides_color_change_percent = 100
 "let g:indent_guides_guide_size = 1
 "let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'unite']
+
 
 """ indentLine
 let g:indentLine_color_term = 'black'
@@ -699,8 +701,7 @@ autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 """"""""""""""""
 set splitright
 if !exists(":DiffOrig")
-    command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-                \ | wincmd p | diffthis
+    command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 endif
 
 nnoremap <F7> :DiffOrig<CR>
@@ -778,25 +779,6 @@ nnoremap <tab> :tabnext<CR>
 map <silent> [Tag]p :tabprevious<CR>
 nnoremap <S-tab> :tabprevious<CR>
 "inoremap <S-tab> :tabprevious<CR>
-
-
-"""""""""""""""""
-""" ex command
-"""""""""""""""""
-
-" Open junk file
-command! -nargs=0 JunkFile call s:open_junk_file()
-function! s:open_junk_file()
-  let l:junk_dir = $HOME . '/memo'. strftime('/%Y/%m')
-  if !isdirectory(l:junk_dir)
-    call mkdir(l:junk_dir, 'p')
-  endif
-
-  let l:filename = input('Junk Code: ', l:junk_dir.strftime('/%Y-%m-%d-%H%M%S.'))
-  if l:filename != ''
-    execute 'edit ' . l:filename
-  endif
-endfunction
 
 
 """""""""""""""""
@@ -880,9 +862,6 @@ noremap! <BS> 
 
 " ハイライト消去
 nnoremap <C-x> :nohlsearch<CR>
-
-" JunkFile
-nnoremap <F8> :JunkFile<CR>
 
 " 挿入モードで移動
 inoremap <C-j> <Down>
