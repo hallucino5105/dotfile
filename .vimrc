@@ -613,7 +613,7 @@ let g:jsx_pragma_required = 0
 
 
 """ indentLine
-let g:indentLine_color_term = 'black'
+let g:indentLine_color_term = 23 " 'black'
 let g:indentLine_color_gui = '#3B3E4B'
 let g:indentLine_char = '|'
 
