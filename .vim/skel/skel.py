@@ -12,7 +12,7 @@ logger = None
 
 
 def main():
-    pass
+  pass
 
 
 logger = getLogger(sys.argv[0] + __name__)
@@ -23,5 +23,5 @@ logger.setLevel(DEBUG)
 logger.addHandler(handler)
 
 if __name__ == "__main__":
-    main()
+  main()
 
