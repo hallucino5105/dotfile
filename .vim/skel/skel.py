@@ -2,10 +2,14 @@
 # coding: utf-8
 
 
+from __future__ import (
+  print_function, unicode_literals, absolute_import, generators, division)
+
+from logging import (
+  StreamHandler, getLogger,  Formatter, DEBUG)
+
 import sys
 import os
-
-from logging import getLogger, StreamHandler, Formatter, DEBUG
 
 
 logger = None
