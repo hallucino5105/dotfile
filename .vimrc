@@ -27,7 +27,7 @@ set fileformats=unix,dos,mac
 set ambiwidth=double
 set magic
 set backup
-set backupdir=~/dotfile/.vim/backup
+set backupdir=~/.vim/backup
 set backspace=indent,eol,start
 set backupskip=/tmp/*,/private/tmp/*
 set hlsearch
