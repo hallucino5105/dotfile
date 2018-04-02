@@ -824,6 +824,7 @@ if has('mac') || has('linux') || has('unix')
     let g:solarized_contrast='normal'
     let g:solarized_visibility='normal'
     colorscheme solarized
+    "colorscheme molokai
 
     set background=dark
 elseif has('win32') || has('cygwin') || has("win32unix")
