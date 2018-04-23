@@ -143,3 +143,22 @@ function vif {
     find . -iname "$1" | fzf | xargs -o vim -p
 }
 
+function display_notification () {
+    case ${OSTYPE} in
+        darwin*)
+            osascript -e 'on run argv
+                display notification current date as text with title item 1 of argv
+            end run' -- "$*"
+            ;;
+    esac
+}
+
+function with_display_notification () {
+    case ${OSTYPE} in
+        darwin*)
+            "$@"
+            display_notification "($?)" "$@"
+            ;;
+    esac
+}
+
