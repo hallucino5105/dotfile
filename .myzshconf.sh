@@ -2,7 +2,6 @@ autoload -U colors && colors
 autoload -U compinit && compinit -C
 autoload history-search-end
 
-
 ### zsh設定
 # 補完候補に色を付ける
 zstyle ':completion:*:default' list-colors ""
@@ -132,6 +131,16 @@ alias -g A='| awk'
 ### キーバインド グローバル
 # emacs風キーバインド
 bindkey -e
+
+
+# 設定ファイルのインポート
+if [ -f $HOME/dotfile/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source $HOME/dotfile/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+if [ -f $HOME/.fzf.zsh ]; then
+    source $HOME/.fzf.zsh
+fi
 
 
 ### その他
