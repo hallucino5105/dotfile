@@ -1,3 +1,9 @@
+# zprof
+#if (which zprof > /dev/null) ;then
+#    zprof | cat
+#fi
+
+
 autoload -U colors && colors
 autoload -U compinit && compinit -C
 autoload history-search-end
