@@ -150,6 +150,9 @@ function display_notification () {
                 display notification current date as text with title item 1 of argv
             end run' -- "$*"
             ;;
+        *)
+            echo "no support os"
+            ;;
     esac
 }
 
@@ -158,6 +161,9 @@ function with_display_notification () {
         darwin*)
             "$@"
             display_notification "($?)" "$@"
+            ;;
+        *)
+            echo "no support os"
             ;;
     esac
 }
