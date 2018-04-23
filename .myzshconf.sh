@@ -1,11 +1,9 @@
-# zprof
-#if (which zprof > /dev/null) ;then
-#    zprof | cat
-#fi
+## zprof begin
+#zmodload zsh/zprof && zprof
 
 
 autoload -U colors && colors
-autoload -U compinit && compinit -C
+autoload -U compinit
 autoload history-search-end
 
 ### zsh設定
@@ -26,9 +24,6 @@ zstyle ':completion:*' completer _complete _oldlist _match _history #_ignored _a
 zstyle ':completion:*' use-cache yes
 # 詳細な情報を使う
 #zstyle ':completion:*' verbose yes
-
-# moshの補完をsshと同じに
-compdef mosh=ssh
 
 # --prefix=~/localというように「=」の後でもファイル名展開を行う
 setopt magic_equal_subst
@@ -182,4 +177,10 @@ function with_display_notification () {
             ;;
     esac
 }
+
+
+## zprof end
+#if (which zprof > /dev/null) ;then
+#    zprof | cat
+#fi
 
