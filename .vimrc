@@ -988,3 +988,5 @@ set backupcopy=yes
 
 set runtimepath+=~/dotfile/.vim,~/dotfile/.vim/after
 
+let g:go_version_warning = 0
+
