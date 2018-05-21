@@ -34,6 +34,7 @@ alias diff="colordiff -u"
 alias weechat="TERM=screen-256color weechat"
 alias wget="wget --no-check-certificate"
 alias sudo="sudo -H"
+alias jq="jq -C"
 
 git_export() {
     if [ -d ${1} ]; then
