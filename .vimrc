@@ -823,8 +823,8 @@ if has('mac') || has('linux') || has('unix')
     let g:solarized_italic=1
     let g:solarized_contrast='normal'
     let g:solarized_visibility='normal'
-    colorscheme solarized
-    "colorscheme jellybeans 
+    "colorscheme solarized
+    colorscheme jellybeans 
     "colorscheme molokai
 
     set background=dark
