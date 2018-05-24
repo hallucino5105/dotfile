@@ -151,166 +151,196 @@ let &directory=&backupdir
 set nocompatible
 filetype plugin indent off
 
-if has('vim_starting')
-    set runtimepath+=~/dotfile/.vim/neobundle/
-    call neobundle#rc(expand('~/dotfile/.vim/bundle'))
+if &compatible
+    set nocompatible " Be iMproved
 endif
 
-source $VIMRUNTIME/macros/matchit.vim
+" Required:
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-" fetch
-NeoBundleFetch 'Shougo/neobundle.vim'
+" Required:
+if dein#load_state('~/.cache/dein')
+    call dein#begin('~/.cache/dein')
 
-" color
-NeoBundle 'Lucius'
-NeoBundle 'Zenburn'
-NeoBundle 'molokai'
-NeoBundle 'yuroyoro/yuroyoro256.vim'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'cocopon/iceberg.vim'
-NeoBundle 'joshdick/onedark.vim'
+    " Let dein manage dein
+    " Required:
+    call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-" syntax
-"" json
-NeoBundle 'JSON.vim'
-"" less
-NeoBundle 'groenewege/vim-less'
-"" hive
-NeoBundle 'autowitch/hive.vim'
-"" css
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'JulesWang/css.vim'
-NeoBundle 'cakebaker/scss-syntax.vim'
-"" yaml
-NeoBundle 'stephpy/vim-yaml'
-"" glsl
-NeoBundle 'tikhomirov/vim-glsl'
-"" scala
-NeoBundle 'derekwyatt/vim-scala'
-"" go
-NeoBundle 'fatih/vim-go'
-"" javascript
-NeoBundle 'jQuery'
-"" jsx
-NeoBundle 'othree/yajs.vim'
-NeoBundle 'mxw/vim-jsx'
-"" ansible
-NeoBundle 'chase/vim-ansible-yaml'
-"" markdown
-NeoBundle 'plasticboy/vim-markdown'
+    " color
+    call dein#add('vim-scripts/Lucius')
+    call dein#add('vim-scripts/Zenburn')
+    call dein#add('vim-scripts/molokai')
+    call dein#add('yuroyoro/yuroyoro256.vim')
+    call dein#add('altercation/vim-colors-solarized')
+    call dein#add('nanotech/jellybeans.vim')
+    call dein#add('cocopon/iceberg.vim')
+    call dein#add('joshdick/onedark.vim')
 
-NeoBundleLazy 'leafgarland/typescript-vim', {
-    \ 'autoload' : {
-    \   'filetypes' : ['typescript'] }
-    \}
+    " syntax
+    "" json
+    call dein#add('vim-scripts/JSON.vim')
+    "" less
+    call dein#add('groenewege/vim-less')
+    "" hive
+    call dein#add('autowitch/hive.vim')
+    "" css
+    call dein#add('hail2u/vim-css3-syntax')
+    call dein#add('JulesWang/css.vim')
+    call dein#add('cakebaker/scss-syntax.vim')
+    "" yaml
+    call dein#add('stephpy/vim-yaml')
+    "" glsl
+    call dein#add('tikhomirov/vim-glsl')
+    "" scala
+    call dein#add('derekwyatt/vim-scala')
+    "" go
+    call dein#add('fatih/vim-go')
+    "" javascript
+    call dein#add('vim-scripts/jQuery')
+    "" jsx
+    call dein#add('othree/yajs.vim')
+    call dein#add('mxw/vim-jsx')
+    "" ansible
+    call dein#add('chase/vim-ansible-yaml')
+    "" markdown
+    call dein#add('plasticboy/vim-markdown')
 
-NeoBundleLazy 'hynek/vim-python-pep8-indent', {
-    \ "autoload": {
-    \    "insert": 1, "filetypes": [
-    \    "python", "python3", "djangohtml"]
-    \ }}
+    " unite
+    call dein#add('Shougo/unite.vim')
+    call dein#add('Shougo/vimfiler')
+    call dein#add('Shougo/neomru.vim')
+    call dein#add('Shougo/unite-session', { 'depends': 'Shougo/unite.vim' })
+    call dein#add('kannokanno/unite-dwm', { 'depends': 'Shougo/unite.vim' })
+    call dein#add('tacroe/unite-mark', { 'depends': 'Shougo/unite.vim' })
 
-" vimproc
-NeoBundle 'Shougo/vimproc.git', { 'build': {
-    \ 'mac': 'make -f make_mac.mak',
-    \ 'unix': 'make -f make_unix.mak',
-    \ 'cygwin': 'make -f make_cygwin.mak',
-    \ 'windows': 'make -f make_mingw32.mak',
-    \ }}
+    "" vim-session
+    call dein#add('xolox/vim-misc')
+    call dein#add('xolox/vim-session', { 'depends' : 'xolox/vim-misc' })
 
-" vim-session
-NeoBundle 'xolox/vim-session', {
-    \ 'depends' : 'xolox/vim-misc',
-    \ }
+    " neo
+    call dein#add('Shougo/neocomplcache')
+    call dein#add('Shougo/neosnippet.vim.git')
+    call dein#add('Shougo/neosnippet-snippets')
 
-" unite
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/unite-session', { 'depends': 'Shougo/unite.vim' }
-NeoBundle 'kannokanno/unite-dwm', { 'depends': 'Shougo/unite.vim' }
-NeoBundle 'tacroe/unite-mark', { 'depends': 'Shougo/unite.vim' }
+    " other
+    call dein#add('itchyny/lightline.vim')
+    call dein#add('vim-scripts/eregex.vim')
+    call dein#add('vim-scripts/yanktmp.vim')
+    call dein#add('tpope/vim-repeat')
+    call dein#add('tpope/vim-surround')
+    call dein#add('vim-scripts/sudo.vim')
+    call dein#add('majutsushi/tagbar')
+    call dein#add('vim-scripts/gitv')
+    call dein#add('kshenoy/vim-signature')
+    call dein#add('sjl/gundo.vim.git')
+    call dein#add('Lokaltog/vim-easymotion')
+    call dein#add('h1mesuke/vim-alignta')
+    call dein#add('airblade/vim-rooter')
+    call dein#add('vim-scripts/closetag.vim')
+    call dein#add('rking/ag.vim')
+    call dein#add('wesleyche/SrcExpl')
+    call dein#add('kana/vim-submode')
+    call dein#add('t9md/vim-quickhl')
+    call dein#add('vim-scripts/linediff.vim')
+    call dein#add('vim-scripts/camelcasemotion')
+    call dein#add('vim-scripts/renamer.vim')
+    call dein#add('vim-scripts/open-browser.vim')
+    call dein#add('Yggdroot/indentLine')
+    call dein#add('kana/vim-operator-user')
 
-" neo
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet.vim.git'
-NeoBundle 'Shougo/neosnippet-snippets'
+    " nouse
+    "call dein#add('maxmellon/vim-jsx-pretty')
+    "call dein#add('othree/es.next.syntax.vim')
+    "call dein#add('othree/javascript-libraries-syntax.vim')
+    "call dein#add('pangloss/vim-javascript')
+    "call dein#add('taglist.vim')
+    "call dein#add('spolu/dwm.vim')
+    "call dein#add('bronson/vim-trailing-whitespace')
+    "call dein#add('sindrenm/angular.vim')
+    "call dein#add('VimRepress')
+    "call dein#add('nathanaelkane/vim-indent-guides')
+    "call dein#add('kevinw/pyflakes-vim')
+    "call dein#add('mitechie/pyflakes-pathogen')
+    "call dein#add('davidhalter/jedi-vim')
+    "call dein#add('kana/vim-smartinput' " 邪魔
+    "call dein#add('othree/html5.vim')
+    "call dein#add('jelera/vim-javascript-syntax')
+    "call dein#add('kakkyz81/evervim')
+    "call dein#add('mattn/benchvimrc-vim')
+    "call dein#add('scrooloose/nerdtree')
+    "call dein#add('terryma/vim-multiple-cursors')
+    "call dein#add('5t111111/neat-json.vim')
+    "call dein#add('thinca/vim-qfreplace')
+    "call dein#add('glidenote/memolist.vim')
+    "call dein#add('Shougo/vimshell.git')
+    "call dein#add('fuenor/qfixgrep')
+    "call dein#add('occur.vim')
+    "call dein#add('tpope/vim-fugitive')
+    "call dein#add('dbext.vim')
+    "call dein#add('scratch.vim')
+    "call dein#add('quickrun.vim')
+    "call dein#add('vimgrep.vim')
+    "call dein#add('scrooloose/syntastic')
+    "call dein#add('nathanaelkane/vim-indent-guides')
+    "call dein#add('editorconfig/editorconfig-vim')
 
-" other
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'eregex.vim'
-NeoBundle 'yanktmp.vim'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'sudo.vim'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'gitv'
-NeoBundle 'kshenoy/vim-signature'
-NeoBundle 'sjl/gundo.vim.git'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'airblade/vim-rooter'
-NeoBundle 'closetag.vim'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'wesleyche/SrcExpl'
-NeoBundle 'kana/vim-submode'
-NeoBundle 't9md/vim-quickhl'
-NeoBundle 'linediff.vim'
-NeoBundle 'camelcasemotion'
-NeoBundle 'renamer.vim'
-NeoBundle 'open-browser.vim'
-NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'kana/vim-operator-user'
-"NeoBundle 'editorconfig/editorconfig-vim'
+    if !has('gui_macvim')
+        "call dein#add('VimRepress')
+        "call dein#add('minibufexpl.vim')
+        "call dein#add('bufferlist.vim')
+    endif
 
-" nouse
-"NeoBundle 'maxmellon/vim-jsx-pretty'
-"NeoBundle 'othree/es.next.syntax.vim'
-"NeoBundle 'othree/javascript-libraries-syntax.vim'
-"NeoBundle 'pangloss/vim-javascript'
-"NeoBundle 'taglist.vim'
-"NeoBundle 'spolu/dwm.vim'
-"NeoBundle 'bronson/vim-trailing-whitespace'
-"NeoBundle 'sindrenm/angular.vim'
-"NeoBundle 'VimRepress'
-"NeoBundle 'nathanaelkane/vim-indent-guides'
-"NeoBundle 'kevinw/pyflakes-vim'
-"NeoBundle 'mitechie/pyflakes-pathogen'
-"NeoBundle 'davidhalter/jedi-vim'
-"NeoBundle 'kana/vim-smartinput' " 邪魔
-"NeoBundle 'othree/html5.vim'
-"NeoBundle 'jelera/vim-javascript-syntax'
-"NeoBundle 'kakkyz81/evervim'
-"NeoBundle 'mattn/benchvimrc-vim'
-"NeoBundle 'scrooloose/nerdtree'
-"NeoBundle 'terryma/vim-multiple-cursors'
-"NeoBundle '5t111111/neat-json.vim'
-"NeoBundle 'thinca/vim-qfreplace'
-"NeoBundle 'glidenote/memolist.vim'
-"NeoBundle 'Shougo/vimshell.git'
-"NeoBundle 'fuenor/qfixgrep'
-"NeoBundle 'occur.vim'
-"NeoBundle 'tpope/vim-fugitive'
-"NeoBundle 'dbext.vim'
-"NeoBundle 'scratch.vim'
-"NeoBundle 'quickrun.vim'
-"NeoBundle 'vimgrep.vim'
-"NeoBundle 'scrooloose/syntastic'
-"NeoBundle 'nathanaelkane/vim-indent-guides'
+    call dein#add('leafgarland/typescript-vim', {
+    \     'lazy': 1,
+    \     'autoload' : {
+    \         'filetypes' : [
+    \              'typescript'
+    \          ]
+    \     }
+    \ })
+    
 
-"if !has('gui_macvim')
-"    NeoBundle 'VimRepress'
-"    "NeoBundle 'minibufexpl.vim'
-"    "NeoBundle 'bufferlist.vim'
-"endif
+    call dein#add('hynek/vim-python-pep8-indent', {
+    \     'lazy': 1,
+    \     'autoload': {
+    \         'insert': 1,
+    \         'filetypes': [
+    \             'python', 'python3', 'djangohtml'
+    \         ]
+    \     },
+    \ })
+    
 
-"NeoBundleLazy 'jason0x43/vim-js-indent', {
-"    \ 'autoload' : {
-"    \   'filetypes' : ['javascript', 'typescript', 'html'],
-"    \}}
+    call dein#add('Shougo/vimproc.git', {
+    \     'lazy': 1,
+    \     'build': {
+    \         'mac': 'make -f make_mac.mak',
+    \         'unix': 'make -f make_unix.mak',
+    \         'cygwin': 'make -f make_cygwin.mak',
+    \         'windows': 'make -f make_mingw32.mak',
+    \     },
+    \ })
+    
+    call dein#add('jason0x43/vim-js-indent', {
+    \     'lazy': 1,
+    \     'autoload' : {
+    \         'filetypes' : ['javascript', 'typescript', 'html'],
+    \     },
+    \ })
 
+    " Required:
+    call dein#end()
+    call dein#save_state()
+endif
+
+" Required:
 filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+    call dein#install()
+endif
 
 
 """""""""""""""""
@@ -555,15 +585,13 @@ if bufname("%") == "-TabBar-"
 endif
 
 
-""" vim-rooter
-if ! empty(neobundle#get("vim-rooter"))
-  " Change only current window's directory
-  let g:rooter_use_lcd = 1
-  " files/directories for the root directory
-  let g:rooter_patterns = ['tags', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', 'Makefile', 'GNUMakefile', 'GNUmakefile', '.svn/']
-  " Automatically change the directory
-  "autocmd! BufEnter *.c,*.cc,*.cxx,*.cpp,*.h,*.hh,*.java,*.py,*.sh,*.rb,*.html,*.css,*.js :Rooter
-endif
+"""" vim-rooter
+" Change only current window's directory
+let g:rooter_use_lcd = 1
+" files/directories for the root directory
+let g:rooter_patterns = ['tags', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', 'Makefile', 'GNUMakefile', 'GNUmakefile', '.svn/']
+" Automatically change the directory
+"autocmd! BufEnter *.c,*.cc,*.cxx,*.cpp,*.h,*.hh,*.java,*.py,*.sh,*.rb,*.html,*.css,*.js :Rooter
 
 
 """ quickhl
