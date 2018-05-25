@@ -166,6 +166,16 @@ if dein#load_state('~/.cache/dein')
     " Required:
     call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
+    call dein#add('Shougo/vimproc.git', {
+    \     'lazy': 1,
+    \     'build': {
+    \         'mac': 'make -f make_mac.mak',
+    \         'unix': 'make -f make_unix.mak',
+    \         'cygwin': 'make -f make_cygwin.mak',
+    \         'windows': 'make -f make_mingw32.mak',
+    \     },
+    \ })
+
     " color
     call dein#add('vim-scripts/Lucius')
     call dein#add('vim-scripts/Zenburn')
@@ -298,7 +308,6 @@ if dein#load_state('~/.cache/dein')
     \          ]
     \     }
     \ })
-    
 
     call dein#add('hynek/vim-python-pep8-indent', {
     \     'lazy': 1,
@@ -307,17 +316,6 @@ if dein#load_state('~/.cache/dein')
     \         'filetypes': [
     \             'python', 'python3', 'djangohtml'
     \         ]
-    \     },
-    \ })
-    
-
-    call dein#add('Shougo/vimproc.git', {
-    \     'lazy': 1,
-    \     'build': {
-    \         'mac': 'make -f make_mac.mak',
-    \         'unix': 'make -f make_unix.mak',
-    \         'cygwin': 'make -f make_cygwin.mak',
-    \         'windows': 'make -f make_mingw32.mak',
     \     },
     \ })
     
