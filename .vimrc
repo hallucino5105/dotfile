@@ -68,9 +68,9 @@ set statusline+=%V    " 画面上の何列目にカーソルがあるか
 set statusline+=\ \   " 空白スペース2個
 set statusline+=%P    " ファイル内の何％の位置にあるか
 
-" 前回開いていた場所を記憶
-autocmd BufWinLeave ?* silent mkview
-autocmd BufWinEnter ?* silent loadview
+"" 前回開いていた場所を記憶
+"autocmd BufWinLeave ?* silent mkview
+"autocmd BufWinEnter ?* silent loadview
 
 "" 自動保存
 "function s:AutoWriteIfPossible()
