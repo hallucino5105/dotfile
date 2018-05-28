@@ -2,6 +2,7 @@
 
 ### いるもの
 
+* bash
 * curl
 * git
 * vim
