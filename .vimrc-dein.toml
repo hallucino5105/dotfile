@@ -110,8 +110,26 @@ on_path = '.*'
 repo = 'Shougo/neoyank.vim'
 on_path = '.*'
 
+#[[plugins]]
+#repo = 'Shougo/deoplete.nvim'
+#depends = 'context_filetype.vim'
+#on_i = 1
+#if = ''' (has('nvim') || has('python3')) && system('pip3 show neovim') !=# '' '''
+#hook_source = '''
+#    let g:deoplete#enable_at_startup = 1
+#    let g:deoplete#enable_ignore_case = 1
+#    let g:deoplete#enable_smart_case = 1
+#'''
+
+#[[plugins]]
+#repo = 'Shougo/neocomplete'
+#on_i = 1
+#if = ''' has('lua') '''
+
 [[plugins]]
 repo = 'Shougo/neocomplcache'
+on_i = 1
+#if = ''' !has('lua') || !has('nvim') || !(has('python3')) && system('pip3 show neovim') !=# '') '''
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim.git'
