@@ -127,18 +127,18 @@ let ostype = system('uname')
 let archtype = system('uname -p')
 
 if ostype == "Darwin\n"
-    let g:vimproc_dll_path = $HOME . '~/.cache/dein/repos/github.com/Shougo/vimproc/lib/vimproc_mac.so'
+    let g:vimproc_dll_path = $HOME . '~/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_mac.so'
 elseif ostype == "Linux\n"
     if archtype == "x86_64\n"
-        let g:vimproc_dll_path = $HOME.'~/.cache/dein/repos/github.com/Shougo/vimproc/lib/vimproc_linux64.so'
+        let g:vimproc_dll_path = $HOME.'~/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_linux64.so'
     elseif archtype == "i386\n" || archtype == "i686\n"
-        let g:vimproc_dll_path = $HOME.'~/.cache/dein/repos/github.com/Shougo/vimproc/lib/vimproc_linux32.so'
+        let g:vimproc_dll_path = $HOME.'~/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_linux32.so'
     endif
 else
     if has('win32')
-        let g:vimproc_dll_path = $HOME . '~/.cache/dein/repos/github.com/Shougo/vimproc/lib/vimproc_win32.dll'
+        let g:vimproc_dll_path = $HOME . '~/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_win32.dll'
     elseif has('win64')
-        let g:vimproc_dll_path = $HOME . '~/.cache/dein/repos/github.com/Shougo/vimproc/lib/vimproc_win64.dll'
+        let g:vimproc_dll_path = $HOME . '~/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_win64.dll'
     endif
 endif
 
