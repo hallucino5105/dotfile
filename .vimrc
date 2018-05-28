@@ -100,10 +100,10 @@ cabbr w!! w !sudo tee > /dev/null %
 
 " 自動リロード
 " CursorMovedだと重いかもしれないので注意
-augroup vimrc-checktime
-    autocmd!
-    autocmd CursorMoved * checktime
-augroup END
+"augroup vimrc-checktime
+"    autocmd!
+"    autocmd CursorMoved * checktime
+"augroup END
 
 " ファイルのあるディレクトリに移動
 autocmd BufEnter * silent! lcd %:p:h
@@ -161,171 +161,7 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 " Required:
 if dein#load_state('~/.cache/dein')
     call dein#begin('~/.cache/dein')
-
-    " Let dein manage dein
-    " Required:
-    call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-
-    call dein#add('Shougo/vimproc.git', {
-    \     'build': {
-    \         'mac': 'make -f make_mac.mak',
-    \         'unix': 'make -f make_unix.mak',
-    \         'cygwin': 'make -f make_cygwin.mak',
-    \         'windows': 'make -f make_mingw32.mak',
-    \     },
-    \ })
-
-    " color
-    call dein#add('vim-scripts/Lucius')
-    call dein#add('vim-scripts/Zenburn')
-    call dein#add('vim-scripts/molokai')
-    call dein#add('yuroyoro/yuroyoro256.vim')
-    call dein#add('altercation/vim-colors-solarized')
-    call dein#add('nanotech/jellybeans.vim')
-    call dein#add('cocopon/iceberg.vim')
-    call dein#add('joshdick/onedark.vim')
-
-    " syntax
-    "" json
-    call dein#add('vim-scripts/JSON.vim')
-    "" less
-    call dein#add('groenewege/vim-less')
-    "" hive
-    call dein#add('autowitch/hive.vim')
-    "" css
-    call dein#add('hail2u/vim-css3-syntax')
-    call dein#add('JulesWang/css.vim')
-    call dein#add('cakebaker/scss-syntax.vim')
-    "" yaml
-    call dein#add('stephpy/vim-yaml')
-    "" glsl
-    call dein#add('tikhomirov/vim-glsl')
-    "" scala
-    call dein#add('derekwyatt/vim-scala')
-    "" go
-    call dein#add('fatih/vim-go')
-    "" javascript
-    call dein#add('vim-scripts/jQuery')
-    "" jsx
-    call dein#add('othree/yajs.vim')
-    call dein#add('mxw/vim-jsx')
-    "" ansible
-    call dein#add('chase/vim-ansible-yaml')
-    "" markdown
-    call dein#add('plasticboy/vim-markdown')
-
-    " unite
-    call dein#add('Shougo/unite.vim')
-    call dein#add('Shougo/vimfiler')
-    call dein#add('Shougo/neomru.vim')
-    call dein#add('Shougo/unite-session', { 'depends': 'Shougo/unite.vim' })
-    call dein#add('kannokanno/unite-dwm', { 'depends': 'Shougo/unite.vim' })
-    call dein#add('tacroe/unite-mark', { 'depends': 'Shougo/unite.vim' })
-
-    "" vim-session
-    call dein#add('xolox/vim-misc')
-    call dein#add('xolox/vim-session', { 'depends' : 'xolox/vim-misc' })
-
-    " neo
-    call dein#add('Shougo/neocomplcache')
-    call dein#add('Shougo/neosnippet.vim.git')
-    call dein#add('Shougo/neosnippet-snippets')
-
-    " other
-    call dein#add('itchyny/lightline.vim')
-    call dein#add('vim-scripts/eregex.vim')
-    call dein#add('vim-scripts/yanktmp.vim')
-    call dein#add('tpope/vim-repeat')
-    call dein#add('tpope/vim-surround')
-    call dein#add('vim-scripts/sudo.vim')
-    call dein#add('majutsushi/tagbar')
-    call dein#add('vim-scripts/gitv')
-    call dein#add('kshenoy/vim-signature')
-    call dein#add('sjl/gundo.vim.git')
-    call dein#add('Lokaltog/vim-easymotion')
-    call dein#add('h1mesuke/vim-alignta')
-    call dein#add('airblade/vim-rooter')
-    call dein#add('vim-scripts/closetag.vim')
-    call dein#add('rking/ag.vim')
-    call dein#add('wesleyche/SrcExpl')
-    call dein#add('kana/vim-submode')
-    call dein#add('t9md/vim-quickhl')
-    call dein#add('vim-scripts/linediff.vim')
-    call dein#add('vim-scripts/camelcasemotion')
-    call dein#add('vim-scripts/renamer.vim')
-    call dein#add('vim-scripts/open-browser.vim')
-    call dein#add('Yggdroot/indentLine')
-    call dein#add('kana/vim-operator-user')
-
-    " nouse
-    "call dein#add('maxmellon/vim-jsx-pretty')
-    "call dein#add('othree/es.next.syntax.vim')
-    "call dein#add('othree/javascript-libraries-syntax.vim')
-    "call dein#add('pangloss/vim-javascript')
-    "call dein#add('taglist.vim')
-    "call dein#add('spolu/dwm.vim')
-    "call dein#add('bronson/vim-trailing-whitespace')
-    "call dein#add('sindrenm/angular.vim')
-    "call dein#add('VimRepress')
-    "call dein#add('nathanaelkane/vim-indent-guides')
-    "call dein#add('kevinw/pyflakes-vim')
-    "call dein#add('mitechie/pyflakes-pathogen')
-    "call dein#add('davidhalter/jedi-vim')
-    "call dein#add('kana/vim-smartinput' " 邪魔
-    "call dein#add('othree/html5.vim')
-    "call dein#add('jelera/vim-javascript-syntax')
-    "call dein#add('kakkyz81/evervim')
-    "call dein#add('mattn/benchvimrc-vim')
-    "call dein#add('scrooloose/nerdtree')
-    "call dein#add('terryma/vim-multiple-cursors')
-    "call dein#add('5t111111/neat-json.vim')
-    "call dein#add('thinca/vim-qfreplace')
-    "call dein#add('glidenote/memolist.vim')
-    "call dein#add('Shougo/vimshell.git')
-    "call dein#add('fuenor/qfixgrep')
-    "call dein#add('occur.vim')
-    "call dein#add('tpope/vim-fugitive')
-    "call dein#add('dbext.vim')
-    "call dein#add('scratch.vim')
-    "call dein#add('quickrun.vim')
-    "call dein#add('vimgrep.vim')
-    "call dein#add('scrooloose/syntastic')
-    "call dein#add('nathanaelkane/vim-indent-guides')
-    "call dein#add('editorconfig/editorconfig-vim')
-
-    if !has('gui_macvim')
-        "call dein#add('VimRepress')
-        "call dein#add('minibufexpl.vim')
-        "call dein#add('bufferlist.vim')
-    endif
-
-    call dein#add('leafgarland/typescript-vim', {
-    \     'lazy': 1,
-    \     'autoload' : {
-    \         'filetypes' : [
-    \              'typescript'
-    \          ]
-    \     }
-    \ })
-
-    call dein#add('hynek/vim-python-pep8-indent', {
-    \     'lazy': 1,
-    \     'autoload': {
-    \         'insert': 1,
-    \         'filetypes': [
-    \             'python', 'python3', 'djangohtml'
-    \         ]
-    \     },
-    \ })
-    
-    call dein#add('jason0x43/vim-js-indent', {
-    \     'lazy': 1,
-    \     'autoload' : {
-    \         'filetypes' : ['javascript', 'typescript', 'html'],
-    \     },
-    \ })
-
-    " Required:
+    call dein#load_toml('~/.vimrc-dein.toml')
     call dein#end()
     call dein#save_state()
 endif
@@ -335,11 +171,10 @@ filetype plugin indent on
 syntax enable
 
 " If you want to install not installed plugins on startup.
-if dein#check_install(['vimproc'])
-  call dein#install(['vimproc'])
-endif
-if dein#check_install()
-    call dein#install()
+if has('vim_starting')
+    if dein#check_install()
+        call dein#install()
+    endif
 endif
 
 
@@ -358,7 +193,6 @@ let g:yankring_manual_clipboard_check=1
 
 
 """ yanktmp
-let g:yanktmp_file=$HOME.'/dotfile/.vim/bundle/yanktmp.vim/.vimyanktmp'
 map <silent> Sy :call YanktmpYank()<CR> 
 map <silent> Sp :call YanktmpPaste_p()<CR> 
 map <silent> SP :call YanktmpPaste_P()<CR> 
