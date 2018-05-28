@@ -167,7 +167,6 @@ if dein#load_state('~/.cache/dein')
     call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
     call dein#add('Shougo/vimproc.git', {
-    \     'lazy': 1,
     \     'build': {
     \         'mac': 'make -f make_mac.mak',
     \         'unix': 'make -f make_unix.mak',
