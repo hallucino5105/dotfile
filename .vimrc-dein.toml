@@ -1,7 +1,7 @@
 # .vimrc-dein.toml
 
 [[plugins]]
-repo = '~/.cache/dein/repos/github.com/Shougo/dein.vim'
+repo = '~/.vim/dein/repos/github.com/Shougo/dein.vim'
 
 [[plugins]]
 repo = 'Shougo/vimproc.git'
