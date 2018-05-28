@@ -78,12 +78,7 @@ repo = 'plasticboy/vim-markdown'
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
-
-[[plugins]]
-repo = 'Shougo/vimfiler'
-
-[[plugins]]
-repo = 'Shougo/neomru.vim'
+depends = ['Shougo/neomru.vim', 'Shougo/neoyank.vim']
 
 [[plugins]]
 repo = 'Shougo/unite-session'
@@ -103,6 +98,17 @@ repo = 'xolox/vim-misc'
 [[plugins]]
 repo = 'xolox/vim-session'
 depends = ['xolox/vim-misc']
+
+[[plugins]]
+repo = 'Shougo/vimfiler'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_path = '.*'
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+on_path = '.*'
 
 [[plugins]]
 repo = 'Shougo/neocomplcache'
@@ -196,6 +202,9 @@ on_ft = ['python', 'python3', 'djangohtml']
 [[plugins]]
 repo = 'jason0x43/vim-js-indent'
 on_ft = ['javascript', 'typescript', 'html']
+
+[[plugins]]
+repo = 'LeafCage/yankround.vim'
 
 
 # nouse

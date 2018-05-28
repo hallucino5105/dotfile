@@ -186,10 +186,15 @@ endif
 let g:lightline = { 'colorscheme': 'solarized' }
 "let g:lightline = { 'colorscheme': 'seoul256' }
 
-""" YankRing
-let g:yankring_max_history=50
-let g:yankring_history_dir='~/dotfile/.vim/bundle/YankRing.vim'
-let g:yankring_manual_clipboard_check=1
+""" yankround
+nmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap gp <Plug>(yankround-gp)
+nmap gP <Plug>(yankround-gP)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
+let g:yankround_max_history = 50
+let g:yankround_dir = '~/.cache/yankround'
 
 
 """ yanktmp
