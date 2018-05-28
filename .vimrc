@@ -148,29 +148,30 @@ let &directory=&backupdir
 """"""""""""""""""
 """ plugin setting
 """"""""""""""""""
-set nocompatible
-filetype plugin indent off
-
 if &compatible
-    set nocompatible " Be iMproved
+    set nocompatible
 endif
 
-" Required:
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+let s:dein_path = expand('~/.vim/dein')
+let s:dein_conf_path = expand('~/.vimrc-dein.toml')
+let s:dein_repo_path = s:dein_path . '/repos/github.com/Shougo/dein.vim'
 
-" Required:
-if dein#load_state('~/.cache/dein')
-    call dein#begin('~/.cache/dein')
-    call dein#load_toml('~/.vimrc-dein.toml')
+if !isdirectory(s:dein_repo_path)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_path
+endif
+
+execute 'set runtimepath^=' . s:dein_repo_path
+
+if dein#load_state(s:dein_path)
+    call dein#begin(s:dein_path)
+    call dein#load_toml(s:dein_conf_path)
     call dein#end()
     call dein#save_state()
 endif
 
-" Required:
 filetype plugin indent on
 syntax enable
 
-" If you want to install not installed plugins on startup.
 if has('vim_starting')
     if dein#check_install()
         call dein#install()

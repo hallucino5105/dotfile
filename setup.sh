@@ -9,5 +9,5 @@ ln -sfv ~/dotfile/.vimrc ~/
 ln -sfv ~/dotfile/.vimrc-dein.toml ~/
 
 # dein.vim
-bash <(curl -sL https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh) ~/.cache/dein
+bash <(curl -sL https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh) ~/.vim/dein
 
