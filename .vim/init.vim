@@ -1,1 +1,1 @@
-/Users/hoshino/.vimrc
+../.vimrc
