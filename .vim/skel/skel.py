@@ -24,6 +24,7 @@ handler = StreamHandler()
 handler.setFormatter(Formatter("[%(asctime)s](%(levelname)s) %(message)s"))
 logger.setLevel(DEBUG)
 logger.addHandler(handler)
+logger.propagate = True
 
 if __name__ == "__main__":
   main()
