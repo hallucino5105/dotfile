@@ -184,7 +184,10 @@ endif
 """""""""""""""""
 
 """" lightline
-let g:lightline = { 'colorscheme': 'solarized' }
+let g:lightline = { 'colorscheme': 'one' }
+"let g:lightline = { 'colorscheme': 'seoul256' }
+"let g:lightline = { 'colorscheme': 'powerline' }
+"let g:lightline = { 'colorscheme': 'solarized' }
 "let g:lightline = { 'colorscheme': 'seoul256' }
 
 """ yankround
@@ -691,9 +694,13 @@ if has('mac') || has('linux') || has('unix')
     let g:solarized_italic=1
     let g:solarized_contrast='normal'
     let g:solarized_visibility='normal'
-    colorscheme solarized
+
+    "colorscheme solarized
     "colorscheme jellybeans 
     "colorscheme molokai
+    "colorscheme peachpuff
+    "colorscheme slate
+    colorscheme darkblue
 
     set background=dark
 elseif has('win32') || has('cygwin') || has("win32unix")
