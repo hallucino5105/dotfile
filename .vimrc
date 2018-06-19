@@ -738,7 +738,7 @@ noremap <BS> 
 noremap! <BS> 
 
 " ハイライト消去
-nnoremap <C-x> :nohlsearch<CR>
+nnoremap <C-n> :nohlsearch<CR>
 
 " 挿入モードで移動
 inoremap <C-j> <Down>
