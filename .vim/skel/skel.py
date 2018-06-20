@@ -5,7 +5,7 @@ from __future__ import (
   print_function, unicode_literals, absolute_import, generators, division)
 
 from logging import (
-  StreamHandler, getLogger,  Formatter, DEBUG)
+  StreamHandler, getLogger,  Formatter, DEBUG, INFO)
 
 import sys
 import os
@@ -20,7 +20,6 @@ def main():
 
 logger = getLogger(sys.argv[0] + __name__)
 handler = StreamHandler()
-# need rainbow_logging_handler
 #from rainbow_logging_handler import RainbowLoggingHandler
 #handler = RainbowLoggingHandler(sys.stdout, color_asctime=("yellow", None, False))
 handler.setFormatter(Formatter("[%(asctime)s](%(levelname)s) %(message)s"))
