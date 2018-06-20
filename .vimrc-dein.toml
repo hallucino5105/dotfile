@@ -203,8 +203,8 @@ repo = 'vim-scripts/renamer.vim'
 [[plugins]]
 repo = 'vim-scripts/open-browser.vim'
 
-[[plugins]]
-repo = 'Yggdroot/indentLine'
+#[[plugins]]
+#repo = 'Yggdroot/indentLine'
 
 [[plugins]]
 repo = 'kana/vim-operator-user'
