@@ -11,9 +11,6 @@ import sys
 import os
 
 
-logger = None
-
-
 def main():
   pass
 
