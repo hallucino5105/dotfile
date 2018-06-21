@@ -5,7 +5,7 @@ from __future__ import (
   print_function, unicode_literals, absolute_import, generators, division)
 
 from logging import (
-  StreamHandler, getLogger,  Formatter, DEBUG, INFO)
+  StreamHandler, getLogger, Formatter, DEBUG, INFO, WARNING, ERROR, CRITICAL)
 
 import sys
 import os
