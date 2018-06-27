@@ -2,13 +2,21 @@ snippet getarg
 abbr def getarg()
 options head
 	def getarg():
-		import argparse
+		#import argparsea
+        global logger
+
 		parser = argparse.ArgumentParser(add_help=False)
 
-		parser.add_argument("-x", "--xxx", type=int, default=1, nargs="?", required=True, help="xxx")
+        parser.add_argument("-v", "--verbose", action="store_true", help="verbose output")
 		parser.add_argument("--help", action="help")
 
 		args = parser.parse_args()
+
+        if args.verbose:
+          logger.setLevel(DEBUG)
+        else:
+          logger.setLevel(INFO)
+
 		return args
 
 
