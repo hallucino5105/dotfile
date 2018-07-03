@@ -61,6 +61,10 @@ bindkey "^N" history-beginning-search-forward-end
 # 改行なしの行を表示させる
 unsetopt promptcr
 
+# 
+compdef mosh=ssh
+
+
 # 「/」も単語区切りとみなす
 WORDCHARS=${WORDCHARS:s,/,,}
 
