@@ -51,6 +51,16 @@ getpid() {
     done
 }
 
+
+ress() {
+    FILENAME=$1
+    if [ $# -lt 1 ]; then
+        echo "Usage: $0 FILENAME"
+    else
+        github-markup $FILENAME | w3m -T text/html
+    fi
+}
+
 #git_find_big() {
 #    #set -x
 #
