@@ -6,6 +6,8 @@ autoload -U colors && colors
 autoload -U compinit
 autoload history-search-end
 
+compinit -u
+
 ### zsh設定
 # 補完候補に色を付ける
 zstyle ':completion:*:default' list-colors ""

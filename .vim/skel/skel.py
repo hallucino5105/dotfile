@@ -16,9 +16,9 @@ def main():
 
 
 logger = getLogger(sys.argv[0] + __name__)
-handler = StreamHandler()
+handler = StreamHandler(sys.stderr)
 #from rainbow_logging_handler import RainbowLoggingHandler
-#handler = RainbowLoggingHandler(sys.stdout, color_asctime=("yellow", None, False))
+#handler = RainbowLoggingHandler(sys.stderr, color_asctime=("yellow", None, False))
 handler.setFormatter(Formatter("[%(asctime)s](%(levelname)s) %(message)s"))
 logger.setLevel(DEBUG)
 logger.addHandler(handler)
