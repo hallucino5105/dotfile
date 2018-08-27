@@ -489,6 +489,10 @@ let g:indentLine_color_gui = '#3B3E4B'
 let g:indentLine_char = '|'
 
 
+""" grep
+autocmd QuickFixCmdPost *grep* cwindow
+
+
 """"""""""""""""
 """ associate
 """"""""""""""""
