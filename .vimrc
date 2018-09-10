@@ -707,8 +707,14 @@ if has('mac')
     colorscheme darkblue
 
     set background=dark
+    highlight Normal ctermbg=none
 elseif has('linux') || has('unix')
-    colorscheme peachpuff
+    "colorscheme elflord
+    "colorscheme peachpuff
+    colorscheme molokai
+
+    set background=dark
+    highlight Normal ctermbg=none
 elseif has('win32') || has('cygwin') || has("win32unix")
     colorscheme molokai
 endif
