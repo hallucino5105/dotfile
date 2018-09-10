@@ -689,17 +689,17 @@ if has("syntax")
 endif
 
 
-if has('mac') || has('linux') || has('unix')
-    let g:solarized_termcolors=16
-    let g:solarized_termtrans=0
-    let g:solarized_degrade=0
-    let g:solarized_bold=1
-    let g:solarized_underline=1
-    let g:solarized_italic=1
-    let g:solarized_contrast='normal'
-    let g:solarized_visibility='normal'
-
+if has('mac')
+    "let g:solarized_termcolors=16
+    "let g:solarized_termtrans=0
+    "let g:solarized_degrade=0
+    "let g:solarized_bold=1
+    "let g:solarized_underline=1
+    "let g:solarized_italic=1
+    "let g:solarized_contrast='normal'
+    "let g:solarized_visibility='normal'
     "colorscheme solarized
+
     "colorscheme jellybeans 
     "colorscheme molokai
     "colorscheme peachpuff
@@ -707,6 +707,8 @@ if has('mac') || has('linux') || has('unix')
     colorscheme darkblue
 
     set background=dark
+elseif has('linux') || has('unix')
+    colorscheme elflord
 elseif has('win32') || has('cygwin') || has("win32unix")
     colorscheme molokai
 endif
