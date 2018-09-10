@@ -708,7 +708,7 @@ if has('mac')
 
     set background=dark
 elseif has('linux') || has('unix')
-    colorscheme elflord
+    colorscheme peachpuff
 elseif has('win32') || has('cygwin') || has("win32unix")
     colorscheme molokai
 endif
