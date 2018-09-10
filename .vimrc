@@ -711,7 +711,8 @@ if has('mac')
 elseif has('linux') || has('unix')
     "colorscheme elflord
     "colorscheme peachpuff
-    colorscheme molokai
+    "colorscheme molokai
+    colorscheme badwolf
 
     set background=dark
     highlight Normal ctermbg=none

@@ -17,6 +17,9 @@ repo = 'vim-scripts/Zenburn'
 repo = 'vim-scripts/molokai'
 
 [[plugins]]
+repo = 'vim-scripts/badwolf'
+
+[[plugins]]
 repo = 'yuroyoro/yuroyoro256.vim'
 
 [[plugins]]
