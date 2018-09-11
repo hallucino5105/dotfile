@@ -710,7 +710,7 @@ if has('mac')
     set background=dark
 
     highlight Normal ctermbg=none
-    highlight LineNr ctermfg=8
+    highlight LineNr ctermfg=162
     highlight LineNr ctermbg=none
     highlight EndOfBuffer ctermbg=none
 elseif has('linux') || has('unix')
