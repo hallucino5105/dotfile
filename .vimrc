@@ -704,10 +704,15 @@ if has('mac')
     "colorscheme molokai
     "colorscheme peachpuff
     "colorscheme slate
-    colorscheme darkblue
+    "colorscheme darkblue
+    colorscheme badwolf
 
     set background=dark
+
     highlight Normal ctermbg=none
+    highlight LineNr ctermfg=8
+    highlight LineNr ctermbg=none
+    highlight EndOfBuffer ctermbg=none
 elseif has('linux') || has('unix')
     "colorscheme elflord
     "colorscheme peachpuff
@@ -715,6 +720,7 @@ elseif has('linux') || has('unix')
     colorscheme badwolf
 
     set background=dark
+
     highlight Normal ctermbg=none
 elseif has('win32') || has('cygwin') || has("win32unix")
     colorscheme molokai
