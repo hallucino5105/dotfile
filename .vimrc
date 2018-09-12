@@ -722,6 +722,8 @@ elseif has('linux') || has('unix')
     set background=dark
 
     highlight Normal ctermbg=none
+    highlight LineNr ctermbg=none
+    highlight EndOfBuffer ctermbg=none
 elseif has('win32') || has('cygwin') || has("win32unix")
     colorscheme molokai
 endif
