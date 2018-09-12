@@ -692,12 +692,12 @@ endif
 if has('mac')
     set background=dark
 
+    colorscheme badwolf
+    highlight LineNr ctermfg=162
+
     highlight Normal ctermbg=none
     highlight LineNr ctermbg=none
     highlight EndOfBuffer ctermbg=none
-
-    colorscheme badwolf
-    highlight LineNr ctermfg=162
 
     "let g:solarized_termcolors=16
     "let g:solarized_termtrans=0
@@ -716,12 +716,13 @@ if has('mac')
     "colorscheme darkblue
 elseif has('linux') || has('unix')
     set background=dark
-    highlight Normal ctermbg=none
-    highlight LineNr ctermbg=none
-    highlight EndOfBuffer ctermbg=none
 
     colorscheme badwolf
     highlight LineNr ctermfg=162
+
+    highlight Normal ctermbg=none
+    highlight LineNr ctermbg=none
+    highlight EndOfBuffer ctermbg=none
 
     "colorscheme elflord
     "colorscheme peachpuff
