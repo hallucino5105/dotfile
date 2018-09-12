@@ -690,6 +690,15 @@ endif
 
 
 if has('mac')
+    set background=dark
+
+    highlight Normal ctermbg=none
+    highlight LineNr ctermbg=none
+    highlight EndOfBuffer ctermbg=none
+
+    colorscheme badwolf
+    highlight LineNr ctermfg=162
+
     "let g:solarized_termcolors=16
     "let g:solarized_termtrans=0
     "let g:solarized_degrade=0
@@ -705,25 +714,18 @@ if has('mac')
     "colorscheme peachpuff
     "colorscheme slate
     "colorscheme darkblue
-    colorscheme badwolf
-
+elseif has('linux') || has('unix')
     set background=dark
-
     highlight Normal ctermbg=none
-    highlight LineNr ctermfg=162
     highlight LineNr ctermbg=none
     highlight EndOfBuffer ctermbg=none
-elseif has('linux') || has('unix')
+
+    colorscheme badwolf
+    highlight LineNr ctermfg=162
+
     "colorscheme elflord
     "colorscheme peachpuff
     "colorscheme molokai
-    colorscheme badwolf
-
-    set background=dark
-
-    highlight Normal ctermbg=none
-    highlight LineNr ctermbg=none
-    highlight EndOfBuffer ctermbg=none
 elseif has('win32') || has('cygwin') || has("win32unix")
     colorscheme molokai
 endif
