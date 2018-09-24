@@ -9,20 +9,21 @@ from logging import (
 
 import sys
 import os
+from rainbow_logging_handler import RainbowLoggingHandler
+
+
+logger = getLogger(sys.argv[0] + __name__)
+handler = RainbowLoggingHandler(sys.stderr, color_asctime=("yellow", None, False))
+handler.setFormatter(Formatter("[%(asctime)s](%(levelname)s) %(message)s"))
+logger.setLevel(DEBUG)
+logger.addHandler(handler)
+logger.propagate = True
 
 
 def main():
   pass
 
 
-logger = getLogger(sys.argv[0] + __name__)
-handler = StreamHandler(sys.stderr)
-#from rainbow_logging_handler import RainbowLoggingHandler
-#handler = RainbowLoggingHandler(sys.stderr, color_asctime=("yellow", None, False))
-handler.setFormatter(Formatter("[%(asctime)s](%(levelname)s) %(message)s"))
-logger.setLevel(DEBUG)
-logger.addHandler(handler)
-logger.propagate = True
-
 if __name__ == "__main__":
   main()
+
