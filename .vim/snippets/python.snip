@@ -1,47 +1,39 @@
 snippet getarg
 abbr def getarg()
 options head
-	def getarg():
-		#import argparsea
-        global logger
-
-		parser = argparse.ArgumentParser(add_help=False)
-
-        parser.add_argument("-v", "--verbose", action="store_true", help="verbose output")
-		parser.add_argument("--help", action="help")
-
-		args = parser.parse_args()
-
-        if args.verbose:
-          logger.setLevel(DEBUG)
-        else:
-          logger.setLevel(INFO)
-
-		return args
+  def getarg():
+    #import argparsea
+    
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument("-v", "--verbose", action="store_true", help="verbose output")
+    parser.add_argument("--version", action="store_true", help="version")
+    parser.add_argument("--help", action="help")
+    
+    args = parser.parse_args()
+    return args
 
 
 snippet pprint
 abbr def pprint()
 options head
-	def pprint(stream, *strs):
-		_s = ""
-		for i, s in enumerate(strs):
-			__s = s
-			if type(s) != str or type(s) != unicode:
-				__s = str(s)
-
-			if i == 0:
-				_s += __s
-			else:
-				_s += " " + __s
-
-		stream.write(_s + "\n")
-		stream.flush()
-
-	def pout(*strs):
-		pprint(sys.stdout, *strs)
-
-
-	def perr(*strs):
-		pprint(sys.stderr, *strs)
+  def pprint(stream, *strs):
+    _s = ""
+    for i, s in enumerate(strs):
+      __s = s
+     if type(s) != str or type(s) != unicode:
+       __s = str(s)
+     
+     if i == 0:
+       _s += __s
+     else:
+       _s += " " + __s
+    
+    stream.write(_s + "\n")
+    stream.flush()
+  
+  def pout(*strs):
+    pprint(sys.stdout, *strs)
+  
+  def perr(*strs):
+    pprint(sys.stderr, *strs)
 

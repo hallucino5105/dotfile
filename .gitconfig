@@ -14,6 +14,7 @@
 	helper = cache
 [http]
 	sslVerify = false
+	proxy = http://trlproxyuser:trlproxyuser123@ym0.nissan-carwings.com:8080
 [tig "bind"]
     generic = g move-first-line
     generic = G move-last-line

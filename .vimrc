@@ -44,6 +44,8 @@ set autoread
 set nofoldenable
 set noautochdir
 set tabpagemax=99
+set visualbell t_vb=
+set noerrorbells
 
 " ステータスラインの表示
 set statusline=%t\    "
@@ -853,8 +855,6 @@ if has('gui_macvim') || has('kaoriya') || has('gvim')
     set guioptions-=T
     set guioptions+=a
     "set guifont=Monaco:h10
-
-    set visualbell t_vb=
 
     if has('win32')
         set guifont=Ricty:h9
