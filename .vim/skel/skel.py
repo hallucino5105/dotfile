@@ -12,6 +12,7 @@ import os
 from rainbow_logging_handler import RainbowLoggingHandler
 
 
+bindir = os.path.dirname(os.path.abspath(__file__))
 logger = None
 
 
