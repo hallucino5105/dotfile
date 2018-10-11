@@ -3,7 +3,6 @@
 """""""""""""""""""
 
 set browsedir=buffer
-set nocompatible
 set incsearch
 set ignorecase
 set number
