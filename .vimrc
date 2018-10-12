@@ -16,7 +16,6 @@ set nowrapscan
 set matchtime=3
 set autoindent
 set smartindent
-"set cindent
 set smartcase
 set smarttab
 set laststatus=2
@@ -58,7 +57,6 @@ set statusline+=%h    " %h ヘルプバッファフラグ
 set statusline+=%w    " %w プレビューウィンドウフラグ
 set statusline+=%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}  " fencとffを表示
 set statusline+=%y    " バッファ内のファイルのタイプ
-"set statusline+=%{fugitive#statusline()}  " Gitのブランチ名を表示
 set statusline+=\ \   " 空白スペース2個
 set statusline+=%1l   " 何行目にカーソルがあるか
 set statusline+=/
@@ -69,42 +67,14 @@ set statusline+=%V    " 画面上の何列目にカーソルがあるか
 set statusline+=\ \   " 空白スペース2個
 set statusline+=%P    " ファイル内の何％の位置にあるか
 
-"" 前回開いていた場所を記憶
-"autocmd BufWinLeave ?* silent mkview
-"autocmd BufWinEnter ?* silent loadview
-
-"" 自動保存
-"function s:AutoWriteIfPossible()
-"  if &modified && !&readonly && bufname('%') !=# '' && &buftype ==# '' && expand("%") !=# ''
-"    write
-"  endif
-"endfunction
-"
-"autocmd CursorHold * call s:AutoWriteIfPossible()
-"autocmd CursorHoldI * call s:AutoWriteIfPossible()
-
-"" trailing spaces highlight
-"augroup HighlightTrailingSpaces
-"    autocmd!
-"    autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces guibg=Black ctermbg=234
-"    autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
-"augroup END
-
 " 無限undo
 if has('persistent_undo')
-    set undodir=~/dotfile/.vim/undo
-    set undofile
+  set undodir=~/dotfile/.vim/undo
+  set undofile
 endif
 
 " w!! で sudo で保存
 cabbr w!! w !sudo tee > /dev/null %
-
-" 自動リロード
-" CursorMovedだと重いかもしれないので注意
-"augroup vimrc-checktime
-"    autocmd!
-"    autocmd CursorMoved * checktime
-"augroup END
 
 " ファイルのあるディレクトリに移動
 autocmd BufEnter * silent! lcd %:p:h
@@ -128,19 +98,19 @@ let ostype = system('uname')
 let archtype = system('uname -p')
 
 if ostype == "Darwin\n"
-    let g:vimproc_dll_path = $HOME . '/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_mac.so'
+  let g:vimproc_dll_path = $HOME . '/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_mac.so'
 elseif ostype == "Linux\n"
-    if archtype == "x86_64\n"
-        let g:vimproc_dll_path = $HOME.'/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_linux64.so'
-    elseif archtype == "i386\n" || archtype == "i686\n"
-        let g:vimproc_dll_path = $HOME.'/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_linux32.so'
-    endif
+  if archtype == "x86_64\n"
+    let g:vimproc_dll_path = $HOME.'/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_linux64.so'
+  elseif archtype == "i386\n" || archtype == "i686\n"
+    let g:vimproc_dll_path = $HOME.'/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_linux32.so'
+  endif
 else
-    if has('win32')
-        let g:vimproc_dll_path = $HOME . '/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_win32.dll'
-    elseif has('win64')
-        let g:vimproc_dll_path = $HOME . '/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_win64.dll'
-    endif
+  if has('win32')
+    let g:vimproc_dll_path = $HOME . '/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_win32.dll'
+  elseif has('win64')
+    let g:vimproc_dll_path = $HOME . '/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_win64.dll'
+  endif
 endif
 
 let &directory=&backupdir
@@ -150,33 +120,29 @@ let &directory=&backupdir
 """ plugin setting
 """"""""""""""""""
 if &compatible
-    set nocompatible
+  set nocompatible
 endif
 
 let s:dein_path = expand('~/.vim/dein')
 let s:dein_conf_path = expand('~/.vimrc-dein.toml')
 let s:dein_repo_path = s:dein_path . '/repos/github.com/Shougo/dein.vim'
 
-"if !isdirectory(s:dein_repo_path)
-"    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_path
-"endif
-
 execute 'set runtimepath^=' . s:dein_repo_path
 
 if dein#load_state(s:dein_path)
-    call dein#begin(s:dein_path)
-    call dein#load_toml(s:dein_conf_path)
-    call dein#end()
-    call dein#save_state()
+  call dein#begin(s:dein_path)
+  call dein#load_toml(s:dein_conf_path)
+  call dein#end()
+  call dein#save_state()
 endif
 
 filetype plugin indent on
 syntax enable
 
 if has('vim_starting')
-    if dein#check_install()
-        call dein#install()
-    endif
+  if dein#check_install()
+    call dein#install()
+  endif
 endif
 
 
@@ -220,7 +186,7 @@ let g:neocomplcache_enable_camel_case_completion=0
 
 " 日本語を補完候補として取得しないようにする
 if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
+  let g:neocomplcache_keyword_patterns = {}
 endif
 let g:neocomplcache_keyword_patterns['default']='\h\w*'
 
@@ -245,7 +211,7 @@ inoremap <expr><C-o> neocomplcache#complete_common_string()
 
 " neocomplcacheを無効化
 if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {}
+  let g:neocomplcache_omni_patterns = {}
 endif
 let g:neocomplcache_omni_patterns.python = ''
 let g:neocomplcache_omni_patterns.ruby = ''
@@ -256,6 +222,7 @@ let g:neocomplcache_omni_patterns.html = ''
 let g:neosnippet#snippets_directory='~/dotfile/.vim/snippets/'
 
 
+""" quickrun
 let g:quickrun_config = {}
 let g:quickrun_config['markdown'] = {
     \ 'outputter': 'browser',
@@ -263,15 +230,6 @@ let g:quickrun_config['markdown'] = {
     \ 'cmdopt': '-x fenced-code-blocks -x wiki-tables -x hard-wrap -x rid-code-tag',
     \ 'exec': '%c %o %a %s',
     \ }
-"let g:quickrun_config['markdown'] = {
-"    \ 'outputter': 'browser',
-"    \ 'command': 'open',
-"    \ 'cmdopt': '-a \"Google Chrome\"',
-"    \ 'exec': '%c %o %a %s',
-"    \ }
-"let g:quickrun_config['markdown'] = {
-"    \ 'outputter': 'browser',
-"    \ }
 
 
 """ html
@@ -293,16 +251,6 @@ let g:scratchBackupFile=$HOME."/.vimscratch"
 
 nnoremap <unique><silent><F7> <Plug>ShowScratchBuffer
 inoremap <unique><silent><F7> <Plug>InsShowScratchBuffer
-
-
-"""" taglist
-"set tags=./tags,tags;
-"let Tlist_Ctags_Cmd = "ctags"
-"let Tlist_Show_One_File = 1
-""let Tlist_Use_Right_Window = 1
-"let Tlist_Exit_OnlyWindow = 1
-"let g:tlist_javascript_settings = 'javascript;c:class;m:method;F:function;p:property'
-"noremap <F2> :TlistToggle<CR>
 
 
 """ tagbar
@@ -356,8 +304,8 @@ nnoremap <silent> [unite]. :<C-u>UniteResume<CR>
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
-    " 単語単位からパス単位で削除するように変更
-    imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
+  " 単語単位からパス単位で削除するように変更
+  imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
 endfunction
  
 " ESCキーを2回押すと終了する  
@@ -422,10 +370,10 @@ nnoremap <F3> :SrcExplToggle<CR>
 
 " If the Tabbar Plugin existed
 if bufname("%") == "-TabBar-"
-    " Move the cursor to the window behind.
-    " Because I used to put the TabBar
-    " Window on the top position.
-    silent! wincmd j
+  " Move the cursor to the window behind.
+  " Because I used to put the TabBar
+  " Window on the top position.
+  silent! wincmd j
 endif
 
 
@@ -452,38 +400,6 @@ let g:jsx_ext_required = 0
 let g:jsx_pragma_required = 0
 
 
-"""" auto mark
-"" mark auto reg
-"" http://saihoooooooo.hatenablog.com/entry/2013/04/30/001908
-"if !exists('g:markrement_char')
-"    let g:markrement_char = [
-"    \     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-"    \     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
-"    \ ]
-"endif
-"nnoremap <silent>m :<C-u>call <SID>AutoMarkrement()<CR>
-"function! s:AutoMarkrement()
-"    if !exists('b:markrement_pos')
-"        let b:markrement_pos = 0
-"    else
-"        let b:markrement_pos = (b:markrement_pos + 1) % len(g:markrement_char)
-"    endif
-"    execute 'mark' g:markrement_char[b:markrement_pos]
-"    echo 'marked' g:markrement_char[b:markrement_pos]
-"endfunction
-
-
-"""" vim-indent-guides
-"let g:indent_guides_enable_on_vim_startup=1
-"let g:indent_guides_start_level=2
-"let g:indent_guides_auto_colors=1
-""autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=gray
-""autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=darkgray
-"let g:indent_guides_color_change_percent = 100
-"let g:indent_guides_guide_size = 1
-"let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'unite']
-
-
 """ indentLine
 let g:indentLine_color_term = 23 " 'black'
 let g:indentLine_color_gui = '#3B3E4B'
@@ -494,19 +410,30 @@ let g:indentLine_char = '|'
 autocmd QuickFixCmdPost *grep* cwindow
 
 
+""" vimgo
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_term_enabled = 1
+let g:go_highlight_build_constraints = 1
+let g:go_auto_type_info = 1
+
+
 """"""""""""""""
 """ associate
 """"""""""""""""
 
 """ file skelton
 augroup SkeletonAu
-    autocmd!
-    autocmd BufNewFile *.html 0r $HOME/dotfile/.vim/skel/skel.html
-    autocmd BufNewFile *.cpp 0r $HOME/dotfile/.vim/skel/skel.cpp
-    autocmd BufNewFile *.hpp 0r $HOME/dotfile/.vim/skel/skel.hpp
-    autocmd BufNewFile *.pl 0r $HOME/dotfile/.vim/skel/skel.pl
-    autocmd BufNewFile *.pm 0r $HOME/dotfile/.vim/skel/skel.pm
-    autocmd BufNewFile *.py 0r $HOME/dotfile/.vim/skel/skel.py
+  autocmd!
+  autocmd BufNewFile *.html 0r $HOME/dotfile/.vim/skel/skel.html
+  autocmd BufNewFile *.cpp 0r $HOME/dotfile/.vim/skel/skel.cpp
+  autocmd BufNewFile *.hpp 0r $HOME/dotfile/.vim/skel/skel.hpp
+  autocmd BufNewFile *.pl 0r $HOME/dotfile/.vim/skel/skel.pl
+  autocmd BufNewFile *.pm 0r $HOME/dotfile/.vim/skel/skel.pm
+  autocmd BufNewFile *.py 0r $HOME/dotfile/.vim/skel/skel.py
 augroup END
 
 
@@ -537,9 +464,6 @@ au BufNewFile,BufRead *.scala setf scala
 
 
 """ python
-"autocmd FileType python setl autoindent
-"autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-"autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 " VimでPythonのコメント行を入力しようとするとインデントが解除されてしまうアレ
 autocmd FileType python :inoremap # X#
 
@@ -577,7 +501,7 @@ autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 """"""""""""""""
 set splitright
 if !exists(":DiffOrig")
-    command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 endif
 
 nnoremap <F7> :DiffOrig<CR>
@@ -664,72 +588,55 @@ syntax on
 
 let g:onedark_termcolors=256
 
-" ターミナルタイプによるカラー設定
-"if &term =~ 'xterm-256color' || 'screen-256color'
-"  " 256色
-"  set t_Co=256
-"  set t_Sf=[3%dm
-"  set t_Sb=[4%dm
-"elseif &term =~ 'xterm-debian' || &term =~ 'xterm-xfree86'
-"  set t_Co=16
-"  set t_Sf=[3%dm
-"  set t_Sb=[4%dm
-"elseif &term =~ 'xterm-color'
-"  set t_Co=8
-"  set t_Sf=[3%dm
-"  set t_Sb=[4%dm
-"endif
-
-
 " 全角スペース・行末のスペース・タブの可視化
 if has("syntax")
-    syntax on
+  syntax on
 
-    " PODバグ対策
-    syn sync fromstart
+  " PODバグ対策
+  syn sync fromstart
 endif
 
 
 if has('mac')
-    set background=dark
+  set background=dark
 
-    colorscheme badwolf
-    highlight LineNr ctermfg=162
+  colorscheme badwolf
+  highlight LineNr ctermfg=162
 
-    highlight Normal ctermbg=none
-    highlight LineNr ctermbg=none
-    highlight EndOfBuffer ctermbg=none
+  highlight Normal ctermbg=none
+  highlight LineNr ctermbg=none
+  highlight EndOfBuffer ctermbg=none
 
-    "let g:solarized_termcolors=16
-    "let g:solarized_termtrans=0
-    "let g:solarized_degrade=0
-    "let g:solarized_bold=1
-    "let g:solarized_underline=1
-    "let g:solarized_italic=1
-    "let g:solarized_contrast='normal'
-    "let g:solarized_visibility='normal'
-    "colorscheme solarized
+  "let g:solarized_termcolors=16
+  "let g:solarized_termtrans=0
+  "let g:solarized_degrade=0
+  "let g:solarized_bold=1
+  "let g:solarized_underline=1
+  "let g:solarized_italic=1
+  "let g:solarized_contrast='normal'
+  "let g:solarized_visibility='normal'
+  "colorscheme solarized
 
-    "colorscheme jellybeans 
-    "colorscheme molokai
-    "colorscheme peachpuff
-    "colorscheme slate
-    "colorscheme darkblue
+  "colorscheme jellybeans 
+  "colorscheme molokai
+  "colorscheme peachpuff
+  "colorscheme slate
+  "colorscheme darkblue
 elseif has('linux') || has('unix')
-    set background=dark
+  set background=dark
 
-    colorscheme badwolf
-    highlight LineNr ctermfg=162
+  colorscheme badwolf
+  highlight LineNr ctermfg=162
 
-    highlight Normal ctermbg=none
-    highlight LineNr ctermbg=none
-    highlight EndOfBuffer ctermbg=none
+  highlight Normal ctermbg=none
+  highlight LineNr ctermbg=none
+  highlight EndOfBuffer ctermbg=none
 
-    "colorscheme elflord
-    "colorscheme peachpuff
-    "colorscheme molokai
+  "colorscheme elflord
+  "colorscheme peachpuff
+  "colorscheme molokai
 elseif has('win32') || has('cygwin') || has("win32unix")
-    colorscheme molokai
+  colorscheme molokai
 endif
 
 " pyflakeが使う
@@ -850,33 +757,32 @@ map <F5> <Plug>Vm_toggle_sign
 """ gui setting
 """""""""""""""
 if has('gui_macvim') || has('kaoriya') || has('gvim')
-    "set background=dark
-    set guioptions-=T
-    set guioptions+=a
-    "set guifont=Monaco:h10
+  set guioptions-=T
+  set guioptions+=a
+  "set guifont=Monaco:h10
 
-    if has('win32')
-        set guifont=Ricty:h9
-        set lines=50 columns=170
-    elseif has('mac')
-        set guifont=Ricty:h12
-        set lines=55 columns=180
-    endif
+  if has('win32')
+    set guifont=Ricty:h9
+    set lines=50 columns=170
+  elseif has('mac')
+    set guifont=Ricty:h12
+    set lines=55 columns=180
+  endif
 
-    "colorscheme wombat
-    "colorscheme lucius
-    "colorscheme darkeclipse
-    colorscheme onedark
+  "colorscheme wombat
+  "colorscheme lucius
+  "colorscheme darkeclipse
+  colorscheme onedark
 endif
 
 
 """"""""""""""""
 """" nvim
 """"""""""""""""
-"if has('nvim')
-"    tnoremap <silent> <ESC> <C-\><C-n>
-"    nnoremap <F5> :terminal<CR>
-"endif
+if has('nvim')
+  tnoremap <silent> <ESC> <C-\><C-n>
+  nnoremap <F5> :terminal<CR>
+endif
 
 
 """""""""""""""
