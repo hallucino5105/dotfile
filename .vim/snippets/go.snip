@@ -1,20 +1,107 @@
-snippet getopt
-abbr func getopt()
+snippet myarg
+abbr global myarg
 options head
-  type Options struct {
-    Verbose []bool \`short:"v" long:"verbose" description:"Verbose output"\`
+  import (
+  	"log"
+  
+  	flags "github.com/jessevdk/go-flags"
+  )
+  
+  type GlobalArgs struct {
+  	Verbose bool \`short:"v" long:"verbose" description:"Verbose output"\`
+  }
+  
+  var globalArgs *GlobalArgs
+  
+  func ParseGlobalArgs() *GlobalArgs {
+  	globalArgs = new(GlobalArgs)
+  
+  	_, err := flags.Parse(globalArgs)
+  	if err != nil {
+      log.Fatal(err)
+  	}
+  
+  	return globalArgs
+  }
+  
+  func GetGlobalArgs() *GlobalArgs {
+  	if globalArgs == nil {
+  	  ParseGlobalArgs()
+  	}
+  
+  	return globalArgs
   }
 
-  func getopt() Options {
-    // flags "github.com/jessevdk/go-flags"
+
+snippet mylog
+abbr global mylog
+options head
+  import (
+  	"log"
+  	"os"
   
-    var opts Options
-
-    _, err := flags.Parse(&opts)
-    if err != nil {
-      os.Exit(1)
-    }
-
-    return opts
+  	"github.com/comail/colog"
+  )
+  
+  var LogStd *log.Logger
+  var LogErr *log.Logger
+  
+  type LoggerOptions struct {
+  	Verbose bool
+  }
+  
+  type LoggerOptionType func(*LoggerOptions)
+  
+  func LoggerOptionVerbose(verbose bool) LoggerOptionType {
+  	return func(options *LoggerOptions) {
+  	  options.Verbose = verbose
+  	}
+  }
+  
+  func getLoggingOption(optionOpes []LoggerOptionType) *LoggerOptions {
+  	options := &LoggerOptions{
+  	  Verbose: false,
+  	}
+  
+  	for _, optionOpe := range optionOpes {
+  	  optionOpe(options)
+  	}
+  
+  	return options
+  }
+  
+  func SetupLogger() {
+  	clStd := colog.NewCoLog(os.Stdout, "", log.Ldate|log.Ltime|log.Lshortfile)
+  	clStd.SetDefaultLevel(colog.LInfo)
+  	clStd.SetMinLevel(colog.LDebug)
+  	clStd.ParseFields(true)
+  
+  	clErr := colog.NewCoLog(os.Stderr, "", log.Ldate|log.Ltime|log.Lshortfile)
+  	clErr.SetDefaultLevel(colog.LInfo)
+  	clErr.SetMinLevel(colog.LDebug)
+  	clErr.ParseFields(true)
+  
+  	LogStd = clStd.NewLogger()
+  	LogErr = clErr.NewLogger()
+  }
+  
+  func Lstd(text string, optionOpes ...LoggerOptionType) {
+  	options := getLoggingOption(optionOpes)
+  
+  	if options.Verbose && !GetGlobalArgs().Verbose {
+  	  return
+  	}
+  
+  	LogStd.Printf(text)
+  }
+  
+  func Lerr(text string, optionOpes ...LoggerOptionType) {
+  	options := getLoggingOption(optionOpes)
+  
+  	if options.Verbose && !GetGlobalArgs().Verbose {
+  	  return
+  	}
+  
+  	LogErr.Printf(text)
   }
 
