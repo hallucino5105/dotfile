@@ -40,9 +40,14 @@ options head  import (
     "fmt"
     "log"
     "os"
+    "path/filepath"
     "reflect"
+    "runtime"
+    "strconv"
+    "time"
   
     "github.com/comail/colog"
+    "github.com/fatih/color"
   )
   
   type LoggerOptions struct {
@@ -68,12 +73,12 @@ options head  import (
   }
   
   func SetupLogger() {
-    clStd := colog.NewCoLog(os.Stdout, "", log.Ldate|log.Ltime|log.Lshortfile)
+    clStd := colog.NewCoLog(os.Stdout, "", 0)
     clStd.SetDefaultLevel(colog.LInfo)
     clStd.SetMinLevel(colog.LDebug)
     clStd.ParseFields(true)
   
-    clErr := colog.NewCoLog(os.Stderr, "", log.Ldate|log.Ltime|log.Lshortfile)
+    clErr := colog.NewCoLog(os.Stderr, "", 0)
     clErr.SetDefaultLevel(colog.LInfo)
     clErr.SetMinLevel(colog.LDebug)
     clErr.ParseFields(true)
@@ -100,9 +105,13 @@ options head  import (
     if options.Verbose && !GetGlobalArgs().Verbose {
       // noop
     } else {
-      var prefix string = ""
+      _, sourceFileName, sourceFileLineNum, _ := runtime.Caller(2)
+      fileinfo := color.CyanString(filepath.Base(sourceFileName) + ":" + strconv.Itoa(sourceFileLineNum))
+      date := time.Now().Format("2006-01-02 15:04:05")
+  
+      var prefix string = fmt.Sprintf("%s %s: ", date, fileinfo)
       if options.Fatal {
-        prefix = "alert: "
+        prefix = fmt.Sprintf("%s%s", "alert: ", prefix)
       }
   
       if reflect.ValueOf(text).Kind() == reflect.String {
