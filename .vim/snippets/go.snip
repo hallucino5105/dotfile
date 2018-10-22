@@ -2,106 +2,125 @@ snippet myarg
 abbr global myarg
 options head
   import (
-  	"log"
+    "log"
   
-  	flags "github.com/jessevdk/go-flags"
+    flags "github.com/jessevdk/go-flags"
   )
   
   type GlobalArgs struct {
-  	Verbose bool \`short:"v" long:"verbose" description:"Verbose output"\`
+    Verbose bool \`short:"v" long:"verbose" description:"Verbose output"\`
   }
   
   var globalArgs *GlobalArgs
   
   func ParseGlobalArgs() *GlobalArgs {
-  	globalArgs = new(GlobalArgs)
+    globalArgs = new(GlobalArgs)
   
-  	_, err := flags.Parse(globalArgs)
-  	if err != nil {
+    _, err := flags.Parse(globalArgs)
+    if err != nil {
       log.Fatal(err)
-  	}
+    }
   
-  	return globalArgs
+    return globalArgs
   }
   
   func GetGlobalArgs() *GlobalArgs {
-  	if globalArgs == nil {
-  	  ParseGlobalArgs()
-  	}
+    if globalArgs == nil {
+      ParseGlobalArgs()
+    }
   
-  	return globalArgs
+    return globalArgs
   }
 
 
 snippet mylog
 abbr global mylog
-options head
+options head  import (
   import (
-  	"log"
-  	"os"
+    "fmt"
+    "log"
+    "os"
+    "reflect"
   
-  	"github.com/comail/colog"
+    "github.com/comail/colog"
   )
   
-  var LogStd *log.Logger
-  var LogErr *log.Logger
-  
   type LoggerOptions struct {
-  	Verbose bool
+    Verbose bool
+    Fatal   bool
   }
   
   type LoggerOptionType func(*LoggerOptions)
   
-  func LoggerOptionVerbose(verbose bool) LoggerOptionType {
-  	return func(options *LoggerOptions) {
-  	  options.Verbose = verbose
-  	}
+  var LogStd *log.Logger
+  var LogErr *log.Logger
+  
+  func LOVerbose(verbose bool) LoggerOptionType {
+    return func(options *LoggerOptions) {
+      options.Verbose = verbose
+    }
   }
   
-  func getLoggingOption(optionOpes []LoggerOptionType) *LoggerOptions {
-  	options := &LoggerOptions{
-  	  Verbose: false,
-  	}
-  
-  	for _, optionOpe := range optionOpes {
-  	  optionOpe(options)
-  	}
-  
-  	return options
+  func LOFatal(fatal bool) LoggerOptionType {
+    return func(options *LoggerOptions) {
+      options.Fatal = fatal
+    }
   }
   
   func SetupLogger() {
-  	clStd := colog.NewCoLog(os.Stdout, "", log.Ldate|log.Ltime|log.Lshortfile)
-  	clStd.SetDefaultLevel(colog.LInfo)
-  	clStd.SetMinLevel(colog.LDebug)
-  	clStd.ParseFields(true)
+    clStd := colog.NewCoLog(os.Stdout, "", log.Ldate|log.Ltime|log.Lshortfile)
+    clStd.SetDefaultLevel(colog.LInfo)
+    clStd.SetMinLevel(colog.LDebug)
+    clStd.ParseFields(true)
   
-  	clErr := colog.NewCoLog(os.Stderr, "", log.Ldate|log.Ltime|log.Lshortfile)
-  	clErr.SetDefaultLevel(colog.LInfo)
-  	clErr.SetMinLevel(colog.LDebug)
-  	clErr.ParseFields(true)
+    clErr := colog.NewCoLog(os.Stderr, "", log.Ldate|log.Ltime|log.Lshortfile)
+    clErr.SetDefaultLevel(colog.LInfo)
+    clErr.SetMinLevel(colog.LDebug)
+    clErr.ParseFields(true)
   
-  	LogStd = clStd.NewLogger()
-  	LogErr = clErr.NewLogger()
+    LogStd = clStd.NewLogger()
+    LogErr = clErr.NewLogger()
   }
   
-  func Lstd(text string, optionOpes ...LoggerOptionType) {
-  	options := getLoggingOption(optionOpes)
+  func getLoggingOption(optionOpes []LoggerOptionType) *LoggerOptions {
+    options := &LoggerOptions{
+      Verbose: false,
+    }
   
-  	if options.Verbose && !GetGlobalArgs().Verbose {
-  	  return
-  	}
+    for _, optionOpe := range optionOpes {
+      optionOpe(options)
+    }
   
-  	LogStd.Printf(text)
+    return options
   }
   
-  func Lerr(text string, optionOpes ...LoggerOptionType) {
-  	options := getLoggingOption(optionOpes)
+  func logging(ld *log.Logger, text interface{}, optionOpes []LoggerOptionType) {
+    options := getLoggingOption(optionOpes)
   
-  	if options.Verbose && !GetGlobalArgs().Verbose {
-  	  return
-  	}
+    if options.Verbose && !GetGlobalArgs().Verbose {
+      // noop
+    } else {
+      var prefix string = ""
+      if options.Fatal {
+        prefix = "alert: "
+      }
   
-  	LogErr.Printf(text)
+      if reflect.ValueOf(text).Kind() == reflect.String {
+        ld.Printf(fmt.Sprintf("%s%s", prefix, text.(string)))
+      } else {
+        ld.Printf(fmt.Sprintf("%s%v", prefix, text))
+      }
+    }
+  
+    if options.Fatal {
+      os.Exit(-1)
+    }
   }
-
+  
+  func Lstd(text interface{}, optionOpes ...LoggerOptionType) {
+    logging(LogStd, text, optionOpes)
+  }
+  
+  func Lerr(text interface{}, optionOpes ...LoggerOptionType) {
+    logging(LogErr, text, optionOpes)
+  }

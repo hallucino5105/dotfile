@@ -61,6 +61,14 @@ ress() {
     fi
 }
 
+gofiles() {
+    PWD=`pwd`
+    echo ".DS_Store\n*.swp\n~*\n\ngo/bin/*\n!go/bin/.gitkeep\ngo/pkg/*\n!go/pkg/.gitkeep\nvendor" > $PWD/.gitignore
+    echo "export GOPATH=\$(pwd)/go\nexport GO15VENDOREXPERIMENT=1" > $PWD/.envrc
+	mkdir -p $PWD/go/{bin,pkg,src}
+    touch $PWD/go/{bin,pkg,src}/.gitkeep
+}
+
 #git_find_big() {
 #    #set -x
 #
