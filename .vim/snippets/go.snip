@@ -43,7 +43,6 @@ options head  import (
     "path/filepath"
     "reflect"
     "runtime"
-    "strconv"
     "time"
   
     "github.com/comail/colog"
@@ -90,6 +89,7 @@ options head  import (
   func getLoggingOption(optionOpes []LoggerOptionType) *LoggerOptions {
     options := &LoggerOptions{
       Verbose: false,
+      Fatal:   false,
     }
   
     for _, optionOpe := range optionOpes {
@@ -105,11 +105,16 @@ options head  import (
     if options.Verbose && !GetGlobalArgs().Verbose {
       // noop
     } else {
-      _, sourceFileName, sourceFileLineNum, _ := runtime.Caller(2)
-      fileinfo := color.CyanString(filepath.Base(sourceFileName) + ":" + strconv.Itoa(sourceFileLineNum))
       date := time.Now().Format("2006-01-02 15:04:05")
+
+      var fileinfo string
+      _, sourceFileName, sourceFileLineNum, ok := runtime.Caller(2)
+      if ok {
+        fileinfo = " " + color.CyanString(
+          fmt.Sprintf("%s:%d", filepath.Base(sourceFileName), sourceFileLineNum))
+      }
   
-      var prefix string = fmt.Sprintf("%s %s: ", date, fileinfo)
+      var prefix string = fmt.Sprintf("%s%s: ", date, fileinfo)
       if options.Fatal {
         prefix = fmt.Sprintf("%s%s", "alert: ", prefix)
       }
