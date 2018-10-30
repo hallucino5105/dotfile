@@ -1,6 +1,8 @@
 snippet myarg
 abbr global myarg
 options head
+  package global
+
   import (
     "log"
   
@@ -36,6 +38,8 @@ options head
 snippet mylog
 abbr global mylog
 options head  import (
+  package global
+  
   import (
     "fmt"
     "log"
@@ -56,6 +60,7 @@ options head  import (
   
   type LoggerOptionType func(*LoggerOptions)
   
+  var g_colorize bool
   var LogStd *log.Logger
   var LogErr *log.Logger
   
@@ -71,16 +76,28 @@ options head  import (
     }
   }
   
-  func SetupLogger() {
+  func SetupLogger(colorize bool) {
+    g_colorize = colorize
+  
     clStd := colog.NewCoLog(os.Stdout, "", 0)
     clStd.SetDefaultLevel(colog.LInfo)
     clStd.SetMinLevel(colog.LDebug)
     clStd.ParseFields(true)
+    if !colorize {
+      clStd.SetFormatter(&colog.StdFormatter{
+        NoColors: true,
+      })
+    }
   
     clErr := colog.NewCoLog(os.Stderr, "", 0)
     clErr.SetDefaultLevel(colog.LInfo)
     clErr.SetMinLevel(colog.LDebug)
     clErr.ParseFields(true)
+    if !colorize {
+      clErr.SetFormatter(&colog.StdFormatter{
+        NoColors: true,
+      })
+    }
   
     LogStd = clStd.NewLogger()
     LogErr = clErr.NewLogger()
@@ -106,12 +123,16 @@ options head  import (
       // noop
     } else {
       date := time.Now().Format("2006-01-02 15:04:05")
-
+  
       var fileinfo string
       _, sourceFileName, sourceFileLineNum, ok := runtime.Caller(2)
       if ok {
-        fileinfo = " " + color.CyanString(
-          fmt.Sprintf("%s:%d", filepath.Base(sourceFileName), sourceFileLineNum))
+        if g_colorize {
+          fileinfo = " " + color.CyanString(
+            fmt.Sprintf("%s:%d", filepath.Base(sourceFileName), sourceFileLineNum))
+        } else {
+          fileinfo = " " + fmt.Sprintf("%s:%d", filepath.Base(sourceFileName), sourceFileLineNum)
+        }
       }
   
       var prefix string = fmt.Sprintf("%s%s: ", date, fileinfo)
