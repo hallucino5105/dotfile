@@ -9,27 +9,27 @@ options head
     flags "github.com/jessevdk/go-flags"
   )
   
-  type GlobalArgs struct {
+  type GlobalArg struct {
     Verbose bool \`short:"v" long:"verbose" description:"Verbose output"\`
   }
   
-  var globalArgs *GlobalArgs
+  var globalArg *GlobalArg
   
-  func SetupArgParser() *GlobalArgs {
-    globalArgs = new(GlobalArgs)
+  func SetupArgParser() *GlobalArg {
+    globalArg = new(GlobalArg)
   
-    _, err := flags.Parse(globalArgs)
+    _, err := flags.Parse(globalArg)
     if err != nil {
       log.Fatal(err)
     }
   
-    return globalArgs
+    return globalArg
   }
   
-  func GetGlobalArgs() *GlobalArgs {
-    if globalArgs == nil {
+  func GetGlobalArg() *GlobalArg {
+    if globalArg == nil {
       SetupArgParser()
     }
   
-    return globalArgs
+    return globalArg
   }
