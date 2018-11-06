@@ -15,7 +15,7 @@ options head
   
   var globalArgs *GlobalArgs
   
-  func SetupParser() *GlobalArgs {
+  func SetupArgParser() *GlobalArgs {
     globalArgs = new(GlobalArgs)
   
     _, err := flags.Parse(globalArgs)
@@ -28,7 +28,7 @@ options head
   
   func GetGlobalArgs() *GlobalArgs {
     if globalArgs == nil {
-      SetupParser()
+      SetupArgParser()
     }
   
     return globalArgs
