@@ -33,3 +33,69 @@ options head
   
     return globalArg
   }
+
+
+snippet goconf
+abbr global goconf
+options head
+  package global
+  
+  import (
+    "os"
+  
+    "github.com/miyaizu/golog"
+    "github.com/spf13/viper"
+  )
+  
+  type GlobalConfig struct {
+  }
+  
+  var globalConfig *GlobalConfig
+  
+  func NewGlobalConfig() {
+    globalConfig = &GlobalConfig{}
+  }
+  
+  func readGlobalConfig(configPath string) error {
+    var err error
+  
+    viper.SetConfigFile(configPath)
+    viper.SetConfigType("json")
+    viper.AutomaticEnv()
+  
+    if err = viper.ReadInConfig(); err != nil {
+      switch err.(type) {
+      case *os.PathError:
+        golog.Debug("Config file not found, use default values")
+      default:
+        golog.Warn("Failed to read the config file")
+        golog.Warn("%v", err)
+      }
+      return err
+    }
+  
+    NewGlobalConfig()
+  
+    if err := viper.Unmarshal(globalConfig); err != nil {
+      golog.Warn("Failed to unmarshaling")
+      golog.Warn("%v", err)
+      return err
+    }
+  
+    return nil
+  }
+  
+  func SetupGlobalConfig(configPath string) {
+    if configPath != "" {
+      if err := readGlobalConfig(configPath); err != nil {
+        NewGlobalConfig()
+      }
+    } else {
+      NewGlobalConfig()
+    }
+  }
+  
+  func GetGlobalConfig() *GlobalConfig {
+    return globalConfig
+  }
+
