@@ -74,8 +74,6 @@ options head
       return err
     }
   
-    NewGlobalConfig()
-  
     if err := viper.Unmarshal(globalConfig); err != nil {
       golog.Warn("Failed to unmarshaling")
       golog.Warn("%v", err)
@@ -86,12 +84,10 @@ options head
   }
   
   func SetupGlobalConfig(configPath string) {
+    NewGlobalConfig()
+
     if configPath != "" {
-      if err := readGlobalConfig(configPath); err != nil {
-        NewGlobalConfig()
-      }
-    } else {
-      NewGlobalConfig()
+      readGlobalConfig(configPath)
     }
   }
   
