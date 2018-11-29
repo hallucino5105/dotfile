@@ -13,7 +13,6 @@ set softtabstop=0
 set whichwrap=b,s,h,l,<,>,[,]
 set nowrap
 set nowrapscan
-set matchtime=3
 set autoindent
 set smartindent
 set smartcase
