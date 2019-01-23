@@ -69,6 +69,10 @@ gofiles() {
     touch $PWD/go/{bin,pkg,src}/.gitkeep
 }
 
+lstree() {
+    pwd; find . | sort | sed '1d;s/^\.//;s/\/\([^/]*\)$/|--\1/;s/\/[^/|]*/|  /g'
+}
+
 #git_find_big() {
 #    #set -x
 #
