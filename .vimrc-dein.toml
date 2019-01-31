@@ -7,6 +7,14 @@ repo = '~/.vim/dein/repos/github.com/Shougo/dein.vim'
 repo = 'Shougo/vimproc.git'
 build = 'make'
 
+#[[plugins]]
+#repo = 'neovim/node-host'
+#build ='npm install'
+#
+#[[plugins]]
+#repo = 'billyvg/tigris.nvim'
+#build = './install.sh'
+
 [[plugins]]
 repo = 'vim-scripts/Lucius'
 
@@ -71,7 +79,16 @@ repo = 'vim-scripts/jQuery'
 repo = 'othree/yajs.vim'
 
 [[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = ['javascript', 'javascript.jsx']
+
+[[plugins]]
 repo = 'mxw/vim-jsx'
+on_ft = ['javascript', 'javascript.jsx']
+
+[[plugins]]
+repo = 'moll/vim-node'
+on_ft = ['javascript']
 
 [[plugins]]
 repo = 'chase/vim-ansible-yaml'
