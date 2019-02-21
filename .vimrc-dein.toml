@@ -1,5 +1,7 @@
 # .vimrc-dein.toml
 
+### important ###
+
 [[plugins]]
 repo = '~/.vim/dein/repos/github.com/Shougo/dein.vim'
 
@@ -7,94 +9,31 @@ repo = '~/.vim/dein/repos/github.com/Shougo/dein.vim'
 repo = 'Shougo/vimproc.git'
 build = 'make'
 
-#[[plugins]]
-#repo = 'neovim/node-host'
-#build ='npm install'
-#
-#[[plugins]]
-#repo = 'billyvg/tigris.nvim'
-#build = './install.sh'
+[[plugins]]
+repo = 'xolox/vim-misc'
 
 [[plugins]]
-repo = 'vim-scripts/Lucius'
+repo = 'xolox/vim-session'
+depends = ['xolox/vim-misc']
 
 [[plugins]]
-repo = 'vim-scripts/Zenburn'
+repo = 'kana/vim-submode'
 
 [[plugins]]
-repo = 'vim-scripts/molokai'
+repo = 'vim-scripts/yanktmp.vim'
 
 [[plugins]]
-repo = 'vim-scripts/badwolf'
+repo = 'LeafCage/yankround.vim'
 
 [[plugins]]
-repo = 'yuroyoro/yuroyoro256.vim'
-
-[[plugins]]
-repo = 'altercation/vim-colors-solarized'
-
-[[plugins]]
-repo = 'nanotech/jellybeans.vim'
-
-[[plugins]]
-repo = 'cocopon/iceberg.vim'
-
-[[plugins]]
-repo = 'joshdick/onedark.vim'
-
-[[plugins]]
-repo = 'vim-scripts/JSON.vim'
-
-[[plugins]]
-repo = 'groenewege/vim-less'
-
-[[plugins]]
-repo = 'autowitch/hive.vim'
-
-[[plugins]]
-repo = 'hail2u/vim-css3-syntax'
-
-[[plugins]]
-repo = 'JulesWang/css.vim'
-
-[[plugins]]
-repo = 'cakebaker/scss-syntax.vim'
-
-[[plugins]]
-repo = 'stephpy/vim-yaml'
-
-[[plugins]]
-repo = 'tikhomirov/vim-glsl'
-
-[[plugins]]
-repo = 'derekwyatt/vim-scala'
-
-[[plugins]]
-repo = 'fatih/vim-go'
-
-[[plugins]]
-repo = 'vim-scripts/jQuery'
-
-[[plugins]]
-repo = 'othree/yajs.vim'
-
-[[plugins]]
-repo = 'pangloss/vim-javascript'
-on_ft = ['javascript', 'javascript.jsx']
-
-[[plugins]]
-repo = 'mxw/vim-jsx'
-on_ft = ['javascript', 'javascript.jsx']
+repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'moll/vim-node'
 on_ft = ['javascript']
 
-[[plugins]]
-repo = 'chase/vim-ansible-yaml'
 
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
+### unite ###
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
@@ -112,39 +51,113 @@ depends = ['Shougo/unite.vim']
 repo = 'tacroe/unite-mark'
 depends = ['Shougo/unite.vim']
 
-[[plugins]]
-repo = 'xolox/vim-misc'
+
+### colorscheme ###
 
 [[plugins]]
-repo = 'xolox/vim-session'
-depends = ['xolox/vim-misc']
+repo = 'joshdick/onedark.vim'
+
+#[[plugins]]
+#repo = 'vim-scripts/badwolf'
+#
+#[[plugins]]
+#repo = 'vim-scripts/Lucius'
+#
+#[[plugins]]
+#repo = 'vim-scripts/Zenburn'
+#
+#[[plugins]]
+#repo = 'vim-scripts/molokai'
+#
+#[[plugins]]
+#repo = 'yuroyoro/yuroyoro256.vim'
+#
+#[[plugins]]
+#repo = 'altercation/vim-colors-solarized'
+#
+#[[plugins]]
+#repo = 'nanotech/jellybeans.vim'
+#
+#[[plugins]]
+#repo = 'cocopon/iceberg.vim'
+
+
+### syntax ###
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+
+[[plugins]]
+repo = 'mxw/vim-jsx'
+depends = ['pangloss/vim-javascript']
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
+repo = 'peitalin/vim-jsx-typescript'
+depends = ['leafgarland/typescript-vim']
+
+[[plugins]]
+repo = 'vim-scripts/JSON.vim'
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+
+[[plugins]]
+repo = 'JulesWang/css.vim'
+
+[[plugins]]
+repo = 'cakebaker/scss-syntax.vim'
+
+[[plugins]]
+repo = 'stephpy/vim-yaml'
+
+[[plugins]]
+repo = 'tikhomirov/vim-glsl'
+
+[[plugins]]
+repo = 'autowitch/hive.vim'
+
+[[plugins]]
+repo = 'derekwyatt/vim-scala'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+
+[[plugins]]
+repo = 'vim-scripts/jQuery'
+
+[[plugins]]
+repo = 'othree/yajs.vim'
+
+[[plugins]]
+repo = 'chase/vim-ansible-yaml'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+
+[[plugins]]
+repo = 'hynek/vim-python-pep8-indent'
+on_ft = ['python', 'python3', 'djangohtml']
+
+[[plugins]]
+repo = 'jason0x43/vim-js-indent'
+on_ft = ['javascript', 'typescript', 'html']
+
+
+### shougo ###
 
 [[plugins]]
 repo = 'Shougo/vimfiler'
-
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-on_path = '.*'
 
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
 on_path = '.*'
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-on_i = 1
-if = ''' (has('nvim') || has('python3')) && system('pip3 show neovim') !=# '' '''
-hook_source = '''
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#enable_ignore_case = 1
-    let g:deoplete#enable_smart_case = 1
-'''
-
-#[[plugins]]
-#repo = 'Shougo/neocomplcache'
-#on_i = 1
-#if = ''' !has('lua') || !has('nvim') || !(has('python3')) && system('pip3 show neovim') !=# '') '''
+repo = 'Shougo/neomru.vim'
+on_path = '.*'
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim.git'
@@ -153,13 +166,18 @@ repo = 'Shougo/neosnippet.vim.git'
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'itchyny/lightline.vim'
+repo = 'Shougo/deoplete.nvim'
+depends = 'context_filetype.vim'
+if = ''' (has('nvim') || has('python3')) && system('pip3 show neovim') !=# '' '''
+
+
+### misc ###
+
+[[plugins]]
+repo = 'groenewege/vim-less'
 
 [[plugins]]
 repo = 'vim-scripts/eregex.vim'
-
-[[plugins]]
-repo = 'vim-scripts/yanktmp.vim'
 
 [[plugins]]
 repo = 'tpope/vim-repeat'
@@ -201,9 +219,6 @@ repo = 'rking/ag.vim'
 repo = 'wesleyche/SrcExpl'
 
 [[plugins]]
-repo = 'kana/vim-submode'
-
-[[plugins]]
 repo = 't9md/vim-quickhl'
 
 [[plugins]]
@@ -216,33 +231,5 @@ repo = 'vim-scripts/camelcasemotion'
 repo = 'vim-scripts/renamer.vim'
 
 [[plugins]]
-repo = 'vim-scripts/open-browser.vim'
-
-[[plugins]]
 repo = 'kana/vim-operator-user'
 
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-on_ft = ['typescript']
-
-[[plugins]]
-repo = 'hynek/vim-python-pep8-indent'
-on_ft = ['python', 'python3', 'djangohtml']
-
-[[plugins]]
-repo = 'jason0x43/vim-js-indent'
-on_ft = ['javascript', 'typescript', 'html']
-
-[[plugins]]
-repo = 'LeafCage/yankround.vim'
-
-[[plugins]]
-repo = 'cohama/lexima.vim'
-on_i = 1
-hook_post_source = '''
-    call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '{', 'input': '{'})
-    call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '(', 'input': '('})
-    call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '"', 'input': '"'})
-    call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '\'', 'input': '\''})
-    call lexima#add_rule({'at': '\%#.*[-0-9a-zA-Z_,:]', 'char': '\`', 'input': '\`'})
-'''

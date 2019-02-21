@@ -316,7 +316,13 @@ call unite#custom#source('file_rec/async,grep', 'ignore_pattern', 'node_modules'
 call unite#custom_default_action('file_rec/async,file_mru,file,buffer,grep' , 'tabopen')
 
 
-"""" vimfiler
+""" deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#enable_smart_case = 1
+
+
+""" vimfiler
 let g:vimfiler_as_default_explorer = 1
 
 
@@ -454,8 +460,8 @@ autocmd BufNewFile,BufRead *.ejs set filetype=html
 
 
 """ typescript
-"autocmd BufRead,BufNewFile *.tsc set filetype=typescript
-let g:vim_markdown_folding_disabled=1
+autocmd BufRead,BufNewFile *.ts  set filetype=typescript
+autocmd BufRead,BufNewFile *.tsx set filetype=typescript.tsx
 
 
 """ scala
@@ -599,8 +605,10 @@ endif
 if has('mac')
   set background=dark
 
-  colorscheme badwolf
-  highlight LineNr ctermfg=162
+  "colorscheme badwolf
+  "highlight LineNr ctermfg=162
+
+  colorscheme onedark
 
   highlight Normal ctermbg=none
   highlight LineNr ctermbg=none
