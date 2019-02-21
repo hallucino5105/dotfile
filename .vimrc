@@ -609,6 +609,7 @@ if has('mac')
   "highlight LineNr ctermfg=162
 
   colorscheme onedark
+  highlight LineNr ctermfg=8
 
   highlight Normal ctermbg=none
   highlight LineNr ctermbg=none
