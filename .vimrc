@@ -633,8 +633,11 @@ if has('mac')
 elseif has('linux') || has('unix')
   set background=dark
 
-  colorscheme badwolf
-  highlight LineNr ctermfg=162
+  "colorscheme badwolf
+  "highlight LineNr ctermfg=162
+
+  colorscheme onedark
+  highlight LineNr ctermfg=8
 
   highlight Normal ctermbg=none
   highlight LineNr ctermbg=none
