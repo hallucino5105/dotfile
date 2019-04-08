@@ -233,3 +233,5 @@ repo = 'vim-scripts/renamer.vim'
 [[plugins]]
 repo = 'kana/vim-operator-user'
 
+[[plugins]]
+repo = 'terryma/vim-expand-region'

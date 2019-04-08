@@ -585,6 +585,16 @@ map <silent> [Tag]p :tabprevious<CR>
 nnoremap <S-tab> :tabprevious<CR>
 "inoremap <S-tab> :tabprevious<CR>
 
+nnoremap <CR> G
+nnoremap <BS> gg
+
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
+
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
 
 """""""""""""""""
 """ color setting
