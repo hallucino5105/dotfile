@@ -10,8 +10,8 @@
     "workbench.editor.showIcons": true,
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.editor.showTabs": true,
-    "workbench.editor.enablePreview": true,
-    "workbench.editor.enablePreviewFromQuickOpen": true,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.tabSizing": "shrink",
     "workbench.editor.tabCloseButton": "off",
     "workbench.editor.openPositioning": "last",
@@ -21,6 +21,7 @@
     // window
     "window.openFilesInNewWindow": "on",
     "window.openFoldersInNewWindow": "on",
+    "window.newWindowDimensions": "default",
     "window.zoomLevel": 0,
 
     // editor
@@ -34,6 +35,16 @@
     "editor.formatOnPaste": true,
     "editor.lineNumbers": "relative",
     "editor.renderWhitespace": "none",
+    "editor.renderLineHighlight": "all",
+    "editor.renderControlCharacters": true,
+    "editor.cursorBlinking": "smooth",
+    "editor.autoIndent": true,
+    "editor.quickSuggestionsDelay": 200,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": false
+    },
 
     // diffeditor
     "diffEditor.ignoreTrimWhitespace": false,
@@ -47,17 +58,33 @@
     "files.autoGuessEncoding": true,
     "files.trimFinalNewlines": false,
     "files.trimTrailingWhitespace": false,
+    "files.eol": "auto",
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true,
+        "**/.svn/**": true,
+    },
 
     // search
     "search.exclude": {
+        "tags": true,
+        "**/node_modules": true,
         "**/bower_components": true,
         "**/vendor": true,
-        "**/env": true
+        "**/env": true,
+        "**/.svn": true,
+        "**/.git": true,
+        "**/.venv": true,
     },
 
     // git
     "git.autofetch": true,
     "git.enableSmartCommit": true,
+
+    // crashreport
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
 
     // vim
     "vim.useSystemClipboard": true,
@@ -92,4 +119,25 @@
 
     // python
     "python.jediEnabled": false,
+
+    // markdown
+    "markdown.preview.breaks": true,
+
+    // lang
+    "[c]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": false,
+    },
+    "[cpp]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": false,
+    },
+    "[markdown]": {
+        "editor.tabSize": 2,
+        "editor.quickSuggestions": true,
+        "editor.quickSuggestionsDelay": 200,
+    },
+    "[json]": {
+        "editor.tabSize": 2,
+    },
 }
