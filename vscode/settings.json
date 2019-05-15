@@ -1,9 +1,10 @@
 {
-    "breadcrumbs.enabled": true,
-    "scm.alwaysShowProviders": true,
-    "explorer.openEditors.visible": 0,
+    "breadcrumbs.enabled": false,
     "debug.inlineValues": true,
+    "explorer.openEditors.visible": 0,
+    "scm.alwaysShowProviders": true,
 
+    // workbench
     "workbench.editor.labelFormat": "short",
     "workbench.editor.revealIfOpen": true,
     "workbench.editor.showIcons": true,
@@ -17,36 +18,48 @@
     "workbench.startupEditor": "none",
     "workbench.activityBar.visible": true,
 
-    "diffEditor.ignoreTrimWhitespace": false,
-    "diffEditor.renderSideBySide": false,
-
+    // window
     "window.openFilesInNewWindow": "on",
     "window.openFoldersInNewWindow": "on",
     "window.zoomLevel": 0,
 
+    // editor
     "editor.fontSize": 12,
     "editor.wordWrap": "off",
     "editor.minimap.enabled": false,
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
     "editor.formatOnSave": false,
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "editor.lineNumbers": "relative",
+    "editor.renderWhitespace": "none",
 
+    // diffeditor
+    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.renderSideBySide": false,
+
+    // terminal
     "terminal.integrated.fontSize": 11,
     "terminal.integrated.copyOnSelection": true,
 
+    // files
     "files.autoGuessEncoding": true,
     "files.trimFinalNewlines": false,
     "files.trimTrailingWhitespace": false,
 
+    // search
     "search.exclude": {
         "**/bower_components": true,
         "**/vendor": true,
         "**/env": true
     },
 
+    // git
     "git.autofetch": true,
     "git.enableSmartCommit": true,
 
+    // vim
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
     "vim.visualstar": true,
@@ -55,7 +68,12 @@
     "vim.incsearch": true,
     "vim.easymotion": true,
     "vim.sneak": true,
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-e>": false,
+    },
 
+    // golang
     "go.docsTool": "gogetdoc",
     "go.useLanguageServer": false,
     "go.autocompleteUnimportedPackages": true,
@@ -64,6 +82,7 @@
         "autoComplete": true
     },
 
+    // css
     "css.lint.float": "error",
     "css.lint.propertyIgnoredDueToDisplay": "error",
     "css.lint.universalSelector": "error",
@@ -71,5 +90,6 @@
     "css.lint.duplicateProperties": "error",
     "css.lint.idSelector": "error",
 
+    // python
     "python.jediEnabled": false,
 }
