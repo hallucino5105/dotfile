@@ -1,5 +1,4 @@
 {
-    "git.enableSmartCommit": true,
     "breadcrumbs.enabled": true,
     "scm.alwaysShowProviders": true,
     "explorer.openEditors.visible": 0,
@@ -30,6 +29,7 @@
     "editor.minimap.enabled": false,
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
+    "editor.formatOnSave": false,
 
     "terminal.integrated.fontSize": 11,
     "terminal.integrated.copyOnSelection": true,
@@ -44,6 +44,9 @@
         "**/env": true
     },
 
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
     "vim.visualstar": true,
@@ -51,5 +54,22 @@
     "vim.ignorecase": true,
     "vim.incsearch": true,
     "vim.easymotion": true,
-    "vim.sneak": true
+    "vim.sneak": true,
+
+    "go.docsTool": "gogetdoc",
+    "go.useLanguageServer": false,
+    "go.autocompleteUnimportedPackages": true,
+    "go.languageServerExperimentalFeatures": {
+        "format": true,
+        "autoComplete": true
+    },
+
+    "css.lint.float": "error",
+    "css.lint.propertyIgnoredDueToDisplay": "error",
+    "css.lint.universalSelector": "error",
+    "css.lint.boxModel": "error",
+    "css.lint.duplicateProperties": "error",
+    "css.lint.idSelector": "error",
+
+    "python.jediEnabled": false,
 }
