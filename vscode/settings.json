@@ -1,0 +1,7 @@
+{
+    "git.enableSmartCommit": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.renderSideBySide": false,
+    "window.openFilesInNewWindow": "on",
+    "window.openFoldersInNewWindow": "on"
+}
