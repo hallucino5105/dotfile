@@ -99,6 +99,16 @@
         "<C-a>": false,
         "<C-e>": false,
     },
+    "vim.easymotionMarkerFontFamily": "Cica",
+    "vim.easymotionMarkerFontSize": "13",
+    "vim.easymotionMarkerFontWeight": "normal",
+    "vim.easymotionMarkerForegroundColorOneChar": "rgba(0, 240, 170, 0.9)",
+    "vim.easymotionMarkerForegroundColorTwoChar": "rgba(0, 240, 170, 0.9)",
+    "vim.easymotionMarkerBackgroundColor": "rgba(10, 10, 10, 0.75)",
+    "vim.normalModeKeyBindingsNonRecursive": [{
+        "before": ["<space>"],
+        "after": ["leader", "leader", "w"],
+    }],
 
     // golang
     "go.docsTool": "gogetdoc",
