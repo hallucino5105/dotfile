@@ -1,7 +1,55 @@
 {
     "git.enableSmartCommit": true,
+    "breadcrumbs.enabled": true,
+    "scm.alwaysShowProviders": true,
+    "explorer.openEditors.visible": 0,
+    "debug.inlineValues": true,
+
+    "workbench.editor.labelFormat": "short",
+    "workbench.editor.revealIfOpen": true,
+    "workbench.editor.showIcons": true,
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.showTabs": true,
+    "workbench.editor.enablePreview": true,
+    "workbench.editor.enablePreviewFromQuickOpen": true,
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.editor.tabCloseButton": "off",
+    "workbench.editor.openPositioning": "last",
+    "workbench.startupEditor": "none",
+    "workbench.activityBar.visible": true,
+
     "diffEditor.ignoreTrimWhitespace": false,
     "diffEditor.renderSideBySide": false,
+
     "window.openFilesInNewWindow": "on",
-    "window.openFoldersInNewWindow": "on"
+    "window.openFoldersInNewWindow": "on",
+    "window.zoomLevel": 0,
+
+    "editor.fontSize": 12,
+    "editor.wordWrap": "off",
+    "editor.minimap.enabled": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+
+    "terminal.integrated.fontSize": 11,
+    "terminal.integrated.copyOnSelection": true,
+
+    "files.autoGuessEncoding": true,
+    "files.trimFinalNewlines": false,
+    "files.trimTrailingWhitespace": false,
+
+    "search.exclude": {
+        "**/bower_components": true,
+        "**/vendor": true,
+        "**/env": true
+    },
+
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.visualstar": true,
+    "vim.useCtrlKeys": true,
+    "vim.ignorecase": true,
+    "vim.incsearch": true,
+    "vim.easymotion": true,
+    "vim.sneak": true
 }
