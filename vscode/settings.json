@@ -37,6 +37,7 @@
     "editor.renderWhitespace": "none",
     "editor.renderLineHighlight": "all",
     "editor.renderControlCharacters": true,
+    "editor.renderIndentGuides": false,
     "editor.cursorBlinking": "smooth",
     "editor.autoIndent": true,
     "editor.quickSuggestionsDelay": 200,
