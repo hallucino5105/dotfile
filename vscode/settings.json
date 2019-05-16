@@ -3,6 +3,9 @@
     "breadcrumbs.enabled": false,
     "debug.inlineValues": true,
     "scm.alwaysShowProviders": true,
+    "npm.enableScriptExplorer": true,
+
+    // explorer
     "explorer.openEditors.visible": 5,
     "explorer.confirmDelete": false,
 
@@ -43,6 +46,7 @@
     "editor.renderIndentGuides": false,
     "editor.cursorBlinking": "smooth",
     "editor.autoIndent": true,
+    "editor.suggestSelection": "first",
     "editor.quickSuggestionsDelay": 200,
     "editor.quickSuggestions": {
         "other": true,
@@ -60,7 +64,8 @@
 
     // files
     "files.autoGuessEncoding": true,
-    "files.trimFinalNewlines": false,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": false,
     "files.eol": "auto",
     "files.watcherExclude": {
@@ -190,4 +195,7 @@
     "[jsonc]": {
         "editor.defaultFormatter": "HookyQR.beautify"
     },
+
+    // plugins
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 }
