@@ -30,6 +30,7 @@
     "editor.tabSize": 2,
     "editor.fontSize": 12,
     "editor.wordWrap": "off",
+    "editor.codeLens": false,
     "editor.minimap.enabled": false,
     "editor.insertSpaces": true,
     "editor.formatOnSave": false,
