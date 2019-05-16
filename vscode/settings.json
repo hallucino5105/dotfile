@@ -199,4 +199,5 @@
 
     // plugins
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "clipring.maxRingItems": 10,
 }

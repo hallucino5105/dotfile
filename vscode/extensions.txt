@@ -18,6 +18,7 @@ naumovs.color-highlight
 PKief.material-icon-theme
 Rubymaniac.vscode-direnv
 shardulm94.trailing-spaces
+SirTobi.code-clip-ring
 teabyii.ayu
 VisualStudioExptTeam.vscodeintellicode
 vscodevim.vim
