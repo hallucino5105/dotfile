@@ -63,6 +63,7 @@
     "files.trimTrailingWhitespace": false,
     "files.eol": "auto",
     "files.watcherExclude": {
+        "**/__pycache__/**": true,
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
         "**/node_modules/*/**": true,
@@ -72,6 +73,7 @@
     // search
     "search.exclude": {
         "tags": true,
+        "**/__pycache__": true,
         "**/node_modules": true,
         "**/bower_components": true,
         "**/vendor": true,

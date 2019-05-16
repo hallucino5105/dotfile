@@ -11,5 +11,9 @@
   {
     "key": "ctrl+cmd+b",
     "command": "workbench.action.terminal.focusPrevious"
-  }
+  },
+  {
+    "key": "ctrl+cmd+j",
+    "command": "workbench.action.focusFirstEditorGroup"
+  },
 ]
