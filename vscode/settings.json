@@ -2,8 +2,9 @@
     // common
     "breadcrumbs.enabled": false,
     "debug.inlineValues": true,
-    "explorer.openEditors.visible": 0,
     "scm.alwaysShowProviders": true,
+    "explorer.openEditors.visible": 5,
+    "explorer.confirmDelete": false,
 
     // workbench
     "workbench.editor.labelFormat": "short",
@@ -20,8 +21,8 @@
     "workbench.activityBar.visible": true,
 
     // window
-    "window.openFilesInNewWindow": "on",
-    "window.openFoldersInNewWindow": "on",
+    "window.openFilesInNewWindow": "off",
+    "window.openFoldersInNewWindow": "off",
     "window.newWindowDimensions": "default",
     "window.zoomLevel": 0,
 
@@ -135,6 +136,13 @@
 
     // python
     "python.jediEnabled": false,
+    "python.venvPath": "~/.pyenv",
+    "python.venvFolders": [
+        "envs",
+        ".pyenv",
+        ".direnv",
+        ".venv",
+    ],
 
     // markdown
     "markdown.preview.breaks": true,
@@ -155,5 +163,8 @@
     },
     "[json]": {
         "editor.tabSize": 2,
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
     },
 }

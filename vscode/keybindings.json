@@ -1,0 +1,15 @@
+// 既定値を上書きするには、このファイル内にキー バインドを挿入しますauto[]
+[
+  {
+    "key": "ctrl+cmd+space",
+    "command": "workbench.action.terminal.focus"
+  },
+  {
+    "key": "ctrl+cmd+n",
+    "command": "workbench.action.terminal.focusNext"
+  },
+  {
+    "key": "ctrl+cmd+b",
+    "command": "workbench.action.terminal.focusPrevious"
+  }
+]
