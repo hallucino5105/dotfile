@@ -4,6 +4,7 @@
     "debug.inlineValues": true,
     "scm.alwaysShowProviders": true,
     "npm.enableScriptExplorer": true,
+    "workbench.iconTheme": "material-icon-theme",
 
     // explorer
     "explorer.openEditors.visible": 5,
