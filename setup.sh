@@ -22,8 +22,10 @@ mkdir -p ~/.vim/backup
 # vscode
 if [ "$(uname)" == "Darwin" ]; then
     ln -sfv $(pwd)/vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json"
+    ln -sfv $(pwd)/vscode/keybindings.json "$HOME/Library/Application Support/Code/User/keybindings.json"
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     ln -sfv $(pwd)/vscode/settings.json $HOME/.config/Code/User/settings.json
+    ln -sfv $(pwd)/vscode/keybindings.json $HOME/.config/Code/User/keybindings.json
 else
     echo Unsupported OS
 fi
