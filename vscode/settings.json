@@ -1,4 +1,5 @@
 {
+    // common
     "breadcrumbs.enabled": false,
     "debug.inlineValues": true,
     "explorer.openEditors.visible": 0,
@@ -25,11 +26,11 @@
     "window.zoomLevel": 0,
 
     // editor
+    "editor.tabSize": 2,
     "editor.fontSize": 12,
     "editor.wordWrap": "off",
     "editor.minimap.enabled": false,
     "editor.insertSpaces": true,
-    "editor.tabSize": 2,
     "editor.formatOnSave": false,
     "editor.formatOnType": true,
     "editor.formatOnPaste": true,
@@ -96,19 +97,23 @@
     "vim.incsearch": true,
     "vim.easymotion": true,
     "vim.sneak": true,
-    "vim.handleKeys": {
-        "<C-a>": false,
-        "<C-e>": false,
-    },
     "vim.easymotionMarkerFontFamily": "Cica",
     "vim.easymotionMarkerFontSize": "13",
     "vim.easymotionMarkerFontWeight": "normal",
     "vim.easymotionMarkerForegroundColorOneChar": "rgba(0, 240, 170, 0.9)",
     "vim.easymotionMarkerForegroundColorTwoChar": "rgba(0, 240, 170, 0.9)",
     "vim.easymotionMarkerBackgroundColor": "rgba(10, 10, 10, 0.75)",
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-e>": false,
+    },
     "vim.normalModeKeyBindingsNonRecursive": [{
-        "before": ["<space>"],
+        "before": ["^"],
         "after": ["leader", "leader", "w"],
+    }, {
+        "before": ["-"],
+        "after": ["leader", "leader", "b"],
     }],
 
     // golang
