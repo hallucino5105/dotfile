@@ -33,6 +33,8 @@
     // editor
     "editor.tabSize": 2,
     "editor.fontSize": 12,
+    "editor.fontFamily": "Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontWeight": "normal",
     "editor.wordWrap": "off",
     "editor.codeLens": false,
     "editor.minimap.enabled": false,
@@ -44,7 +46,7 @@
     "editor.renderWhitespace": "none",
     "editor.renderLineHighlight": "all",
     "editor.renderControlCharacters": true,
-    "editor.renderIndentGuides": false,
+    "editor.renderIndentGuides": true,
     "editor.cursorBlinking": "smooth",
     "editor.autoIndent": true,
     "editor.suggestSelection": "first",
