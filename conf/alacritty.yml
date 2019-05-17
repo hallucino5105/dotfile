@@ -47,7 +47,7 @@ font:
     # family: Ricty Diminished 
     family: Source Code Pro
     # Style can be specified to pick a specific face.
-    # style: Regular
+    style: Medium
 
   # The bold font face
   bold:
@@ -92,7 +92,7 @@ font:
 # custom_cursor_colors: false
 
 ## Colors (Tomorrow Night Bright)
-#colors:
+# colors:
 #  # Default colors
 #  primary:
 #    background: '0x000000'
@@ -199,7 +199,7 @@ visual_bell:
   duration: 0
 
 # Background opacity
-background_opacity: 0.975
+background_opacity: 0.85
 
 # Mouse bindings
 #
