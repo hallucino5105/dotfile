@@ -10,9 +10,6 @@
     // explorer
     "explorer.openEditors.visible": 5,
     "explorer.confirmDelete": false,
-
-    // workbench
-    "workbench.editor.labelFormat": "short",
     "workbench.editor.revealIfOpen": true,
     "workbench.editor.showIcons": true,
     "workbench.editor.highlightModifiedTabs": true,
@@ -33,7 +30,7 @@
 
     // editor
     "editor.tabSize": 2,
-    "editor.fontSize": 12,
+    "editor.fontSize": 11,
     "editor.fontFamily": "Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontWeight": "normal",
     "editor.wordWrap": "off",
@@ -203,4 +200,5 @@
     // plugins
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "clipring.maxRingItems": 10,
+    "workbench.editor.labelFormat": "short",
 }
