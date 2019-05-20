@@ -60,7 +60,7 @@
     "diffEditor.renderSideBySide": false,
 
     // terminal
-    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontSize": 11,
     "terminal.integrated.copyOnSelection": true,
 
     // files
