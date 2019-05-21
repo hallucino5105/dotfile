@@ -13,7 +13,7 @@
     "command": "workbench.action.terminal.focusPrevious"
   },
   {
-    "key": "ctrl+cmd+j",
+    "key": "ctrl+cmd+enter",
     "command": "workbench.action.focusFirstEditorGroup"
   },
 ]

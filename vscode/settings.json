@@ -10,6 +10,8 @@
     // explorer
     "explorer.openEditors.visible": 5,
     "explorer.confirmDelete": false,
+
+    // workbench
     "workbench.editor.revealIfOpen": true,
     "workbench.editor.showIcons": true,
     "workbench.editor.highlightModifiedTabs": true,
@@ -21,6 +23,7 @@
     "workbench.editor.openPositioning": "last",
     "workbench.startupEditor": "none",
     "workbench.activityBar.visible": true,
+    "workbench.editor.labelFormat": "short",
 
     // window
     "window.openFilesInNewWindow": "off",
@@ -176,6 +179,19 @@
     // markdown
     "markdown.preview.breaks": true,
 
+    // javascript, typescript
+    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+    "javascript.format.insertSpaceAfterSemicolonInForStatements": false,
+    "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
+    "typescript.format.insertSpaceAfterCommaDelimiter": false,
+    "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+    "typescript.format.insertSpaceAfterSemicolonInForStatements": false,
+    "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
+
     // lang
     "[c]": {
         "editor.tabSize": 2,
@@ -200,5 +216,14 @@
     // plugins
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "clipring.maxRingItems": 10,
-    "workbench.editor.labelFormat": "short",
+    "javascript.format.insertSpaceAfterCommaDelimiter": false,
+    "javascript.format.enable": false,
+    "typescript.format.enable": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.statusBar.feedback.visible": false,
 }
