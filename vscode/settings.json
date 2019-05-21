@@ -24,6 +24,7 @@
     "workbench.startupEditor": "none",
     "workbench.activityBar.visible": true,
     "workbench.editor.labelFormat": "short",
+    "workbench.statusBar.feedback.visible": false,
 
     // window
     "window.openFilesInNewWindow": "off",
@@ -180,6 +181,8 @@
     "markdown.preview.breaks": true,
 
     // javascript, typescript
+    "javascript.format.enable": false,
+    "javascript.format.insertSpaceAfterCommaDelimiter": false,
     "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
     "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
@@ -194,36 +197,26 @@
 
     // lang
     "[c]": {
-        "editor.tabSize": 2,
         "editor.insertSpaces": false,
     },
     "[cpp]": {
-        "editor.tabSize": 2,
         "editor.insertSpaces": false,
     },
     "[markdown]": {
-        "editor.tabSize": 2,
         "editor.quickSuggestions": true,
         "editor.quickSuggestionsDelay": 200,
-    },
-    "[json]": {
-        "editor.tabSize": 2,
     },
     "[jsonc]": {
         "editor.defaultFormatter": "HookyQR.beautify"
     },
-
-    // plugins
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "clipring.maxRingItems": 10,
-    "javascript.format.insertSpaceAfterCommaDelimiter": false,
-    "javascript.format.enable": false,
-    "typescript.format.enable": false,
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "workbench.statusBar.feedback.visible": false,
+
+    // plugins
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "clipring.maxRingItems": 10,
 }
