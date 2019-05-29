@@ -4,7 +4,7 @@
     "debug.inlineValues": true,
     "scm.alwaysShowProviders": true,
     "npm.enableScriptExplorer": true,
-    "workbench.colorTheme": "Ayu Mirage",
+    "workbench.colorTheme": "Ayu Mirage Bordered",
     "workbench.iconTheme": "material-icon-theme",
 
     // explorer
@@ -182,18 +182,19 @@
 
     // javascript, typescript
     "javascript.format.enable": false,
-    "javascript.format.insertSpaceAfterCommaDelimiter": false,
-    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
-    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
-    "javascript.format.insertSpaceAfterSemicolonInForStatements": false,
-    "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
-    "typescript.format.insertSpaceAfterCommaDelimiter": false,
-    "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-    "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
-    "typescript.format.insertSpaceAfterSemicolonInForStatements": false,
-    "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
+    "typescript.format.enable": false,
+    //"javascript.format.insertSpaceAfterCommaDelimiter": false,
+    //"javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+    //"javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    //"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+    //"javascript.format.insertSpaceAfterSemicolonInForStatements": false,
+    //"javascript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
+    //"typescript.format.insertSpaceAfterCommaDelimiter": false,
+    //"typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    //"typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+    //"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+    //"typescript.format.insertSpaceAfterSemicolonInForStatements": false,
+    //"typescript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
 
     // lang
     "[c]": {
@@ -208,12 +209,6 @@
     },
     "[jsonc]": {
         "editor.defaultFormatter": "HookyQR.beautify"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
 
     // plugins
