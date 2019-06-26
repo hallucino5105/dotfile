@@ -4,6 +4,7 @@
 mkdir -p ~/.config/alacritty
 mkdir -p ~/.config/mpv
 mkdir -p ~/.config/nvim
+mkdir -p ~/.config/Code/User
 
 # symlinks
 ln -sfv $(pwd)/.gitconfig ~/
