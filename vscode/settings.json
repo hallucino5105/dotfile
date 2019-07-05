@@ -34,7 +34,6 @@
 
     // editor
     "editor.tabSize": 2,
-    "editor.fontSize": 11,
     "editor.fontFamily": "Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontWeight": "normal",
     "editor.wordWrap": "off",
