@@ -40,7 +40,7 @@
     "editor.codeLens": false,
     "editor.minimap.enabled": false,
     "editor.insertSpaces": true,
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.formatOnPaste": true,
     "editor.lineNumbers": "relative",
@@ -215,4 +215,5 @@
     "clipring.maxRingItems": 10,
     "explorer.confirmDragAndDrop": false,
     "editor.fontSize": 13,
+    "workbench.sideBar.location": "right",
 }
