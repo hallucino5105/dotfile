@@ -215,5 +215,5 @@
     "clipring.maxRingItems": 10,
     "explorer.confirmDragAndDrop": false,
     "editor.fontSize": 13,
-    "workbench.sideBar.location": "right",
+    "workbench.sideBar.location": "left",
 }
