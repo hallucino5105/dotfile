@@ -214,6 +214,8 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "clipring.maxRingItems": 10,
     "explorer.confirmDragAndDrop": false,
-    "editor.fontSize": 13,
+    "editor.fontSize": 11,
     "workbench.sideBar.location": "left",
+    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+    "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
 }
