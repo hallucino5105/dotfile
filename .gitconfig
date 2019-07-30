@@ -13,6 +13,7 @@
 [credential]
 	helper = cache
 [http]
+    postBuffer = 500M
 	sslVerify = false
 	proxy = http://trlproxyuser:trlproxyuser123@ym0.nissan-carwings.com:8080
 [tig "bind"]

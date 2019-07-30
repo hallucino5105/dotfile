@@ -40,8 +40,8 @@
     "editor.codeLens": false,
     "editor.minimap.enabled": false,
     "editor.insertSpaces": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
     "editor.formatOnPaste": true,
     "editor.lineNumbers": "relative",
     "editor.renderWhitespace": "none",
@@ -214,6 +214,5 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "clipring.maxRingItems": 10,
     "explorer.confirmDragAndDrop": false,
-    "editor.fontSize": 13,
     "workbench.sideBar.location": "left",
 }
