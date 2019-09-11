@@ -14,19 +14,19 @@ ln -sfv $(pwd)/.tmux.conf ~/
 ln -sfv $(pwd)/.vimrc ~/
 ln -sfv $(pwd)/.vimrc-dein.toml ~/
 ln -sfv $(pwd)/.vimrc ~/.config/nvim/init.vim
-ln -sfv $(pwd)/conf/alacritty.yml ~/.config/alacritty/
-ln -sfv $(pwd)/conf/mpv.conf ~/.config/mpv/
+ln -sfv $(pwd)/conf/alacritty/alacritty_mac.yml ~/.config/alacritty/alacritty.yml
+ln -sfv $(pwd)/conf/mpv/mpv.conf ~/.config/mpv/
 
 # vim
 mkdir -p ~/.vim/backup
 
 # vscode
 if [ "$(uname)" == "Darwin" ]; then
-    ln -sfv $(pwd)/vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json"
-    ln -sfv $(pwd)/vscode/keybindings.json "$HOME/Library/Application Support/Code/User/keybindings.json"
+    ln -sfv $(pwd)/conf/vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json"
+    ln -sfv $(pwd)/conf/vscode/keybindings.json "$HOME/Library/Application Support/Code/User/keybindings.json"
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    ln -sfv $(pwd)/vscode/settings.json $HOME/.config/Code/User/settings.json
-    ln -sfv $(pwd)/vscode/keybindings.json $HOME/.config/Code/User/keybindings.json
+    ln -sfv $(pwd)/conf/vscode/settings.json $HOME/.config/Code/User/settings.json
+    ln -sfv $(pwd)/conf/vscode/keybindings.json $HOME/.config/Code/User/keybindings.json
 else
     echo Unsupported OS
 fi
