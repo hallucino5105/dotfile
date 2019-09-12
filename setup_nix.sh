@@ -22,11 +22,15 @@ mkdir -p ~/.vim/backup
 
 # vscode
 if [ "$(uname)" == "Darwin" ]; then
+    mkdir -p $HOME/.omnisharp
     ln -sfv $(pwd)/conf/vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json"
     ln -sfv $(pwd)/conf/vscode/keybindings.json "$HOME/Library/Application Support/Code/User/keybindings.json"
+    ln -sfv $(pwd)/conf/vscode/omnisharp.json "$HOME/.omnisharp/omnisharp.json"
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    mkdir -p $HOME/.omnisharp
     ln -sfv $(pwd)/conf/vscode/settings.json $HOME/.config/Code/User/settings.json
     ln -sfv $(pwd)/conf/vscode/keybindings.json $HOME/.config/Code/User/keybindings.json
+    ln -sfv $(pwd)/conf/vscode/omnisharp.json $HOME/.omnisharp/omnisharp.json
 else
     echo Unsupported OS
 fi
