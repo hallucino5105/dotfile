@@ -42,7 +42,6 @@
     "editor.insertSpaces": true,
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
-    "editor.lineNumbers": "relative",
     "editor.renderWhitespace": "none",
     "editor.renderLineHighlight": "all",
     "editor.renderControlCharacters": true,
