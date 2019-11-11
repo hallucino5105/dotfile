@@ -10,6 +10,7 @@
     // explorer
     "explorer.openEditors.visible": 5,
     "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
 
     // workbench
     "workbench.editor.revealIfOpen": true,
@@ -25,12 +26,16 @@
     "workbench.activityBar.visible": true,
     "workbench.editor.labelFormat": "short",
     "workbench.statusBar.feedback.visible": false,
+    "workbench.sideBar.location": "left",
 
     // window
     "window.openFilesInNewWindow": "off",
     "window.openFoldersInNewWindow": "off",
     "window.newWindowDimensions": "default",
     "window.zoomLevel": 0,
+
+    // keyboard
+    "keyboard.dispatch": "keyCode",
 
     // editor
     "editor.tabSize": 2,
@@ -149,6 +154,7 @@
 
     // golang
     "go.docsTool": "gogetdoc",
+    "go.formatTool": "goimports",
     "go.useLanguageServer": true,
     "go.autocompleteUnimportedPackages": true,
     "go.languageServerExperimentalFeatures": {
@@ -188,6 +194,12 @@
     //"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
     //"typescript.format.insertSpaceAfterSemicolonInForStatements": false,
     //"typescript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
+    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+    "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+    "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
 
     // lang
     "[c]": {
@@ -207,14 +219,6 @@
     // plugins
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "clipring.maxRingItems": 10,
-    "explorer.confirmDragAndDrop": false,
-    "workbench.sideBar.location": "left",
-    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
-    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-    "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
-    "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
-    "go.formatTool": "goimports",
-    "keyboard.dispatch": "keyCode",
+
+    // additions
 }
