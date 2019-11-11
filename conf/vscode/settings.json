@@ -216,4 +216,5 @@
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
     "go.formatTool": "goimports",
+    "keyboard.dispatch": "keyCode",
 }
