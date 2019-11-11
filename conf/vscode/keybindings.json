@@ -1,6 +1,6 @@
 // 既定値を上書きするには、このファイル内にキー バインドを挿入しますauto[]
 [{
-    "key": "ctrl+shift+space",
+    "key": "ctrl+shift+enter",
     "command": "workbench.action.terminal.focus"
   },
   {
@@ -12,7 +12,7 @@
     "command": "workbench.action.terminal.focusPrevious"
   },
   {
-    "key": "ctrl+shift+enter",
+    "key": "ctrl+shift+;",
     "command": "workbench.action.focusFirstEditorGroup"
   },
   {

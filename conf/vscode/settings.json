@@ -149,7 +149,7 @@
 
     // golang
     "go.docsTool": "gogetdoc",
-    "go.useLanguageServer": false,
+    "go.useLanguageServer": true,
     "go.autocompleteUnimportedPackages": true,
     "go.languageServerExperimentalFeatures": {
         "format": true,
@@ -215,4 +215,5 @@
     "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+    "go.formatTool": "goimports",
 }
