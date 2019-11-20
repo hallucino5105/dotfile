@@ -50,7 +50,6 @@
     "editor.renderWhitespace": "none",
     "editor.renderLineHighlight": "all",
     "editor.renderControlCharacters": true,
-    "editor.renderIndentGuides": true,
     "editor.cursorBlinking": "smooth",
     "editor.autoIndent": true,
     "editor.suggestSelection": "first",
@@ -220,5 +219,5 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "clipring.maxRingItems": 10,
 
-    // additions
+    // additional items
 }

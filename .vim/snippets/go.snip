@@ -1,40 +1,3 @@
-snippet goarg
-abbr global goarg
-options head
-  package global
-
-  import (
-    "log"
-  
-    flags "github.com/jessevdk/go-flags"
-  )
-  
-  type GlobalArg struct {
-    Verbose bool \`short:"v" long:"verbose" description:"Verbose output"\`
-  }
-  
-  var globalArg *GlobalArg
-  
-  func SetupArgParser() *GlobalArg {
-    globalArg = new(GlobalArg)
-  
-    _, err := flags.Parse(globalArg)
-    if err != nil {
-      log.Fatal(err)
-    }
-  
-    return globalArg
-  }
-  
-  func GetGlobalArg() *GlobalArg {
-    if globalArg == nil {
-      SetupArgParser()
-    }
-  
-    return globalArg
-  }
-
-
 snippet goconf
 abbr global goconf
 options head
@@ -93,5 +56,40 @@ options head
   
   func GetGlobalConfig() *GlobalConfig {
     return globalConfig
+  }
+
+
+snippet goarg
+abbr global goarg
+options head
+ func parseArg() options {
+   var opts options
+
+   _, err := flags.Parse(&opts)
+   if err != nil {
+     log.Fatal(err)
+   }
+
+   return opts
+ }
+
+
+snippet golog
+abbr global golog
+options head
+  func setupLogger(verbose bool) *zap.SugaredLogger {
+	config := zap.NewDevelopmentConfig()
+	config.OutputPaths = []string{"stdout"}
+
+	if verbose {
+      config.Level = zap.NewAtomicLevelAt(zap.DebugLevel)
+	} else {
+	  config.Level = zap.NewAtomicLevelAt(zap.InfoLevel)
+	}
+
+	zl, _ := config.Build()
+	logger := zl.Sugar()
+
+	return logger
   }
 
