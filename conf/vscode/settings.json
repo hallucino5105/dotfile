@@ -160,6 +160,9 @@
         "format": true,
         "autoComplete": true
     },
+    "gopls": {
+        "completeUnimported": true
+    },
 
     // css
     "css.lint.float": "error",
