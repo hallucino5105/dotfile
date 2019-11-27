@@ -1,10 +1,7 @@
 {
-    // common
-    "breadcrumbs.enabled": true,
     "debug.inlineValues": true,
     "scm.alwaysShowProviders": true,
     "npm.enableScriptExplorer": true,
-    "workbench.colorTheme": "Ayu Mirage Bordered",
     "workbench.iconTheme": "material-icon-theme",
 
     // explorer
@@ -17,7 +14,6 @@
     "workbench.editor.showIcons": true,
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.editor.showTabs": true,
-    "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.tabSizing": "shrink",
     "workbench.editor.tabCloseButton": "off",
@@ -27,6 +23,8 @@
     "workbench.editor.labelFormat": "short",
     "workbench.statusBar.feedback.visible": false,
     "workbench.sideBar.location": "left",
+    "workbench.editor.enablePreview": false,
+    "workbench.colorTheme": "Horizon",
 
     // window
     "window.openFilesInNewWindow": "off",
@@ -152,6 +150,7 @@
     }],
 
     // golang
+    "go.lintTool": "staticcheck",
     "go.docsTool": "gogetdoc",
     "go.formatTool": "goimports",
     "go.useLanguageServer": true,
@@ -218,9 +217,7 @@
         "editor.defaultFormatter": "HookyQR.beautify"
     },
 
-    // plugins
+    // additional items
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "clipring.maxRingItems": 10,
-
-    // additional items
 }
