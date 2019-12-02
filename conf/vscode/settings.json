@@ -24,7 +24,7 @@
     "workbench.statusBar.feedback.visible": false,
     "workbench.sideBar.location": "left",
     "workbench.editor.enablePreview": false,
-    "workbench.colorTheme": "Horizon",
+    "workbench.colorTheme": "Eva Dark",
 
     // window
     "window.openFilesInNewWindow": "off",
