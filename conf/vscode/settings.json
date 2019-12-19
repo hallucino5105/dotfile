@@ -24,7 +24,7 @@
     "workbench.statusBar.feedback.visible": false,
     "workbench.sideBar.location": "left",
     "workbench.editor.enablePreview": false,
-    "workbench.colorTheme": "Eva Dark",
+    "workbench.colorTheme": "One Monokai",
 
     // window
     "window.openFilesInNewWindow": "off",
@@ -220,4 +220,7 @@
     // additional items
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "clipring.maxRingItems": 10,
+    "[json]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
 }
