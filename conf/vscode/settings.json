@@ -223,4 +223,6 @@
     "[json]": {
         "editor.defaultFormatter": "HookyQR.beautify"
     },
+    "terminal.integrated.rendererType": "experimentalWebgl",
+    "debug.console.fontFamily": "Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
 }
