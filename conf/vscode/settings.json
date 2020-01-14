@@ -150,10 +150,13 @@
     }],
 
     // golang
+    "[go]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
     "go.lintTool": "staticcheck",
     "go.docsTool": "gogetdoc",
-    "go.formatTool": "goimports",
-    "go.useLanguageServer": true,
+    "go.formatTool": "gofmt",
     "go.autocompleteUnimportedPackages": true,
     "go.languageServerExperimentalFeatures": {
         "format": true,
@@ -225,4 +228,5 @@
     },
     "terminal.integrated.rendererType": "experimentalWebgl",
     "debug.console.fontFamily": "Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
+    "go.useLanguageServer": true,
 }
