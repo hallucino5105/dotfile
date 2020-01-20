@@ -60,7 +60,7 @@
 
     // diffeditor
     "diffEditor.ignoreTrimWhitespace": false,
-    "diffEditor.renderSideBySide": false,
+    "diffEditor.renderSideBySide": true,
 
     // terminal
     "terminal.integrated.fontSize": 11,
@@ -156,7 +156,7 @@
     },
     "go.lintTool": "staticcheck",
     "go.docsTool": "gogetdoc",
-    "go.formatTool": "gofmt",
+    "go.formatTool": "goimports",
     "go.autocompleteUnimportedPackages": true,
     "go.languageServerExperimentalFeatures": {
         "format": true,
@@ -229,4 +229,5 @@
     "terminal.integrated.rendererType": "experimentalWebgl",
     "debug.console.fontFamily": "Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
     "go.useLanguageServer": true,
+    "breadcrumbs.enabled": true,
 }
