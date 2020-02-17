@@ -230,4 +230,6 @@
     "debug.console.fontFamily": "Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
     "go.useLanguageServer": true,
     "breadcrumbs.enabled": true,
+    "codic.ACCESS_TOKEN": "Royo0sISs0ZPorFHMyCHxrUcwCOCgTYzr6",
+    "codic.case": "snake_case",
 }
