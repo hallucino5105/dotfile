@@ -18,6 +18,7 @@ ln -sfv $(pwd)/.vimrc ~/.config/nvim/init.vim
 ln -sfv $(pwd)/config/alacritty/alacritty_mac.yml ~/.config/alacritty/alacritty.yml
 ln -sfv $(pwd)/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 ln -sfv $(pwd)/config/mpv/mpv.conf ~/.config/mpv/
+ln -sfv $(pwd)/config/fish ~/.config/
 
 # vscode
 if [ "$(uname)" == "Darwin" ]; then
