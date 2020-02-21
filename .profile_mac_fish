@@ -55,6 +55,7 @@ alias vi="nvim -p"
 alias vim="nvim -p"
 alias mvim="mvim --remote-tab-silent"
 alias gvim="mvim --remote-tab-silent"
+alias rm="rm -i"
 
 # android
 alias installapp='find . -name *.apk | peco | xargs adb install -r'
