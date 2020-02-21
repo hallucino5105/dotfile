@@ -57,7 +57,6 @@ alias mvim="mvim --remote-tab-silent"
 alias gvim="mvim --remote-tab-silent"
 
 # android
-alias adbp="adb-peco"
 alias installapp='find . -name *.apk | peco | xargs adb install -r'
 alias uninstallapp='adb-peco shell pm list package | sed -e s/package:// | peco | xargs adb-peco uninstall'
 
