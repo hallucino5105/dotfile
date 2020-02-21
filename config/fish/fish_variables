@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export FZF_DEFAULT_OPTS:\x2d\x2dextended\x20\x2d\x2dcycle\x20\x2d\x2dreverse\x20\x2d\x2dansi\x20\x2d\x2dselect\x2d1\x20\x2d\x2dexit\x2d0\x20\x2d\x2dmulti
 SETUVAR FZF_LEGACY_KEYBINDINGS:0
 SETUVAR FZF_PREVIEW_DIR_CMD:ls
 SETUVAR FZF_PREVIEW_FILE_CMD:head\x20\x2dn\x2010
