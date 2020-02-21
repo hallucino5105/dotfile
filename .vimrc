@@ -618,8 +618,12 @@ if has('mac')
   "colorscheme badwolf
   "highlight LineNr ctermfg=162
 
-  colorscheme onedark
-  highlight LineNr ctermfg=8
+  "colorscheme onedark
+  "highlight LineNr ctermfg=8
+
+  autocmd ColorScheme * highlight Normal ctermbg=none
+  autocmd ColorScheme * highlight LineNr ctermbg=none
+  colorscheme darkblue
 
   highlight Normal ctermbg=none
   highlight LineNr ctermbg=none
@@ -649,7 +653,11 @@ elseif has('linux') || has('unix')
   "colorscheme onedark
   "highlight LineNr ctermfg=8
 
-  colorscheme desert
+  "colorscheme desert
+
+  autocmd ColorScheme * highlight Normal ctermbg=none
+  autocmd ColorScheme * highlight LineNr ctermbg=none
+  colorscheme darkblue
 
   highlight Normal ctermbg=none
   highlight LineNr ctermbg=none
