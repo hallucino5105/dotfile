@@ -10,7 +10,7 @@ mkdir -p ~/.vim/backup
 # symlinks
 ln -sfv $(pwd)/.gitconfig ~/
 ln -sfv $(pwd)/.myrootconf.sh ~/
-ln -sfv $(pwd)/.myzshconf.sh ~/
+#ln -sfv $(pwd)/.myzshconf.sh ~/
 ln -sfv $(pwd)/.tmux.conf ~/
 ln -sfv $(pwd)/.vimrc ~/
 ln -sfv $(pwd)/.vimrc-dein.toml ~/
