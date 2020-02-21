@@ -26,7 +26,7 @@ if [ "$(uname)" == "Darwin" ]; then
     mkdir -p "$HOME/Library/Application Support/Code/User/snippets"
     mkdir -p $HOME/.omnisharp
 
-    ln -sfv $(pwd)/.profile_mac_fish $HOME/.profile
+    ln -sfv $(pwd)/.profile_mac_fish $HOME/.config/fish/config.fish
     ln -sfv $(pwd)/config/vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json"
     ln -sfv $(pwd)/config/vscode/keybindings.json "$HOME/Library/Application Support/Code/User/keybindings.json"
     ln -sfv $(pwd)/config/vscode/snippets/* "$HOME/Library/Application Support/Code/User/snippets/"
