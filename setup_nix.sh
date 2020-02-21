@@ -25,6 +25,8 @@ if [ "$(uname)" == "Darwin" ]; then
     mkdir -p "$HOME/Library/Application Support/Code/User"
     mkdir -p "$HOME/Library/Application Support/Code/User/snippets"
     mkdir -p $HOME/.omnisharp
+
+    ln -sfv $(pwd)/.profile_mac_fish $HOME/.profile
     ln -sfv $(pwd)/config/vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json"
     ln -sfv $(pwd)/config/vscode/keybindings.json "$HOME/Library/Application Support/Code/User/keybindings.json"
     ln -sfv $(pwd)/config/vscode/snippets/* "$HOME/Library/Application Support/Code/User/snippets/"
@@ -33,6 +35,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     mkdir -p $HOME/.config/Code/User
     mkdir -p $HOME/.config/Code/User/snippets
     mkdir -p $HOME/.omnisharp
+
     ln -sfv $(pwd)/config/vscode/settings.json $HOME/.config/Code/User/settings.json
     ln -sfv $(pwd)/config/vscode/keybindings.json $HOME/.config/Code/User/keybindings.json
     ln -sfv $(pwd)/config/vscode/snippets/* $HOME/.config/Code/User/snippets/
