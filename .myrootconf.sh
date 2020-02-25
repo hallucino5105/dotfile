@@ -4,7 +4,7 @@
 stty stop undef
 
 
-### env
+### export
 export LANG=ja_JP.UTF-8
 export PATH=~/bin:${PATH}
 export PATH=/usr/local/bin:/usr/local/sbin:${PATH}

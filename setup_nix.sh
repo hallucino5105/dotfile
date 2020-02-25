@@ -38,6 +38,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     mkdir -p $HOME/.omnisharp
 
     ln -sfv $(pwd)/.myrootconf.sh ~/
+    #ln -sfv $(pwd)/.profile_nix ~/.profile
 
     ln -sfv $(pwd)/config/vscode/settings.json $HOME/.config/Code/User/settings.json
     ln -sfv $(pwd)/config/vscode/keybindings.json $HOME/.config/Code/User/keybindings.json

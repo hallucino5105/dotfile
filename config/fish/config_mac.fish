@@ -1,1 +1,0 @@
-/Users/hoshino/dotfile/.profile_mac_fish
