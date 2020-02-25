@@ -43,26 +43,19 @@ alias uninstallapp='adb-peco shell pm list package | sed -e s/package:// | peco 
 
 
 ### env
-source $HOME/dotfile/script/lazyenv/lazyenv.bash
+# python
+export PATH=$HOME/.pyenv/bin:$PATH
+eval "$(pyenv init -)"
 
-# pyenv
-_pyenv_init() {
-    export PYENV_ROOT=$HOME/.pyenv
-    eval "$(pyenv init -)"
-}
-eval "$(lazyenv.load _pyenv_init `ls $HOME/.pyenv/shims`)"
+# node
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
+export PATH="$HOME/.nodenv/versions/*/bin:$PATH"
 
-# nodenv
-_nodenv_init() {
-    export NODENV_ROOT=$HOME/.nodenv
-    eval "$(nodenv init -)"
-}
-eval "$(lazyenv.load _nodenv_init `ls $HOME/.nodenv/shims`)"
-
-# goenv
-_goenv_init() {
-    export GOENV_ROOT=$HOME/.goenv
-    eval "$(goenv init -)"
-}
-eval "$(lazyenv.load _goenv_init `ls $HOME/.goenv/shims`)"
+# go
+export PATH="$HOME/.goenv/bin:$PATH"
+export GOENV_DISABLE_GOPATH=1
+eval "$(goenv init -)"
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
 
