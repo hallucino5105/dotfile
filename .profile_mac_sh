@@ -1,5 +1,7 @@
-# .profile
+# .profile_mac_sh
 
+### env
+# common
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
@@ -9,13 +11,9 @@ export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # java
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home
 export JAVA_HOME=`/usr/libexec/java_home -v "11"`
 export _JAVA_OPTIONS="-Dfile.encoding=UTF-8"
 export PATH=${JAVA_HOME}/bin:${PATH}
-
-# perl
-export PERL5LIB="${HOME}/.perl5/lib/perl5:${PERL5LIB}"
 
 # python
 export PATH=$HOME/.pyenv/bin:$PATH
@@ -36,48 +34,29 @@ export PATH="$GOPATH/bin:$PATH"
 # direnv
 eval "$(direnv hook zsh)"
 
-# cuda
-export CUDA_BASE=/usr/local/cuda
-export PATH=$PATH:$CUDA_BASE/bin
-export LD_LIBRARY_PATH=$CUDA_BASE/lib:$LD_LIBRARY_PATH
-export CUDA_INC_DIR=$CUDA_BASE/include
-
-# caffe
-export CAFFE_ROOT=$HOME/src/caffe
-export PYTHONPATH=$CAFFE_ROOT/python:$PYTHONPATH
-
 # android
 export ANDROID_SDK_ROOT=/Volumes/subvol2/android-sdk
 export ANDROID_SDK_HOME=${ANDROID_SDK_ROOT}
 export ANDROID_HOME=${ANDROID_SDK_ROOT}
 export PATH=$ANDROID_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 
-# vagrant
-export VAGRANT_HOME=/Volumes/subvol1/vagrant.d
-
 # fzf
 export FZF_DEFAULT_OPTS="--extended --cycle --reverse --ansi --select-1 --exit-0 --multi"
 
-# general
+# misc
 export EDITOR="nvim -p"
 
-## nodebrew
-#export PATH=$HOME/.nodebrew/current/bin:$PATH
 
-## keychain
-## iranakune 2018/04/23
-#eval `keychain --eval --agents ssh --inherit any ~/.ssh/ym0_id_dsa`
-
-# global alias
-alias jq="jq -C"
-alias sudo="sudo -H -E"
+### alias
+# common
+alias ls="ls -vG"
+alias ll="ls -lavG"
 alias vi="nvim -p"
 alias vim="nvim -p"
 alias mvim="mvim --remote-tab-silent"
 alias gvim="mvim --remote-tab-silent"
 
-# android alias
-alias adbp="adb-peco"
+# android
 alias installapp='find . -name *.apk | peco | xargs adb install -r'
 alias uninstallapp='adb-peco shell pm list package | sed -e s/package:// | peco | xargs adb-peco uninstall'
 

@@ -15,21 +15,21 @@ set -x JAVA_HOME (/usr/libexec/java_home -v "11")
 set -x _JAVA_OPTIONS "-Dfile.encoding=UTF-8"
 set -x PATH $JAVA_HOME/bin $PATH
 
-# python
-set -x PATH $HOME/.pyenv/bin $PATH
-eval (pyenv init - | source)
+## python
+#set -x PATH $HOME/.pyenv/bin $PATH
+#eval (pyenv init - | source)
 
-# nodeenv
-set -x PATH $HOME/.nodenv/bin $PATH
-eval (nodenv init - | source)
-set -x PATH $HOME/.nodenv/versions/*/bin $PATH
+## nodeenv
+#set -x PATH $HOME/.nodenv/bin $PATH
+#eval (nodenv init - | source)
+#set -x PATH $HOME/.nodenv/versions/*/bin $PATH
 
-# go
-set -x PATH $HOME/.goenv/bin $PATH
-set -x GOENV_DISABLE_GOPATH 1
-eval (goenv init - | source)
-set -x GOPATH $HOME/go
-set -x PATH $GOPATH/bin $PATH
+## go
+#set -x PATH $HOME/.goenv/bin $PATH
+#set -x GOENV_DISABLE_GOPATH 1
+#eval (goenv init - | source)
+#set -x GOPATH $HOME/go
+#set -x PATH $GOPATH/bin $PATH
 
 # direnv
 eval (direnv hook fish | source)
