@@ -9,8 +9,6 @@ mkdir -p ~/.vim/backup
 
 # symlinks
 ln -sfv $(pwd)/.gitconfig ~/
-ln -sfv $(pwd)/.myrootconf.sh ~/
-#ln -sfv $(pwd)/.myzshconf.sh ~/
 ln -sfv $(pwd)/.tmux.conf ~/
 ln -sfv $(pwd)/.vimrc ~/
 ln -sfv $(pwd)/.vimrc-dein.toml ~/
@@ -20,13 +18,16 @@ ln -sfv $(pwd)/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 ln -sfv $(pwd)/config/mpv/mpv.conf ~/.config/mpv/
 ln -sfv $(pwd)/config/fish ~/.config/
 
-# vscode
+# os dependencies
 if [ "$(uname)" == "Darwin" ]; then
     mkdir -p "$HOME/Library/Application Support/Code/User"
     mkdir -p "$HOME/Library/Application Support/Code/User/snippets"
     mkdir -p $HOME/.omnisharp
 
-    ln -sfv $(pwd)/.profile_mac_fish $HOME/.config/fish/config.fish
+
+    ln -sfv $(pwd)/.myrootconf.fish $HOME/.config/fish/config.fish
+    ln -sfv $(pwd)/.profile_mac_fish $HOME/.config/fish/config_mac.fish
+
     ln -sfv $(pwd)/config/vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json"
     ln -sfv $(pwd)/config/vscode/keybindings.json "$HOME/Library/Application Support/Code/User/keybindings.json"
     ln -sfv $(pwd)/config/vscode/snippets/* "$HOME/Library/Application Support/Code/User/snippets/"
@@ -35,6 +36,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     mkdir -p $HOME/.config/Code/User
     mkdir -p $HOME/.config/Code/User/snippets
     mkdir -p $HOME/.omnisharp
+
+    ln -sfv $(pwd)/.myrootconf.sh ~/
 
     ln -sfv $(pwd)/config/vscode/settings.json $HOME/.config/Code/User/settings.json
     ln -sfv $(pwd)/config/vscode/keybindings.json $HOME/.config/Code/User/keybindings.json

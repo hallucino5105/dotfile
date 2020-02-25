@@ -49,13 +49,12 @@ set -x EDITOR "nvim -p"
 
 ### alias
 # common
-alias jq="jq -C"
-alias sudo="sudo -H -E"
+alias ls="ls -vG"
+alias ll="ls -lavG"
 alias vi="nvim -p"
 alias vim="nvim -p"
 alias mvim="mvim --remote-tab-silent"
 alias gvim="mvim --remote-tab-silent"
-alias rm="rm -i"
 
 # android
 alias installapp='find . -name *.apk | peco | xargs adb install -r'
