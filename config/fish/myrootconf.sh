@@ -1,0 +1,1 @@
+/Users/hoshino/dotfile/.myrootconf.sh

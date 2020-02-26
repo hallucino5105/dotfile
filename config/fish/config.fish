@@ -1,1 +1,1 @@
-/Users/hoshino/dotfile/.myrootconf.fish
+/Users/hoshino/dotfile/.fish/config.fish.mac

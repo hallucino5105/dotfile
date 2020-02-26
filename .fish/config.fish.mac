@@ -1,2 +1,2 @@
-bass source ~/.config/fish/myrootcons.sh
-bass source ~/.config/fish/profile_mac.sh
+bass source ~/.config/fish/myrootconf.sh 2> /dev/null
+bass source ~/.config/fish/profile_mac.sh 2> /dev/null

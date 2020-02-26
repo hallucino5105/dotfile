@@ -39,8 +39,8 @@ if [ $OS == "mac" ]; then
     ln -sfv $(pwd)/config/vscode/keybindings.json "$HOME/Library/Application Support/Code/User/keybindings.json"
     ln -sfv $(pwd)/config/vscode/snippets/* "$HOME/Library/Application Support/Code/User/snippets/"
 
-    ln -sfv $(pwd)/.fish/config.fish.mac $HOME/comfig.fish
-    ln -sfv $(pwd)/.profile_mac.sh $HOME/.config/fish/profile_mac.fish
+    ln -sfv $(pwd)/.fish/config.fish.mac $HOME/.config/fish/config.fish
+    ln -sfv $(pwd)/.profile_mac.sh $HOME/.config/fish/profile_mac.sh
 elif [ $OS == "linux" ]; then
     mkdir -p $HOME/.config/Code/User
     mkdir -p $HOME/.config/Code/User/snippets
@@ -49,7 +49,7 @@ elif [ $OS == "linux" ]; then
     ln -sfv $(pwd)/config/vscode/keybindings.json $HOME/.config/Code/User/keybindings.json
     ln -sfv $(pwd)/config/vscode/snippets/* $HOME/.config/Code/User/snippets/
 
-    ln -sfv $(pwd)/.fish/config.fish.nix $HOME/comfig.fish
+    ln -sfv $(pwd)/.fish/config.fish.nix $HOME/.config/fish/config.fish
     ln -sfv $(pwd)/.profile_nix.sh $HOME/.config/fish/profile_nix.sh
 
     ln -sfv $(pwd)/.myrootconf.sh $HOME/
