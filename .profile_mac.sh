@@ -44,18 +44,23 @@ alias uninstallapp='adb-peco shell pm list package | sed -e s/package:// | peco 
 
 ### env
 # python
-export PATH=$HOME/.pyenv/bin:$PATH
-eval "$(pyenv init -)"
+if [ -e $HOME/.pyenv ]; then
+    export PATH=$HOME/.pyenv/bin:$PATH
+    eval "$(pyenv init -)"
+fi
 
 # node
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init -)"
-export PATH="$HOME/.nodenv/versions/*/bin:$PATH"
+if [ -e $HOME/.nodenv ]; then
+    export PATH="$HOME/.nodenv/bin:$PATH"
+    eval "$(nodenv init -)"
+    export PATH="$HOME/.nodenv/versions/*/bin:$PATH"
+fi
 
 # go
-export PATH="$HOME/.goenv/bin:$PATH"
-export GOENV_DISABLE_GOPATH=1
-eval "$(goenv init -)"
-export GOPATH="$HOME/go"
-export PATH="$GOPATH/bin:$PATH"
-
+if [ -e $HOME/.goenv ]; then
+    export PATH="$HOME/.goenv/bin:$PATH"
+    export GOENV_DISABLE_GOPATH=1
+    eval "$(goenv init -)"
+    export GOPATH="$HOME/go"
+    export PATH="$GOPATH/bin:$PATH"
+fi
