@@ -2,3 +2,4 @@ config.fish
 myrootconf.sh
 profile_mac.sh
 profile_nix.sh
+fishd.*
