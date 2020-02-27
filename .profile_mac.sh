@@ -31,6 +31,7 @@ export EDITOR="nvim -p"
 ### alias
 # common
 alias ls="ls -vG"
+alias l="ls -lavG"
 alias ll="ls -lavG"
 alias vi="nvim -p"
 alias vim="nvim -p"

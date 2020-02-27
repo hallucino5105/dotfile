@@ -8,6 +8,7 @@ export PATH=/usr/local/bin:$PATH
 ### alias
 # common
 alias ls="ls -v --color"
+alias l="ls -lav --color"
 alias ll="ls -lav --color"
 alias vi="nvim -p"
 alias vim="nvim -p"

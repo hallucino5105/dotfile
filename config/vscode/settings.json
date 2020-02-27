@@ -101,6 +101,10 @@
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
 
+    // emmet
+    "emmet.showAbbreviationSuggestions": false,
+    "emmet.showExpandedAbbreviation": "never",
+
     // vim
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
