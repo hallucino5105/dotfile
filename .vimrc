@@ -612,60 +612,24 @@ if has("syntax")
 endif
 
 
-if has('mac')
+"if has('mac')
+"  autocmd ColorScheme * highlight Normal ctermbg=none
+"  autocmd ColorScheme * highlight LineNr ctermbg=none
+"  colorscheme darkblue
+"
+"  highlight Normal ctermbg=none
+"  highlight LineNr ctermbg=none
+"  highlight EndOfBuffer ctermbg=none
+if has('linux') || has('unix') || has('mac')
   set background=dark
-
-  "colorscheme badwolf
-  "highlight LineNr ctermfg=162
-
-  "colorscheme onedark
-  "highlight LineNr ctermfg=8
 
   autocmd ColorScheme * highlight Normal ctermbg=none
   autocmd ColorScheme * highlight LineNr ctermbg=none
-  colorscheme darkblue
+  colorscheme onedark
 
   highlight Normal ctermbg=none
   highlight LineNr ctermbg=none
   highlight EndOfBuffer ctermbg=none
-
-  "let g:solarized_termcolors=16
-  "let g:solarized_termtrans=0
-  "let g:solarized_degrade=0
-  "let g:solarized_bold=1
-  "let g:solarized_underline=1
-  "let g:solarized_italic=1
-  "let g:solarized_contrast='normal'
-  "let g:solarized_visibility='normal'
-  "colorscheme solarized
-
-  "colorscheme jellybeans 
-  "colorscheme molokai
-  "colorscheme peachpuff
-  "colorscheme slate
-  "colorscheme darkblue
-elseif has('linux') || has('unix')
-  set background=dark
-
-  "colorscheme badwolf
-  "highlight LineNr ctermfg=162
-
-  "colorscheme onedark
-  "highlight LineNr ctermfg=8
-
-  "colorscheme desert
-
-  autocmd ColorScheme * highlight Normal ctermbg=none
-  autocmd ColorScheme * highlight LineNr ctermbg=none
-  colorscheme darkblue
-
-  highlight Normal ctermbg=none
-  highlight LineNr ctermbg=none
-  highlight EndOfBuffer ctermbg=none
-
-  "colorscheme elflord
-  "colorscheme peachpuff
-  "colorscheme molokai
 elseif has('win32') || has('cygwin') || has("win32unix")
   colorscheme molokai
 endif

@@ -19,9 +19,6 @@ export LS_COLORS='no=00:fi=00:di=34:ow=34;40:ln=35:pi=30;44:so=35;44:do=35;44:bd
 
 
 ### alias
-alias l="ll"
-alias ls="ls -v --color"
-alias ll="ls -lav --color"
 alias lv="lv -c"
 alias rm="rm -i"
 alias less="less -csiSRXM"
