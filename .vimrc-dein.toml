@@ -55,11 +55,14 @@ depends = ['Shougo/unite.vim']
 ### colorscheme ###
 
 [[plugins]]
-repo = 'joshdick/onedark.vim'
+repo = 'cocopon/iceberg.vim'
 
 [[plugins]]
-repo = 'vim-scripts/badwolf'
+repo = 'joshdick/onedark.vim'
 
+#[[plugins]]
+#repo = 'vim-scripts/badwolf'
+#
 #[[plugins]]
 #repo = 'vim-scripts/Lucius'
 #
@@ -77,9 +80,6 @@ repo = 'vim-scripts/badwolf'
 #
 #[[plugins]]
 #repo = 'nanotech/jellybeans.vim'
-#
-#[[plugins]]
-#repo = 'cocopon/iceberg.vim'
 
 
 ### syntax ###

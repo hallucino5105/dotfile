@@ -92,24 +92,14 @@ let g:loaded_netrwPlugin       = 1
 let g:loaded_netrwSettings     = 1
 let g:loaded_netrwFileHandlers = 1
 
-" vimproc
-let ostype = system('uname')
-let archtype = system('uname -p')
-
-if ostype == "Darwin\n"
+if has('mac')
   let g:vimproc_dll_path = $HOME . '/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_mac.so'
-elseif ostype == "Linux\n"
-  if archtype == "x86_64\n"
-    let g:vimproc_dll_path = $HOME.'/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_linux64.so'
-  elseif archtype == "i386\n" || archtype == "i686\n"
-    let g:vimproc_dll_path = $HOME.'/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_linux32.so'
-  endif
-else
-  if has('win32')
-    let g:vimproc_dll_path = $HOME . '/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_win32.dll'
-  elseif has('win64')
-    let g:vimproc_dll_path = $HOME . '/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_win64.dll'
-  endif
+elseif has('linux') || has('unix')
+  let g:vimproc_dll_path = $HOME.'/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_linux64.so'
+elseif has('win32')
+  let g:vimproc_dll_path = $HOME . '/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_win32.dll'
+elseif has('win64')
+  let g:vimproc_dll_path = $HOME . '/.vim/dein/repos/github.com/Shougo/vimproc/lib/vimproc_win64.dll'
 endif
 
 let &directory=&backupdir
@@ -151,10 +141,6 @@ endif
 
 """" lightline
 let g:lightline = { 'colorscheme': 'one' }
-"let g:lightline = { 'colorscheme': 'seoul256' }
-"let g:lightline = { 'colorscheme': 'powerline' }
-"let g:lightline = { 'colorscheme': 'solarized' }
-"let g:lightline = { 'colorscheme': 'seoul256' }
 
 """ yankround
 nmap p <Plug>(yankround-p)
@@ -200,9 +186,7 @@ inoremap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
 inoremap <expr><Up> pumvisible() ? "\<C-y>\<Up>" : "\<Up>"
 inoremap <expr><Down> pumvisible() ? "\<C-y>\<Down>" : "\<Down>"
 inoremap <expr><C-h> pumvisible() ? "\<C-y>\<C-h>" : "\<C-h>"
-"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<BS>"
-"inoremap <expr><CR> neocomplcache#smart_close_popup()."\<CR>"
 " C-gで補完を元に戻す
 inoremap <expr><C-g> neocomplcache#undo_completion()
 " 補完候補のなかから、共通する部分を補完します
@@ -337,16 +321,12 @@ let g:EasyMotion_do_mapping = 1
 let g:EasyMotion_grouping = 1
 " smartcase
 let g:EasyMotion_smartcase = 1
-"" migemo
-"let g:EasyMotion_use_migemo = 1
 " カラー設定変更
 hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=blue
-"nmap s <Plug>(easymotion-s2)
 
 
 """ syntastic
-"let g:syntastic_python_checkers = ['pep8', 'pyflakes']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args='--max-line-length=200 --ignore="F4"'
 let g:syntastic_mode_map = {
@@ -387,8 +367,6 @@ endif
 let g:rooter_use_lcd = 1
 " files/directories for the root directory
 let g:rooter_patterns = ['tags', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', 'Makefile', 'GNUMakefile', 'GNUmakefile', '.svn/']
-" Automatically change the directory
-"autocmd! BufEnter *.c,*.cc,*.cxx,*.cpp,*.h,*.hh,*.java,*.py,*.sh,*.rb,*.html,*.css,*.js :Rooter
 
 
 """ quickhl
@@ -612,50 +590,16 @@ if has("syntax")
 endif
 
 
-if has('mac')
+if has('linux') || has('unix') || has('mac')
   set background=dark
 
-  "colorscheme badwolf
-  "highlight LineNr ctermfg=162
-
+  autocmd ColorScheme * highlight Normal ctermbg=none
+  autocmd ColorScheme * highlight LineNr ctermbg=none
   colorscheme onedark
-  highlight LineNr ctermfg=8
 
   highlight Normal ctermbg=none
   highlight LineNr ctermbg=none
   highlight EndOfBuffer ctermbg=none
-
-  "let g:solarized_termcolors=16
-  "let g:solarized_termtrans=0
-  "let g:solarized_degrade=0
-  "let g:solarized_bold=1
-  "let g:solarized_underline=1
-  "let g:solarized_italic=1
-  "let g:solarized_contrast='normal'
-  "let g:solarized_visibility='normal'
-  "colorscheme solarized
-
-  "colorscheme jellybeans 
-  "colorscheme molokai
-  "colorscheme peachpuff
-  "colorscheme slate
-  "colorscheme darkblue
-elseif has('linux') || has('unix')
-  set background=dark
-
-  "colorscheme badwolf
-  "highlight LineNr ctermfg=162
-
-  colorscheme onedark
-  highlight LineNr ctermfg=8
-
-  highlight Normal ctermbg=none
-  highlight LineNr ctermbg=none
-  highlight EndOfBuffer ctermbg=none
-
-  "colorscheme elflord
-  "colorscheme peachpuff
-  "colorscheme molokai
 elseif has('win32') || has('cygwin') || has("win32unix")
   colorscheme molokai
 endif
@@ -790,9 +734,6 @@ if has('gui_macvim') || has('kaoriya') || has('gvim')
     set lines=55 columns=180
   endif
 
-  "colorscheme wombat
-  "colorscheme lucius
-  "colorscheme darkeclipse
   colorscheme onedark
 endif
 

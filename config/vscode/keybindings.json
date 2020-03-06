@@ -1,0 +1,100 @@
+// 既定値を上書きするには、このファイル内にキー バインドを挿入しますauto[]
+[{
+    "key": "ctrl+shift+enter",
+    "command": "workbench.action.terminal.focus"
+  },
+  {
+    "key": "ctrl+shift+n",
+    "command": "workbench.action.terminal.focusNext"
+  },
+  {
+    "key": "ctrl+shift+b",
+    "command": "workbench.action.terminal.focusPrevious"
+  },
+  {
+    "key": "ctrl+shift+;",
+    "command": "workbench.action.focusFirstEditorGroup"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "cursorUp",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+p",
+    "command": "workbench.action.quickOpenNavigateNext",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+alt+p",
+    "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "cursorDown",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+n",
+    "command": "workbench.action.files.newUntitledFile"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "cursorPageDown",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+f",
+    "command": "defaultSettings.action.focusSearch",
+    "when": "defaultSettingsEditor"
+  },
+  {
+    "key": "ctrl+alt+f",
+    "command": "actions.find"
+  },
+  {
+    "key": "ctrl+b",
+    "command": "cursorPageUp",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+b",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "ctrl+a",
+    "command": "cursorHome",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+a",
+    "command": "editor.action.selectAll"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "cursorEnd",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+e",
+    "command": "workbench.action.quickOpenNavigateNext",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+alt+e",
+    "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "ctrl+k ctrl+k",
+    "command": "deleteAllRight",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+alt+[",
+    "command": "workbench.action.previousEditor"
+  },
+  {
+    "key": "shift+alt+]",
+    "command": "workbench.action.nextEditor"
+  }
+]
