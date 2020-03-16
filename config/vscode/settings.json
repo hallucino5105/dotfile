@@ -207,7 +207,6 @@
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
     "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
     "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
 
     // lang
     "[c]": {
@@ -236,4 +235,5 @@
     "breadcrumbs.enabled": true,
     "codic.ACCESS_TOKEN": "Royo0sISs0ZPorFHMyCHxrUcwCOCgTYzr6",
     "codic.case": "snake_case",
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
 }
