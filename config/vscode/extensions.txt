@@ -1,3 +1,4 @@
+adelphes.android-dev-ext
 akamud.vscode-theme-onedark
 AndrsDC.base16-themes
 anseki.vscode-color
@@ -22,17 +23,19 @@ kleber-swf.unity-code-snippets
 mechatroner.rainbow-csv
 monokai.theme-monokai-pro-vscode
 MS-CEINTL.vscode-language-pack-ja
+ms-dotnettools.csharp
 ms-python.python
 ms-vscode.cpptools
-ms-vscode.csharp
 ms-vscode.Go
 msjsdiag.debugger-for-chrome
 naumovs.color-highlight
 oderwat.indent-rainbow
+pizzacat83.codic
 PKief.material-icon-theme
 Rubymaniac.vscode-direnv
 sdras.night-owl
 shardulm94.trailing-spaces
+shd101wyy.markdown-preview-enhanced
 SirTobi.code-clip-ring
 teabyii.ayu
 Tobiah.unity-tools
