@@ -49,7 +49,7 @@
     "editor.renderLineHighlight": "all",
     "editor.renderControlCharacters": true,
     "editor.cursorBlinking": "smooth",
-    "editor.autoIndent": true,
+    "editor.autoIndent": "advanced",
     "editor.suggestSelection": "first",
     "editor.quickSuggestionsDelay": 200,
     "editor.quickSuggestions": {
@@ -76,8 +76,9 @@
         "**/__pycache__/**": true,
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
-        "**/node_modules/*/**": true,
         "**/.svn/**": true,
+        "**/backend/**": true,
+        "**/node_modules/*/**": true
     },
 
     // search
@@ -236,4 +237,6 @@
     "codic.ACCESS_TOKEN": "Royo0sISs0ZPorFHMyCHxrUcwCOCgTYzr6",
     "codic.case": "snake_case",
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+    "omnisharp.useGlobalMono": "always",
+    "omnisharp.monoPath": "/usr/local/Cellar/mono/6.8.0.105",
 }
