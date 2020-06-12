@@ -239,4 +239,5 @@
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
     "omnisharp.useGlobalMono": "always",
     "omnisharp.monoPath": "/usr/local/Cellar/mono/6.8.0.105",
+    "extensions.ignoreRecommendations": false,
 }
