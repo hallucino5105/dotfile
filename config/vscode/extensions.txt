@@ -16,6 +16,9 @@ esbenp.prettier-vscode
 fisheva.eva-theme
 formulahendry.auto-close-tag
 formulahendry.auto-rename-tag
+GitHub.github-vscode-theme
+golang.go
+hediet.vscode-drawio
 HookyQR.beautify
 ionutvmi.path-autocomplete
 jolaleye.horizon-theme-vscode
@@ -26,12 +29,13 @@ MS-CEINTL.vscode-language-pack-ja
 ms-dotnettools.csharp
 ms-python.python
 ms-vscode.cpptools
-ms-vscode.Go
 msjsdiag.debugger-for-chrome
 naumovs.color-highlight
+nickdemayo.vscode-json-editor
 oderwat.indent-rainbow
 pizzacat83.codic
 PKief.material-icon-theme
+quicktype.quicktype
 Rubymaniac.vscode-direnv
 sdras.night-owl
 shardulm94.trailing-spaces
