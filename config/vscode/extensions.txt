@@ -1,17 +1,11 @@
 adelphes.android-dev-ext
 akamud.vscode-theme-onedark
-AndrsDC.base16-themes
 anseki.vscode-color
-arcticicestudio.nord-visual-studio-code
 azemoh.one-monokai
-be5invis.theme-verdandi
-cesium.gltf-vscode
 chrmarti.regex
 CoenraadS.bracket-pair-colorizer
-daylerees.rainglow
 Equinusocio.vsc-community-material-theme
 Equinusocio.vsc-material-theme
-equinusocio.vsc-material-theme-icons
 esbenp.prettier-vscode
 fisheva.eva-theme
 formulahendry.auto-close-tag
@@ -21,10 +15,8 @@ golang.go
 hediet.vscode-drawio
 HookyQR.beautify
 ionutvmi.path-autocomplete
-jolaleye.horizon-theme-vscode
 kleber-swf.unity-code-snippets
 mechatroner.rainbow-csv
-monokai.theme-monokai-pro-vscode
 MS-CEINTL.vscode-language-pack-ja
 ms-dotnettools.csharp
 ms-python.python
@@ -33,7 +25,6 @@ msjsdiag.debugger-for-chrome
 naumovs.color-highlight
 nickdemayo.vscode-json-editor
 oderwat.indent-rainbow
-pizzacat83.codic
 PKief.material-icon-theme
 quicktype.quicktype
 Rubymaniac.vscode-direnv
@@ -46,5 +37,3 @@ Tobiah.unity-tools
 Unity.unity-debug
 VisualStudioExptTeam.vscodeintellicode
 vscodevim.vim
-wesbos.theme-cobalt2
-whizkydee.material-palenight-theme
