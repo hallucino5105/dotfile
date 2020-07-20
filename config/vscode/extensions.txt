@@ -1,5 +1,6 @@
 adelphes.android-dev-ext
 akamud.vscode-theme-onedark
+alefragnani.Bookmarks
 anseki.vscode-color
 azemoh.one-monokai
 chrmarti.regex
@@ -14,6 +15,7 @@ GitHub.github-vscode-theme
 golang.go
 hediet.vscode-drawio
 HookyQR.beautify
+IBM.output-colorizer
 ionutvmi.path-autocomplete
 kleber-swf.unity-code-snippets
 mechatroner.rainbow-csv
@@ -32,6 +34,7 @@ PKief.material-icon-theme
 quicktype.quicktype
 Rubymaniac.vscode-direnv
 sdras.night-owl
+Shan.code-settings-sync
 shardulm94.trailing-spaces
 shd101wyy.markdown-preview-enhanced
 SirTobi.code-clip-ring
