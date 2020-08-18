@@ -364,7 +364,8 @@ endif
 
 """" vim-rooter
 " Change only current window's directory
-let g:rooter_use_lcd = 1
+" let g:rooter_use_lcd = 1
+let g:rooter_cd_cmd = "lcd"
 " files/directories for the root directory
 let g:rooter_patterns = ['tags', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', 'Makefile', 'GNUMakefile', 'GNUmakefile', '.svn/']
 
