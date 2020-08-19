@@ -200,7 +200,7 @@ let g:neocomplcache_omni_patterns.python = ''
 let g:neocomplcache_omni_patterns.ruby = ''
 let g:neocomplcache_omni_patterns.html = ''
 
-
+" 
 """ neosnippet
 let g:neosnippet#snippets_directory='~/dotfile/.vim/snippets/'
 
@@ -303,7 +303,7 @@ call unite#custom_default_action('file_rec/async,file_mru,file,buffer,grep' , 't
 """ deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 1
-let g:deoplete#enable_smart_case = 1
+"let g:deoplete#enable_smart_case = 1 "廃止
 
 
 """ vimfiler
@@ -364,7 +364,7 @@ endif
 
 """" vim-rooter
 " Change only current window's directory
-let g:rooter_use_lcd = 1
+let g:rooter_cd_cmd = 'lcd'
 " files/directories for the root directory
 let g:rooter_patterns = ['tags', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', 'Makefile', 'GNUMakefile', 'GNUmakefile', '.svn/']
 
@@ -596,6 +596,8 @@ if has('linux') || has('unix') || has('mac')
   autocmd ColorScheme * highlight Normal ctermbg=none
   autocmd ColorScheme * highlight LineNr ctermbg=none
   colorscheme onedark
+  "colorscheme badwolf
+  "colorscheme iceberg
 
   highlight Normal ctermbg=none
   highlight LineNr ctermbg=none

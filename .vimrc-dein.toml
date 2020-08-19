@@ -60,9 +60,9 @@ repo = 'cocopon/iceberg.vim'
 [[plugins]]
 repo = 'joshdick/onedark.vim'
 
-#[[plugins]]
-#repo = 'vim-scripts/badwolf'
-#
+[[plugins]]
+repo = 'vim-scripts/badwolf'
+
 #[[plugins]]
 #repo = 'vim-scripts/Lucius'
 #
