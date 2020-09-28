@@ -195,7 +195,7 @@ repo = 'majutsushi/tagbar'
 repo = 'vim-scripts/gitv'
 
 #[[plugins]]
-repo = 'kshenoy/vim-signature'
+#repo = 'kshenoy/vim-signature'
 
 [[plugins]]
 repo = 'sjl/gundo.vim.git'
