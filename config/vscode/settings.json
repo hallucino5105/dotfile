@@ -236,4 +236,5 @@
     "breadcrumbs.enabled": true,
     "codic.ACCESS_TOKEN": "Royo0sISs0ZPorFHMyCHxrUcwCOCgTYzr6",
     "codic.case": "snake_case",
+    "python.languageServer": "Microsoft",
 }
