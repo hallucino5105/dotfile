@@ -26,6 +26,7 @@ export FZF_DEFAULT_OPTS="--extended --cycle --reverse --ansi --select-1 --exit-0
 
 # misc
 export EDITOR="nvim -p"
+export PAGER="less -csSXMi"
 
 
 ### alias
@@ -37,6 +38,7 @@ alias vi="nvim -p"
 alias vim="nvim -p"
 alias mvim="mvim --remote-tab-silent"
 alias gvim="mvim --remote-tab-silent"
+alias mysql="mysql --pager='less -csiSFXM'"
 
 # android
 alias installapp='find . -name *.apk | peco | xargs adb install -r'

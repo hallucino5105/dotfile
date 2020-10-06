@@ -2,7 +2,9 @@
 
 ### export
 # common
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:$HOME/.fzf/bin:$PATH
+export DISPLAY=192.168.1.10:0.0
+export LIBGL_ALWAYS_INDIRECT=1
 
 
 ### alias
