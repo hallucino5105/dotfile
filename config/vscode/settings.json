@@ -250,6 +250,5 @@
     "remote.SSH.remotePlatform": {
         "vm": "linux"
     },
-    "hediet.vscode-drawio.offline": false,
     "editor.fontSize": 12.5,
 }
