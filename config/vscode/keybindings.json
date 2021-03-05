@@ -96,5 +96,45 @@
   {
     "key": "shift+alt+]",
     "command": "workbench.action.nextEditor"
+  },
+  {
+    "key": "shift+cmd+.",
+    "command": "-breadcrumbs.toggleToOn",
+    "when": "!config.breadcrumbs.enabled"
+  },
+  {
+    "key": "shift+cmd+.",
+    "command": "-breadcrumbs.focusAndSelect",
+    "when": "breadcrumbsPossible"
+  },
+  {
+    "key": "shift+cmd+.",
+    "command": "-editor.action.inPlaceReplace.down",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+.",
+    "command": "breadcrumbs.focusAndSelect",
+    "when": "breadcrumbsPossible"
+  },
+  {
+    "key": "shift+alt+.",
+    "command": "editor.action.inPlaceReplace.down",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+.",
+    "command": "breadcrumbs.toggleToOn",
+    "when": "!config.breadcrumbs.enabled"
+  },
+  {
+    "key": "shift+cmd+.",
+    "command": "editor.action.formatDocument",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+  },
+  {
+    "key": "shift+alt+f",
+    "command": "-editor.action.formatDocument",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
   }
 ]

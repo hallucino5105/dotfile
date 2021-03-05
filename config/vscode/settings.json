@@ -29,13 +29,9 @@
     "window.openFilesInNewWindow": "off",
     "window.openFoldersInNewWindow": "off",
     "window.newWindowDimensions": "default",
-    "window.zoomLevel": 0,
 
     // keyboard
     "keyboard.dispatch": "keyCode",
-
-    // editor
-    "editor.tabSize": 2,
     "editor.fontFamily": "Source Code Pro, 源ノ角ゴシック JP, Menlo, Monaco, 'Courier New', monospace",
     "editor.wordWrap": "off",
     "editor.codeLens": false,
@@ -69,7 +65,7 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": false,
-    "files.eol": "auto",
+    "files.eol": "\n",
     "files.watcherExclude": {
         "**/__pycache__/**": true,
         "**/.git/objects/**": true,
@@ -252,4 +248,6 @@
     "editor.fontSize": 12.5,
     "workbench.colorTheme": "Community Material Theme Darker High Contrast",
     "workbench.preferredHighContrastColorTheme": "Default Dark+",
+    "gitlens.defaultDateFormat": null,
+    "gitlens.hovers.currentLine.over": "line",
 }
