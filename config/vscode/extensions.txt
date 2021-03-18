@@ -1,3 +1,4 @@
+abechanta.vscode-ext-paged-media
 adelphes.android-dev-ext
 akamud.vscode-theme-onedark
 alefragnani.Bookmarks
@@ -5,6 +6,7 @@ anseki.vscode-color
 azemoh.one-monokai
 chrmarti.regex
 CoenraadS.bracket-pair-colorizer
+donjayamanne.githistory
 Equinusocio.vsc-community-material-theme
 Equinusocio.vsc-material-theme
 esbenp.prettier-vscode
@@ -13,15 +15,20 @@ formulahendry.auto-close-tag
 formulahendry.auto-rename-tag
 GitHub.github-vscode-theme
 golang.go
+HaaLeo.timing
 hediet.vscode-drawio
 HookyQR.beautify
 IBM.output-colorizer
 ionutvmi.path-autocomplete
 kleber-swf.unity-code-snippets
+litefeel.shaderlabformatter
 mechatroner.rainbow-csv
+mhutchie.git-graph
+ms-azuretools.vscode-docker
 MS-CEINTL.vscode-language-pack-ja
 ms-dotnettools.csharp
 ms-python.python
+ms-toolsai.jupyter
 ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
@@ -38,6 +45,7 @@ Shan.code-settings-sync
 shardulm94.trailing-spaces
 shd101wyy.markdown-preview-enhanced
 SirTobi.code-clip-ring
+slevesque.shader
 teabyii.ayu
 Tobiah.unity-tools
 Unity.unity-debug

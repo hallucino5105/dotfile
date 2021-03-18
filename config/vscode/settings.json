@@ -218,7 +218,7 @@
         "editor.defaultFormatter": "HookyQR.beautify"
     },
 
-    // additional items
+    // extend items
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "clipring.maxRingItems": 10,
     "[json]": {
@@ -250,4 +250,5 @@
     "workbench.preferredHighContrastColorTheme": "Default Dark+",
     "gitlens.defaultDateFormat": null,
     "gitlens.hovers.currentLine.over": "line",
+    "files.autoSave": "afterDelay",
 }
