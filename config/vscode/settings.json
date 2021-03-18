@@ -251,4 +251,5 @@
     "gitlens.defaultDateFormat": null,
     "gitlens.hovers.currentLine.over": "line",
     "files.autoSave": "afterDelay",
+    "android-dev-ext.appSourceRoot": "",
 }
