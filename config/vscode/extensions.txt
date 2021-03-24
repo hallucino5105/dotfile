@@ -46,7 +46,6 @@ quicktype.quicktype
 redhat.java
 Rubymaniac.vscode-direnv
 sdras.night-owl
-Shan.code-settings-sync
 shardulm94.trailing-spaces
 shd101wyy.markdown-preview-enhanced
 SirTobi.code-clip-ring

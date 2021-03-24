@@ -234,9 +234,10 @@
     "hediet.vscode-drawio.codeLinkActivated": true,
     "hediet.vscode-drawio.theme": "Kennedy",
 
-    // setting sync
-    "sync.autoUpload": true,
-    "sync.gist": "1838d4afc57b51ee9f0b510e7cfa04bc",
+    //// setting sync
+    //"sync.autoUpload": true,
+    //"sync.quietSync": true,
+    //"sync.gist": "1838d4afc57b51ee9f0b510e7cfa04bc",
 
     // omnisharp
     "omnisharp.useGlobalMono": "always",
