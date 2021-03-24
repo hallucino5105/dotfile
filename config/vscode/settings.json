@@ -1,8 +1,14 @@
 {
+    // general
+    "breadcrumbs.enabled": true,
+    "extensions.ignoreRecommendations": false,
+    "remote.SSH.remotePlatform": {
+        "vm": "linux"
+    },
+
+    // debug
     "debug.inlineValues": true,
-    "scm.alwaysShowProviders": true,
-    "npm.enableScriptExplorer": true,
-    "workbench.iconTheme": "material-icon-theme",
+    "debug.console.fontFamily": "Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
 
     // explorer
     "explorer.openEditors.visible": 5,
@@ -18,12 +24,14 @@
     "workbench.editor.tabSizing": "shrink",
     "workbench.editor.tabCloseButton": "off",
     "workbench.editor.openPositioning": "last",
+    "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "none",
     "workbench.activityBar.visible": true,
     "workbench.editor.labelFormat": "short",
-    "workbench.statusBar.feedback.visible": false,
     "workbench.sideBar.location": "left",
     "workbench.editor.enablePreview": false,
+    "workbench.colorTheme": "Community Material Theme Darker High Contrast",
+    "workbench.preferredHighContrastColorTheme": "Default Dark+",
 
     // window
     "window.openFilesInNewWindow": "off",
@@ -32,6 +40,9 @@
 
     // keyboard
     "keyboard.dispatch": "keyCode",
+
+    // editor
+    "editor.fontSize": 12.5,
     "editor.fontFamily": "Source Code Pro, 源ノ角ゴシック JP, Menlo, Monaco, 'Courier New', monospace",
     "editor.wordWrap": "off",
     "editor.codeLens": false,
@@ -59,6 +70,7 @@
     // terminal
     "terminal.integrated.fontSize": 11,
     "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.rendererType": "experimentalWebgl",
 
     // files
     "files.autoGuessEncoding": true,
@@ -66,6 +78,7 @@
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": false,
     "files.eol": "\n",
+    "files.autoSave": "afterDelay",
     "files.watcherExclude": {
         "**/__pycache__/**": true,
         "**/.git/objects/**": true,
@@ -73,6 +86,12 @@
         "**/.svn/**": true,
         "**/backend/**": true,
         "**/node_modules/*/**": true
+    },
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
     },
 
     // search
@@ -109,11 +128,9 @@
     "vim.incsearch": true,
     "vim.easymotion": true,
     "vim.sneak": true,
-    "vim.easymotionMarkerFontFamily": "Cica",
-    "vim.easymotionMarkerFontSize": "13",
     "vim.easymotionMarkerFontWeight": "normal",
     "vim.easymotionMarkerForegroundColorOneChar": "rgba(0, 240, 170, 0.9)",
-    "vim.easymotionMarkerForegroundColorTwoChar": "rgba(0, 240, 170, 0.9)",
+    "vim.easymotionMarkerForegroundColorTwoCharFirst": "rgba(0, 240, 170, 0.9)",
     "vim.easymotionMarkerBackgroundColor": "rgba(10, 10, 10, 0.75)",
     "vim.leader": "<space>",
     "vim.handleKeys": {
@@ -157,10 +174,8 @@
     "go.docsTool": "gogetdoc",
     "go.formatTool": "goimports",
     "go.autocompleteUnimportedPackages": true,
-    "go.languageServerExperimentalFeatures": {
-        "format": true,
-        "autoComplete": true
-    },
+    "go.useLanguageServer": true,
+    "go.toolsManagement.checkForUpdates": "off",
     "gopls": {
         "completeUnimported": true
     },
@@ -174,7 +189,7 @@
     "css.lint.idSelector": "error",
 
     // python
-    "python.jediEnabled": false,
+    "python.languageServer": "Microsoft",
     "python.venvPath": "~/.pyenv",
     "python.venvFolders": [
         "envs",
@@ -184,35 +199,58 @@
     ],
 
     // markdown
+    "[markdown]": {
+        "editor.quickSuggestions": true,
+        "editor.quickSuggestionsDelay": 200,
+    },
     "markdown.preview.breaks": true,
-    //"javascript.format.insertSpaceAfterCommaDelimiter": false,
-    //"javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
-    //"javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-    //"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
-    //"javascript.format.insertSpaceAfterSemicolonInForStatements": false,
-    //"javascript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
-    //"typescript.format.insertSpaceAfterCommaDelimiter": false,
-    //"typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-    //"typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
-    //"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
-    //"typescript.format.insertSpaceAfterSemicolonInForStatements": false,
-    //"typescript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
     "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
     "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
     "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
     "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
 
-    // lang
+    // dart
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            0
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": false,
+    },
+    "dart.lineLength": 150,
+
+    // html
+    "html.format.wrapLineLength": 0,
+
+    // drawio
+    "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWw7YmFzaWM7YXJyb3dzMjtmbG93Y2hhcnQ7dW1sO25ldHdvcms7cmFjaztjYWJpbmV0c1wiLFwiY3VzdG9tTGlicmFyaWVzXCI6W1wiTC5zY3JhdGNocGFkXCJdLFwicGx1Z2luc1wiOltdLFwicmVjZW50Q29sb3JzXCI6W1wiQURBREFEXCIsXCI1NzU3NTdcIixcIjBEMEQwRFwiLFwiRjdGN0Y3XCIsXCJFREVERURcIixcIkZGRkZGRlwiLFwiNEQ0RDREXCIsXCJDQ0NDQ0NcIixcIjA4MDgwOFwiLFwiRjAxMTExXCJdLFwiZm9ybWF0V2lkdGhcIjoyNDAsXCJjcmVhdGVUYXJnZXRcIjpmYWxzZSxcInBhZ2VGb3JtYXRcIjp7XCJ4XCI6MCxcInlcIjowLFwid2lkdGhcIjo1MDAwLFwiaGVpZ2h0XCI6MjUwMH0sXCJzZWFyY2hcIjp0cnVlLFwic2hvd1N0YXJ0U2NyZWVuXCI6dHJ1ZSxcImdyaWRDb2xvclwiOlwiI0Y3RjdGN1wiLFwiZGFya0dyaWRDb2xvclwiOlwiIzZlNmU2ZVwiLFwiYXV0b3NhdmVcIjp0cnVlLFwicmVzaXplSW1hZ2VzXCI6bnVsbCxcIm9wZW5Db3VudGVyXCI6MCxcInZlcnNpb25cIjoxOCxcInVuaXRcIjoxLFwiaXNSdWxlck9uXCI6ZmFsc2UsXCJ1aVwiOlwiXCJ9In0=",
+    "hediet.vscode-drawio.codeLinkActivated": true,
+    "hediet.vscode-drawio.theme": "Kennedy",
+
+    // setting sync
+    "sync.autoUpload": true,
+    "sync.gist": "1838d4afc57b51ee9f0b510e7cfa04bc",
+
+    // omnisharp
+    "omnisharp.useGlobalMono": "always",
+    "omnisharp.monoPath": "/usr/local/Cellar/mono/6.8.0.105",
+
+    // misc language
     "[c]": {
         "editor.insertSpaces": false,
     },
     "[cpp]": {
         "editor.insertSpaces": false,
     },
-    "[markdown]": {
-        "editor.quickSuggestions": true,
-        "editor.quickSuggestionsDelay": 200,
+    "[json]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
     },
     "[jsonc]": {
         "editor.defaultFormatter": "HookyQR.beautify"
@@ -221,35 +259,5 @@
     // extend items
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "clipring.maxRingItems": 10,
-    "[json]": {
-        "editor.defaultFormatter": "HookyQR.beautify"
-    },
-    "terminal.integrated.rendererType": "experimentalWebgl",
-    "debug.console.fontFamily": "Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
-    "go.useLanguageServer": true,
-    "breadcrumbs.enabled": true,
-    "codic.ACCESS_TOKEN": "Royo0sISs0ZPorFHMyCHxrUcwCOCgTYzr6",
-    "codic.case": "snake_case",
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
-    "omnisharp.useGlobalMono": "always",
-    "omnisharp.monoPath": "/usr/local/Cellar/mono/6.8.0.105",
-    "extensions.ignoreRecommendations": false,
-    "python.languageServer": "Microsoft",
-    "go.useGoProxyToCheckForToolUpdates": false,
-    "vscode-json-editor.theme": "dark",
-    "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWw7YmFzaWM7YXJyb3dzMjtmbG93Y2hhcnQ7dW1sO25ldHdvcms7cmFjaztjYWJpbmV0c1wiLFwiY3VzdG9tTGlicmFyaWVzXCI6W1wiTC5zY3JhdGNocGFkXCJdLFwicGx1Z2luc1wiOltdLFwicmVjZW50Q29sb3JzXCI6W1wiQURBREFEXCIsXCI1NzU3NTdcIixcIjBEMEQwRFwiLFwiRjdGN0Y3XCIsXCJFREVERURcIixcIkZGRkZGRlwiLFwiNEQ0RDREXCIsXCJDQ0NDQ0NcIixcIjA4MDgwOFwiLFwiRjAxMTExXCJdLFwiZm9ybWF0V2lkdGhcIjoyNDAsXCJjcmVhdGVUYXJnZXRcIjpmYWxzZSxcInBhZ2VGb3JtYXRcIjp7XCJ4XCI6MCxcInlcIjowLFwid2lkdGhcIjo1MDAwLFwiaGVpZ2h0XCI6MjUwMH0sXCJzZWFyY2hcIjp0cnVlLFwic2hvd1N0YXJ0U2NyZWVuXCI6dHJ1ZSxcImdyaWRDb2xvclwiOlwiI0Y3RjdGN1wiLFwiZGFya0dyaWRDb2xvclwiOlwiIzZlNmU2ZVwiLFwiYXV0b3NhdmVcIjp0cnVlLFwicmVzaXplSW1hZ2VzXCI6bnVsbCxcIm9wZW5Db3VudGVyXCI6MCxcInZlcnNpb25cIjoxOCxcInVuaXRcIjoxLFwiaXNSdWxlck9uXCI6ZmFsc2UsXCJ1aVwiOlwiXCJ9In0=",
-    "sync.autoUpload": true,
-    "sync.gist": "1838d4afc57b51ee9f0b510e7cfa04bc",
-    "hediet.vscode-drawio.codeLinkActivated": true,
-    "hediet.vscode-drawio.theme": "Kennedy",
-    "remote.SSH.remotePlatform": {
-        "vm": "linux"
-    },
-    "editor.fontSize": 12.5,
-    "workbench.colorTheme": "Community Material Theme Darker High Contrast",
-    "workbench.preferredHighContrastColorTheme": "Default Dark+",
-    "gitlens.defaultDateFormat": null,
-    "gitlens.hovers.currentLine.over": "line",
-    "files.autoSave": "afterDelay",
     "android-dev-ext.appSourceRoot": "",
 }

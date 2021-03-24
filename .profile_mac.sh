@@ -11,15 +11,17 @@ export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # java
-export JAVA_HOME=`/usr/libexec/java_home -v "11"`
+#export JAVA_HOME=/usr/local/opt/openjdk/libexec/openjdk.jdk/Contents/Home
+#export JAVA_HOME=`/usr/libexec/java_home -v "11"`
+export JAVA_HOME=`/usr/libexec/java_home -v "1.8"`
 export _JAVA_OPTIONS="-Dfile.encoding=UTF-8"
-export PATH=$JAVA_HOMEg/bin:$PATH
+export PATH=$JAVA_HOME/bin:$PATH
 
 # android
 export ANDROID_SDK_ROOT=/Volumes/subvol2/android-sdk
-export ANDROID_SDK_HOME=$ANDROID_SDK_ROOTg
-export ANDROID_HOME=$ANDROID_SDK_ROOTg
-export PATH=$ANDROID_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+export ANDROID_HOME=$ANDROID_SDK_ROOT
+export ANDROID_SDK_HOME=$ANDROID_SDK_ROOT
+export PATH=$ANDROID_SDK_ROOT/bin:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
 
 # fzf
 export FZF_DEFAULT_OPTS="--extended --cycle --reverse --ansi --select-1 --exit-0 --multi"
