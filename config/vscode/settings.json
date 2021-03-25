@@ -24,7 +24,7 @@
     "workbench.editor.tabSizing": "shrink",
     "workbench.editor.tabCloseButton": "off",
     "workbench.editor.openPositioning": "last",
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.iconTheme": "eq-material-theme-icons",
     "workbench.startupEditor": "none",
     "workbench.activityBar.visible": true,
     "workbench.editor.labelFormat": "short",
