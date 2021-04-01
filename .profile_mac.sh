@@ -41,6 +41,7 @@ alias vim="nvim -p"
 alias mvim="mvim --remote-tab-silent"
 alias gvim="mvim --remote-tab-silent"
 alias mysql="mysql --pager='less -csiSFXM'"
+alias brew="PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin /usr/local/bin/brew"
 
 # android
 alias installapp='find . -name *.apk | peco | xargs adb install -r'

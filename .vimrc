@@ -600,7 +600,7 @@ if has('linux') || has('unix') || has('mac')
   "colorscheme badwolf
   "colorscheme iceberg
 
-  highlight LineNr ctermfg=2 ctermbg=none
+  highlight LineNr ctermfg=10 ctermbg=none
   "highlight LineNr ctermbg=none
   highlight Normal ctermbg=none
   highlight EndOfBuffer ctermbg=none
