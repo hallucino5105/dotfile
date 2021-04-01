@@ -595,12 +595,14 @@ if has('linux') || has('unix') || has('mac')
 
   autocmd ColorScheme * highlight Normal ctermbg=none
   autocmd ColorScheme * highlight LineNr ctermbg=none
-  colorscheme onedark
+  colorscheme jellybeans
+  "colorscheme onedark
   "colorscheme badwolf
   "colorscheme iceberg
 
+  highlight LineNr ctermfg=2 ctermbg=none
+  "highlight LineNr ctermbg=none
   highlight Normal ctermbg=none
-  highlight LineNr ctermbg=none
   highlight EndOfBuffer ctermbg=none
 elseif has('win32') || has('cygwin') || has("win32unix")
   colorscheme molokai

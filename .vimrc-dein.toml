@@ -63,6 +63,12 @@ repo = 'joshdick/onedark.vim'
 [[plugins]]
 repo = 'vim-scripts/badwolf'
 
+[[plugins]]
+repo = 'vim-scripts/molokai'
+
+[[plugins]]
+repo = 'nanotech/jellybeans.vim'
+
 #[[plugins]]
 #repo = 'vim-scripts/Lucius'
 #
@@ -70,16 +76,10 @@ repo = 'vim-scripts/badwolf'
 #repo = 'vim-scripts/Zenburn'
 #
 #[[plugins]]
-#repo = 'vim-scripts/molokai'
-#
-#[[plugins]]
 #repo = 'yuroyoro/yuroyoro256.vim'
 #
 #[[plugins]]
 #repo = 'altercation/vim-colors-solarized'
-#
-#[[plugins]]
-#repo = 'nanotech/jellybeans.vim'
 
 
 ### syntax ###
