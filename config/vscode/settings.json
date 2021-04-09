@@ -261,4 +261,11 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "clipring.maxRingItems": 10,
     "android-dev-ext.appSourceRoot": "",
+    "go.toolsManagement.autoUpdate": true,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
 }
