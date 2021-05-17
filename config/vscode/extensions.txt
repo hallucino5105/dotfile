@@ -48,6 +48,7 @@ PKief.material-icon-theme
 quicktype.quicktype
 redhat.java
 Rubymaniac.vscode-direnv
+ryu1kn.partial-diff
 sdras.night-owl
 shardulm94.trailing-spaces
 shd101wyy.markdown-preview-enhanced
