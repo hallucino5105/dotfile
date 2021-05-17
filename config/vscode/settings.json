@@ -78,7 +78,7 @@
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": false,
     "files.eol": "\n",
-    "files.autoSave": false,
+    "files.autoSave": "off",
     "files.watcherExclude": {
         "**/__pycache__/**": true,
         "**/.git/objects/**": true,
