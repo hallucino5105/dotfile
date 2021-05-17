@@ -30,7 +30,7 @@
     "workbench.editor.labelFormat": "short",
     "workbench.sideBar.location": "left",
     "workbench.editor.enablePreview": false,
-    "workbench.colorTheme": "Community Material Theme Darker High Contrast",
+    "workbench.colorTheme": "Community Material Theme Darker",
     "workbench.preferredHighContrastColorTheme": "Default Dark+",
 
     // window
@@ -78,7 +78,6 @@
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": false,
     "files.eol": "\n",
-    "files.autoSave": "afterDelay",
     "files.watcherExclude": {
         "**/__pycache__/**": true,
         "**/.git/objects/**": true,
@@ -267,5 +266,14 @@
             "viewType": "jupyter.notebook.ipynb",
             "filenamePattern": "*.ipynb"
         }
+    ],
+    "terminal.integrated.tabs.enabled": true,
+    "indentRainbow.errorColor": "rgba(128,32,32,0.1)",
+    "indentRainbow.tabmixColor": "rgba(128,32,96,0.1)",
+    "indentRainbow.colors": [
+        "rgba(255,255,64,0.03)",
+        "rgba(127,255,127,0.03)",
+        "rgba(255,127,255,0.03)",
+        "rgba(79,236,236,0.03)"
     ],
 }

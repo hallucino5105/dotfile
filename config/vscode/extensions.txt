@@ -8,6 +8,7 @@ CoenraadS.bracket-pair-colorizer
 Dart-Code.dart-code
 Dart-Code.flutter
 donjayamanne.githistory
+EditorConfig.EditorConfig
 Equinusocio.vsc-community-material-theme
 Equinusocio.vsc-material-theme
 equinusocio.vsc-material-theme-icons
@@ -22,6 +23,7 @@ hediet.vscode-drawio
 HookyQR.beautify
 IBM.output-colorizer
 ionutvmi.path-autocomplete
+jwoelper.theme-miami
 kleber-swf.unity-code-snippets
 litefeel.shaderlabformatter
 mathiasfrohlich.Kotlin
@@ -31,6 +33,7 @@ ms-azuretools.vscode-docker
 MS-CEINTL.vscode-language-pack-ja
 ms-dotnettools.csharp
 ms-python.python
+ms-python.vscode-pylance
 ms-toolsai.jupyter
 ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-ssh
