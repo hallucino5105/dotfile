@@ -32,6 +32,12 @@
     "workbench.editor.enablePreview": false,
     "workbench.colorTheme": "Community Material Theme Darker",
     "workbench.preferredHighContrastColorTheme": "Default Dark+",
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
 
     // window
     "window.openFilesInNewWindow": "off",
@@ -70,7 +76,7 @@
     // terminal
     "terminal.integrated.fontSize": 11,
     "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.rendererType": "experimentalWebgl",
+    "terminal.integrated.tabs.enabled": true,
 
     // files
     "files.autoGuessEncoding": true,
@@ -176,6 +182,7 @@
     "go.autocompleteUnimportedPackages": true,
     "go.useLanguageServer": true,
     "go.toolsManagement.checkForUpdates": "off",
+    "go.toolsManagement.autoUpdate": true,
     "gopls": {
         "completeUnimported": true
     },
@@ -204,12 +211,17 @@
         "editor.quickSuggestionsDelay": 200,
     },
     "markdown.preview.breaks": true,
-    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
-    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
-    "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
-    "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+
+    // javascript, typescript
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    //"javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+    //"javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    //"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+    //"typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+    //"typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    //"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
 
     // dart
     "[dart]": {
@@ -234,7 +246,7 @@
     "hediet.vscode-drawio.codeLinkActivated": true,
     "hediet.vscode-drawio.theme": "Kennedy",
 
-    //// setting sync
+    // setting sync
     //"sync.autoUpload": true,
     //"sync.quietSync": true,
     //"sync.gist": "1838d4afc57b51ee9f0b510e7cfa04bc",
@@ -242,6 +254,25 @@
     // omnisharp
     "omnisharp.useGlobalMono": "always",
     "omnisharp.monoPath": "/usr/local/Cellar/mono/6.8.0.105",
+
+    // indent rainbow
+    "indentRainbow.errorColor": "rgba(128,32,32,0.1)",
+    "indentRainbow.tabmixColor": "rgba(128,32,96,0.1)",
+    "indentRainbow.colors": [
+        "rgba(255,255,64,0.03)",
+        "rgba(127,255,127,0.03)",
+        "rgba(255,127,255,0.03)",
+        "rgba(79,236,236,0.03)"
+    ],
+
+    // intellicode
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+    // clipring
+    "clipring.maxRingItems": 10,
+
+    // android-dev-ext
+    "android-dev-ext.appSourceRoot": "",
 
     // misc language
     "[c]": {
@@ -258,23 +289,4 @@
     },
 
     // extend items
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "clipring.maxRingItems": 10,
-    "android-dev-ext.appSourceRoot": "",
-    "go.toolsManagement.autoUpdate": true,
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
-    "terminal.integrated.tabs.enabled": true,
-    "indentRainbow.errorColor": "rgba(128,32,32,0.1)",
-    "indentRainbow.tabmixColor": "rgba(128,32,96,0.1)",
-    "indentRainbow.colors": [
-        "rgba(255,255,64,0.03)",
-        "rgba(127,255,127,0.03)",
-        "rgba(255,127,255,0.03)",
-        "rgba(79,236,236,0.03)"
-    ],
 }
