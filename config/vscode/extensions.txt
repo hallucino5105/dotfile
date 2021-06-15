@@ -1,6 +1,7 @@
 adelphes.android-dev-ext
 akamud.vscode-theme-onedark
 alefragnani.Bookmarks
+amlovey.shaderlabvscodefree
 anseki.vscode-color
 azemoh.one-monokai
 chrmarti.regex
